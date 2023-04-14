@@ -1,0 +1,121 @@
+.connector-app {
+  .mps-email {
+    &__header {
+      // width: 594px;
+      width: 450px;
+
+      .mx-groupbox {
+        margin-bottom: 16px;
+
+        > .mx-groupbox-header {
+          position: relative;
+          padding: 8px 0px 12px 20px;
+          font-size: 14px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 294px;
+          transition: 0.3s opacity;
+
+          .mx-groupbox-collapse-icon {
+            position: absolute;
+            left: 0;
+            top: 12px;
+            color: var(--text2);
+            font-size: 12px;
+            transition: 0.3s all;
+
+            &::before {
+              content: '\e259' !important;
+            }
+          }
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+
+        > .mx-groupbox-body {
+          padding: 0;
+          transition: 0.3s all;
+          max-height: 280px;
+          display: block !important;
+          overflow: hidden;
+          border: 0 none;
+        }
+
+        &.collapsed {
+          > .mx-groupbox-header {
+            .mx-groupbox-collapse-icon {
+              position: absolute;
+              left: 0;
+              top: 12px;
+              color: var(--text2);
+              font-size: 12px;
+
+              &.glyphicon {
+                transform: rotate(180deg);
+              }
+            }
+          }
+          > .mx-groupbox-body {
+            max-height: 0;
+          }
+        }
+      }
+    }
+
+    &__table {
+      margin: 32px 0 0;
+
+      .mx-grid-controlbar {
+        margin-bottom: 0;
+
+        .mx-grid-toolbar {
+          button {
+            margin-bottom: 0;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .mx-grid-pagingbar {
+        button {
+          margin-bottom: 0;
+        }
+      }
+
+      .mx-grid-content {
+        tbody {
+          tr {
+            td {
+              transition: background-color 0.3s all;
+            }
+
+            &:hover {
+              td {
+                background-color: #f8f8f8;
+              }
+            }
+
+            &.selected {
+              td {
+                background-color: var(--light-blue) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__attachment-view {
+      .glyphicon-fullscreen {
+        display: none;
+      }
+
+      .glyphicon-new-window {
+        margin: 0 !important;
+      }
+    }
+  }
+}
