@@ -66,3 +66,6 @@
 
 # /javasource/xlsreport/
 /javasource/xlsreport/proxies
+/quickvent.mpr.bak
+/quickvent.mpr.lock
+/nativemobile/builds/
