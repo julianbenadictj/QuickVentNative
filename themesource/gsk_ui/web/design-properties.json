@@ -1,0 +1,27 @@
+{
+  "gsk.tristateswitch.TriStateSwitch": [
+    {
+      "name": "Style",
+      "type": "Dropdown",
+      "description": "The brand style affecting this element's appearance.",
+      "options": [
+        {
+          "name": "Brand Primary",
+          "class": "widget-switch-brand-primary"
+        },
+        {
+          "name": "Brand Success",
+          "class": "widget-switch-brand-success"
+        },
+        {
+          "name": "Brand Warning",
+          "class": "widget-switch-brand-warning"
+        },
+        {
+          "name": "Brand Danger",
+          "class": "widget-switch-brand-danger"
+        }
+      ]
+    }
+  ]
+}

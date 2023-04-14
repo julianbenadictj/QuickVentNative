@@ -1,0 +1,48 @@
+table.mx-table
+{
+  tbody
+  {
+    tr
+    {
+      font-size: $table-font-size;
+      th{
+        font-weight: $table-header-font-weight;
+      }
+      td {
+        font-weight: $table-font-weight;
+      }
+    }
+  }
+  &.table-compact
+  {
+    tbody tr
+    {
+      font-size: $table-compact-font-size;
+      td,th {
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+    }
+  }
+  &.table-bordered
+  {
+    tbody tr td, tbody tr th
+    {
+      border-color:$table-border-color;  
+    }
+  }
+  &.table-lined
+  {
+    tbody tr td, tbody tr th
+    {
+      border-color:$table-border-color;
+      border-width: 1px 0;
+      border-style: solid;
+      &:not(:last-child)
+      {
+        border-right: 1px solid $table-border-color;
+      }
+    }
+  }
+  
+}

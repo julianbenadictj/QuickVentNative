@@ -1,0 +1,1046 @@
+@import "../../../atlas_core/web/_variables.scss";
+// @import "../../../atlas_core/web/_variables.scss";
+@import "../_variables.scss";
+//
+// ██╗    ██╗██╗██████╗  ██████╗ ███████╗████████╗███████╗
+// ██║    ██║██║██╔══██╗██╔════╝ ██╔════╝╚══██╔══╝██╔════╝
+// ██║ █╗ ██║██║██║  ██║██║  ███╗█████╗     ██║   ███████╗
+// ██║███╗██║██║██║  ██║██║   ██║██╔══╝     ██║   ╚════██║
+// ╚███╔███╔╝██║██████╔╝╚██████╔╝███████╗   ██║   ███████║
+//  ╚══╝╚══╝ ╚═╝╚═════╝  ╚═════╝ ╚══════╝   ╚═╝   ╚══════╝
+// Widgets
+
+//
+// ====== accordion
+//
+$accordion-header-font-color-white: $font-color-white;
+$accordion-header-arrow-color-white: $font-color-white;
+
+$accordion-group-border-color: $gsk-border;
+$accordion-header-background-color: $gsk-background;
+$accordion-header-font-color: $font-color-default;
+// status - hover, active, focus
+$accordion-status-background-color: $gsk-background;
+$accordion-status-font-color: $font-color-default;
+$accordion-status-arrow-color: $gsk-primary;
+
+$accordion-group-primary-border-color: $gsk-primary;
+// $accordion-primary-border-color: $gsk-primary;
+$accordion-primary-header-background-color: $gsk-primary;
+$accordion-primary-header-font-color: $accordion-header-font-color-white;
+// status - hover, active, focus
+$accordion-primary-status-background-color: $gsk-primary;
+$accordion-primary-status-arrow-color: $accordion-header-arrow-color-white;
+
+$accordion-group-secondary-border-color: $gsk-secondary;
+$accordion-secondary-header-background-color: $gsk-secondary;
+// status - hover, active, focus
+$accordion-secondary-status-background-color: $gsk-secondary;
+
+$accordion-group-success-border-color: $gsk-success;
+$accordion-success-header-background-color: $gsk-success;
+$accordion-success-header-font-color: $accordion-header-font-color-white;
+// status - hover, active, focus
+$accordion-success-status-background-color: $gsk-success;
+$accordion-success-status-arrow-color: $accordion-header-arrow-color-white;
+
+$accordion-group-warning-border-color: $gsk-warning;
+$accordion-warning-header-background-color: $gsk-warning;
+// status - hover, active, focus
+$accordion-warning-status-background-color: $gsk-warning;
+
+$accordion-group-danger-border-color: $gsk-error;
+$accordion-danger-header-background-color: $gsk-error;
+$accordion-danger-header-font-color: $accordion-header-font-color-white;
+// status - hover, active, focus
+$accordion-danger-status-background-color: $gsk-error;
+$accordion-danger-status-arrow-color: $accordion-header-arrow-color-white;
+
+$accordion-stripped-border-color: $gsk-border;
+$accordion-stripped-header-background-color: $gsk-background-secondary;
+$accordion-stripped-header-status-font-color: initial;
+$accordion-stripped-header-status-arrow-color: $gsk-primary;
+
+//
+// ====== badge
+//
+$badge-background-color: $gsk-tertiary;
+$badge-font-size: $font-size-medium;
+$badge-font-weight: $font-weight-normal;
+
+$badge-secondary-background-color: $gsk-background-secondary;
+$badge-secondary-font-color: $font-color-default;
+
+$badge-success-background-color: $gsk-success;
+$badge-warning-background-color: $gsk-warning;
+$badge-danger-background-color: $gsk-error;
+
+$badge-widget-background-color: $gsk-secondary;
+
+//
+// ====== badge buttons
+//
+$badgebutton-badge-font-size: $font-size-verysmall;
+$badgebutton-badge-font-color: $font-color-default;
+$badgebutton-bordered-background-color: transparent;
+$badgebutton-bordered-badge-background-color: transparent;
+
+$badgebutton-primary-badge-border-color: $gsk-primary;
+$badgebutton-primary-badge-font-color: $font-color-default;
+$badgebutton-primary-hover-background-color: $gsk-background-secondary;
+$badgebutton-primary-bordered-disabled-border-color: $gsk-border;
+$badgebutton-primary-bordered-disabled-font-color: $gsk-primary-extra-light;
+
+$badgebutton-secondary-badge-border-color: $gsk-primary;
+$badgebutton-secondary-badge-font-color: $font-color-default;
+$badgebutton-secondary-badge-background-color: transparent;
+
+$badgebutton-success-badge-border-color: $gsk-success;
+$badgebutton-success-badge-font-color: $font-color-default;
+$badgebutton-success-hover-background-color: $gsk-success-light;
+$badgebutton-success-bordered-disabled-border-color: $gsk-success;
+$badgebutton-success-bordered-disabled-font-color: $gsk-success;
+
+$badgebutton-warning-badge-border-color: $gsk-warning;
+$badgebutton-warning-badge-font-color: $font-color-default;
+$badgebutton-warning-hover-background-color: $gsk-warning-light;
+$badgebutton-warning-bordered-disabled-border-color: $gsk-warning;
+$badgebutton-warning-bordered-disabled-font-color: $font-color-default;
+
+$badgebutton-danger-badge-border-color: $gsk-error;
+$badgebutton-danger-badge-font-color: $font-color-default;
+$badgebutton-danger-hover-background-color: $gsk-error-light;
+$badgebutton-danger-bordered-disabled-border-color: $gsk-error;
+$badgebutton-danger-bordered-disabled-font-color: $gsk-error;
+
+//
+// ====== button
+//
+$button-border-color: $gsk-primary;
+$button-background-color: transparent;
+$button-font-color: $font-color-default;
+$button-font-size: $font-size-medium;
+$button-font-weight: $font-weight-medium;
+$button-small-font-size: $font-size-small;
+$button-large-font-size: $font-size-large;
+
+// status - hover/active/focus
+$button-status-border-color: $gsk-primary;
+$button-status-background-color: transparent;
+$button-status-font-color: $font-color-default;
+$button-status-boxshadow-color: $gsk-primary;
+
+$button-disabled-border-color: rgba($gsk-primary, 0.08);
+$button-disabled-background-color: rgba($gsk-primary, 0.08);
+$button-disabled-font-color: scale-color($gsk-primary, $whiteness: 64%);
+
+$button-primary-border-color: $gsk-primary;
+$button-primary-background-color: $gsk-primary;
+$button-primary-font-color: $font-color-white;
+$button-primary-status-border-color: $gsk-primary;
+$button-primary-status-background-color: $gsk-primary;
+$button-primary-status-font-color: $font-color-white;
+$button-primary-status-boxshadow-color: $gsk-primary;
+$button-primary-disabled-border-color: $gsk-background-secondary;
+$button-primary-disabled-background-color: $gsk-background-secondary;
+$button-primary-disabled-font-color: $font-color-default;
+$button-primary-bordered-border-color: $font-color-detail;
+$button-primary-bordered-background-color: transparent;
+$button-primary-bordered-font-color: $font-color-default;
+// status - hover/active/focus
+$button-primary-bordered-status-border-color: rgba($gsk-primary, 0.04);
+$button-primary-bordered-status-font-color: $font-color-default;
+$button-primary-bordered-status-boxshadow-color: $gsk-primary;
+
+$button-success-border-color: $gsk-success;
+$button-success-background-color: $gsk-success;
+$button-success-font-color: $font-color-white;
+// status - hover/active/focues
+$button-success-status-border-color: $gsk-success;
+$button-success-status-background-color: $gsk-success;
+$button-success-status-font-color: $font-color-white;
+$button-success-status-boxshadow-color: $gsk-success;
+$button-success-disabled-border-color: $gsk-success-light;
+$button-success-disabled-background-color: $gsk-success-light;
+$button-success-disabled-font-color: $gsk-success;
+$button-success-bordered-border-color: $gsk-success;
+$button-success-bordered-background-color: transparent;
+$button-success-bordered-font-color: $gsk-success;
+// status - hover/active/focus
+$button-success-bordered-status-border-color: rgba($gsk-success, 0.04);
+$button-success-bordered-status-font-color: $gsk-success;
+$button-success-bordered-status-boxshadow-color: $gsk-success;
+$button-success-bordered-disabled-border-color: rgba($gsk-success, 0.08);
+$button-success-bordered-disabled-font-color: $gsk-success;
+
+$button-danger-border-color: $gsk-error;
+$button-danger-background-color: $gsk-error;
+$button-danger-font-color: $font-color-white;
+// status - hover/active/focues
+$button-danger-status-border-color: $gsk-error;
+$button-danger-status-background-color: $gsk-error;
+$button-danger-status-font-color: $font-color-white;
+$button-danger-status-boxshadow-color: $gsk-error;
+$button-danger-disabled-border-color: $gsk-error-light;
+$button-danger-disabled-background-color: $gsk-error-light;
+$button-danger-disabled-font-color: $gsk-error;
+$button-danger-bordered-border-color: $gsk-error;
+$button-danger-bordered-background-color: transparent;
+$button-danger-bordered-font-color: $gsk-error;
+// status - hover/active/focus
+$button-danger-bordered-status-border-color: rgba($gsk-error, 0.04);
+$button-danger-bordered-status-font-color: $gsk-error;
+$button-danger-bordered-status-boxshadow-color: $gsk-error;
+$button-danger-bordered-disabled-border-color: rgba($gsk-error, 0.08);
+$button-danger-bordered-disabled-font-color: scale-color(
+  $gsk-error,
+  $whiteness: 64%
+);
+
+$button-warning-border-color: $gsk-warning;
+$button-warning-background-color: $gsk-warning;
+$button-warning-font-color: $font-color-default;
+// status - hover/active/focues
+$button-warning-status-border-color: $gsk-warning;
+$button-warning-status-background-color: $gsk-warning;
+$button-warning-status-font-color: $font-color-default;
+$button-warning-status-boxshadow-color: $gsk-warning;
+$button-warning-disabled-border-color: $gsk-warning-light;
+$button-warning-disabled-background-color: $gsk-warning-light;
+$button-warning-disabled-font-color: $font-color-detail;
+$button-warning-bordered-border-color: $gsk-warning;
+$button-warning-bordered-background-color: transparent;
+$button-warning-bordered-font-color: $font-color-default;
+// status - hover/active/focus
+$button-warning-bordered-status-background-color: rgba($gsk-warning, 0.04);
+$button-warning-bordered-status-boxshadow-color: $gsk-warning;
+$button-warning-bordered-disabled-border-color: rgba($gsk-warning, 0.08);
+$button-warning-bordered-disabled-font-color: rgba($gsk-primary-light, 0.64);
+
+$button-link-border-color: $gsk-primary;
+$button-link-background-color: transparent;
+$button-link-font-color: $font-color-default;
+$button-link-font-weight: $font-weight-bold;
+$button-link-font-style: normal;
+// status - hover/active/focus
+$button-link-status-boxshadow-style: $gsk-primary;
+
+$button-link-togglebutton-border-color: rgba($gsk-primary, 0.08);
+$button-link-togglebutton-background-color: rgba($gsk-primary, 0.08);
+// status - hover/focus
+$button-link-togglebutton-status-background-color: scale-color(
+  $gsk-primary,
+  $whiteness: 64%
+);
+$button-link-togglebutton-disabled-background-color: rgba($gsk-primary, 0.08);
+$button-link-togglebutton-disabled-font-color: scale-color(
+  $gsk-primary,
+  $whiteness: 64%
+);
+$button-link-glyphicon-font-size: $font-size-default;
+
+$ghostbutton-font-color: $font-color-default;
+
+$button-group-background-color: $gsk-background-secondary;
+$button-group-font-color: $font-color-default;
+$button-group-hover-background-color: $gsk-secondary-extra-light;
+// status - active/focus
+$button-group-status-background-color: $gsk-primary;
+$button-group-status-font-color: $font-color-white;
+
+//
+// ====== carousel
+//
+$carousel-icon: url("./assets/carousel_icon.svg");
+$carousel-side-hover-background: linear-gradient(270deg, rgba(10, 19, 37, 0.7) 0.41%, rgba(10, 19, 37, 0.0001) 100%);
+$carousel-side-background:transparent;
+
+//
+// ====== checkbox
+//
+$checkbox-border-color: $gsk-primary;
+$checkbox-font-size: $font-size-default;
+
+$checkbox-checked-border-color: $gsk-secondary;
+$checkbox-checked-background-color: $gsk-secondary;
+
+$checkbox-disabled-border-color: $gsk-primary-extra-light;
+$checkbox-disabled-background-color: transparent;
+$checkbox-disabled-label-font-color: $gsk-primary-extra-light;
+$checkbox-checked-disabled-background-color: $gsk-primary-extra-light;
+
+$checkbox-focus-outline-color: transparent;
+
+//
+// ====== datagrid
+//
+$datagrid-searchbar-border-color: $gsk-border;
+$datagrid-searchbar-background-color: $gsk-background;
+$datagrid-searchbar-boxshadow-color: rgba($gsk-primary, 0.16);
+$datagrid-searchbar-label-font-color: $font-color-default;
+$datagrid-searchbar-label-font-size: $font-size-medium;
+$datagrid-searchbar-label-font-weight: $font-weight-semibold;
+$datagrid-searchbar-input-font-size: $font-size-medium;
+$datagrid-searchbar-calendar-border-color: $gsk-border;
+$datagrid-searchbar-calendar-font-color: $font-color-default;
+$datagrid-searchbar-calendar-font-weight: $font-weight-normal;
+$datagrid-searchbar-calendar-icon: url("./assets/calendar_black.svg");
+$datagrid-searchbar-search-icon: url("./assets/search-icon.svg");
+$datagrid-searchbar-sort-icon: url("./assets/sort_default.svg");
+$datagrid-searchbar-sort-ascending-icon: url("./assets/sort_ascending.svg");
+$datagrid-searchbar-sort-descending-icon: url("./assets/sort_descending.svg");
+
+$datagrid-controlbar-buttons-border-color: $gsk-primary;
+$datagrid-controlbar-buttons-background-color: transparent;
+$datagrid-controlbar-buttons-font-color: $font-color-default;
+$datagrid-controlbar-buttons-font-weight: $font-weight-bold;
+$datagrid-controlbar-buttons-font-style: normal;
+// status - hover/active/focus
+$datagrid-controlbar-buttons-status-boxshadow-color: $gsk-primary;
+
+$datagrid-table-font-color: $font-color-default;
+$datagrid-table-font-size: $font-size-medium;
+$datagrid-table-head-border-color: $gsk-primary;
+$datagrid-table-head-row-border-color: $gsk-primary;
+$datagrid-table-body-border-color: $gsk-border;
+$datagrid-table-body-background-color: $gsk-background;
+$datagrid-table-body-hover-background-color: $gsk-secondary-extra-light;
+$datagrid-table-body-selected-background-color: $gsk-primary-light;
+$datagrid-table-body-selected-font-color: $font-color-white;
+$datagrid-table-body-newrow-background-color: $gsk-tertiary-light;
+
+$datagrid-horizontal-table-background-color: $gsk-background;
+
+$datagrid-hover-table-data-background-color: $gsk-secondary-extra-light;
+$datagrid-selected-hover-table-data-background-color: $gsk-primary-light;
+
+// Grid
+$grid-pagingbar-hover-font-color: $gsk-secondary;
+$grid-pagingbar-paging-status-font-size: $font-size-small;
+$grid-pagingbar-paging-first-icon: url("./assets/paging_left_double.svg");
+$grid-pagingbar-paging-previous-icon: url("./assets/paging_left_single.svg");
+$grid-pagingbar-paging-next-icon: url("./assets/paging_right_single.svg");
+$grid-pagingbar-paging-last-icon: url("./assets/paging_right_double.svg");
+
+$grid-tablecompact-font-size: $font-size-small;
+$grid-tablecompact-head-font-size: $font-size-small;
+
+// Datagrid 2.0
+$datagrid2-border-color: $gsk-border;
+$datagrid2-background-color: $gsk-background;
+$datagrid2-font-color: $font-color-default;
+$datagrid2-font-size: $font-size-medium;
+
+$datagrid2-hover-background-color: $gsk-secondary-extra-light;
+$datagrid2-selected-hover-background-color: $gsk-primary-light;
+
+// status - active/active:hover/focus/focus:hover/selected/selected:focus/selected:hover
+$datagrid2-selected-background-color: $gsk-primary-light;
+$datagrid2-selected-font-color: $font-color-white;
+$datagrid2-newrow-background-color: $gsk-tertiary-light;
+$datagrid2-first-row-border-color: $gsk-primary;
+
+$datagrid2-table-head-border-color: rgba($gsk-primary, 0.1);
+$datagrid2-table-head-font-color: $gsk-primary;
+$datagrid2-table-head-font-size: $font-size-medium;
+$datagrid2-table-head-font-weight: $font-weight-bold;
+$datagrid2-table-resizer-background-color: $gsk-secondary;
+$datagrid2-table-filter-font-weight: $font-weight-normal;
+$datagrid2-table-filter-selector-icon: url("./assets/arrow_chevron_left.svg");
+$datagrid2-table-filter-selector-hover-bg-color:$gsk-secondary-extra-light;
+$datagrid2-table-filter-selector-expanded-bg-color:$gsk-primary-light;
+$datagrid2-table-filter-selector-expanded-font-color:$font-color-white;
+$datagrid2-table-filter-selector-expanded-border-color:$gsk-primary-light;
+$datagrid2-table-filter-selector-hover-border-color:$gsk-border;
+
+$datagrid-searchbar-dropdown-icon: url("./assets/arrow_chevron_down.svg");
+
+$datagrid-columnselector-icon: url("./assets/column_selector.svg");
+$datagrid-columnselector-selected-icon: url("./assets/column_selector_selected.svg");
+$datagrid-columnselector-expanded-bg-color:$gsk-primary-light;
+$datagrid-columnselector-expanded-border-color:$gsk-primary-light;
+$datagrid-columnselector-hover-bg-color:$gsk-secondary-extra-light;
+$datagrid-columnselector-hover-border-color:$gsk-border;
+$datagrid2-columnselector-border-color: $gsk-border;
+$datagrid2-columnselector-active-border-color: $gsk-primary;
+$datagrid-columnselector-font-size:$font-size-medium;
+
+$datagrid-columnselector-dropdown-hover-bg-color:$gsk-background-secondary;
+$datagrid2-columnselector-dropdown-border-color: $gsk-background-secondary;
+$datagrid2-columnselector-dropdown-boxshadow-color: rgba($gsk-primary, 0.16);
+
+$datagrid2-footer-font-size: $font-size-small;
+
+$datagrid2-striped-even-background-color: $gsk-background-secondary;
+$datagrid2-striped-odd-background-color: $gsk-background;
+
+$datagrid2-filter-boxshadow-color: rgba($gsk-primary, 0.16);
+$datagrid2-filter-font-color: $font-color-default;
+$datagrid2-filter-font-size: $font-size-medium;
+$datagrid2-filter-font-weight: $font-weight-normal;
+// status - hover/active/active:focus/focus
+$datagrid2-filter-status-background-color: $gsk-background-secondary;
+$datagrid2-filter-selected-font-color: $font-color-white;
+$datagrid2-filter-selected-background-color:$gsk-primary-light;
+$datagrid2-filter-border-color: $gsk-border;
+
+$datagrid2-dropdown-border-color: $gsk-background-secondary;
+$datagrid2-dropdown-boxshadow-color: rgba($gsk-primary, 0.16);
+$datagrid2-dropdown-font-color: $font-color-default;
+$datagrid2-dropdown-font-size: $font-size-medium;
+$datagrid2-dropdown-font-weight: $font-weight-normal;
+// status - hover/active/active:focus/focus
+$datagrid2-dropdown-status-background-color: $gsk-background-secondary;
+$datagrid2-dropdown-checkbox-border-color: $gsk-primary;
+$datagrid2-dropdown-checkbox-checked-border-color: $gsk-secondary;
+$datagrid2-dropdown-checkbox-checked-background-color: $gsk-secondary;
+$datagrid2-dropdown-checkbox-disabled-background-color: rgba($gsk-primary, 0.4);
+$datagrid2-dropdown-checkbox-focus-outline-color: rgba($gsk-secondary, 0.4);
+$datagrid2-dropdown-label-font-size: $font-size-default;
+
+$datagrid2-tablecompact-font-size: $font-size-small;
+$datagrid2-tablecompact-head-font-size: $font-size-small;
+
+
+//template grid
+$templategrid-font-size: $font-size-medium;
+$templategrid-border-color: $gsk-border;
+
+$templategrid-selected-background-color: $gsk-primary-light;
+$templategrid-selected-font-color: $font-color-white;
+
+$templategrid-hover-background-color: $gsk-secondary-extra-light;
+$templategrid-striped-even-background-color: $gsk-background-secondary;
+$templategrid-lined-head-border-color: $gsk-primary;
+
+// React data picker
+$reactdatepicker-border-color: $gsk-background-secondary;
+$reactdatepicker-background-color: $gsk-background;
+$reactdatepicker-font-color: $font-color-default;
+$reactdatepicker-font-size: $font-size-medium;
+$reactdatepicker-boxshadow-color: rgba($gsk-primary, 0.16);
+
+$reactdatepicker-navigationicon-border-color: $gsk-primary;
+$reactdatepicker-navigationicon-hover-border-color: $gsk-secondary;
+
+$reactdatepicker-header-font-color: $font-color-default;
+
+$reactdatepicker-select-border-color: $gsk-border;
+$reactdatepicker-select-font-color: $font-color-default;
+$reactdatepicker-select-outline-color: $gsk-secondary;
+
+$reactdatepicker-day-font-color: $font-color-detail;
+$reactdatepicker-day-font-weight: $font-weight-normal;
+$reactdatepicker-day-outsidemonth-font-color: rgba($font-color-default, 0.4);
+$reactdatepicker-day-hover-border-color: $gsk-border;
+
+$reactdatepicker-week-font-color: $font-color-default;
+$reactdatepicker-week-hover-background-color: transparent;
+$reactdatepicker-week-hover-font-color: $font-color-default;
+
+$reactdatepicker-today-border-color: rgba($gsk-primary, 0.4);
+$reactdatepicker-today-background-color: transparent;
+$reactdatepicker-today-font-weight: $font-weight-bold;
+
+$reactdatepicker-selected-day-background-color: $gsk-primary;
+$reactdatepicker-selected-day-font-color: $font-color-white;
+
+$reactdatepicker-header-select-border-color:$gsk-primary;
+//
+// ====== data picker
+//
+$datapicker-border-color: transparent;
+$datapicker-font-color: $font-color-default;
+$datapicker-font-weight: $font-weight-normal;
+$datapicker-background-image: url("./assets/calendar_black.svg");
+$datapicker-button-border-color: $gsk-border;
+
+$calendarbutton-border-color: $gsk-border;
+$calendarbutton-font-color: $font-color-default;
+$calendarbutton-font-weight: $font-weight-normal;
+
+$calendar-background-color: $gsk-background;
+$calendar-boxshadow-color: rgba($gsk-primary, 0.16);
+$calendar-font-size: $font-size-medium;
+
+$calendar-month-header-font-color: $font-color-default;
+$calendar-month-dropdown-background-color: $gsk-background;
+$calendar-month-dropdown-font-size: $font-size-medium;
+// status - hover/focus
+$calendar-month-dropdown-status-background-color: $gsk-border;
+$calendar-month-dropdown-status-font-color: $font-color-default;
+$calendar-month-font-size: $font-size-large;
+$calendar-month-chevron-hover-background-color: $gsk-secondary; // not working
+$calendar-month-chevron-icon: url("./assets/arrow_chevron_down.svg");
+$calendar-month-next-chevron-icon: url("./assets/paging_right_single.svg");
+$calendar-month-previous-chevron-icon: url("./assets/paging_left_single.svg");
+
+$calendar-weekday-font-color: $font-color-detail;
+$calendar-weekday-font-weight: $font-weight-normal;
+
+$calendar-day-font-color: $font-color-default;
+$calendar-day-hover-border-color: $gsk-border;
+$calendar-day-hover-background-color: transparent;
+$calendar-day-hover-font-color: $font-color-default;
+
+$calendar-today-background-color: $gsk-border;
+$calendar-today-font-color: $font-color-detail;
+
+$calendar-day-selected-background-color: $gsk-primary;
+$calendar-day-selected-font-color: $font-color-white;
+$calendar-day-next-previous-month-font-color: rgba($font-color-default, 0.4);
+
+$calendar-year-font-color: $font-color-default;
+$calendar-year-hover-border-color: $gsk-border;
+$calendar-year-hover-background-color: $gsk-background-secondary;
+$calendar-year-selected-border-color: $gsk-primary;
+$calendar-year-selected-background-color: $gsk-background-secondary;
+$calendar-year-selected-font-color: $font-color-default;
+$calendar-year-selected-font-weight: $font-weight-bold;
+
+//
+// ====== dropdown
+//
+$dropdown-border-color: $gsk-primary-extra-light;
+$dropdown-font-color: $font-color-default;
+$dropdown-hover-background-color: rgba($gsk-primary, 0.04);
+$dropdown-open-background-color: rgba($gsk-primary, 0.15);
+
+$dropdown-menu-border-color: $gsk-background-secondary;
+$dropdown-item-font-color: $font-color-default;
+$dropdown-item-font-size: $font-size-default;
+$dropdown-item-font-weight: $font-weight-normal;
+$dropdown-item-boxshadow-color: rgba($gsk-primary, 0.15);
+
+// status - hover/active/focus
+$dropdown-item-status-background-color: rgba($gsk-primary, 0.04);
+
+$dropdown-menu-label-font-color: $font-color-default;
+$dropdown-menu-label-font-weight: $font-weight-normal;
+
+$dropdown-menu-checkbox-border-color: $gsk-primary;
+$dropdown-menu-checkbox-background-color: $gsk-background;
+$dropdown-menu-checkbox-checked-border-color: $gsk-secondary;
+$dropdown-menu-checkbox-checked-background-color: $gsk-secondary;
+
+$dropdown-menu-hover-background-color: $gsk-background-secondary;
+
+//
+// ====== dropdown buttons
+//
+$dropdownbutton-primary-chevron-icon: url("./assets/arrow_chevron_down_white.svg");
+$dropdownbutton-primary-bordered-chevron-icon: url("./assets/arrow_chevron_down_primary.svg");
+$dropdownbutton-success-chevron-icon: url("./assets/arrow_chevron_down_white.svg");
+$dropdownbutton-success-bordered-chevron-icon: url("./assets/arrow_chevron_down_success.svg");
+$dropdownbutton-error-chevron-icon: url("./assets/arrow_chevron_down_white.svg");
+$dropdownbutton-error-bordered-chevron-icon: url("./assets/arrow_chevron_down_error.svg");
+$dropdownbutton-warning-chevron-icon: url("./assets/arrow_chevron_down_primary.svg");
+$dropdownbutton-warning-bordered-chevron-icon: url("./assets/arrow_chevron_down_primary.svg");
+$dropdownbutton-link-chevron-icon: url("./assets/arrow_chevron_down_tertiary.svg");
+$dropdownbutton-ghost-chevron-icon: url("./assets/arrow_chevron_down_primary.svg");
+
+//
+// ====== feedback
+//
+$feedback-screenshot-background-color: $gsk-primary;
+$feedback-screenshot-closebtn-background-color: $gsk-background;
+$feedback-screenshot-closebtn-font-color: $font-color-default;
+$feedback-screenshot-font-size: $font-size-medium;
+
+$feedback-closebtn-font-color: $font-color-default;
+$feedback-closebtn-font-family: "Glyphicons Halflings";
+$feedback-closebtn-font-size: 32px;
+$feedback-closebtn-font-weight: $font-weight-bold;
+
+$feedback-comment-boxshadow-color: rgba($gsk-primary, 0.16);
+$feedback-comment-cancelbtn-border-color: $gsk-primary;
+$feedback-comment-cancelbtn-background-color: transparent;
+$feedback-comment-cancelbtn-font-color: $font-color-default;
+$feedback-comment-cancelbtn-font-size: $font-size-medium;
+$feedback-comment-cancelbtn-font-weight: $font-weight-medium;
+// status - hover/active/focus
+$feedback-comment-cancelbtn-status-boxshadow-color: $gsk-primary;
+$feedback-comment-cancelbtn-disabled-border-color: rgba($gsk-primary, 0.08);
+$feedback-comment-cancelbtn-disabled-font-color: scale-color(
+  $gsk-primary,
+  $whiteness: 64%
+);
+
+$feedback-comment-content-border-color: $gsk-border;
+$feedback-comment-tag-font-color: $font-color-default;
+
+$feedback-login-boxshadow-color: rgba($gsk-primary, 0.16);
+$feedback-login-left-background-color: $gsk-secondary;
+$feedback-login-left-font-color: $font-color-white;
+$feedback-login-left-font-size: $font-size-medium;
+$feedback-login-left-image: url(./assets/feedback_img.svg);
+$feedback-login-left-image-after: url(./assets/precision-point_right-padding.svg);
+$feedback-login-header-font-color: $font-color-white;
+
+$feedback-login-right-title-font-size: $font-size-medium;
+$feedback-login-right-title-font-weight: $font-weight-bold;
+$feedback-login-right-edit-border-color: $gsk-border;
+$feedback-login-right-edit-font-weight: $font-weight-normal;
+
+$feedback-startbtn-background-color: $gsk-secondary;
+$feedback-startbtn-boxshadow-color: rgba($gsk-primary, 0.16);
+
+$feedback-submitbtn-border-color: $gsk-primary;
+$feedback-submitbtn-background-color: $gsk-primary;
+$feedback-submitbtn-font-color: $font-color-white;
+$feedback-submitbtn-font-size: $font-size-medium;
+$feedback-submitbtn-font-weight: $font-weight-medium;
+// status - hover/active/focus
+$feedback-submitbtn-status-border-color: $gsk-primary;
+$feedback-submitbtn-status-background-color: $gsk-primary;
+$feedback-submitbtn-status-font-color: $font-color-white;
+$feedback-submitbtn-status-box-shadow: $gsk-primary;
+$feedback-submitbtn-disabled-border-color: rgba($gsk-primary, 0.08);
+$feedback-submitbtn-disabled-background-color: rgba($gsk-primary, 0.08);
+$feedback-submitbtn-disabled-font-color: scale-color(
+  $gsk-primary,
+  $whiteness: 64%
+);
+
+//
+// ====== file manager
+//
+$filemanager-value-border-color: transparent;
+$filemanager-disabled-background-color: $gsk-background-secondary;
+
+$filemanager-downloadbutton-border-color: $gsk-primary;
+$filemanager-downloadbutton-disabled-border-color: rgba($gsk-primary, 0.65);
+
+//
+// ====== gallery
+//
+$gallery-card-boxshadow-color: rgba(21, 21, 21, 0.16);
+$gallery-card-font-size: $font-size-medium;
+$gallery-pagingbar-font-size: $font-size-small;
+$gallery-pagingbar-font-color: $font-color-default;
+$gallery-border-color:$gsk-border;
+
+$gallery-striped-odd-background-color: $gsk-background-secondary;
+$gallery-hover-background-color: $gsk-secondary-light;
+
+$gallery-pagingbar-paging-first-icon: url("./assets/paging_left_double.svg");
+$gallery-pagingbar-paging-previous-icon: url("./assets/paging_left_single.svg");
+$gallery-pagingbar-paging-next-icon: url("./assets/paging_right_single.svg");
+$gallery-pagingbar-paging-last-icon: url("./assets/paging_right_double.svg");
+
+$gallery-filter-border-color:$gsk-border;
+$gallery-filter-selector-font-size:$font-size-default;
+$gallery-columnselector-active-border-color:$gsk-primary;
+$gallery-filter-selector-hover-bg-color:$gsk-secondary-extra-light;
+$gallery-filter-selector-expanded-bg-color:$gsk-primary-light;
+$gallery-filter-selector-expanded-font-color:$font-color-white;
+$gallery-filter-selector-expanded-border-color:$gsk-primary-light;
+//
+// ====== groupbox
+//
+$groupbox-h6-font-size: $font-size-default;
+$groupbox-h6-font-weight: $font-weight-bold;
+
+$groupbox-border-color: $gsk-primary;
+$groupbox-background-color: $gsk-primary;
+$groupbox-font-color: $font-color-white;
+$groupbox-icon: url("./assets/arrow_chevron_down_white.svg");
+
+$groupbox-primary-border-color: $gsk-primary;
+$groupbox-primary-background-color: $gsk-primary;
+$groupbox-primary-font-color: $font-color-white;
+
+$groupbox-secondary-border-color: $gsk-primary;
+$groupbox-secondary-background-color: $gsk-background;
+$groupbox-secondary-font-color: $font-color-default;
+$groupbox-secondary-icon: url("./assets/arrow_chevron_down.svg");
+
+$groupbox-success-border-color: $gsk-success;
+$groupbox-success-background-color: $gsk-success;
+$groupbox-success-font-color: $font-color-white;
+
+$groupbox-warning-border-color: $gsk-warning;
+$groupbox-warning-background-color: $gsk-warning;
+$groupbox-warning-font-color: $font-color-default;
+$groupbox-warning-icon: url("./assets/arrow_chevron_down.svg");
+
+$groupbox-danger-border-color: $gsk-error;
+$groupbox-danger-background-color: $gsk-error;
+$groupbox-danger-font-color: $font-color-white;
+
+$groupbox-transparent-border-color: transparent;
+$groupbox-transparent-background-color: transparent;
+$groupbox-transparent-font-color: $font-color-default;
+$groupbox-transparent-icon: url("./assets/arrow_chevron_down.svg");
+$groupbox-transparent-body-border-color: $gsk-primary;
+
+$groupbox-callout-background-color: $gsk-secondary-extra-light;
+$groupbox-callout-font-color: $font-color-default;
+$groupbox-callout-icon: url("./assets/arrow_chevron_down.svg");
+
+$groupbox-callout-primary-background-color: $gsk-secondary-extra-light;
+$groupbox-callout-secondary-background-color: $gsk-secondary-light;
+$groupbox-callout-success-background-color: $gsk-success-light;
+$groupbox-callout-warning-background-color: $gsk-warning-light;
+$groupbox-callout-danger-background-color: $gsk-error-light;
+$groupbox-callout-transparent-background-color: transparent;
+
+//
+// ====== input
+//
+$input-border-color: $gsk-border;
+$input-background-color: $gsk-background;
+$input-font-color: $font-color-default;
+$input-font-size: $font-size-medium;
+
+$input-hasfocus-border-color: $gsk-primary;
+$input-placeholder-font-color: rgba($font-color-default, 0.4);
+$input-placeholder-font-style: italic;
+// status - active/focus
+$input-status-border-color: $gsk-primary;
+$input-disabled-background-color: $gsk-background-secondary;
+
+//
+// ====== label
+//
+$label-border-color: $gsk-primary;
+$label-font-color: $font-color-default;
+$label-background-color: $gsk-secondary-extra-light;
+$label-font-size: $font-size-medium;
+$label-font-weight: $font-weight-normal;
+
+$label-secondary-border-color: $gsk-secondary;
+$label-secondary-background-color: $gsk-secondary-light;
+
+$label-success-border-color: $gsk-success;
+$label-success-background-color: $gsk-success-light;
+
+$label-warning-border-color: $gsk-warning;
+$label-warning-background-color: $gsk-warning-light;
+
+$label-danger-border-color: $gsk-error;
+$label-danger-background-color: $gsk-error-light;
+
+//
+// ====== link
+//
+$link-font-color: $gsk-tertiary;
+$link-listview-font-color: $gsk-secondary;
+$link-textdecoration: underline;
+$link-back-icon: url("./assets/arrow_chevron_left_tertiary.svg");
+
+//
+// ====== listview
+//
+$listview-border-color: $gsk-border;
+$listview-hover-background-color: $gsk-secondary-extra-light;
+$listview-link-icon: url("./assets/chevron_right_orange.svg");
+
+// status - active/focus
+$listview-status-border-color: $gsk-secondary;
+$listview-status-background-color: $gsk-secondary-light;
+$listview-active-hover-background-color: $gsk-secondary-extra-light;
+
+$listview-selected-border-color: $gsk-secondary;
+$listview-selected-background-color: $gsk-secondary-light;
+$listview-selected-hover-background-color: $gsk-secondary-extra-light;
+
+$listview-selectable-input-border-color: $gsk-primary;
+$listview-selectable-checked-border-color: $gsk-secondary;
+$listview-selectable-checked-background-color: $gsk-secondary;
+$listview-selectable-disabled-background-color: rgba($gsk-primary, 0.04);
+$listview-selectable-focus-outline-color: rgba($gsk-primary, 0.04);
+$listview-selectable-selected-background-color: rgba($gsk-primary, 0.08);
+
+$listview-comments-border-color: $gsk-border;
+$listview-comments-font-color: $gsk-secondary;
+$listview-comments-font-style: italic;
+
+//
+// ====== navigationbar
+//
+$navigationbar-background-color: $gsk-background;
+$navigationbar-font-color: $font-color-default;
+$navigationbar-font-size: $font-size-default;
+$navigationbar-font-weight: $font-weight-normal;
+$navigationbar-border-color: $gsk-border;
+
+// status - hover/focus
+$navigationbar-status-background-color: $gsk-secondary-extra-light;
+$navigationbar-status-font-color: $font-color-default;
+$navigationbar-active-border-color: $gsk-secondary;
+$navigationbar-active-background-color: $gsk-secondary-light;
+$navigationbar-active-login-background-color: inherit;
+
+$navigationbar-open-background-color: $gsk-background;
+$navigationbar-open-font-color: $font-color-default;
+$navigationbar-open-menu-background-color: $gsk-background;
+$navigationbar-open-menu-shadow-color: rgba($gsk-primary, 0.16);
+$navigationbar-open-menu-subitem-font-color: $font-color-default;
+$navigationbar-open-menu-subitem-hover-background-color: $gsk-background-secondary;
+
+$navigationbar-subitem-background-color: $gsk-primary;
+$navigationbar-subitem-font-color: $font-color-white;
+$navigationbar-subitem-font-size: $font-size-medium;
+$navigationbar-subitem-font-weight: $font-weight-bold;
+
+$navigationbar-login-underscore: $gsk-primary;
+$navigationbar-logout-background-color: $gsk-primary;
+$navigationbar-logout-font-color: $font-color-white;
+
+//
+// ====== navigation list
+//
+$navigationlist-border-color: $gsk-border;
+$navigtationlist-font-size: $font-size-medium;
+
+$navigationlist-active-border-color: $gsk-secondary;
+$navigationlist-active-background-color: $gsk-secondary-light;
+
+$navigationlist-card-boxshadow-color: rgba($gsk-primary, 0.16);
+
+//
+// ====== navigation tree
+//
+$navigationtree-border-color: $gsk-border;
+$navigationtree-background-color: $gsk-background;
+$navigationtree-font-color: $font-color-default;
+$navigationtree-font-size: $font-size-default;
+// status - hover/focus/active
+$navigationtree-status-border-color: $gsk-secondary;
+$navigationtree-status-background-color: $gsk-secondary-light;
+$navigationtree-status-font-color: $font-color-default;
+
+$navigationtree-list-background-color: $gsk-background;
+$navigationtree-item-background-color: transparent;
+$navigationtree-item-font-color: $font-color-default;
+$navigationtree-item-font-size: $font-size-medium;
+$navigationtree-item-font-weight: $font-weight-normal;
+// status - hover/active/focus
+$navigationtree-item-status-background-color: rgba($gsk-primary, 0.04);
+$navigationtree-item-status-font-color: $font-color-default;
+
+$navigationtree-item-firstchild-font-color: $font-color-default;
+$navigationtree-parent-icon: url("./assets/arrow_chevron_down.svg");
+
+$navigationtree-collapsed-background-color: $gsk-background;
+$navigationtree-collapsed-hover-shadow-color: rgba($gsk-primary, 0.16);
+$navigationtree-collapsed-item-hover-shadow-color: $gsk-background-secondary;
+
+//
+// ====== progress bar
+//
+$progressbar-background-color: $gsk-background-secondary;
+$progressbar-primary-background-color: $gsk-secondary;
+$progressbar-primary-font-color: $font-color-default;
+$progressbar-success-background-color: $gsk-success;
+$progressbar-success-font-color: $font-color-white;
+$progressbar-warning-background-color: $gsk-warning;
+$progressbar-warning-font-color: $font-color-default;
+$progressbar-danger-background-color: $gsk-error;
+$progressbar-danger-font-color: $font-color-white;
+$progressbar-font-color: $font-color-white;
+
+$progressbar-track-primary-background-color: $gsk-apricot;
+$progressbar-track-success-background-color: $gsk-success-light;
+$progressbar-track-warning-background-color: $gsk-warning-light;
+$progressbar-track-danger-background-color: $gsk-error-light;
+
+$progresscircle-font-color: $font-color-default;
+$progresscircle-stroke-color: $gsk-background-secondary;
+$progresscircle-warning-stroke-color: $gsk-error-light;
+
+$progresscircle-primary-font-color: $font-color-default;
+$progresscircle-primary-stroke-color: $gsk-secondary;
+$progresscircle-primary-trail-color: $gsk-apricot;
+
+$progresscircle-success-font-color: $font-color-default;
+$progresscircle-success-stroke-color: $gsk-success;
+$progresscircle-success-trail-color: $gsk-success-light;
+
+$progresscircle-warning-font-color: $font-color-default;
+$progresscircle-warning-stroke-color: $gsk-warning;
+$progresscircle-warning-trail-color: $gsk-warning-light;
+
+$progresscircle-danger-font-color: $font-color-default;
+$progresscircle-danger-stroke-color: $gsk-error;
+$progresscircle-danger-trail-color: $gsk-error-light;
+
+//
+// ====== progress loader
+//
+$progressloader-background-color: $gsk-background-secondary;
+$progressloader-font-color: $font-color-default;
+
+$progressloader-message-font-color: $font-color-default;
+$progressloader-indicator-background-color: $gsk-background-secondary;
+$progressloader-indicator-before-after-background-color: $gsk-secondary;
+
+//
+// ====== radio button
+//
+$radiobutton-border-color: $gsk-primary;
+$radiobutton-checked-border-color: $gsk-secondary;
+$radiobutton-checked-background-color: $gsk-secondary;
+$radiobutton-disabled-border-color: $gsk-primary-light;
+$radiobutton-disabled-background-color: $gsk-primary-light;
+$radiobutton-focus-outline-color: rgba($gsk-secondary, 0.4);
+
+//
+// ====== range slider
+//
+$rangeslider-rail-background-color: $gsk-background-secondary;
+$rangeslider-border-color: $gsk-background-secondary;
+
+$rangeslider-primary-background-color: $gsk-secondary;
+$rangeslider-primary-border-color: $gsk-secondary;
+// status - hover/focus
+$rangeslider-primary-status-border-color: $gsk-secondary;
+$rangeslider-primary-active-border-color: $gsk-secondary;
+$rangeslider-primary-active-boxshadow-color: $gsk-secondary-light;
+
+$rangeslider-success-background-color: $gsk-success;
+$rangeslider-success-border-color: $gsk-success;
+// status - hover/focus
+$rangeslider-success-status-border-color: $gsk-success;
+$rangeslider-success-active-border-color: $gsk-success;
+$rangeslider-success-active-boxshadow-color: $gsk-success-light;
+
+$rangeslider-warning-background-color: $gsk-warning;
+$rangeslider-warning-border-color: $gsk-warning;
+// status - hover/focus
+$rangeslider-warning-status-border-color: $gsk-warning;
+$rangeslider-warning-active-border-color: $gsk-warning;
+$rangeslider-warning-active-boxshadow-color: $gsk-warning-light;
+
+$rangeslider-danger-background-color: $gsk-error;
+$rangeslider-danger-border-color: $gsk-error;
+// status - hover/focus
+$rangeslider-danger-status-border-color: $gsk-error;
+$rangeslider-danger-active-border-color: $gsk-error;
+$rangeslider-danger-active-boxshadow-color: $gsk-error-light;
+
+$rangeslider-disabled-background-color: $gsk-primary-extra-light;
+$rangeslider-disabled-border-color: $gsk-primary-extra-light;
+
+$rangeslider-font-color: $gsk-primary-extra-light;
+$rangeslider-tooltip-arrow-background-color: $gsk-tertiary;
+$rangeslider-tooltip-arrow-border-color: $gsk-tertiary;
+$rangeslider-tooltip-font-size: $font-size-small;
+
+//
+// ====== rating - no variables
+//
+
+//
+// ====== select box
+//
+$selectbox-icon: url("./assets/arrow_chevron_down.svg");
+
+//
+// ====== switch
+//
+$switch-border-color: $gsk-border;
+$switch-background-color: $gsk-border;
+$switch-checked-border-color: $gsk-secondary;
+$switch-checked-background-color: $gsk-secondary;
+$switch-checked-boxshadow-color: $gsk-secondary;
+$switch-checked-button-background-color: $gsk-background;
+$switch-unchecked-border-color: $gsk-border;
+$switch-focus-outline-color: transparent;
+$switch-button-boxshadow-color: rgba($gsk-primary, 0.25);
+
+$switch-checked-primary: $gsk-secondary;
+$switch-checked-secondary: $gsk-primary-light;
+$switch-checked-success: $gsk-success;
+$switch-checked-warning: $gsk-warning;
+$switch-checked-danger: $gsk-error;
+
+$switch-button: $gsk-background;
+
+$switch-primary-checked-border-color: $switch-checked-primary;
+$switch-primary-checked-background-color: $switch-checked-primary;
+$switch-primary-checked-boxshadow-color: $switch-checked-primary;
+$switch-secondary-checked-border-color: $switch-checked-secondary;
+$switch-secondary-checked-background-color: $switch-checked-secondary;
+$switch-secondary-checked-boxshadow-color: $switch-checked-secondary;
+$switch-success-checked-border-color: $switch-checked-success;
+$switch-success-checked-background-color: $switch-checked-success;
+$switch-success-checked-boxshadow-color: $switch-checked-success;
+$switch-warning-checked-border-color: $switch-checked-warning;
+$switch-warning-checked-background-color: $switch-checked-warning;
+$switch-warning-checked-boxshadow-color: $switch-checked-warning;
+$switch-danger-checked-border-color: $switch-checked-danger;
+$switch-danger-checked-background-color: $switch-checked-danger;
+$switch-danger-checked-boxshadow-color: $switch-checked-danger;
+
+//
+// ====== tab container
+//
+$tabcontainer-border-color: $gsk-border;
+$tabcontainer-font-color: $font-color-default;
+$tabcontainer-font-size: $font-size-default;
+$tabcontainer-font-weight: $font-weight-normal;
+$tabcontainer-hover-border-color: $gsk-border;
+$tabcontainer-hover-background-color: $gsk-secondary-extra-light;
+
+$tabcontainer-active-border-color: $gsk-secondary;
+$tabcontainer-active-background-color: $gsk-secondary-light;
+$tabcontainer-active-hover-background-color: $gsk-background-secondary;
+
+$tabcontainer-disabled-border-color: transparent;
+$tabcontainer-disabled-font-color: rgba($font-color-default, 0.32);
+
+$tabcontainer-bordered-background-color: transparent;
+$tabcontainer-bordered-border-color: transparent;
+$tabcontainer-bordered-hover-background-color: $gsk-secondary-extra-light;
+$tabcontainer-bordered-hover-border-color: $gsk-secondary-extra-light;
+$tabcontainer-bordered-active-background-color: $gsk-secondary-light;
+$tabcontainer-bordered-active-border-color: $gsk-border;
+$tabcontainer-bordered-active-border-bottom-color: $gsk-background;
+$tabcontainer-bordered-active-hover-border-color: $gsk-secondary;
+$tabcontainer-bordered-active-hover-background-color: transparent;
+
+$tabcontainer-content-border-color: $gsk-border;
+
+$tabcontainer-badge-background-color: $gsk-background;
+$tabcontainer-badge-font-color:$font-color-default;
+$tabcontainer-badge-font-size:$font-size-verysmall;
+$tabcontainer-badge-font-weight:$font-weight-normal;
+$tabcontainer-badge-border-color:$gsk-primary;
+
+
+// Pills
+$tabpills-background-color: $gsk-background-secondary;
+$tabpills-font-color: rgba($font-color-default, 0.64);
+$tabpills-font-size: $font-size-default;
+$tabpills-font-weight: $font-weight-normal;
+$tabpills-hover-background-color: $gsk-secondary-extra-light;
+$tabpills-hover-font-color: $font-color-default;
+
+$tabpills-active-background-color: $gsk-primary;
+$tabpills-active-font-color: $font-color-white;
+$tabpills-active-hover-background-color: $gsk-primary;
+$tabpills-active-hover-font-color: $font-color-white;
+
+$tabpills-disabled-background-color: $gsk-background-secondary;
+$tabpills-disabled-font-color: $gsk-border;
+
+//
+// ====== table
+//
+$table-font-size:$font-size-medium;
+$table-border-color:$gsk-border;
+$table-compact-font-size:$font-size-small;
+$table-font-weight:$font-weight-normal;
+$table-header-font-weight:$font-weight-bold;
+
+
+
+//
+// ====== tooltip
+//
+$tooltip-background-color: $gsk-tertiary;
+$tooltip-font-color: $font-color-white;
+$tooltip-font-size: $font-size-medium;
+$tooltip-font-weight: $font-weight-normal;

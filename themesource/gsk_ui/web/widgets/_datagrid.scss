@@ -1,0 +1,397 @@
+/*
+	==========================================================================
+	* Datagrid - default Mendix datagrid 1.0
+	==========================================================================
+*/
+
+.mx-grid,.mx-datagrid {
+  position: relative;
+  padding-bottom: 48px;
+  margin-bottom: 16px;
+
+  .mx-grid-searchbar {
+    align-items: flex-end;
+    padding: 8px 16px 16px;
+    border-radius: 8px;
+    border: 1px solid $datagrid-searchbar-border-color;
+    margin: 0;
+    margin-bottom: 24px;
+    background: $datagrid-searchbar-background-color;
+    box-shadow: 0px 1px 8px $datagrid-searchbar-boxshadow-color;
+
+    .mx-grid-search-controls {
+      & .mx-button + .mx-button {
+        margin-left: 8px;
+      }
+      & .mx-grid-search-button + .mx-grid-reset-button {
+        margin-left: 16px;
+      }
+
+      .mx-grid-search-button {
+        @extend .btn-primary;
+      }
+    }
+
+    .mx-grid-search-inputs {
+      .mx-grid-search-item {
+        display: inline-flex;
+        flex-direction: column;
+        margin: 8px;
+        min-width: 192px;
+
+        .mx-grid-search-label {
+          text-align: left;
+          width: auto;
+          padding: 0;
+
+          label {
+            font-size: $datagrid-searchbar-label-font-size;
+            color: $datagrid-searchbar-label-font-color;
+            font-weight: $datagrid-searchbar-label-font-weight;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+          }
+        }
+
+        .mx-grid-search-input {
+          width: auto;
+          padding: 0;
+
+          .form-control {
+            font-size: $datagrid-searchbar-input-font-size;
+            height: auto;
+          }
+
+          select {
+            &.form-control {
+              padding: 8px;
+              padding-right: 36px;
+            }
+          }
+
+          .mx-button {
+            height: auto;
+            padding: 8px 10px;
+          }
+
+          .mx-compound-control {
+            display: inline-block;
+
+            .form-control {
+              display: inline-block;
+              width: 100%;
+            }
+
+            .btn {
+              position: absolute;
+              padding: 8px 10px;
+              // border: 1px solid $gray;
+              // color: $font-color-default;
+              border: 1px solid $datagrid-searchbar-calendar-border-color;
+              border-color: transparent !important;
+              border-radius: 50px;
+              margin-left: -30px;
+              min-width: 40px;
+              width: 30px;
+              height: 38px;
+              font-weight: $datagrid-searchbar-calendar-font-weight;
+              color: $datagrid-searchbar-calendar-font-color;
+              background: $datagrid-searchbar-calendar-icon no-repeat scroll 0 0 transparent !important;
+              background-position: left !important;
+              .glyphicon-calendar {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mx-grid-controlbar {
+    margin-bottom: 24px;
+
+    .mx-grid-toolbar {
+      > * {
+        margin-left: 8px;
+
+        &:last-child {
+          //
+          margin-right: 0;
+        }
+      }
+
+      button[class*="mx-name-searchButton"]:before {
+        content: "";
+        background: $datagrid-searchbar-search-icon no-repeat;
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin: 3px 0 0 0;
+        position: absolute;
+        margin-left: -20px;
+        
+      }
+      button[class*="mx-name-searchButton"] {
+        margin-left: 20px;
+        margin-right: 16px;
+        .glyphicon {
+          display: none;
+        }
+      }
+
+      button[class*="mx-name-searchButton"],
+      button[text="Cancel"] {
+        padding: 0;
+        border: none !important;
+        border-bottom: 1px solid $datagrid-controlbar-buttons-border-color !important;
+        border-radius: 0;
+        min-width: 0;
+        height: 30px;
+        background-color: $datagrid-controlbar-buttons-background-color;
+        color: $datagrid-controlbar-buttons-font-color;
+        text-decoration: none !important;
+        font-style: $datagrid-controlbar-buttons-font-style;
+        font-weight: $datagrid-controlbar-buttons-font-weight;
+
+        &:hover,
+        &:active,
+        &.active,
+        &:focus {
+          box-shadow: 0px 1px 0px 0px
+            $datagrid-controlbar-buttons-status-boxshadow-color;
+        }
+
+        &.disabled,
+        &[disabled] {
+          opacity: 0.12;
+        }
+      }
+    }
+
+    .mx-grid-pagingbar {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      align-items: center;
+    }
+  }
+
+  th,
+  td {
+    font-size: $datagrid-table-font-size;
+    color: $datagrid-table-font-color;
+  }
+
+  //class to add horizontal scroll to the datagrid
+  &.datagrid-horizontal {
+    overflow-x: auto;
+
+    table {
+      //class "fixed-column" to have the colum fixed while horizontally scrolling
+
+      th.fixed-column,
+      td.fixed-column {
+        position: sticky;
+        left: 0;
+        background-color: $datagrid-horizontal-table-background-color;
+        z-index: 99;
+      }
+    }
+  }
+
+  table {
+    th {
+      border: none;
+      border-bottom: 1px solid $datagrid-table-head-border-color;
+      padding: 8px 16px;
+    }
+
+    tbody {
+      tr {
+        td {
+          padding: 8px 16px;
+          border-color: $datagrid-table-body-border-color;          
+          border-top-width: 0px !important;          
+          background-color: $datagrid-table-body-background-color;
+        }
+        &.selected,
+        &.selected:focus,
+        &.selected:hover {
+          td {
+            background-color: $datagrid-table-body-selected-background-color !important;
+            color: $datagrid-table-body-selected-font-color !important;
+          }
+        }
+      }
+
+      &.newRow {
+        td {
+          background-color: $datagrid-table-body-newrow-background-color !important;
+        }
+      }
+    }
+
+    thead tr {
+      border: none;
+      border-bottom: 1px solid $datagrid-table-head-row-border-color;
+    }
+  }
+  
+}
+
+.datagrid-hover.mx-datagrid table tbody {
+  tr {
+    &:hover td {
+      background-color: $datagrid-hover-table-data-background-color !important;
+    }
+
+    &.selected:hover td {
+      background-color: $datagrid-selected-hover-table-data-background-color !important;
+    }
+  }
+}
+
+.mx-grid {
+  .mx-grid-searchbar {
+    .mx-grid-search-inputs {
+      .mx-grid-search-item {
+        width: auto;
+
+        .mx-grid-search-label {
+          width: auto;
+        }
+        .mx-grid-search-input {
+          width: 100%;
+          .mx-compound-control[id*="DatePicker"] {
+            .btn:hover {
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+
+    .mx-grid-search-controls {
+      margin-right: 10px;
+    }
+  }
+
+  //pagination controls
+  .mx-grid-controlbar {
+    .mx-grid-pagingbar {
+      align-items: center;
+
+      .mx-button {
+        min-width:60px;
+
+        &:disabled,
+        &.disabled {
+          opacity: 0.3;
+        }
+
+        &:hover {
+          color: $grid-pagingbar-hover-font-color;
+        }
+
+        .glyphicon {
+          display: none;
+        }
+      }
+
+      .mx-grid-paging-status {
+        padding: 0px 6px 6px 6px;
+        font-size: $grid-pagingbar-paging-status-font-size;
+        min-width:60px;
+      }
+
+      .mx-name-paging-first {
+        background: $grid-pagingbar-paging-first-icon no-repeat scroll 0 0
+          transparent !important;
+        background-position: center !important;
+      }
+
+      .mx-name-paging-previous {
+        background: $grid-pagingbar-paging-previous-icon no-repeat scroll 0 0
+          transparent !important;
+        background-position: center !important;
+      }
+
+      .mx-name-paging-next {
+        background: $grid-pagingbar-paging-next-icon no-repeat scroll 0 0
+          transparent !important;
+        background-position: center !important;
+      }
+
+      .mx-name-paging-last {
+        background: $grid-pagingbar-paging-last-icon no-repeat scroll 0 0
+          transparent !important;
+        background-position: center !important;
+      }
+    }
+  }
+}
+
+.datagrid-striped.mx-datagrid table tbody tr {
+  &:nth-child(even) td {
+    background-color: $datagrid2-striped-even-background-color;
+    border-bottom-width: 0px;
+  }
+
+  &:nth-child(odd) td {
+    background-color: $datagrid2-striped-odd-background-color;
+    border-bottom-width: 0px;
+  }
+}
+.datagrid-sm.mx-datagrid
+{
+  table tbody tr td
+  {
+    padding: 4px 16px;
+    font-size: $grid-tablecompact-font-size;
+  }
+  table thead tr th{
+    padding: 4px 16px;
+    font-size: $grid-tablecompact-head-font-size;
+  }
+  .mx-grid-searchbar
+  {
+    padding: 4px 16px 12px;
+    .mx-grid-search-inputs .mx-grid-search-item
+    {
+       .mx-grid-search-label label{
+        font-size: $grid-tablecompact-font-size;
+      }
+      .mx-grid-search-input 
+      {
+        .form-control
+        {
+          height: 32px;
+        }
+        .mx-compound-control
+        {
+          button
+          {
+            height: 32px;
+          }
+        }
+      }      
+    }
+    .mx-grid-search-controls
+    {
+      button{
+        height: 32px !important;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }    
+  }
+  .mx-grid-controlbar .mx-grid-toolbar
+    {
+      button{
+        height: 32px !important;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+}

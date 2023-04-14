@@ -1,0 +1,28 @@
+.mx-filemanager {
+  .form-control {
+    &:not(input[value="..."]) {
+      border-color: $filemanager-value-border-color;
+    }
+
+    &:has(+ button:disabled) {
+      background-color: $filemanager-disabled-background-color;
+    }
+  }
+
+  .mx-fileinput-download-button {
+    border: 1px solid $filemanager-downloadbutton-border-color;
+
+    &:disabled {
+      border: 1px solid $filemanager-downloadbutton-disabled-border-color;
+    }
+
+    &::before {
+      content: url("./assets/download.svg");
+      display: inline-block;
+      margin-right: 8px;
+      width: 16px;
+      height: 16px;
+      vertical-align: sub;
+    }
+  }
+}

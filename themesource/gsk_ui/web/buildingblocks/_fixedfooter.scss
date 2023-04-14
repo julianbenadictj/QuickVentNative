@@ -1,0 +1,25 @@
+.fixed-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 100px;
+  background-color: $fixedfooter-background-color;
+  box-shadow: 0px 1px 8px $fixedfooter-boxshadow-color;
+  z-index: 10;
+
+  &__back-button {
+    position: relative;
+
+    &::before {
+      content: $fixedfooter-backbutton-icon;
+      position: absolute;
+      left: -70%;
+      width: 19px;
+      height: 19px;
+    }
+  }
+}

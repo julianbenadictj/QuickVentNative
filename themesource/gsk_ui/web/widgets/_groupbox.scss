@@ -1,0 +1,214 @@
+.mx-groupbox {
+  $border-radius: 8px;
+
+  h6.mx-groupbox-header {
+    font-size: $groupbox-h6-font-size;
+    font-weight: $groupbox-h6-font-weight;
+    line-height: 22px;
+  }
+
+  .mx-groupbox-header {
+    padding: 10px 16px;
+    border-color: $groupbox-border-color;
+    border-radius: $border-radius $border-radius 0 0;
+    background-color: $groupbox-background-color;
+    color: $groupbox-font-color;
+
+    .mx-groupbox-collapse-icon {
+      top: 0;
+      margin-top: 0;
+
+      &::before {
+        content: $groupbox-icon;
+        display: block;
+        width: 24px;
+        height: 24px;
+        transform: rotate(180deg);
+        transition: transform 0.3s;
+      }
+    }
+  }
+
+  .mx-groupbox-body {
+    padding: 16px !important;
+    border-color: $groupbox-border-color;
+    border-radius: 0 0 $border-radius $border-radius;
+
+    p {
+      line-height: 22px;
+    }
+
+    &:first-child {
+      border-radius: $border-radius;
+    }
+  }
+
+  &.collapsed {
+    .mx-groupbox-header {
+      border-radius: $border-radius;
+
+      .mx-groupbox-collapse-icon {
+        &::before {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+
+  &.groupbox-primary {
+    .mx-groupbox-header {
+      border-color: $groupbox-primary-border-color;
+      background-color: $groupbox-primary-background-color;
+      color: $groupbox-primary-font-color;
+    }
+
+    .mx-groupbox-body {
+      border-color: $groupbox-primary-border-color;
+    }
+  }
+
+  &.groupbox-secondary {
+    .mx-groupbox-header {
+      border-color: $groupbox-secondary-border-color;
+      background-color: $groupbox-secondary-background-color;
+      color: $groupbox-secondary-font-color;
+
+      .mx-groupbox-collapse-icon {
+        &::before {
+          content: $groupbox-secondary-icon;
+        }
+      }
+    }
+
+    .mx-groupbox-body {
+      border-color: $groupbox-secondary-border-color;
+    }
+
+    &.collapsed {
+      .mx-groupbox-header {
+        border-width: 1px 1px 1px 1px;
+      }
+    }
+  }
+
+  &.groupbox-success {
+    .mx-groupbox-header {
+      border-color: $groupbox-success-border-color;
+      background-color: $groupbox-success-background-color;
+      color: $groupbox-success-font-color;
+    }
+
+    .mx-groupbox-body {
+      border-color: $groupbox-success-border-color;
+    }
+  }
+
+  &.groupbox-warning {
+    .mx-groupbox-header {
+      border-color: $groupbox-warning-border-color;
+      background-color: $groupbox-warning-background-color;
+      color: $groupbox-warning-font-color;
+
+      .mx-groupbox-collapse-icon {
+        &::before {
+          content: $groupbox-warning-icon;
+        }
+      }
+    }
+
+    .mx-groupbox-body {
+      border-color: $groupbox-warning-border-color;
+    }
+  }
+
+  &.groupbox-danger {
+    .mx-groupbox-header {
+      border-color: $groupbox-danger-border-color;
+      background-color: $groupbox-danger-background-color;
+      color: $groupbox-danger-font-color;
+    }
+
+    .mx-groupbox-body {
+      border-color: $groupbox-danger-border-color;
+    }
+  }
+
+  &.groupbox-transparent {
+    .mx-groupbox-header {
+      border-color: $groupbox-transparent-border-color;
+      background-color: $groupbox-transparent-background-color;
+      color: $groupbox-transparent-font-color;
+
+      .mx-groupbox-collapse-icon {
+        &::before {
+          content: $groupbox-transparent-icon;
+        }
+      }
+    }
+
+    .mx-groupbox-body {
+      border: none;
+      border-bottom: 1px solid $groupbox-transparent-body-border-color;
+      border-radius: 0;
+    }
+  }
+
+  &.groupbox-callout {
+    .mx-groupbox-header {
+      background-color: $groupbox-callout-background-color;
+      color: $groupbox-callout-font-color !important;
+
+      .mx-groupbox-collapse-icon {
+        &::before {
+          content: $groupbox-callout-icon !important;
+        }
+      }
+    }
+
+    .mx-groupbox-body {
+      background-color: $groupbox-callout-background-color;
+    }
+
+    &.groupbox-primary {
+      .mx-groupbox-header,
+      .mx-groupbox-body {
+        background-color: $groupbox-callout-primary-background-color;
+      }
+    }
+
+    &.groupbox-secondary {
+      .mx-groupbox-header,
+      .mx-groupbox-body {
+        background-color: $groupbox-callout-secondary-background-color;
+      }
+    }
+
+    &.groupbox-success {
+      .mx-groupbox-header,
+      .mx-groupbox-body {
+        background-color: $groupbox-callout-success-background-color;
+      }
+    }
+
+    &.groupbox-warning {
+      .mx-groupbox-header,
+      .mx-groupbox-body {
+        background-color: $groupbox-callout-warning-background-color;
+      }
+    }
+
+    &.groupbox-danger {
+      .mx-groupbox-header,
+      .mx-groupbox-body {
+        background-color: $groupbox-callout-danger-background-color;
+      }
+    }
+
+    &.groupbox-transparent {
+      .mx-groupbox-header,
+      .mx-groupbox-body {
+        background-color: $groupbox-callout-transparent-background-color;
+      }
+    }
+  }
+}

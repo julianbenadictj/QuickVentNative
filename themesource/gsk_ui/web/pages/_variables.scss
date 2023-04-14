@@ -1,0 +1,29 @@
+//
+// ██████╗  █████╗  ██████╗ ███████╗███████╗
+// ██╔══██╗██╔══██╗██╔════╝ ██╔════╝██╔════╝
+// ██████╔╝███████║██║  ███╗█████╗  ███████╗
+// ██╔═══╝ ██╔══██║██║   ██║██╔══╝  ╚════██║
+// ██║     ██║  ██║╚██████╔╝███████╗███████║
+// ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝
+// Pages
+
+//
+// ====== base pages
+//
+
+//
+// ====== login
+//
+$login-desktop-size: map-get(
+  $map: $breakpoints,
+  $key: large,
+);
+$login-image: url("./assets/login-bg.png");
+$login-icon: url("./assets/precision-point.svg");
+
+$login-appname-font-color: $font-color-detail;
+$login-appname-font-size: $font-size-default;
+
+$login-header-input-border-color: $gsk-primary;
+$login-loginbutton-background-color: $gsk-primary;
+$login-loginbutton-font-color: $font-color-white;

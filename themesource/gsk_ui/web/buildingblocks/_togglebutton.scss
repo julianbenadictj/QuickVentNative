@@ -1,0 +1,38 @@
+.btn-toggle-tabs {
+  border-color: $togglebutton-border-color;
+  background-color: $togglebutton-background-color;
+  color: $togglebutton-font-color;
+  box-shadow: none !important;
+
+  &:hover {
+    border-color: $togglebutton-hover-border-color;
+    background-color: $togglebutton-hover-background-color;
+    color: $togglebutton-hover-font-color;
+  }
+
+  &.active,
+  &:active,
+  &:focus,
+  &:has(+ button:not(.active):not(:focus):not(:active)) {
+    border-color: $togglebutton-status-border-color;
+    background-color: $togglebutton-status-background-color;
+    color: $togglebutton-status-font-color;
+    cursor: default;  
+    outline:none !important;
+    &:hover {
+      background-color: $togglebutton-status-hover-background-color;
+    }
+  }
+  &.active{
+    pointer-events:none;
+  }
+
+  &:first-child {
+    border-radius: 8px 0px 0px 8px;
+  }
+}
+
+.btn-toggle-tabs + .btn-toggle-tabs {
+  margin-left: 0px;
+  border-radius: 0px 8px 8px 0px;
+}

@@ -1,0 +1,69 @@
+/*
+	==========================================================================
+	* Modals and popups - Rules for the default Mendix / Bootstrap modal
+	==========================================================================
+*/
+
+.modal-dialog {
+  min-height: 200px;
+
+  .modal-content {
+    border-radius: 16px;
+    box-shadow: none;
+
+    label.control-label {
+      font-weight: $modal-label-font-weight;
+    }
+
+    .mx-dialog-body,
+    .modal-body {
+      height: auto;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    .modal-header {
+      // border-bottom-color: $gray-primary;
+      padding-bottom: 8px;
+      border: none;
+
+      h4 {
+        color: $modal-header-font-color;
+        font-weight: $modal-header-font-weight;
+        font-size: $modal-header-font-size;
+      }
+
+      .close {
+        float: right;
+        color: $modal-header-close-font-color;
+        font-size: $modal-header-close-font-size;
+        font-weight: $modal-header-close-font-weight;
+        margin-right: 0px;
+      }
+    }
+
+    .mx-dataview-controls,
+    .modal-footer {
+      border-top-color: $modal-footer-border-color;
+      display: flex;
+      justify-content: flex-end;
+
+      & .mx-button + .mx-button,
+      & .btn + .btn {
+        margin-left: 8px;
+      }
+    }
+
+    .mx-dataview-controls,
+    .modal-footer {
+      & .btn-link {
+        height: 22px;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+.mx-underlay {
+  opacity: 0.6;
+}

@@ -1,0 +1,69 @@
+.widget-tree-node {
+  .widget-tree-node-branch {
+  .widget-tree-node-branch-header
+  {
+    svg.widget-tree-node-branch-header-icon
+    {
+      background-image: $treeview-header-icon !important;
+      background-repeat: no-repeat;
+      background-position: center;    
+      path {
+        display: none
+      };
+    }
+    .widget-tree-node-branch-header-value {
+      margin: 3px 16px 0px 16px;
+      div {
+        padding: 0;
+
+        img,
+        span {
+          padding-left: 16px;
+          display: inline-block;
+        }
+      }
+
+      .widget-badge {
+        padding: 2px 8px;
+      }
+    }
+  }
+    span.widget-tree-node-branch-header-value:has(div)
+    {
+      margin-top: 0px;
+    }
+
+    .widget-tree-node-body {
+      .widget-tree-node-branch {
+        .widget-tree-node-branch-header-value {
+          .widget-badge {
+            // padding: 2px 8px;
+            background-color: $treeview-subitem-badge-background-color;
+            color: $treeview-subitem-badge-font-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.widget-tree-node-lined-styling {
+  .widget-tree-node {
+    .widget-tree-node-branch {
+      .widget-tree-node-body {
+        &::before {
+          border-color: $treeview-lined-line-border-color;
+        }
+
+        .widget-tree-node-branch {
+          .widget-tree-node-branch-header {
+            &::before {
+              border-color: $treeview-lined-line-border-color;
+              width: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

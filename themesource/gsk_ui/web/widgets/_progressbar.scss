@@ -1,0 +1,187 @@
+.widget-progress-bar {
+  &.progress-bar-medium {
+    .progress,
+    .progress-bar {
+      height: 20px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  &.progress-bar-small {
+    .progress,
+    .progress-bar {
+      height: 10px;
+      line-height: 10px;
+      font-size: 10px;
+    }
+  }
+
+  &.progress-bar-large {
+    .progress,
+    .progress-bar {
+      height: 24px;
+      line-height: 24px;
+    }
+  }
+
+  .progress {
+    background-color: $progressbar-background-color;
+    border-radius: 15px;
+
+    .progress-bar {
+      border-radius: 15px;
+    }
+  }
+
+  &.progress-bar-primary {
+    .progress {
+      background-color: $progressbar-track-primary-background-color;
+
+      .progress-bar {
+        background-color: $progressbar-primary-background-color;
+        color: $progressbar-primary-font-color;
+      }
+    }
+  }
+
+  &.progress-bar-success {
+    .progress {
+      background-color: $progressbar-track-success-background-color;
+      .progress-bar {
+        background-color: $progressbar-success-background-color;
+        color: $progressbar-success-font-color;
+      }
+    }
+  }
+
+  &.progress-bar-warning {
+    .progress {
+      background-color: $progressbar-track-warning-background-color;
+
+      .progress-bar {
+        background-color: $progressbar-warning-background-color;
+        color: $progressbar-warning-font-color;
+      }
+    }
+  }
+
+  &.progress-bar-danger {
+    .progress {
+      background-color: $progressbar-track-danger-background-color;
+
+      .progress-bar {
+        background-color: $progressbar-danger-background-color;
+        color: $progressbar-danger-font-color;
+      }
+    }
+  }
+
+  &.progress-bar-primary.whiteLabel {
+    .progress .progress-bar {
+      color: $progressbar-font-color;
+    }
+  }
+}
+
+.widget-progress-bar.progress-bar-primary {
+  .progress-bar {
+    background-color: $progressbar-primary-background-color;
+  }
+}
+
+// Circle
+
+.widget-progress-circle {
+  &.widget-progress-circle-thickness-medium {
+    .widget-progress-circle-trail-path,
+    .widget-progress-circle-path {
+      stroke-width: 6px;
+    }
+  }
+
+  &.widget-progress-circle-thickness-small {
+    .widget-progress-circle-trail-path,
+    .widget-progress-circle-path {
+      stroke-width: 4px;
+    }
+  }
+
+  &.widget-progress-circle-thickness-large {
+    .widget-progress-circle-trail-path,
+    .widget-progress-circle-path {
+      stroke-width: 8px;
+    }
+  }
+
+  .progressbar-text {
+    color: $progresscircle-font-color !important;
+    text-align: center;
+  }
+
+  .widget-progress-circle-path {
+    stroke-linecap: round;
+  }
+
+  &.widget-progress-circle-warning {
+    .widget-progress-circle-trail-path {
+      stroke: $progresscircle-warning-stroke-color;
+    }
+  }
+}
+
+.widget-progress-circle-primary {
+  .widget-progress-circle-trail-path {
+    stroke: $progresscircle-primary-trail-color;
+  }
+
+  .widget-progress-circle-path {
+    stroke: $progresscircle-primary-stroke-color;
+  }
+
+  .progressbar-text {
+    color: $progresscircle-primary-font-color !important;
+  }
+}
+
+.widget-progress-circle-success {
+  .widget-progress-circle-trail-path {
+    stroke: $progresscircle-success-trail-color;
+  }
+
+  .widget-progress-circle-path {
+    stroke: $progresscircle-success-stroke-color;
+  }
+
+  .progressbar-text {
+    color: $progresscircle-success-font-color !important;
+  }
+}
+
+.widget-progress-circle-warning {
+  .widget-progress-circle-trail-path {
+    stroke: $progresscircle-warning-trail-color;
+  }
+
+  .widget-progress-circle-path {
+    stroke: $progresscircle-warning-stroke-color;
+  }
+
+  .progressbar-text {
+    color: $progresscircle-warning-font-color !important;
+  }
+}
+
+.widget-progress-circle-danger {
+  .widget-progress-circle-trail-path {
+    stroke: $progresscircle-danger-trail-color;
+  }
+
+  .widget-progress-circle-path {
+    stroke: $progresscircle-danger-stroke-color;
+  }
+
+  .progressbar-text {
+    color: $progresscircle-danger-font-color !important;
+  }
+}

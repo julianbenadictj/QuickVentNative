@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>[APPNAME] - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    {{themecss}} {{appicons}} {{manifest}} {{startupimages}}
+  </head>
+
+  <body>
+    <div class="loginpage">
+      <div class="loginpage-left">
+        <div class="loginpage-image"></div>
+      </div>
+      <div class="loginpage-right">
+        <div class="loginpage-formwrapper">
+          <span
+            class="mx-text mx-name-text1 navbar-brand_appname login_appname"
+          ></span>
+          <h2 id="loginHeader">Sign in</h2>
+          <form id="loginForm" class="loginpage-form" autocomplete="off">
+            <div>
+              <div id="loginMessage" class="alert alert-danger"></div>
+              <div
+                class="form-group mx-loginidtextbox no-columns mx-name-loginIdTextBox1 login-input"
+              >
+                <label
+                  class="control-label"
+                  id="usernameLabel"
+                  for="usernameInput"
+                  >Username</label
+                >
+                <input
+                  type="text"
+                  id="usernameInput"
+                  class="form-control"
+                  type="text"
+                  tabindex="0"
+                  placeholder=""
+                  autocorrect="off"
+                  autocapitalize="none"
+                />
+              </div>
+              <div
+                class="form-group mx-passwordtextbox no-columns mx-name-passwordTextBox1 login-input"
+              >
+                <label
+                  class="control-label"
+                  id="passwordLabel"
+                  for="passwordInput"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  id="passwordInput"
+                  class="form-control"
+                  tabindex="0"
+                  placeholder=""
+                  autocorrect="off"
+                  autocapitalize="none"
+                />
+              </div>
+              <button
+                id="loginButton"
+                type="submit"
+                class="mx-button mx-name-signInButton1 btn btn-primary btn-default"
+              >
+                Sign in
+              </button>
+              <a
+                id="ssoButton"
+                class="mx-link mx-name-actionButton1 btn mx-link"
+                href="/sso"
+                role="button"
+                title=""
+                data-disabled="false"
+                >Login as employee</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="loginpage-logo">
+        <img
+          src="./assets/gsk-logo.png"
+          role="presentation"
+          height="80"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <script src="js/login_i18n.js?{{cachebust}}"></script>
+    <script src="js/login.js?{{cachebust}}"></script>
+    <script>
+      (function () {
+        const title = document.title.split(" - ")[0];
+        const appName = document.querySelector(".login_appname");
+
+        appName.textContent =
+          title.toLocaleLowerCase() === "login" ? appName.textContent : title;
+        document.getElementById("usernameLabel").textContent = "Username";
+        document
+          .getElementById("usernameInput")
+          .setAttribute("placeholder", "");
+        document
+          .getElementById("passwordInput")
+          .setAttribute("placeholder", "");
+      })();
+    </script>
+  </body>
+</html>

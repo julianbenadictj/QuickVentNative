@@ -1,0 +1,98 @@
+.wizard-arrow {
+  filter: drop-shadow(0px 1px 8px rgba(21, 21, 21, 0.16));
+
+  .wizard-step {
+    border-color: $wizard-border-color;
+
+    .wizard-step-text {
+      color: $wizard-font-color;
+      text-decoration: none;
+    }
+
+    &::before {
+      border-left-color: $wizard-border-color;
+    }
+  }
+
+  .wizard-step-visited {
+    background-color: $wizardarrow-visited-background-color;
+
+    .wizard-step-text {
+      margin-left: 40px !important;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 18px;
+        left: 16px;
+        border: 2px solid $wizardarrow-visited-check-border-color;
+        border-top: 0;
+        border-right: 0;
+        width: 12px;
+        height: 6px;
+        transform: rotate(-45deg);
+      }
+    }
+
+    &::after {
+      border-left-color: $wizardarrow-visited-border-color;
+    }
+  }
+
+  .wizard-step-active {
+    background-color: $wizard-active-background-color;
+
+    .wizard-step-text {
+      color: $wizard-active-font-color;
+    }
+
+    &::after {
+      border-left-color: $wizard-active-border-color;
+    }
+  }
+}
+
+.wizard-circle {
+  .wizard-step {
+    &::before {
+      top: 24px;
+      background-color: $wizard-border-color;
+    }
+
+    .wizard-step-number {
+      border-color: $wizard-border-color !important;
+      border-radius: 50%;
+      min-width: auto;
+      width: 48px;
+      height: 48px;
+      background-color: $wizard-background-color !important;
+      font-size: 22px;
+      font-weight: 300;
+    }
+
+    .wizard-step-text {
+      color: $wizard-font-color;
+      text-decoration: none;
+    }
+  }
+
+  .wizard-step-active {
+    .wizard-step-number {
+      border-color: $wizard-active-border-color !important;
+      background-color: $wizard-active-background-color !important;
+      color: $wizard-active-font-color !important;
+    }
+  }
+
+  .wizard-step-visited {
+    .wizard-step-number {
+      border-color: $wizardcircle-visited-border-color !important;
+      background-color: $wizardcircle-visited-background-color !important;
+      color: $wizardcircle-visited-font-color !important;
+    }
+
+    .wizard-step-text {
+      color: $wizardcircle-visited-font-color;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+/*
+==========================================================================
+* Forms - The default form group
+==========================================================================
+*/
+
+.form-group {
+  margin-bottom: 24px;
+  .control-label {
+    font-size: $form-label-font-size;
+    color: $form-label-font-color;
+    font-weight: $form-label-font-weight;
+    letter-spacing: 0.5px;
+
+    &.active {
+      color: $form-label-active-font-color;
+    }
+  }
+  &.has-error {
+    position: relative;
+
+    &::after {
+      content: $form-haserror-icon;
+      position: absolute;
+      bottom: 0;
+      right: 24px;
+      width: 24px;
+      height: 26px;
+    }
+
+    &.mx-radiobuttons {
+      input:checked::after {
+        background-color: $form-haserror-radiobutton-background-color;
+      }
+
+      input::before {
+        border-color: $form-haserror-radiobutton-border-color;
+      }
+    }
+
+    &.mx-radiobuttons,
+    &.mx-dropdown,
+    &.mx-textarea,
+    &.mx-checkbox,
+    &.mx-datepicker,
+    &.mx-filemanager {
+      &::after {
+        content: "";
+      }
+    }
+
+    &.no-columns {
+      &::after {
+        right: 8px;
+      }
+    }
+
+    // &:has(textarea, .mx-compound-control)::after {
+    //     content: none;
+    // }
+
+    .form-control {
+      border-color: $form-haserror-border-color;
+    }
+
+    input.form-control {
+      padding: 8px 32px 8px 8px;
+    }
+
+    label {
+      color: $form-haserror-label-font-color;
+    }
+
+    textarea + .mx-validation-message {
+      bottom: -24px;
+    }
+
+    .mx-validation-message {
+      border: none;
+      background-color: $form-haserror-validationmessage-background-color;
+      color: $form-haserror-validationmessage-font-color;
+      font-size: $form-haserror-validationmessage-font-size;
+      padding: 0;
+
+      position: absolute;
+      bottom: -16px; // -24 in textarea
+      right: 24px;
+      box-shadow: none;
+    }
+  }
+}
+
+.mx-dataview-controls {
+  .mx-button {
+    margin-right: 0;
+  }
+  .mx-button + .mx-button {
+    margin-left: 8px;
+  }
+}
+
+.fontMedium {
+  font-size: $form-fontmedium-font-size;
+}

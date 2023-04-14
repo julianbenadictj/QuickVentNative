@@ -1,0 +1,90 @@
+/* 
+    ==========================================================================
+    * Topbar
+    ==========================================================================
+*/
+
+.layout-atlas {
+  &.layout-atlas-responsive-topbar {
+    .topbar-content {
+      justify-content: space-between;
+      //Mobile - Small
+      @media screen and (max-width: $xs) {
+        justify-content: normal;
+      }
+      //Mobile - Medium
+      @media screen and (min-width: $xs) and (max-width: $s) {
+        justify-content: normal;
+      }
+      //Mobile - Large
+      @media screen and (min-width: $s) and (max-width: $m) {
+        justify-content: normal;
+      }
+      //Tablet
+      @media screen and (min-width: $m) and (max-width: $l) {
+        justify-content: space-between;
+      }
+    }
+  }
+  .region-topbar {
+    box-sizing: border-box;
+    padding: 0;
+    border: 1px solid $topbar-border-color;
+    background-color: $topbar-background-color;
+    box-shadow: 0px 0px 8px 1px $topbar-boxshadow-color;
+    // height: 65px;
+
+    .topbar-column {
+      padding-left: 13px;
+    }
+
+    .topbar-content {
+      min-height: 65px;
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        img {
+          height: $topbar-logo-height;
+        }
+        .navbar-brand_appname {
+          margin-left: 16px;
+          font-size: $topbar-appname-font-size;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        .app-version {
+          padding-left: 10px;
+          border-left: 1px solid $topbar-appversion-border-color;
+          margin-left: 8px;
+          font-size: $topbar-appversion-font-size;
+
+          &.widget-badge {
+            padding: 0.15em 0 0 10px;
+            border-radius: 0;
+            font-weight: $topbar-appversion-bagde-font-weight;
+            background-color: $topbar-appversion-bagde-background-color;
+            color: $topbar-appversion-bagde-font-color;
+          }
+
+          &:empty {
+            border-left: none;
+          }
+        }
+      }
+
+      .navbar ~ div .avatar {
+        position: fixed;
+        top: 14px;
+        right: 28px;
+        cursor: pointer;
+      }
+
+      .navbar:has(~ div .avatar) {
+        .navbar-nav .mx-navbar-item:last-child a[title=""] img {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

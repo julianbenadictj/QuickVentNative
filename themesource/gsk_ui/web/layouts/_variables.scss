@@ -1,0 +1,78 @@
+//
+// ██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗███████╗
+// ██║     ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝██╔════╝
+// ██║     ███████║ ╚████╔╝ ██║   ██║██║   ██║   ██║   ███████╗
+// ██║     ██╔══██║  ╚██╔╝  ██║   ██║██║   ██║   ██║   ╚════██║
+// ███████╗██║  ██║   ██║   ╚██████╔╝╚██████╔╝   ██║   ███████║
+// ╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝
+// Layouts
+
+//
+// ====== layouts(footer)
+//
+$layout-footer-background-color: $gsk-primary;
+$layout-footer-font-color: $font-color-white;
+$layout-footer-font-size: $font-size-medium;
+
+$layout-footer-appversion-background-color: inherit;
+$layout-footer-appversion-font-size: $font-size-medium;
+$layout-footer-appversion-font-weight: $font-weight-normal;
+
+//
+// ====== modal
+//
+$modal-footer-border-color: $gsk-background-secondary;
+$modal-label-font-weight: $font-weight-bold;
+
+$modal-header-font-color: $font-color-default;
+$modal-header-font-size: $font-size-h2;
+$modal-header-font-weight: $font-weight-light;
+$modal-header-close-font-color: $font-color-default;
+$modal-header-close-font-size: 32px;
+$modal-header-close-font-weight: $font-weight-thin;
+
+//
+// ====== sidebar
+//
+$sidebar-border-color: $gsk-background-secondary;
+$sidebar-background-color: $gsk-background;
+
+$sidebar-navigationtree-background-color: $gsk-background;
+
+$sidebar-navigationtree-item-background-color: $gsk-background;
+$sidebar-navigationtree-item-font-color: $font-color-default;
+$sidebar-navigationtree-item-font-size: $font-size-default;
+$sidebar-navigationtree-item-font-weight: $font-weight-normal;
+
+$sidebar-navigationtree-item-hover-background-color: rgba($gsk-primary, 0.04);
+$sidebar-navigationtree-item-hover-font-color: $font-color-default;
+$sidebar-navigationtree-item-active-border-color: $gsk-secondary;
+$sidebar-navigationtree-item-active-background-color: $gsk-secondary-light;
+$sidebar-navigationtree-item-caret-border-color: $gsk-primary;
+
+$sidebar-navigationtree-submenu-background-color: rgba($gsk-primary, 0.04);
+$sidebar-navigationtree-submenu-item-background-color: transparent;
+$sidebar-navigationtree-submenu-item-font-color: $font-color-default;
+$sidebar-navigationtree-submenu-item-font-size: $font-size-medium;
+$sidebar-navigationtree-submenu-item-font-weight: $font-weight-normal;
+// status - hover/active/focus
+$sidebar-navigationtree-submenu-item-status-background-color: rgba(
+  $gsk-primary,
+  0.04
+);
+$sidebar-navigationtree-submenu-item-status-font-color: $font-color-default;
+
+//
+// ====== topbar
+//
+$topbar-border-color: $gsk-background-secondary;
+$topbar-background-color: $gsk-background;
+$topbar-boxshadow-color: rgba($gsk-primary, 0.06);
+
+$topbar-logo-height: 26px;
+$topbar-appname-font-size: $font-size-small;
+$topbar-appversion-border-color: $gsk-border;
+$topbar-appversion-font-size: $font-size-small;
+$topbar-appversion-bagde-background-color: inherit;
+$topbar-appversion-bagde-font-color: $font-color-default;
+$topbar-appversion-bagde-font-weight: $font-weight-normal;

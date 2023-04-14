@@ -1,0 +1,22 @@
+{
+    "excludes": {
+        "Atlas_Core": {
+            "layouts": true,
+            "pageTemplates": false,
+            "designProperties": false,
+            "styling": false
+        },
+        "Atlas_Web_Content": {
+            "layouts": true,
+            "pageTemplates": true,
+            "buildingBlocks": true,
+            "styling": false
+        },
+        "MxModelReflection": {
+            "layouts": false,
+            "pageTemplates": false,
+            "buildingBlocks": false,
+            "styling": false
+        }
+    }
+}

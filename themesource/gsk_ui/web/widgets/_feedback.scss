@@ -1,0 +1,412 @@
+.mx-feedback__screenshotFrame {
+  .mx-feedback__screenshotFrame-top {
+    padding: 6px 0;
+    height: 48px;
+    font-size: $feedback-screenshot-font-size;
+    background: $feedback-screenshot-background-color;
+
+    .mx-feedback__screenshotFrame-exitBtn {
+      padding: 7px 16px;
+      border: none;
+      border-radius: 8px;
+      margin-left: 30px;
+      height: 32px;
+      background: $feedback-screenshot-closebtn-background-color;
+      color: $feedback-screenshot-closebtn-font-color;
+      font-size: $feedback-screenshot-font-size;
+      line-height: 130%;
+    }
+  }
+
+  .mx-feedback__screenshotFrame-right,
+  .mx-feedback__screenshotFrame-bottom,
+  .mx-feedback__screenshotFrame-left {
+    display: none;
+  }
+}
+
+.mx-feedback__comment {
+  border-radius: 16px !important;
+  width: 50% !important;
+  box-shadow: 0px 2px 16px $feedback-comment-boxshadow-color !important;
+
+  .mx-feedback__comment-closeBtn {
+    top: 0;
+    right: 18px;
+    font-family: $feedback-closebtn-font-family;
+    font-size: $feedback-closebtn-font-size;
+    font-weight: $feedback-closebtn-font-weight;
+    color: $feedback-closebtn-font-color;
+
+    &:before {
+      content: "×";
+    }
+
+    svg {
+      display: none;
+    }
+  }
+
+  svg {
+    display: none;
+  }
+}
+
+.mx-feedback__comment-content {
+  padding: 5px 0px 0px 5px;
+  border: 1px solid $feedback-comment-content-border-color;
+  margin-left: 0px;
+  width: 100%;
+
+  &::after,
+  &::before {
+    display: none;
+  }
+
+  .mx-feedback__comment-textArea {
+    min-width: calc(100% - 10px);
+    min-height: 100px;
+  }
+}
+
+.mx-feedback__comment-checkbox {
+  display: inline-flex;
+
+  .mx-feedback__comment-tag {
+    color: $feedback-comment-tag-font-color;
+  }
+}
+
+.mx-feedback__comment-btn--cancel {
+  padding: 9px 16px !important;
+  border: 1px solid $feedback-comment-cancelbtn-border-color !important;
+  border-radius: 8px !important;
+  height: 40px;
+  min-width: 77px;
+  font-size: $feedback-comment-cancelbtn-font-size !important;
+  font-weight: $feedback-comment-cancelbtn-font-weight;
+  letter-spacing: 0.5px;
+  background-color: $feedback-comment-cancelbtn-background-color;
+  color: $feedback-comment-cancelbtn-font-color !important;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:active,
+  &.active,
+  &:focus {
+    box-shadow: 0px 0px 0px 1px
+      $feedback-comment-cancelbtn-status-boxshadow-color;
+  }
+
+  &.disabled,
+  &[disabled] {
+    border-color: $feedback-comment-cancelbtn-disabled-border-color;
+    color: $feedback-comment-cancelbtn-disabled-font-color;
+    box-shadow: none;
+  }
+}
+
+.mx-feedback__login {
+  border-radius: 16px !important;
+  width: 60% !important;
+  height: 60%;
+  min-height: 450px;
+  box-shadow: 0px 2px 16px $feedback-login-boxshadow-color !important;
+
+  .mx-feedback__left-frame {
+    position: relative;
+    padding-right: 100px;
+    border-radius: 16px;
+    background: $feedback-login-left-background-color;
+    color: $feedback-login-left-font-color;
+
+    .mx-feedback__left-img {
+      height: 200px;
+      background-image: $feedback-login-left-image;
+
+      path,
+      circle {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -2px;
+      width: 38px;
+      height: 100%;
+      background-image: $feedback-login-left-image-after;
+      background-position: center;
+    }
+  }
+
+  h3 {
+    color: $feedback-login-header-font-color;
+  }
+
+  .mx-feedback__left-subtitle {
+    font-size: $feedback-login-left-font-size;
+    letter-spacing: 0.25px;
+  }
+
+  .mx-feedback__login-closeBtn {
+    top: 0;
+    font-family: $feedback-closebtn-font-family;
+    font-size: 32px;
+    font-weight: $feedback-closebtn-font-weight;
+    color: $feedback-closebtn-font-color;
+
+    &:before {
+      content: "×";
+    }
+
+    svg {
+      display: none;
+    }
+  }
+
+  .mx-feedback__right-title {
+    font-size: $feedback-login-right-title-font-size;
+    font-weight: $feedback-login-right-title-font-weight;
+
+    .mx-feedback__right--edit {
+      border: 1px solid $feedback-login-right-edit-border-color;
+      border-radius: 8px;
+      font-weight: $feedback-login-right-edit-font-weight;
+    }
+  }
+}
+
+.mx-feedback__startBtn {
+  border-radius: 8px 8px 0px 0px !important;
+  background-color: $feedback-startbtn-background-color !important;
+  box-shadow: 0px 0px 8px $feedback-startbtn-boxshadow-color;
+}
+
+.mx-feedback__comment-btn--submit,
+.mx-feedback__login-btn {
+  padding: 9px 16px !important;
+  border: 1px solid $feedback-submitbtn-border-color !important;
+  border-radius: 8px !important;
+  margin-left: 8px !important;
+  height: 40px;
+  min-width: 77px;
+  font-size: $feedback-submitbtn-font-size !important;
+  font-weight: $feedback-submitbtn-font-weight;
+  letter-spacing: 0.5px;
+  background-color: $feedback-submitbtn-background-color !important;
+  color: $feedback-submitbtn-font-color !important;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: 1px solid $feedback-submitbtn-status-border-color !important;
+    background-color: $feedback-submitbtn-status-background-color;
+    color: $feedback-submitbtn-status-font-color;
+    box-shadow: 0px 0px 0px 2px $feedback-submitbtn-status-box-shadow;
+  }
+
+  &.disabled,
+  &[disabled] {
+    border-color: $feedback-submitbtn-disabled-border-color;
+    background-color: $feedback-submitbtn-disabled-background-color;
+    color: $feedback-submitbtn-disabled-font-color;
+    box-shadow: none;
+  }
+}
+
+// New feedback widget
+
+.mxfeedback-start-button {
+  @extend .mx-feedback__startBtn;
+}
+
+.mxfeedback-dialog {
+  left: 70vw;
+  align-items: center;
+  padding: 40px 32px;
+  border: none;
+  border-radius: 0 16px 16px 0;
+  width: 40vw;
+  overflow: visible;
+
+  &::before {
+    content: "Feedback";
+    position: fixed;
+    top: 0;
+    right: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20%;
+    padding-right: 34px;
+    border-radius: 16px 0 0 16px;
+    width: 40vw;
+    height: 100%;
+    background: #f36633 $feedback-login-left-image no-repeat calc(50% - 17px)
+      20%;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 90px;
+    color: #fff;
+
+    &::after {
+      content: "hello";
+      display: block;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 99%;
+    width: 38px;
+    height: 100%;
+    background: $feedback-login-left-image-after center;
+  }
+
+  .mxfeedback-close-button {
+    position: absolute;
+    top: 0;
+    right: 18px;
+    font-family: "Glyphicons Halflings";
+    font-size: 32px;
+    font-weight: 700;
+    color: #151515;
+    line-height: 32px;
+
+    &::before {
+      content: "×";
+    }
+
+    svg {
+      display: none;
+    }
+  }
+
+  .form-group {
+    width: 80%;
+
+    .control-label {
+      font-weight: 700;
+      line-height: 28px;
+    }
+
+    &:nth-of-type(3) {
+      order: 1;
+
+      .mxfeedback-button-group {
+        flex-direction: column;
+        margin: 0;
+        width: 100%;
+
+        .mxfeedback-feedback-form__screenshot-button,
+        .mxfeedback-feedback-form__upload-button {
+          svg {
+            // display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .mxfeedback-screenshot-preview {
+    order: 2;
+    margin: 0;
+    height: 170px;
+  }
+
+  &:has(.mxfeedback-screenshot-preview) {
+    .form-group {
+      &:nth-of-type(3) {
+        display: none;
+      }
+    }
+  }
+
+  .mxfeedback-button-group {
+    order: 3;
+    // align-self: flex-end;
+    margin-top: 20px;
+    width: 80%;
+  }
+}
+
+.mxfeedback-toolbar {
+  position: absolute;
+  top: 65px;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  margin-left: -2px;
+  width: 100.4%;
+  height: 48px;
+  background-color: #151515;
+  box-shadow: none;
+
+  .mxfeedback-button-group,
+  .mxfeedback-button-group--screenshot-container {
+    align-items: center;
+
+    .mxfeedback-button,
+    .mxfeedback-toolbar__save-screenshot-button {
+      padding: 0;
+      margin-left: 0;
+      height: 32px;
+      background-color: #fff;
+      color: #151515;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: #fff !important;
+        color: #151515 !important;
+      }
+    }
+
+    .mxfeedback-button {
+      padding: 8px 16px;
+    }
+
+    .mxfeedback-button + .mx-button,
+    .mxfeedback-toolbar__cancel-screenshot-button,
+    .mxfeedback-tool-button {
+      padding: 0;
+      border-color: #fff;
+      height: 32px;
+      color: #fff;
+
+      .mxfeedback-tool-button__inner {
+        flex-direction: row;
+        gap: 8px;
+
+        .mxfeedback-tool-button__icon {
+          width: 16px;
+          height: 16px;
+        }
+
+        .mxfeedback-tool-button__label {
+          margin-top: 0;
+        }
+      }
+
+      .mxfeedback-tool-button__dropdown {
+        display: none;
+      }
+    }
+
+    .mxfeedback-tool-button {
+      // display: flex;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+/*
+	==========================================================================
+	* Mixins - collection of all used mixins
+	==========================================================================
+*/
+
+@function shadow($depth) {
+  $primary-offset: nth(0.5 1 2 4, $depth) * 2px;
+  $blur: $depth * 8px;
+
+  @return 0 $primary-offset $blur rgba($gsk-primary, 0.16);
+}
+
+// Shortcut styling :hover, :active, :focus states
+// Can be used for more than links
+// Based on  https://gist.github.com/jayontraps/dee1da27b94f37c0768d#file-sass-mixin-hover-active-focus
+@mixin hfv-states() {
+  &:hover,
+  &:focus,
+  &:active,
+  &:active:focus {
+    @content;
+  }
+}
+
+// If you want text to be [number of lines] only and then it will got "..." at the end of the line. Second parameter must be pass as follow [value]px ex. 50px
+@mixin line-clamp($lines, $height) {
+  display: -webkit-box;
+  display: -moz-box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  -moz-line-clamp: $lines;
+  overflow: hidden;
+  min-height: $height;
+}
+
+// returns the box-shadow value for the four different elevations sm, md, lg and xl
+@mixin elevation($size) {
+  @if $size == sm {
+    box-shadow: shadow(1);
+  } @else if $size == md {
+    box-shadow: shadow(2);
+  } @else if $size == lg {
+    box-shadow: shadow(3);
+  } @else if $size == xl {
+    box-shadow: shadow(4);
+  } @else {
+    @error "Invalid size #{$size}.";
+  }
+}
+
+$devices: (
+  mobile: true,
+  desktop: false,
+);
+
+// provides a fast way to write media queries either for mobile or desktop first approach (breakpoints map is in variables file)
+@mixin mediaquery($breakpoint, $device-first: mobile) {
+  $size: map-get($breakpoints, $breakpoint);
+  $device: map-get($devices, $device-first);
+
+  @if $size == null {
+    @error "Invalid size: #{$breakpoint}";
+  } @else if $device == null {
+    @error "Invalid value: #{$device-first}";
+  } @else if $device == true {
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else if $device == false {
+    $desktop-size: $size - 1;
+
+    @media (max-width: $desktop-size) {
+      @content;
+    }
+  } @else {
+    @error "Something went wrong!";
+  }
+}

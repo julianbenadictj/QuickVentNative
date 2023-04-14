@@ -1,0 +1,118 @@
+.btn {
+  &.widget-badge-button {
+    display: inline-flex;
+    justify-content: center;
+    padding: 11px 8px 11px 16px;
+
+    .widget-badge-button-text {
+      padding-right: 11px;
+      line-height: 1.3;
+    }
+
+    .badge {
+      padding: 3px 4px;
+      border-radius: 4px;
+      min-width: 16px;
+      min-height: 16px;
+      font-size: $badgebutton-badge-font-size;
+      vertical-align: middle;
+      color: $badgebutton-badge-font-color;
+    }
+
+    &.btn-bordered {
+      background-color: $badgebutton-bordered-background-color;
+
+      .badge {
+        background-color: $badgebutton-bordered-badge-background-color;
+      }
+    }
+
+    &.btn-primary.btn-bordered {
+      .badge {
+        border: 1px solid $badgebutton-primary-badge-border-color;
+        color: $badgebutton-primary-badge-font-color;
+      }
+
+      &:hover,
+      &:active,
+      &.active,
+      &:focus {
+        background-color: $badgebutton-primary-hover-background-color !important;
+      }
+
+      &.disabled,
+      &[disabled] {
+        border-color: $badgebutton-primary-bordered-disabled-border-color !important;
+        color: $badgebutton-primary-bordered-disabled-font-color !important;
+      }
+    }
+
+    &.btn-secondary {
+      .badge {
+        border: 1px solid $badgebutton-secondary-badge-border-color;
+        background-color: $badgebutton-secondary-badge-background-color;
+        color: $badgebutton-secondary-badge-font-color;
+      }
+    }
+
+    &.btn-success.btn-bordered {
+      .badge {
+        border: 1px solid $badgebutton-success-badge-border-color;
+        color: $badgebutton-success-badge-font-color;
+      }
+
+      &:hover,
+      &:active,
+      &.active,
+      &:focus {
+        background-color: $badgebutton-success-hover-background-color !important;
+      }
+
+      &.disabled,
+      &[disabled] {
+        border-color: $badgebutton-success-bordered-disabled-border-color !important;
+        color: $badgebutton-success-bordered-disabled-font-color !important;
+      }
+    }
+
+    &.btn-warning.btn-bordered {
+      .badge {
+        border: 1px solid $badgebutton-warning-badge-border-color;
+        color: $badgebutton-warning-badge-font-color;
+      }
+
+      &:hover,
+      &:active,
+      &.active,
+      &:focus {
+        background-color: $badgebutton-warning-hover-background-color !important;
+      }
+
+      &.disabled,
+      &[disabled] {
+        border-color: $badgebutton-warning-bordered-disabled-border-color !important;
+        color: $badgebutton-warning-bordered-disabled-font-color !important;
+      }
+    }
+
+    &.btn-danger.btn-bordered {
+      .badge {
+        border: 1px solid $badgebutton-danger-badge-border-color;
+        color: $badgebutton-danger-badge-font-color;
+      }
+
+      &:hover,
+      &:active,
+      &.active,
+      &:focus {
+        background-color: $badgebutton-danger-hover-background-color !important;
+      }
+
+      &.disabled,
+      &[disabled] {
+        border-color: $badgebutton-danger-bordered-disabled-border-color !important;
+        color: $badgebutton-danger-bordered-disabled-font-color !important;
+      }
+    }
+  }
+}

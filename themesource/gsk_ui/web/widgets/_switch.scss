@@ -1,0 +1,115 @@
+.form-group,
+.android,
+.ios {
+  .widget-switch {
+    .widget-switch-btn-wrapper {
+      border-width: 1px;
+      border-style: solid;
+      border-color: $switch-border-color;
+      width: 32px;
+      height: 18px;
+      background-color: $switch-background-color;
+
+      &.checked {
+        border-width: 1px;
+        border-style: solid;
+        border-color: $switch-checked-border-color;
+        background-color: $switch-checked-background-color;
+        box-shadow: inset 0 0 0 16px $switch-checked-boxshadow-color;
+
+        .widget-switch-btn {
+          background-color: $switch-checked-button-background-color;
+        }
+      }
+
+      &.unchecked {
+        border-color: $switch-unchecked-border-color;
+      }
+
+      &:focus {
+        outline: 1px solid $switch-focus-outline-color;
+      }
+
+      .widget-switch-btn {
+        top: 1px;
+        width: 16px;
+        height: 16px;
+        box-shadow: 0px 0px 2px 1px $switch-button-boxshadow-color;
+
+        &.right {
+          left: 16px;
+        }
+
+        &.left:active,
+        &.right:active {
+          border-radius: 50%;
+          width: 16px;
+        }
+      }
+    }
+  }
+}
+
+div.widget-switch-brand-primary {
+  .widget-switch {
+    .widget-switch-btn-wrapper.checked {
+      border-color: $switch-primary-checked-border-color;
+      background-color: $switch-primary-checked-background-color;
+      box-shadow: inset 0 0 0 16px $switch-primary-checked-boxshadow-color;
+    }
+  }
+}
+
+div.widget-switch-brand-secondary {
+  .widget-switch {
+    .widget-switch-btn-wrapper.checked {
+      border-color: $switch-secondary-checked-border-color;
+      background-color: $switch-secondary-checked-background-color;
+      box-shadow: inset 0 0 0 16px $switch-secondary-checked-boxshadow-color;
+    }
+  }
+}
+
+div.widget-switch-brand-success {
+  .widget-switch {
+    .widget-switch-btn-wrapper.checked {
+      border-color: $switch-success-checked-border-color;
+      background-color: $switch-success-checked-background-color;
+      box-shadow: inset 0 0 0 16px $switch-success-checked-boxshadow-color;
+    }
+  }
+}
+
+div.widget-switch-brand-warning {
+  .widget-switch {
+    .widget-switch-btn-wrapper.checked {
+      border-color: $switch-warning-checked-border-color;
+      background-color: $switch-warning-checked-background-color;
+      box-shadow: inset 0 0 0 16px $switch-warning-checked-boxshadow-color;
+    }
+  }
+}
+
+div.widget-switch-brand-danger {
+  .widget-switch {
+    .widget-switch-btn-wrapper.checked {
+      border-color: $switch-danger-checked-border-color;
+      background-color: $switch-danger-checked-background-color;
+      box-shadow: inset 0 0 0 16px $switch-danger-checked-boxshadow-color;
+    }
+  }
+}
+
+div.widget-switch-brand-primary.android,
+div.widget-switch-brand-secondary.android,
+div.widget-switch-brand-success.android,
+div.widget-switch-brand-warning.android,
+div.widget-switch-brand-danger.android {
+  .widget-switch {
+    .widget-switch-btn-wrapper.checked {
+      .widget-switch-btn {
+        background-color: $switch-button;
+      }
+    }
+  }
+}

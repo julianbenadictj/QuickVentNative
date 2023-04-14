@@ -1,0 +1,38 @@
+/*
+	==========================================================================
+	* Labels - Default and variants
+	==========================================================================
+*/
+
+.widget-badge.label:not(.app-version) {
+  padding: 2px 8px;
+  border: 1px solid $label-border-color;
+  border-radius: 4px;
+  min-width: 51px;
+  min-height: 24px;
+  font-size: $label-font-size;
+  font-weight: $label-font-weight;
+  line-height: 20px;
+  background-color: $label-background-color;
+  color: $label-font-color;
+
+  &.label-secondary {
+    border-color: $label-secondary-border-color;
+    background-color: $label-secondary-background-color;
+  }
+
+  &.label-success {
+    border-color: $label-success-border-color;
+    background-color: $label-success-background-color;
+  }
+
+  &.label-warning {
+    border-color: $label-warning-border-color;
+    background-color: $label-warning-background-color;
+  }
+
+  &.label-danger {
+    border-color: $label-danger-border-color;
+    background-color: $label-danger-background-color;
+  }
+}

@@ -1,0 +1,95 @@
+/* 
+    ==========================================================================
+    * Sidebar
+    ==========================================================================
+*/
+
+.layout-atlas,
+.layout-atlas-responsive-default {
+  .region-sidebar {
+    background-color: $sidebar-background-color;
+    border-left: 1px solid $sidebar-border-color;
+    border-right: 1px solid $sidebar-border-color;
+    box-shadow: none;
+
+    .mx-scrollcontainer-wrapper {
+      .mx-navigationtree {
+        height: 100%;
+        background-color: $sidebar-navigationtree-background-color;
+        .navbar-inner {
+          ul {
+            li {
+              a {
+                background-color: $sidebar-navigationtree-item-background-color;
+                // padding: 8px 24px;
+                border: none !important;
+                color: $sidebar-navigationtree-item-font-color;
+                font-size: $sidebar-navigationtree-item-font-size;
+                font-weight: $sidebar-navigationtree-item-font-weight;
+
+                &:hover,
+                &:focus,
+                &:focus-visible {
+                  color: $sidebar-navigationtree-item-hover-font-color;
+                  background-color: $sidebar-navigationtree-item-hover-background-color;
+                  outline: none;
+                }
+                &:active,
+                &.active {
+                  background: $sidebar-navigationtree-item-active-background-color !important;
+                  border-right: 2px solid
+                    $sidebar-navigationtree-item-active-border-color;
+                  border-radius: 0;
+                }
+                .caret {
+                  //border-top-color: $font-color-default;
+                  border-bottom-color: $sidebar-navigationtree-item-caret-border-color;
+                }
+
+                span {
+                  margin-left: 13px;
+                }
+              }
+
+              &.mx-navigationtree-has-items {
+                position: relative;
+
+                a[title=""] {
+                  .caret {
+                    margin-left: 6px;
+                  }
+                }
+
+                ul {
+                  bottom: auto !important;
+                  // padding: 0 !important;
+                  background-color: $sidebar-navigationtree-submenu-background-color;
+
+                  li {
+                    a {
+                      padding-left: 12px;
+                      background-color: $sidebar-navigationtree-submenu-item-background-color;
+                      color: $sidebar-navigationtree-submenu-item-font-color;
+                      font-size: $sidebar-navigationtree-submenu-item-font-size;
+                      font-weight: $sidebar-navigationtree-submenu-item-font-weight;
+                      line-height: 2 *
+                        $sidebar-navigationtree-submenu-item-font-size;
+
+                      &:hover,
+                      &:focus,
+                      &:active,
+                      &.active {
+                        color: $sidebar-navigationtree-submenu-item-status-font-color;
+                        background-color: $sidebar-navigationtree-submenu-item-status-background-color;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

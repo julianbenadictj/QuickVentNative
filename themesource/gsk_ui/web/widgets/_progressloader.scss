@@ -1,0 +1,21 @@
+/*
+	==========================================================================
+	* Progress loader - The default progress loader
+	==========================================================================
+*/
+
+.mx-progress {
+  color: $progressloader-font-color;
+  background: $progressloader-background-color;
+  .mx-progress-message {
+    color: $progressloader-message-font-color;
+  }
+  .mx-progress-indicator {
+    background: $progressloader-indicator-background-color;
+
+    &:before,
+    &:after {
+      background: $progressloader-indicator-before-after-background-color;
+    }
+  }
+}

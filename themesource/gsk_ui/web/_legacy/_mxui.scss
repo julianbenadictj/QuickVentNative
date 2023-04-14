@@ -1,0 +1,66 @@
+.mx-demouserswitcher {
+  ul {
+    border-top: none;
+    margin-top: 32px;
+    margin-left: -8px;
+    width: 105%;
+  }
+
+  a {
+    border-bottom: 1px solid $demouserswitcher-anchor-border-color;
+
+    &:hover {
+      background-color: rgba(
+        $demouserswitcher-anchor-hover-background-color,
+        0.05
+      );
+    }
+
+    h3 {
+      margin-top: 8px;
+      color: $demouserswitcher-anchor-heading-font-color;
+      font-weight: $demouserswitcher-anchor-heading-font-weight;
+      letter-spacing: 0.25px;
+    }
+
+    p {
+      font-size: $demouserswitcher-anchor-paragraph-font-size;
+      color: rgba($demouserswitcher-anchor-paragraph-font-color, 0.58);
+    }
+
+    h3,
+    p {
+      padding-left: 16px;
+    }
+  }
+
+  h2 {
+    margin: auto;
+    margin-bottom: 16px;
+    font-size: $demouserswitcher-heading-font-size;
+    font-weight: $demouserswitcher-heading-font-weight;
+    color: $demouserswitcher-heading-font-color;
+    line-height: 48px;
+  }
+
+  .active h3 {
+    color: $demouserswitcher-heading-font-color;
+  }
+
+  p {
+    line-height: 22px;
+    color: $demouserswitcher-paragraph-font-color;
+  }
+}
+
+.mx-demouserswitcher-content {
+  background: $demouserswitcher-content-background-color;
+  overflow: hidden;
+}
+
+.mx-demouserswitcher-toggle {
+  background: $demouserswitcher-toggle-background-icon center center no-repeat
+    $demouserswitcher-toggle-background-color;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}

@@ -1,0 +1,273 @@
+//
+// ██████╗ ██╗      ██████╗  ██████╗██╗  ██╗███████╗
+// ██╔══██╗██║     ██╔═══██╗██╔════╝██║ ██╔╝██╔════╝
+// ██████╔╝██║     ██║   ██║██║     █████╔╝ ███████╗
+// ██╔══██╗██║     ██║   ██║██║     ██╔═██╗ ╚════██║
+// ██████╔╝███████╗╚██████╔╝╚██████╗██║  ██╗███████║
+// ╚═════╝ ╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝╚══════╝
+// Building blocks
+
+//
+// ====== alert
+//
+$alert-border-color: $gsk-border;
+$alert-font-color: $gsk-primary;
+$alert-boxshadow-color: rgba($gsk-primary, 0.12);
+$alert-default-icon: url("./assets/info.svg");
+$alert-title-font-size: $font-size-default;
+
+$alert-primary-background-color: $gsk-secondary-extra-light;
+$alert-primary-font-color: $alert-font-color;
+$alert-primary-icon: url("./assets/info-primary.svg");
+
+$alert-success-background-color: $gsk-success-light;
+$alert-success-font-color: $alert-font-color;
+$alert-success-icon: url("./assets/info-success.svg");
+
+$alert-warning-background-color: $gsk-warning-light;
+$alert-warning-font-color: $alert-font-color;
+$alert-warning-icon: url("./assets/info-warning.svg");
+
+$alert-danger-background-color: $gsk-error-light;
+$alert-danger-font-color: $alert-font-color;
+$alert-danger-icon: url("./assets/info-danger.svg");
+
+//
+// ====== application name
+//
+$applicationname-font-size: $font-size-default;
+// font family light for h1 and h2
+$applicationname-header-light-font-family: $font-family-light;
+// font family bold for h4, h5 and h6
+$applicationname-header-bold-font-family: $font-family-bold;
+$applicationname-h1-font-size: $font-size-h1;
+$applicationname-h2-font-size: $font-size-h2;
+$applicationname-h3-font-size: $font-size-h3;
+$applicationname-h4-font-size: $font-size-h4;
+$applicationname-h5-font-size: $font-size-h5;
+$applicationname-h6-font-size: $font-size-h6;
+
+$applicationname-appversion-background-color: inherit;
+$applicationname-appversion-font-color: $gsk-secondary;
+$applicationname-appversion-font-weight: $font-weight-medium;
+
+//
+// ====== avatar
+//
+$avatar-background-color: $gsk-tertiary;
+$avatar-font-color: $font-color-white;
+$avatar-font-size: $font-size-large;
+$avatar-small-font-size: $font-size-medium;
+
+//
+// ====== breadcrumb
+//
+$breadcrumb-font-color: $gsk-tertiary;
+$breadcrumb-font-size: $font-size-default;
+$breadcrumb-hover-font-color: $font-color-default;
+
+$breadcrumb-currentpage-font-color: $font-color-detail;
+$brandcrumb-separetor-font-color: $gsk-border;
+$breadcrumb-large-font-size: $font-size-verylarge;
+$breadcrumb-underline-border-color: $gsk-border;
+
+//
+// ====== card
+//
+$card-border-color: $gsk-border;
+$card-boxshadow-color: rgba($gsk-primary, 0.16);
+
+$card-title-font-family: $font-family-base;
+$card-title-font-size: $font-size-h3;
+$card-title-font-weight: $font-weight-normal;
+$card-secondarytext-font-color: $font-color-detail;
+$card-secondarytext-font-size: $font-size-medium;
+
+$card-stats-font-color: $font-color-default;
+$card-stats-secondarytext-font-color: $font-color-detail;
+$card-stats-secondarytext-font-size: $font-size-large;
+
+$card-overlay-secondarytext-font-color: rgba($font-color-white, 0.65);
+$card-action-icon: url("./assets/chevron_right_orange.svg");
+
+$card-active-border-color: $gsk-secondary;
+$card-active-boxshadow-color: rgba($gsk-primary, 0.06);
+$card-clickable-boxshadow-color: rgba($gsk-primary, 0.16);
+
+$card-metrics-category-font-color: $gsk-secondary;
+$card-metrics-category-font-size: $font-size-h3;
+$card-metrics-category-font-weight: $font-weight-bold;
+$card-metrics-data-font-color: $font-color-default;
+$card-metrics-data-font-size: $font-size-h2;
+$card-metrics-data-font-weight: $font-weight-bold;
+
+// CHECK IF STYLES FOR THIS CARD APPLIES! - component deleted
+// $card-withheader-border-color: rgba(#544f40, 0.15);
+// $card-withheader-background-color: rgba(#554f40, 0.04);
+// $card-withheader-font-color: rgba(#544f40, 0.8);
+// $card-withheader-font-size: $font-size-medium;
+// $card-withheader-font-weight: $font-weight-bold;
+
+$card-withimage-background-color: $gsk-background-secondary;
+
+$card-metric-label-font-size: $font-size-medium;
+$card-metric-number-font-color: $gsk-secondary;
+$card-metric-number-font-size: $font-size-h2;
+$card-metric-number-font-weight: $font-weight-light;
+
+$card-status-heading-font-family: $font-family-base;
+$card-status-heading-font-size: $font-size-h1;
+$card-status-heading-font-weight: $font-weight-light;
+$card-status-status-font-color: $font-color-detail;
+$card-status-status-font-size: $font-size-large;
+$card-status-status-font-weight: $font-weight-bold;
+
+$card-progressbar-category-font-color: $font-color-detail;
+$card-progressbar-category-font-size: $font-size-small;
+$card-progressbar-heading-font-size: $font-size-h3;
+$card-progressbar-additionalinfo-background-color: $gsk-primary-light;
+$card-progressbar-additionalinfo-font-color: $font-color-detail;
+$card-progressbar-additionalinfo-font-size: $font-size-medium;
+
+$card-navigation-title-font-weight: $font-weight-normal;
+$card-navigation-icon: url("./assets/arrow-right.svg");
+$card-navigation-hover-background-color: $gsk-secondary-light;
+
+//
+// ====== fixed footer
+//
+$fixedfooter-background-color: $gsk-background;
+$fixedfooter-boxshadow-color: rgba($gsk-primary, 0.16);
+$fixedfooter-backbutton-icon: url("./assets/arrow_back.svg");
+
+//
+// ====== forms
+//
+$form-label-font-color: $font-color-default;
+$form-label-font-size: $font-size-medium;
+$form-label-font-weight: $font-weight-normal;
+$form-label-active-font-color: $gsk-secondary;
+
+$form-haserror-color: $gsk-error;
+$form-haserror-border-color: $form-haserror-color;
+$form-haserror-label-font-color: $form-haserror-color;
+$form-haserror-icon: url("./assets/error-icon.svg");
+$form-haserror-validationmessage-background-color: transparent;
+$form-haserror-validationmessage-font-color: $form-haserror-color;
+$form-haserror-validationmessage-font-size: $font-size-small;
+$form-haserror-radiobutton-border-color: $form-haserror-color;
+$form-haserror-radiobutton-background-color: $form-haserror-color;
+
+$form-fontmedium-font-size: $font-size-medium;
+
+//
+// ====== hero header
+//
+$heroheader-background-color: $gsk-primary;
+$heroheader-title-font-color: $gsk-secondary;
+$heroheader-title-font-weight: $font-weight-light;
+$heroheader-action-border-color: $gsk-background;
+$heroheader-action-font-color: $font-color-white;
+$heroheader-overlay-title-font-color: $font-color-white;
+
+//
+// ====== list item
+//
+$listitem-title-font-family: $font-family-base;
+$listitem-title-font-size: $font-size-large;
+$listitem-title-font-weight: $font-weight-bold;
+
+$listitem-secondarytext-font-color: $font-color-detail;
+$listitem-secondarytext-font-size: $font-size-medium;
+
+$listitem-action-icon: url("./assets/chevron_right_orange.svg");
+
+//
+// ====== miscellaneous - no variables
+//
+
+//
+// ====== page header
+//
+$pageheader-title-font-color: $gsk-secondary;
+$pageheader-title-font-size: $font-size-h1;
+
+//
+// ====== text detail
+//
+$textdetail-font-size: $font-size-medium;
+$textdetail-reference-border-color: $gsk-primary-light;
+$textdetail-reference-font-color: $gsk-primary-light;
+
+//
+// ====== timeline
+//
+$timeline-dateheader-background-color: $gsk-background-secondary;
+$timeline-icon-wrapper-background-color: $gsk-background;
+$timeline-icon-background-color: $gsk-background;
+$timeline-icon-circle-color: $gsk-secondary;
+
+$timeline-eventtime-font-color: $font-color-detail;
+$timeline-eventtime-font-family: $font-family-base;
+$timeline-eventtime-font-size: $font-size-medium;
+$timeline-eventtime-font-weight: $font-weight-normal;
+
+$timeline-entryimage-calendar-icon: url("./assets/calendar_white.svg");
+
+$timeline-title-font-color: $font-color-default;
+$timeline-title-font-family: $font-family-base;
+$timeline-title-font-size: $font-size-default;
+$timeline-title-font-weight: $font-weight-bold;
+
+$timeline-description-font-color: $font-color-default;
+$timeline-description-font-size: $font-size-medium;
+
+//
+// ====== toggle button
+//
+$togglebutton-border-color: transparent;
+$togglebutton-background-color: $gsk-background-secondary;
+$togglebutton-font-color: scale-color($gsk-primary, $whiteness: 64%);
+
+$togglebutton-hover-border-color: transparent;
+$togglebutton-hover-background-color: $gsk-secondary-extra-light;
+$togglebutton-hover-font-color: $font-color-default;
+// status - active/focus/has(+ button)
+$togglebutton-status-border-color: transparent;
+$togglebutton-status-background-color: $gsk-primary;
+$togglebutton-status-font-color: $font-color-white;
+$togglebutton-status-hover-background-color: rgba($gsk-primary, 0.9);
+
+//
+// ====== tree view
+//
+$treeview-subitem-badge-background-color: $gsk-background-secondary;
+$treeview-subitem-badge-font-color: $font-color-default;
+
+$treeview-lined-line-border-color: $gsk-primary-extra-light;
+
+$treeview-header-icon: url("./assets/arrow_chevron_down_primary.svg");
+
+//
+// ====== wizard
+//
+$wizard-border-color: $gsk-border;
+$wizard-background-color: $gsk-background;
+$wizard-font-color: $font-color-default;
+$wizard-font-size: $font-size-h3;
+$wizard-font-weight: $font-weight-light;
+
+$wizard-active-border-color: $gsk-tertiary;
+$wizard-active-background-color: $gsk-tertiary;
+$wizard-active-font-color: $font-color-white;
+
+// Arrow
+$wizardarrow-visited-border-color: $gsk-success-light;
+$wizardarrow-visited-background-color: $gsk-success-light;
+$wizardarrow-visited-font-color: $wizard-font-color;
+$wizardarrow-visited-check-border-color: $gsk-primary;
+
+// Circle
+$wizardcircle-visited-border-color: $gsk-success;
+$wizardcircle-visited-background-color: $gsk-success-light;
+$wizardcircle-visited-font-color: $gsk-success;

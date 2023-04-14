@@ -1,0 +1,100 @@
+@import "./variables"; // All the GSK variables with colors, fonts, spacings
+@import "_legacy/variables"; // Variables only for Mendix UI (eg. demo user switcher)
+@import "base/variables"; // Variables only for base styling (eg. typography)
+@import "helpers/variables"; // Variables only for helpers (eg. media queries, mixins)
+@import "buildingblocks/variables"; // Variables only for building blocks
+@import "layouts/variables"; // Variables only for layouts (eg. top bar, drawer)
+@import "pages/variables"; // Variables only for pages (eg. login page)
+@import "widgets/variables"; // Variables only for mendix widgets
+@import "widgetscustom/variables"; // Variables only for custom widgets
+
+/*
+  ==========================================================================
+  * Mendix - Entry Point of Design System
+  ==========================================================================
+*/
+
+// Legacy
+@import "_legacy/mxui";
+
+// Helpers
+@import "helpers/base-helpers";
+@import "helpers/imported-modules";
+@import "helpers/media-helpers";
+@import "helpers/mixin";
+
+// Base
+@import "base/base";
+@import "base/colors";
+@import "base/reset";
+@import "base/typography";
+
+// Vendors
+@import "vendors/clean-bootstrap-layout";
+
+// Widgets
+@import "widgets/accordion";
+@import "widgets/badge";
+@import "widgets/badgebutton";
+@import "widgets/buttons";
+@import "widgets/carousel";
+@import "widgets/checkbox";
+@import "widgets/datagrid";
+@import "widgets/datagrid2";
+@import "widgets/datapicker";
+@import "widgets/dropdown";
+@import "widgets/dropdownbutton";
+@import "widgets/feedback";
+@import "widgets/filemanager";
+@import "widgets/gallery";
+@import "widgets/groupbox";
+@import "widgets/input";
+@import "widgets/label";
+@import "widgets/link";
+@import "widgets/listview";
+@import "widgets/navigationbar";
+@import "widgets/navigationlist";
+@import "widgets/navigationtree";
+@import "widgets/progressbar";
+@import "widgets/progressloader";
+@import "widgets/radiobutton";
+@import "widgets/rangeslider";
+@import "widgets/rating";
+@import "widgets/switch";
+@import "widgets/tabcontainer";
+@import "widgets/table";
+@import "widgets/templategrid";
+@import "widgets/tooltip";
+
+// Building blocks
+@import "buildingblocks/alert";
+@import "buildingblocks/application-name";
+@import "buildingblocks/avatar";
+@import "buildingblocks/breadcrumb";
+@import "buildingblocks/card";
+@import "buildingblocks/fixedfooter";
+@import "buildingblocks/form";
+@import "buildingblocks/ghostbutton";
+@import "buildingblocks/heroheader";
+@import "buildingblocks/listitem";
+@import "buildingblocks/miscellaneous";
+@import "buildingblocks/pageheader";
+@import "buildingblocks/textdetail";
+@import "buildingblocks/timeline";
+@import "buildingblocks/togglebutton";
+@import "buildingblocks/treeview";
+@import "buildingblocks/wizard";
+
+// layouts
+@import "layouts/layouts";
+@import "layouts/sidebar";
+@import "layouts/topbar";
+@import "layouts/modal";
+
+// Pages
+@import "pages/base-pages";
+@import "pages/login";
+
+// Custom Widgets
+@import "widgetscustom/base-customwidgets";
+@import "widgetscustom/tristateswitch";

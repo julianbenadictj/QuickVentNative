@@ -1,0 +1,39 @@
+.mx-radiogroup {
+  .radio {
+    input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      margin-right: 0;
+
+      &::before {
+        border-width: 1px;
+        border-color: $radiobutton-border-color;
+      }
+
+      &:checked {
+        &::before {
+          border-color: $radiobutton-checked-border-color;
+        }
+        &::after {
+          background-color: $radiobutton-checked-background-color;
+          width: 12px;
+          height: 12px;
+        }
+      }
+      &.disabled,
+      &:disabled,
+      &[disabled] {
+        &::before {
+          border-color: $radiobutton-disabled-border-color;
+        }
+
+        &::after {
+          background-color: $radiobutton-disabled-background-color;
+        }
+      }
+      &:focus {
+        outline-color: $radiobutton-focus-outline-color;
+      }
+    }
+  }
+}

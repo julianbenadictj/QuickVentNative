@@ -1,0 +1,33 @@
+.breadcrumb {
+  font-size: $breadcrumb-font-size;
+  color: $breadcrumb-font-color;
+
+  .breadcrumb-item {
+    line-height: 22px;
+
+    &:last-child {
+      color: $breadcrumb-currentpage-font-color;
+    }
+
+    &:hover {
+      color: $breadcrumb-hover-font-color;
+    }
+  }
+
+  .breadcrumb-item + .breadcrumb-item {
+    &::before {
+      padding-right: $spacing-medium;
+      padding-left: $spacing-medium;
+      color: $brandcrumb-separetor-font-color;
+    }
+  }
+
+  &.breadcrumb-large {
+    font-size: $breadcrumb-large-font-size;
+  }
+
+  &.breadcrumb-underline {
+    padding-bottom: $spacing-medium;
+    border-bottom: 1px solid $breadcrumb-underline-border-color;
+  }
+}

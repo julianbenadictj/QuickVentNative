@@ -1,0 +1,38 @@
+.widget-carousel {
+  .widget-carousel-item-wrapper {
+    .widget-carousel-item.active {
+      border-radius: 5px;
+
+      .widget-carousel-image {
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .widget-carousel-control {
+    border-radius: 5px;
+    width: 36%;
+    background: $carousel-side-background;
+    &:hover {
+        background: $carousel-side-hover-background;
+    }
+    .glyphicon {
+      cursor: pointer;
+      height: 24px;
+      width: 15px;
+      margin: 0;
+      right: 16px;
+      background: $carousel-icon no-repeat scroll center center transparent !important;
+      &::before {
+        content: "";
+      }
+    }
+    &.left {
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+  }
+}
+
+.card-preview > .card-body .mx-dataview:has(.widget-carousel-wrapper) {
+  padding: 0;
+}

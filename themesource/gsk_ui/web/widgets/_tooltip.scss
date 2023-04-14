@@ -1,0 +1,38 @@
+.widget-tooltip {
+  .widget-tooltip-content {
+    padding: 10px;
+    border-radius: 4px;
+    max-width: 180px;
+    font-size: $tooltip-font-size;
+    font-weight: $tooltip-font-weight;
+    line-height: 16px;
+    background-color: $tooltip-background-color;
+    color: $tooltip-font-color;
+    box-shadow: none;
+
+    .widget-tooltip-arrow {
+      width: 9px;
+      height: 9px;
+      box-shadow: none;
+
+      &::before {
+        border-radius: 2px;
+        width: 9px;
+        height: 9px;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &.widget-tooltip-bottom,
+  &.widget-tooltip-bottom-start,
+  &.widget-tooltip-bottom-end {
+    .widget-tooltip-content {
+      .widget-tooltip-arrow {
+        &::before {
+          left: 0;
+        }
+      }
+    }
+  }
+}

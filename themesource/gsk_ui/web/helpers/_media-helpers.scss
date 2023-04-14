@@ -1,0 +1,36 @@
+/*
+    ==========================================================================
+    * Media Helpers - Definition of screen sizes
+    ==========================================================================
+*/
+
+//Mobile - Medium
+$xs: map-get(
+  $map: $breakpoints,
+  $key: xsmall,
+);
+//Mobile - Large
+$s: map-get(
+  $map: $breakpoints,
+  $key: small,
+);
+//Tablet
+$m: map-get(
+  $map: $breakpoints,
+  $key: medium,
+);
+//Desktop - Small
+$l: map-get(
+  $map: $breakpoints,
+  $key: large,
+);
+//Desktop - Medium
+$xl: map-get(
+  $map: $breakpoints,
+  $key: xlarge,
+);
+//Desktop - Large
+$xxl: map-get(
+  $map: $breakpoints,
+  $key: xxlarge,
+);

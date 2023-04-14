@@ -1,0 +1,19 @@
+.widget-rating {
+    .glyphicon-star::before {
+        content: url('./assets/rating-star-filled.svg');
+    }
+
+    .glyphicon-star-empty::before {
+        content: url('./assets/rating-star.svg');
+    }
+
+    &.widget-rating-large .rating-icon {
+        margin-right: 10px;
+        transform: scale(1.5);
+    }
+
+    &.widget-rating-small .rating-icon {
+        margin-right: -5px;
+        transform: scale(0.7);
+    }
+}

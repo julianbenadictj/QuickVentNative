@@ -1,0 +1,54 @@
+.mx-checkbox,
+.mx-feedback__comment-checkbox {
+  align-items: center;
+
+  &.form-group {
+    .control-label {
+      font-size: $checkbox-font-size;
+    }
+  }
+}
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  &::before {
+    border-width: 1px;
+    border-color: $checkbox-border-color;
+    border-radius: 2px;
+  }
+
+  &::after {
+    margin: 4px;
+    width: 10px;
+    height: 6px;    
+  }
+
+  &:checked {
+    &::before {
+      border-color: $checkbox-checked-border-color;
+      background-color: $checkbox-checked-background-color;
+    }
+  }
+  &.disabled,
+  &:disabled,
+  &[disabled] {
+
+    &::before {
+      border-color: $checkbox-disabled-border-color !important;
+      background-color: $checkbox-disabled-background-color;      
+    }
+    &:checked
+    {
+      &::before
+      {
+        background-color: $checkbox-checked-disabled-background-color;
+      }
+    }
+    & + label {
+      color: $checkbox-disabled-label-font-color;
+    }
+  }
+  &:focus {
+    outline-color: $checkbox-focus-outline-color;
+  }
+}

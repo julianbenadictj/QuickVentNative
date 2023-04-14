@@ -1,0 +1,20 @@
+.headerhero {
+  background-color: $heroheader-background-color !important;
+
+  .headerhero-title {
+    margin-bottom: 13px !important;
+    color: $heroheader-title-font-color;
+    font-weight: $heroheader-title-font-weight;
+  }
+
+  .headerhero-action {
+    border-color: $heroheader-action-border-color !important;
+    color: $heroheader-action-font-color !important;
+  }
+
+  .heroheader-overlay {
+    .headerhero-title {
+      color: $heroheader-overlay-title-font-color;
+    }
+  }
+}

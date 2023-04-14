@@ -1,0 +1,181 @@
+.widget-range-slider,
+.widget-slider 
+{
+  width: 100%;
+  .rc-slider-rail {
+    background-color: $rangeslider-rail-background-color;
+  }
+
+  .rc-slider:not(.rc-slider-disabled)  
+  {
+    .rc-slider-dot-active {
+      border-color: $rangeslider-primary-border-color;
+    }
+    .rc-slider-track {
+      background-color: $rangeslider-primary-background-color;
+    }
+  }
+
+  .rc-slider-disabled 
+  {
+    .rc-slider-track {
+      background-color: $rangeslider-disabled-background-color;
+    }
+    .rc-slider-dot-active
+    {
+      border-color: $rangeslider-disabled-border-color !important;
+    }
+    .rc-slider-handle,
+    .rc-slider-handle-click-focused {
+        border-color: $rangeslider-border-color !important;
+        box-shadow:none !important;
+        &:hover,&:focus,&:active
+        {
+          border-color: $rangeslider-border-color !important;
+          box-shadow:none !important;
+        }
+    }
+  }
+  
+
+  .rc-slider-mark-text {
+    color: $rangeslider-font-color;
+  }
+
+  .rc-slider-dot {
+    border-color: $rangeslider-border-color;
+  }
+
+  .rc-slider-handle,
+  .rc-slider-handle-click-focused {
+    border-color: $rangeslider-border-color;
+
+    &:hover,
+    &:focus {
+      border-color: $rangeslider-primary-status-border-color !important;
+      box-shadow: none;
+    }
+
+    &:active {
+      border-color: $rangeslider-primary-active-border-color !important;
+      box-shadow: 0 0 0 3px $rangeslider-primary-active-boxshadow-color !important;
+    }
+  }
+}
+
+.widget-range-slider-success,
+.widget-slider-success {
+  .widget-range-slider,.widget-slider {
+
+    width:100%;
+    .rc-slider:not(.rc-slider-disabled) 
+    {
+      .rc-slider-dot-active {
+        border-color: $rangeslider-success-border-color;
+      }
+      .rc-slider-track {
+        background-color: $rangeslider-success-background-color;
+      }
+    }
+
+    .rc-slider-handle,
+    .rc-slider-handle-click-focused {
+      &:hover,
+      &:focus {
+        border-color: $rangeslider-success-status-border-color !important;
+        box-shadow: none;
+      }
+
+      &:active {
+        border-color: $rangeslider-success-active-border-color !important;
+        box-shadow: 0 0 0 3px $rangeslider-success-active-boxshadow-color !important;
+      }
+    }
+
+    .rc-slider-dot-active {
+      border-color: $rangeslider-success-border-color;
+    }
+  }
+}
+
+.widget-range-slider-warning,
+.widget-slider-warning {
+  .widget-range-slider,
+  .widget-slider {
+    .rc-slider:not(.rc-slider-disabled) 
+    {
+      .rc-slider-dot-active {
+        border-color: $rangeslider-warning-border-color;
+      }
+      .rc-slider-track {
+        background-color: $rangeslider-warning-background-color;
+      }
+    }
+
+    .rc-slider-handle,
+    .rc-slider-handle-click-focused {
+      &:hover,
+      &:focus {
+        border-color: $rangeslider-warning-status-border-color !important;
+        box-shadow: none;
+      }
+
+      &:active {
+        border-color: $rangeslider-warning-active-border-color !important;
+        box-shadow: 0 0 0 3px $rangeslider-warning-active-boxshadow-color !important;
+      }
+    }
+
+    .rc-slider-dot-active {
+      border-color: $rangeslider-warning-border-color;
+    }
+  }
+}
+.widget-range-slider-danger,
+.widget-slider-danger {
+  .widget-range-slider,
+  .widget-slider {
+    .rc-slider:not(.rc-slider-disabled)
+    {
+      .rc-slider-dot-active {
+        border-color: $rangeslider-danger-border-color;
+      }
+       .rc-slider-track {
+      background-color: $rangeslider-danger-background-color;
+      }
+    }
+
+    .rc-slider-handle,
+    .rc-slider-handle-click-focused {
+      &:hover,
+      &:focus {
+        border-color: $rangeslider-danger-status-border-color !important;
+        box-shadow: none;
+      }
+
+      &:active {
+        border-color: $rangeslider-danger-active-border-color !important;
+        box-shadow: 0 0 0 3px $rangeslider-danger-active-boxshadow-color !important;
+      }
+    }
+
+    .rc-slider-dot-active {
+      border-color: $rangeslider-danger-border-color;
+    }
+  }
+}
+
+.rc-slider-tooltip {
+  .rc-slider-tooltip-arrow {
+    border-top-color: $rangeslider-tooltip-arrow-border-color;
+    bottom: 5px;
+  }
+
+  .rc-slider-tooltip-inner {
+    border-radius: 4px;
+    background-color: $rangeslider-tooltip-arrow-background-color;
+    font-size: $rangeslider-tooltip-font-size;
+    padding:8px 6px 8px 6px;
+    min-height: 28px;
+  }
+}

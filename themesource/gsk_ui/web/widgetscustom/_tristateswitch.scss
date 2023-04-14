@@ -1,0 +1,61 @@
+.widget-switch-brand-primary {
+  .tri-state-switch {
+    .switch-input {
+      &.tgl-def {
+        border-color: $tristateswitch-primary-default-border-color;
+        background-color: $tristateswitch-primary-default-background-color;
+      }
+      &.tgl-on {
+        border-color: $tristateswitch-primary-on-border-color;
+        background-color: $tristateswitch-primary-on-background-color;
+      }
+    }
+  }
+}
+
+.widget-switch-brand-success {
+  .tri-state-switch {
+    .switch-input {
+      &.tgl-def {
+        border-color: $tristateswitch-success-default-border-color;
+        background-color: $tristateswitch-success-default-background-color;
+      }
+      &.tgl-on {
+        border-color: $tristateswitch-success-on-border-color;
+        background-color: $tristateswitch-success-on-background-color;
+      }
+    }
+  }
+}
+
+.widget-switch-brand-warning {
+  .tri-state-switch {
+    .switch-input {
+      &.tgl-def {
+        border-color: $tristateswitch-warning-default-border-color;
+        background-color: $tristateswitch-warning-default-background-color;
+      }
+
+      &.tgl-on {
+        border-color: $tristateswitch-warning-on-border-color;
+        background-color: $tristateswitch-warning-on-background-color;
+      }
+    }
+  }
+}
+
+.widget-switch-brand-danger {
+  .tri-state-switch {
+    .switch-input {
+      &.tgl-def {
+        border-color: $tristateswitch-danger-default-border-color;
+        background-color: $tristateswitch-danger-default-background-color;
+      }
+
+      &.tgl-on {
+        border-color: $tristateswitch-danger-on-border-color;
+        background-color: $tristateswitch-danger-on-background-color;
+      }
+    }
+  }
+}

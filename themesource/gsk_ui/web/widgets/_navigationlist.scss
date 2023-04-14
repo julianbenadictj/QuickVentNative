@@ -1,0 +1,19 @@
+.mx-navigationlist {
+  li.mx-navigationlist-item {
+    padding: 10px;
+    border-bottom: 1px solid $navigationlist-border-color;
+    font-size: $navigtationlist-font-size;
+
+    &.active {
+      border-bottom: 1px solid $navigationlist-active-border-color;
+      background-color: $navigationlist-active-background-color;
+    }
+  }
+}
+
+.side-navigation__card {
+  padding: 16px;
+  border-radius: 16px;
+  width: 212px;
+  box-shadow: 0 4px 8px $navigationlist-card-boxshadow-color;
+}

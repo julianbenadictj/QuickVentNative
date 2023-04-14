@@ -1,0 +1,30 @@
+/*
+  ==========================================================================
+  - Mx Model Reflection
+  ==========================================================================
+*/
+
+[data-mendix-id*="MxModelReflection"] {
+  & + .mx-listview {
+    li {
+      padding: 12px 4px;
+
+      .mx-dataview-content {
+        .mx-checkbox {
+          margin-bottom: 0;
+        }
+
+        .mx-textbox {
+          padding-top: 0;
+          margin-bottom: 0;
+          max-width: 85%;
+
+          .form-control-static {
+            padding: 0;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+}

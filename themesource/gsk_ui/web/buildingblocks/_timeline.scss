@@ -1,0 +1,112 @@
+.timeline-date {
+  .widget-timeline-date-header {
+    border: none;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background-color: $timeline-dateheader-background-color;
+  }
+
+  .widget-timeline-events-wrapper {
+    .widget-timeline-event {
+      border-left: none;
+
+      .widget-timeline-icon-wrapper {
+        top: -5px;
+        margin-top: 7px;
+        width: 10px;
+        height: 20px;
+        background-color: $timeline-icon-wrapper-background-color;
+
+        .widget-timeline-icon-circle {
+          background-color: $timeline-icon-background-color;
+        }
+
+        img {
+          display: none;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          border-radius: 50%;
+          width: 10px;
+          height: 10px;
+          background-color: $timeline-icon-circle-color;
+          transform: translateY(-50%);
+        }
+
+        &:has(span) {
+          &::before {
+            display: none;
+          }
+        }
+      }
+
+      .widget-timeline-content-wrapper {
+        .widget-timeline-date-time-wrapper {
+          h5,
+          .widget-eventTime {
+            font-family: $timeline-eventtime-font-family !important;
+            font-size: $timeline-eventtime-font-size;
+            font-weight: $timeline-eventtime-font-weight;
+            color: $timeline-eventtime-font-color !important;
+          }
+        }
+
+        .widget-timeline-info-wrapper {
+          flex: none;
+
+          .timeline-entry-image {
+            display: flex;
+            align-items: center;
+            padding: 0;
+            border: none;
+            min-width: 32px;
+            width: 32px;
+            height: 32px;
+
+            img,
+            span {
+              margin-right: 0;
+              width: 24px;
+              height: 24px;
+            }
+
+            .glyphicon-calendar {
+              top: 0;
+
+              &::before {
+                content: $timeline-entryimage-calendar-icon;
+              }
+            }
+          }
+
+          h5,
+          .widget-timeline-title {
+            margin: 0 0 4px 0;
+            font-family: $timeline-title-font-family !important;
+            font-size: $timeline-title-font-size;
+            font-weight: $timeline-title-font-weight;
+            color: $timeline-title-font-color;
+          }
+
+          span,
+          .widget-timeline-description {
+            font-size: $timeline-description-font-size;
+            color: $timeline-description-font-color;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.timeline-with-image {
+  .widget-timeline-content-wrapper {
+    .widget-timeline-info-wrapper {
+      margin-top: -5px;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+.btn[class*="mx-name-dropDownButton"],span[class*="mx-name-dropDownButton"]
+{
+  span.caret
+  {
+    display: inline-block;
+    height: 16px;
+    width: 20px;
+    border:none;
+  }
+  &.mx-link:not(.ghost-button)
+  {
+    span.caret
+    {
+      background: $dropdownbutton-link-chevron-icon no-repeat !important;
+      background-position: center !important;      
+    }    
+  }
+  &.ghost-button
+  {
+    span.caret
+    {
+      background: $dropdownbutton-ghost-chevron-icon no-repeat !important;
+      background-position: center !important;      
+      position: absolute;
+      margin-left: 2px;
+      margin-top: 2px;
+    }
+  }
+  &.btn-primary:not(.btn-bordered)
+  {
+    span.caret
+    {
+      background: $dropdownbutton-primary-chevron-icon no-repeat !important;
+      background-position: center !important;
+    }
+  }
+  &.btn-primary.btn-bordered
+  {
+    span.caret
+    {
+        background: $dropdownbutton-primary-bordered-chevron-icon no-repeat !important;
+        background-position: center !important;
+    }
+  }
+
+  &.btn-success:not(.btn-bordered)
+  {
+    span.caret
+    {
+      background: $dropdownbutton-success-chevron-icon no-repeat !important;
+      background-position: center !important;
+    }
+  }
+  &.btn-success.btn-bordered
+  {
+    span.caret
+      {
+        background: $dropdownbutton-success-bordered-chevron-icon no-repeat !important;
+        background-position: center !important;
+      }
+  }
+
+  &.btn-danger:not(.btn-bordered)
+  {
+    span.caret
+    {
+      background: $dropdownbutton-error-chevron-icon no-repeat scroll !important;
+      background-position: center !important;
+    }
+  }
+  &.btn-danger.btn-bordered
+  {
+    span.caret
+      {
+        background: $dropdownbutton-error-bordered-chevron-icon no-repeat !important;
+        background-position: center !important;
+      }
+  }
+  
+  &.btn-warning:not(.btn-bordered)
+  {
+    span.caret
+    {
+      background: $dropdownbutton-warning-chevron-icon no-repeat !important;
+      background-position: center !important;
+    }
+  }
+  &.btn-warning.btn-bordered
+  {
+    span.caret
+      {
+        background: $dropdownbutton-warning-bordered-chevron-icon no-repeat !important;
+        background-position: center !important;
+      }
+  }
+}

@@ -1,0 +1,136 @@
+//
+// ██████╗  █████╗ ███████╗██╗ ██████╗
+// ██╔══██╗██╔══██╗██╔════╝██║██╔════╝
+// ██████╔╝███████║███████╗██║██║
+// ██╔══██╗██╔══██║╚════██║██║██║
+// ██████╔╝██║  ██║███████║██║╚██████╗
+// ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝
+// Basic
+
+// Core palette
+$gsk-primary: #151515;
+$gsk-primary-light: #616161;
+$gsk-primary-extra-light: #b5b5b5;
+$gsk-secondary: #f36633;
+$gsk-secondary-light: #fef4f0;
+$gsk-secondary-extra-light: #eae8e4;
+$gsk-tertiary: #244ea2;
+$gsk-tertiary-light: #eaf1ff;
+$gsk-background: #ffffff;
+$gsk-background-secondary: #f0efed;
+$gsk-border: #d5d1cc;
+
+// Semantic palette
+$gsk-success: #008748;
+$gsk-warning: #ffb800;
+$gsk-error: #e40030;
+$gsk-information: #f0efed;
+$gsk-success-light: #e7f3ee;
+$gsk-warning-light: #fdf5dc;
+$gsk-error-light: #f8e6ea;
+$gsk-information-light: #f0efed;
+
+// Data visualization palette
+$gsk-yellow: #f7c650;
+$gsk-teal: #66a73d;
+$gsk-green: #21837e;
+$gsk-blue: #154ec2;
+$gsk-violet: #7540ee;
+$gsk-purple: #ca305b;
+$gsk-apricot: #fbd1c2;
+
+// Font
+$font-color-default: $gsk-primary;
+$font-size-default: 16px;
+
+//
+//  █████╗ ██████╗ ██╗   ██╗ █████╗ ███╗   ██╗ ██████╗███████╗██████╗
+// ██╔══██╗██╔══██╗██║   ██║██╔══██╗████╗  ██║██╔════╝██╔════╝██╔══██╗
+// ███████║██║  ██║██║   ██║███████║██╔██╗ ██║██║     █████╗  ██║  ██║
+// ██╔══██║██║  ██║╚██╗ ██╔╝██╔══██║██║╚██╗██║██║     ██╔══╝  ██║  ██║
+// ██║  ██║██████╔╝ ╚████╔╝ ██║  ██║██║ ╚████║╚██████╗███████╗██████╔╝
+// ╚═╝  ╚═╝╚═════╝   ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═════╝
+// Advanced
+
+$font-family-base: "GSK Precision", Arial;
+$font-family-light: "GSK Precision Light", Arial;
+$font-family-bold: "GSK Precision Bold", Arial;
+
+@font-face {
+  font-family: "GSK Precision";
+  src: url("/fonts/GSKPrecision-Regular.woff"),
+    url("/fonts/GSKPrecision-Regular.woff2"),
+    url("/fonts/GSKPrecision-RegularItalic.woff"),
+    url("/fonts/GSKPrecision-RegularItalic.woff2");
+}
+@font-face {
+  font-family: "GSK Precision Light";
+  src: url("/fonts/GSKPrecision-Light.woff"),
+    url("/fonts/GSKPrecision-Light.woff2"),
+    url("/fonts/GSKPrecision-LightItalic.woff"),
+    url("/fonts/GSKPrecision-LightItalic.woff2");
+}
+@font-face {
+  font-family: "GSK Precision Bold";
+  src: url("/fonts/GSKPrecision-Bold.woff"),
+    url("/fonts/GSKPrecision-Bold.woff2"),
+    url("/fonts/GSKPrecision-BoldItalic.woff"),
+    url("/fonts/GSKPrecision-BoldItalic.woff2");
+}
+
+// Font Sizes
+$font-size-verylarge: 24px;
+$font-size-large: 18px;
+$font-size-medium: 14px;
+$font-size-small: 12px;
+$font-size-verysmall: 10px;
+
+// Font Weights
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Font Size Headers
+$font-size-h1: 36px;
+$font-size-h2: 28px;
+$font-size-h3: 22px;
+$font-size-h4: 20px;
+$font-size-h5: 18px;
+$font-size-h6: $font-size-default;
+
+// Font Weight Headers
+$font-weight-header: null;
+
+// Line Height
+$line-height-base: 1.428571429;
+
+// Text Colors
+$font-color-detail: $gsk-primary-light;
+$font-color-white: $gsk-background;
+
+// Global Border Color
+$border-color-default: $gsk-border;
+$border-radius-default: 4px;
+
+// Spacing
+$font-header-margin: 0 0 8px 0;
+
+$spacing-smallest: 2px;
+$spacing-smaller: 4px;
+$spacing-small: 8px;
+
+$spacing-medium: 16px;
+$t-spacing-medium: 16px;
+$m-spacing-medium: 16px;
+
+$spacing-large: 24px;
+$t-spacing-large: 24px;
+$m-spacing-large: 16px;
+
+$spacing-larger: 32px;
+
+// Largest spacing
+$spacing-largest: 48px;

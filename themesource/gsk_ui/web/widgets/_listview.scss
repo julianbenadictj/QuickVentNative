@@ -1,0 +1,133 @@
+.mx-listview {
+  .selected {
+    // border-bottom: 1px solid $listview-selected-border-color !important;
+    background: $listview-selected-background-color !important;
+
+    &:hover {
+      background: $listview-selected-hover-background-color !important;
+    }
+  }
+
+  ul {
+    li {
+      border-top: none !important;
+      border-bottom: 1px solid $listview-border-color;
+      &.active, &:active, &:focus {        
+        background-color: $listview-status-background-color !important;
+      }
+
+      &:hover {
+        background-color: $listview-hover-background-color !important;
+      }
+
+      &.active:hover,
+      &:active:hover {
+        background-color: $listview-active-hover-background-color !important;
+      }
+
+      a.mx-link {
+        background-image: $listview-link-icon;
+        height: 20px;
+        width: 20px;
+
+        span.glyphicon-menu-right {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.mx-listview-selectable {
+    ul {
+      li {
+        .mx-listview-selection {
+          padding: 5px 15px 0 5px;
+
+          input[type="radio"] {
+            width: 18px;
+            height: 18px;
+
+            &::before {
+              border-width: 2px;
+              border-color: $listview-selectable-input-border-color;
+            }
+
+            &:checked {
+              &::before {
+                border-color: $listview-selectable-checked-border-color;
+              }
+
+              &::after {
+                background-color: $listview-selectable-checked-background-color;
+              }
+            }
+
+            &.disabled,
+            &:disabled,
+            &[disabled] {
+              &::before {
+                border: none;
+                background-color: $listview-selectable-disabled-background-color;
+              }
+            }
+
+            &:focus {
+              outline-color: $listview-selectable-focus-outline-color;
+            }
+          }
+        }
+
+        &:first-child {
+          border-top: none;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &.selected {
+          background-color: $listview-selectable-selected-background-color;
+        }
+      }
+    }
+  }
+}
+
+//Custom CSS class for Comments
+.list-view--comments {
+  margin: 0;
+
+  .list-view--comments__comment {
+    border-bottom: 1px solid $listview-comments-border-color;
+    padding: 16px 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    .list-view--comments__comment__name {
+      color: $listview-comments-font-color;
+    }
+
+    .list-view--comments__comment__date {
+      font-style: $listview-comments-font-style;
+    }
+  }
+}
+
+.masterdetail-vertical
+{
+  .masterdetail-master
+  {
+    border-bottom: none;
+  }
+}
+.masterdetail-detail
+{
+  .mx-dataview
+  {
+    .mx-dataview-content{
+      border-bottom: 1px solid $listview-comments-border-color;
+    }
+  }
+}

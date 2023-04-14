@@ -1,0 +1,33 @@
+.has-focus input,
+.has-focus textarea,
+.has-focus select {
+  border-color: $input-hasfocus-border-color !important;
+}
+
+.form-control {
+  box-sizing: border-box;
+  padding: 8px;
+  border: 1px solid $input-border-color;
+  border-radius: calc(#{$border-radius-default} * 2);
+  background-color: $input-background-color;
+  color: $input-font-color;
+  font-size: $input-font-size;
+
+  &::placeholder,
+  &::-webkit-input-placeholder {
+    color: $input-placeholder-font-color;
+    font-style: $input-placeholder-font-style;
+  }
+  &:active,
+  &:focus,
+  &:not([readonly]):focus {
+    border-color: $input-status-border-color;
+    // box-shadow: 0px 0px 0px 0.3px $brand-black;
+  }
+  &.disabled,
+  &:disabled,
+  &[disabled] {
+    // border-color: $gray-primary;
+    background-color: $input-disabled-background-color;
+  }
+}

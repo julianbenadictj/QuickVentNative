@@ -1,0 +1,37 @@
+.mx-link,a,a:hover,a:focus 
+{
+  color: $link-font-color;
+  &.link-back:before 
+  {
+    content: "";
+    background: $link-back-icon no-repeat;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 3px 0 0 0;
+    position: absolute;
+    margin-left: -20px;
+  }
+  &.link-back 
+  {
+    margin-left:20px;
+    .glyphicon
+    {
+      display: none;
+    }
+  }
+}
+
+.mx-listview {
+  a,
+  a:hover,
+  a:focus {
+    color: $link-listview-font-color;
+  }
+}
+
+.mx-link,
+.mx-link:hover,
+.mx-link:focus {
+  text-decoration: $link-textdecoration;
+}

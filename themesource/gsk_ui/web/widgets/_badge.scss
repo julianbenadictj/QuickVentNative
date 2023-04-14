@@ -1,0 +1,36 @@
+/*
+	==========================================================================
+	* Badge - Default and variants
+	==========================================================================
+*/
+
+.widget-badge.badge {
+  padding: 2px 8px;
+  border-radius: 20px;
+  min-width: 50px;
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  line-height: 20px;
+  background-color: $badge-background-color;
+
+  &.label-secondary {
+    background-color: $badge-secondary-background-color;
+    color: $badge-secondary-font-color;
+  }
+
+  &.label-success {
+    background-color: $badge-success-background-color;
+  }
+
+  &.label-warning {
+    background-color: $badge-warning-background-color;
+  }
+
+  &.label-danger {
+    background-color: $badge-danger-background-color;
+  }
+}
+
+.widget-badge {
+  background-color: $badge-widget-background-color;
+}

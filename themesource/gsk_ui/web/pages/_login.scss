@@ -1,0 +1,117 @@
+.region-topbar + .region-content {
+  .auxiliary-class:has(.loginpage) {
+    padding: 0;
+    margin: 0;
+
+    .loginpage {
+      height: calc(100vh - 68px);
+    }
+  }
+}
+
+.loginpage {
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+
+  .loginpage-left {
+    flex: 0;
+    flex-basis: 55vw;
+    position: relative;
+    top: -1px;
+    height: 102%;
+    // display: block;
+
+    // Show only on wide screens
+    @media screen and (min-width: $login-desktop-size) {
+      // Image and clipping mask
+      .loginpage-image {
+        position: relative;
+        background-image: $login-image;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation: none;
+        clip-path: none;
+        -webkit-clip-path: none;
+        // height: 100%;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: -1px;
+          width: 62px;
+          height: 101vh;
+          background-image: $login-icon;
+          background-position: center;
+        }
+      }
+    }
+  }
+
+  .loginpage-right {
+    flex: 0;
+    flex-grow: 1;
+    .loginpage-formwrapper {
+      text-align: center;
+
+      .login_appname {
+        display: block;
+        margin-bottom: 16px;
+        font-size: $login-appname-font-size;
+        color: $login-appname-font-color;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: left;
+      }
+
+      .login-heading,
+      #loginHeader,
+      h2 {
+        margin-bottom: 32px;
+        text-align: left;
+      }
+
+      .login-input,
+      .form-groupLogin {
+        align-items: flex-start;
+        margin-bottom: 16px;
+
+        label {
+          margin-bottom: 10px;
+          font-weight: 700;
+          text-align: left;
+        }
+
+        input {
+          border-radius: 8px;
+          border-color: $login-header-input-border-color;
+          width: 100%;
+        }
+      }
+
+      .btn:not(a.btn),
+      .btn.btn-primary,
+      .login-btn,
+      #loginButton {
+        border-radius: 8px;
+        margin: 16px 0;
+        width: 100%;
+      }
+
+      #loginButton,
+      .mx-name-signInButton1 {
+        background-color: $login-loginbutton-background-color !important;
+        color: $login-loginbutton-font-color !important;
+      }
+    }
+  }
+}
+
+.loginpage-logo {
+  img {
+    width: 130px;
+    height: auto !important;
+  }
+}

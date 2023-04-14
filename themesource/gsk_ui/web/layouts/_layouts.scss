@@ -1,0 +1,60 @@
+/*
+    ==========================================================================
+    * Layouts
+    ==========================================================================
+*/
+
+.overwrite-class {
+  .mx-scrollcontainer {
+    left: 0 !important;
+
+    .mx-scrollcontainer-wrapper {
+      overflow: inherit !important;
+    }
+  }
+}
+
+.auxiliary-class {
+  min-height: calc(100% - 152px);
+
+  &.full-width {
+    width: 100%;
+    max-width: 100%;
+
+    *:is(div):not(
+        .mx-grid-pagingbar,
+        .mx-grid-searchbar *:is(div),
+        .paging-status,
+        .fixed-footer,
+        .mx-listview,
+        .fixed-footer *:is(div)
+      ) {
+      // padding-right: 0 !important;
+      // padding-left: 0 !important;
+      // width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  gap: 4px;
+  padding: 16px 20px;
+  margin-top: 100px;
+  height: 52px;
+  background-color: $layout-footer-background-color;
+  font-size: $layout-footer-font-size;
+  line-height: 20px;
+  color: $layout-footer-font-color;
+
+  .app-version {
+    &.widget-badge {
+      padding: 0;
+      font-size: $layout-footer-appversion-font-size;
+      font-weight: $layout-footer-appversion-font-weight;
+      line-height: 20px;
+      background-color: $layout-footer-appversion-background-color;
+    }
+  }
+}

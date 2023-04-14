@@ -1,0 +1,207 @@
+.widget-accordion {
+  $border-radius: 8px;
+
+  .widget-accordion-group {
+    border: 1px solid;
+    border-color: $accordion-group-border-color;
+    overflow: hidden;
+
+    &:first-child {
+      border-top-left-radius: $border-radius !important;
+      border-top-right-radius: $border-radius !important;
+
+      &:not(&:only-child) {
+        border-bottom: none;
+      }
+    }
+
+    &:last-child {
+      border-bottom-left-radius: $border-radius !important;
+      border-bottom-right-radius: $border-radius !important;
+    }
+
+    .widget-accordion-group-header {
+      .widget-accordion-group-header-button {
+        padding: 10px 16px !important;
+        background-color: $accordion-header-background-color;
+
+        :is(h1, h2, h3, h4, h5, h6) {
+          font-size: 16px !important;
+          font-weight: 700 !important;
+          line-height: 22px !important;
+          color: $accordion-header-font-color !important;
+        }
+
+        @include hfv-states() {
+          background-color: $accordion-status-background-color !important;
+
+          :is(h1, h2, h3, h4, h5) {
+            color: $accordion-status-font-color !important;
+          }
+
+          svg {
+            fill: $accordion-status-arrow-color !important;
+          }
+        }
+      }
+    }
+
+    .widget-accordion-group-content-wrapper {
+      .widget-accordion-group-content {
+        padding: 16px !important;
+      }
+    }
+
+    &.widget-accordion-brand-primary {
+      border-color: $accordion-group-primary-border-color !important;
+
+      .widget-accordion-group-header {
+        .widget-accordion-group-header-button {
+          background-color: $accordion-primary-header-background-color;
+
+          :is(h1, h2, h3, h4, h5, h6) {
+            color: $accordion-primary-header-font-color !important;
+          }
+
+          @include hfv-states() {
+            background-color: $accordion-primary-status-background-color !important;
+
+            :is(h1, h2, h3, h4, h5) {
+              color: $accordion-primary-header-font-color !important;
+            }
+
+            svg {
+              fill: $accordion-primary-status-arrow-color !important;
+            }
+          }
+        }
+      }
+    }
+
+    &.widget-accordion-brand-secondary {
+      border-color: $accordion-group-secondary-border-color !important;
+
+      .widget-accordion-group-header {
+        .widget-accordion-group-header-button {
+          background-color: $accordion-secondary-header-background-color;
+
+          @include hfv-states() {
+            background-color: $accordion-secondary-status-background-color !important;
+          }
+        }
+      }
+    }
+
+    &.widget-accordion-brand-success {
+      border-color: $accordion-group-success-border-color !important;
+
+      .widget-accordion-group-header {
+        .widget-accordion-group-header-button {
+          background-color: $accordion-success-header-background-color;
+
+          :is(h1, h2, h3, h4, h5, h6) {
+            color: $accordion-success-header-font-color !important;
+          }
+
+          @include hfv-states() {
+            background-color: $accordion-success-status-background-color !important;
+
+            :is(h1, h2, h3, h4, h5, h6) {
+              color: $accordion-success-header-font-color !important;
+            }
+
+            svg {
+              fill: $accordion-success-status-arrow-color !important;
+            }
+          }
+        }
+      }
+    }
+
+    &.widget-accordion-brand-warning {
+      border-color: $accordion-group-warning-border-color !important;
+
+      .widget-accordion-group-header {
+        .widget-accordion-group-header-button {
+          background-color: $accordion-warning-header-background-color;
+
+          @include hfv-states() {
+            background-color: $accordion-warning-status-background-color !important;
+          }
+        }
+      }
+    }
+
+    &.widget-accordion-brand-danger {
+      border-color: $accordion-group-danger-border-color !important;
+
+      .widget-accordion-group-header {
+        .widget-accordion-group-header-button {
+          background-color: $accordion-danger-header-background-color;
+
+          :is(h1, h2, h3, h4, h5, h6) {
+            color: $accordion-danger-header-font-color !important;
+          }
+
+          @include hfv-states() {
+            background-color: $accordion-danger-status-background-color !important;
+
+            :is(h1, h2, h3, h4, h5, h6) {
+              color: $accordion-danger-header-font-color !important;
+            }
+
+            svg {
+              fill: $accordion-danger-status-arrow-color !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.widget-accordion-bordered-none {
+    .widget-accordion-group {
+      border: none;
+    }
+  }
+
+  &.widget-accordion-striped {
+    .widget-accordion-group {
+      border: none;
+      border-bottom: 1px solid $accordion-stripped-border-color !important;
+      border-radius: 0 !important;
+
+      .widget-accordion-group-header-button {
+        @include hfv-states() {
+          :is(h1, h2, h3, h4, h5) {
+            color: $accordion-stripped-header-status-font-color !important;
+          }
+
+          svg {
+            fill: $accordion-stripped-header-status-arrow-color !important;
+          }
+        }
+      }
+
+      &:not(.widget-accordion-group-collapsed) {
+        .widget-accordion-group-header {
+          .widget-accordion-group-header-button {
+            background-color: $accordion-stripped-header-background-color !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.widget-accordion-bordered-horizontal {
+    .widget-accordion-group {
+      border: none;
+      border-bottom: 1px solid;
+      border-radius: 0 !important;
+
+      &:first-child {
+        border-top-style: none;
+      }
+    }
+  }
+}

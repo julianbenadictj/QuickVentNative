@@ -1,0 +1,387 @@
+.btn,
+.mx-button {
+  box-sizing: border-box;
+  padding: 9px 16px;
+  border: 1px solid $button-border-color;
+  border-radius: 8px;
+  height: 40px;
+  min-width: 77px;
+  background-color: $button-background-color;
+  color: $button-font-color;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:active,
+  &.active,
+  &:focus {
+    border-color: $button-status-border-color;
+    box-shadow: 0px 0px 0px 1px $button-status-boxshadow-color;
+    background-color: $button-status-background-color;
+    color: $button-status-font-color;
+  }
+
+  &.disabled,
+  &[disabled],
+  &[aria-disabled]
+   {
+    border-color: $button-disabled-border-color;
+    color: $button-disabled-font-color;
+  }
+
+  &.btn-secondary,
+  &.btn-default:not(.btn-toggle-tabs):not(.mx-link):not(.btn-primary):not(
+      .btn-success
+    ):not(.btn-danger):not(.mx-grid-reset-button):not(.btn-warning):not(.btn-link):not(
+      button[class*="mx-name-searchButton"]
+    ):not(button[text="Cancel"]) 
+    {
+      border: 1px solid $button-border-color;
+      box-sizing: border-box;
+      background-color: $button-background-color;
+      color: $button-font-color;
+
+      &:hover,
+      &:active,
+      &.active,
+      &:focus {
+        box-shadow: 0px 0px 0px 1px $button-status-boxshadow-color;
+      }
+
+      &.disabled,
+      &[disabled],
+      &[aria-disabled] {
+        border-color: $button-disabled-border-color;
+        color: $button-disabled-font-color;
+      }
+      &.btn-bordered {
+        border: 1px solid $button-border-color;
+        background-color: $button-background-color;
+        color: $button-font-color;
+
+        &:hover:not(.toggle-btn),
+        &:focus:not(.toggle-btn),
+        &:active:not(.toggle-btn) {
+          background-color: $button-background-color;
+          color: $button-font-color;
+          box-shadow: 0px 0px 0px 1px $button-status-boxshadow-color;
+        }
+
+        &.disabled,
+        &[disabled],
+      &[aria-disabled] {
+          border-color: $button-disabled-border-color;
+          color: $button-disabled-font-color;
+        }
+      }
+  }
+
+  &.btn-primary {
+    border: 1px solid $button-primary-border-color;
+    background-color: $button-primary-background-color;
+    color: $button-primary-font-color;
+
+    &:hover:not(.toggle-btn),
+    &:focus:not(.toggle-btn),
+    &:active:not(.toggle-btn) {
+      border: 1px solid $button-primary-status-border-color;
+      box-shadow: 0px 0px 0px 2px $button-primary-status-boxshadow-color;
+      background-color: $button-primary-status-background-color;
+      color: $button-primary-status-font-color;
+    }
+
+    &.disabled,
+    &[disabled],
+      &[aria-disabled] {
+      border-color: $button-primary-disabled-border-color;
+      background-color: $button-primary-disabled-background-color;
+      color: $button-primary-disabled-font-color;
+    }
+
+    &.btn-bordered {
+      border: 1px solid $button-primary-bordered-border-color;
+      background-color: $button-primary-bordered-background-color;
+      color: $button-primary-bordered-font-color;
+
+      &:hover:not(.toggle-btn),
+      &:focus:not(.toggle-btn),
+      &:active:not(.toggle-btn) {
+        background-color: $button-primary-bordered-status-border-color;
+        color: $button-primary-bordered-status-font-color;
+        box-shadow: 0px 0px 0px 1px
+          $button-primary-bordered-status-boxshadow-color;
+      }
+
+      &.disabled,
+      &[disabled] ,
+      &[aria-disabled]{
+        border-color: $button-primary-bordered-border-color;
+        color: $button-primary-bordered-font-color;
+      }
+    }
+  }
+
+  &.btn-success {
+    border: 1px solid $button-success-border-color;
+    background-color: $button-success-background-color;
+    color: $button-success-font-color;
+
+    &:hover:not(.toggle-btn),
+    &:focus:not(.toggle-btn),
+    &:active:not(.toggle-btn) {
+      border: 1px solid $button-success-status-border-color;
+      box-shadow: 0px 0px 0px 2px $button-success-status-boxshadow-color;
+      background-color: $button-success-status-background-color;
+      color: $button-success-status-font-color;
+    }
+
+    &.disabled,
+    &[disabled],
+      &[aria-disabled] {
+      border-color: $button-success-disabled-border-color;
+      background-color: $button-success-disabled-background-color;
+      color: $button-success-disabled-font-color;
+    }
+
+    &.btn-bordered {
+      border: 1px solid $button-success-bordered-border-color;
+      background-color: $button-success-bordered-background-color;
+      color: $button-success-bordered-font-color;
+
+      &:hover:not(.toggle-btn),
+      &:focus:not(.toggle-btn),
+      &:active:not(.toggle-btn) {
+        background-color: $button-success-bordered-status-border-color;
+        color: $button-success-bordered-status-font-color;
+        box-shadow: 0px 0px 0px 1px
+          $button-success-bordered-status-boxshadow-color;
+      }
+
+      &.disabled,
+      &[disabled],
+      &[aria-disabled] {
+        border-color: $button-success-bordered-disabled-border-color;
+        color: $button-success-bordered-disabled-font-color;
+      }
+    }
+  }
+
+  &.btn-danger {
+    border: 1px solid $button-danger-border-color;
+    background-color: $button-danger-background-color;
+    color: $button-danger-font-color;
+
+    &:hover:not(.toggle-btn),
+    &:focus:not(.toggle-btn),
+    &:active:not(.toggle-btn) {
+      border: 1px solid $button-danger-status-border-color;
+      box-shadow: 0px 0px 0px 2px $button-danger-status-boxshadow-color;
+      background-color: $button-danger-status-background-color;
+      color: $button-danger-status-font-color;
+    }
+
+    &.disabled,
+    &[disabled],
+      &[aria-disabled] {
+      border-color: $button-danger-disabled-border-color;
+      background-color: $button-danger-disabled-background-color;
+      color: $button-danger-disabled-font-color;
+    }
+
+    &.btn-bordered {
+      border: 1px solid $button-danger-bordered-border-color;
+      background-color: $button-danger-bordered-background-color;
+      color: $button-danger-bordered-font-color;
+
+      &:hover:not(.toggle-btn),
+      &:focus:not(.toggle-btn),
+      &:active:not(.toggle-btn) {
+        background-color: $button-danger-bordered-status-border-color;
+        color: $button-danger-bordered-status-font-color;
+        box-shadow: 0px 0px 0px 1px
+          $button-danger-bordered-status-boxshadow-color;
+      }
+
+      &.disabled,
+      &[disabled],
+      &[aria-disabled] {
+        border-color: $button-danger-bordered-disabled-border-color;
+        color: $button-danger-bordered-disabled-font-color;
+      }
+    }
+  }
+
+  &.btn-warning {
+    background-color: $button-warning-background-color;
+    border: 1px solid $button-warning-border-color;
+    color: $button-warning-font-color;
+
+    &:hover:not(.toggle-btn),
+    &:focus:not(.toggle-btn),
+    &:active:not(.toggle-btn) {
+      border: 1px solid $button-warning-status-border-color;
+      box-shadow: 0px 0px 0px 2px $button-warning-status-boxshadow-color;
+      background-color: $button-warning-status-background-color;
+      color: $button-warning-status-font-color;
+    }
+
+    &.disabled,
+    &[disabled],
+      &[aria-disabled] {
+      border-color: $button-warning-disabled-border-color;
+      background-color: $button-warning-disabled-background-color;
+      color: $button-warning-disabled-font-color;
+    }
+
+    &.btn-bordered {
+      border: 1px solid $button-warning-bordered-border-color;
+      background-color: $button-warning-bordered-background-color;
+      color: $button-warning-bordered-font-color;
+
+      &:hover:not(.toggle-btn),
+      &:focus:not(.toggle-btn),
+      &:active:not(.toggle-btn) {
+        background-color: $button-warning-bordered-status-background-color;
+        box-shadow: 0px 0px 0px 1px
+          $button-warning-bordered-status-boxshadow-color;
+      }
+
+      &.disabled,
+      &[disabled],
+      &[aria-disabled] {
+        border-color: $button-warning-bordered-disabled-border-color;
+        color: $button-warning-bordered-disabled-font-color;
+      }
+    }
+  }
+  // Button as link
+  &.btn-link,
+  &.mx-grid-reset-button,
+  &.mx-link {
+    padding: 0;
+    border: none !important;
+    border-bottom: 1px solid $button-link-border-color !important;
+    border-radius: 0;
+    min-width: 0;
+    height: 30px;
+    font-style: $button-link-font-style;
+    font-weight: $button-link-font-weight;
+    background-color: $button-link-background-color;
+    color: $button-link-font-color;
+    text-decoration: none !important;
+
+    &:hover,
+    &:active,
+    &.active,
+    &:focus {
+      box-shadow: 0px 1px 0px 0px $button-link-status-boxshadow-style;
+    }
+
+    &.disabled,
+    &[disabled],
+      &[aria-disabled] {
+      opacity: 0.12;
+    }
+  }
+
+  &.toggle-btn {
+    padding: 0;
+    border-color: $button-link-togglebutton-border-color;
+    border-radius: 0;
+    background-color: $button-link-togglebutton-background-color;
+    min-width: 35px !important;
+    left: 8px;
+
+    &:hover,
+    &:focus {
+      background-color: $button-link-togglebutton-status-background-color !important;
+    }
+
+    &.disabled,
+    &[disabled],
+      &[aria-disabled] {
+      background-color: $button-link-togglebutton-disabled-background-color;
+      color: $button-link-togglebutton-disabled-font-color;
+    }
+  }
+
+  &.btn-calendar {
+    width: auto;
+  }
+  & + .mx-button {
+    margin-left: 16px;
+  }
+
+  .glyphicon {
+    vertical-align: text-bottom;
+    font-size: $button-link-glyphicon-font-size;
+  }
+  &.btn-sm {
+    font-size: $button-small-font-size;
+  }
+  &.btn-lg {
+    font-size: $button-large-font-size;
+    padding: 6px 8px 6px 8px;
+    &.widget-badge-button {
+      padding: 8px 8px 8px 16px;
+    }
+    .badge {
+      padding: 5px 6px;
+      top: 1px;
+    }
+  }
+}
+
+.btn-group {
+  .btn-block {
+    width: auto;
+  }
+
+  .btn {
+    border: none !important;
+    background-color: $button-group-background-color !important;
+    color: $button-group-font-color !important;
+
+    & + .btn {
+      margin-left: 0;
+    }
+
+    &:hover {
+      background-color: $button-group-hover-background-color !important;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $button-group-status-background-color !important;
+      color: $button-group-status-font-color !important;
+    }
+  }
+}
+
+/* Dropdown container with Elipsis*/
+
+.dropdowncontainer-options {
+  .btn {
+    .caret {
+      display: none;
+    }
+    .glyphicon {
+      margin-right: 0;
+    }
+  }
+
+  .dropdown-menu {
+    top: 110%;
+    right: 5%;
+    left: auto;
+  }
+}

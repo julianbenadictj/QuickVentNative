@@ -1,0 +1,30 @@
+.avatar {
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  // background-color: $avatar-background-color;
+  overflow: hidden;
+
+  &.avatar--small {
+    width: 24px;
+    height: 24px;
+
+    p {
+      font-size: $avatar-small-font-size;
+      line-height: 24px;
+    }
+  }
+
+  p {
+    font-size: $avatar-font-size;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 40px;
+    color: $avatar-font-color;
+  }
+
+  img {
+    overflow: hidden;
+  }
+}

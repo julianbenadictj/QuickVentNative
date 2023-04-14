@@ -1,0 +1,83 @@
+/*
+	==========================================================================
+	* Base
+	==========================================================================
+*/
+
+body {
+  background-color: $base-background-color;
+  overflow-y: hidden;
+  ::-moz-selection {
+    /* Code for Firefox */
+    background: rgba($base-selection-background-color, 0.1);
+  }
+  ::selection {
+    background: rgba($base-selection-background-color, 0.1);
+  }
+  @media screen and (min-width: $xxl) {
+    .container,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl {
+      max-width: 1440px;
+    }
+    .mx-scrollcontainer .mx-placeholder .mx-layoutgrid,
+    .mx-scrollcontainer .mx-placeholder .mx-layoutgrid-fluid {
+      max-width: 1440px;
+      padding: 24px;
+    }
+  }
+}
+
+.mx-scrollcontainer-wrapper::-webkit-scrollbar-track,
+div::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: $base-scrollbar-track-background-color;
+}
+
+.mx-scrollcontainer-wrapper::-webkit-scrollbar,
+div::-webkit-scrollbar {
+  width: 12px;
+  background-color: $base-scrollbar-track-background-color;
+  border-radius: 10px;
+}
+.mx-scrollcontainer-wrapper::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $base-scrollbar-thumb-background-color;
+}
+.mx-scrollcontainer-wrapper::-webkit-scrollbar-thumb:hover,
+div::-webkit-scrollbar-thumb:hover {
+  background-color: $base-scrollbar-thumb-hover-background-color;
+  cursor: pointer;
+}
+
+.dropdown-options::-webkit-scrollbar,
+div::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mx-demouserswitcher-content {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.mx-dataview-controls {
+  text-align: right;
+  border-color: $base-dataview-controls-border-color;
+  padding: 24px 0 0;
+  margin-top: 0;
+}
+
+.brandColorText {
+  a,
+  a:hover,
+  a:focus {
+    color: $base-brandcolortext-font-color;
+  }
+}
+.dropdown-options::-webkit-scrollbar,
+div::-webkit-scrollbar {
+  width: 8px;
+}

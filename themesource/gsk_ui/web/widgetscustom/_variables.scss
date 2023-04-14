@@ -1,0 +1,31 @@
+//
+//  ██████╗██╗   ██╗███████╗████████╗ ██████╗ ███╗   ███╗
+// ██╔════╝██║   ██║██╔════╝╚══██╔══╝██╔═══██╗████╗ ████║
+// ██║     ██║   ██║███████╗   ██║   ██║   ██║██╔████╔██║
+// ██║     ██║   ██║╚════██║   ██║   ██║   ██║██║╚██╔╝██║
+// ╚██████╗╚██████╔╝███████║   ██║   ╚██████╔╝██║ ╚═╝ ██║
+//  ╚═════╝ ╚═════╝ ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝
+// Custom widgets
+
+//
+// ====== tri-state switch
+//
+$tristateswitch-primary-default-border-color: $gsk-apricot;
+$tristateswitch-primary-default-background-color: $gsk-apricot;
+$tristateswitch-primary-on-border-color: $gsk-secondary;
+$tristateswitch-primary-on-background-color: $gsk-secondary;
+
+$tristateswitch-success-default-border-color: $gsk-success-light;
+$tristateswitch-success-default-background-color: $gsk-success-light;
+$tristateswitch-success-on-border-color: $gsk-success;
+$tristateswitch-success-on-background-color: $gsk-success;
+
+$tristateswitch-warning-default-border-color: $gsk-warning-light;
+$tristateswitch-warning-default-background-color: $gsk-warning-light;
+$tristateswitch-warning-on-border-color: $gsk-warning;
+$tristateswitch-warning-on-background-color: $gsk-warning;
+
+$tristateswitch-danger-default-border-color: $gsk-error-light;
+$tristateswitch-danger-default-background-color: $gsk-error-light;
+$tristateswitch-danger-on-border-color: $gsk-error;
+$tristateswitch-danger-on-background-color: $gsk-error;

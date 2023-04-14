@@ -1,0 +1,45 @@
+.mx-listview,
+.listitem {
+  .row {
+    padding: 0 16px;
+  }
+
+  div {
+    padding: 0;
+
+    .img-circle {
+      margin-right: 8px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  h4 {
+    font-family: $listitem-title-font-family !important;
+    font-size: $listitem-title-font-size;
+    font-weight: $listitem-title-font-weight;
+    line-height: 24px;
+  }
+
+  p {
+    font-size: $listitem-secondarytext-font-size;
+    line-height: 20px;
+    color: $listitem-secondarytext-font-color;
+  }
+
+  a {
+    width: 20px;
+    height: 20px;
+    background-image: $listitem-action-icon;
+
+    span.glyphicon-menu-right {
+      display: none;
+    }
+  }
+
+  &.card {
+    &:hover {
+      background-color: #fef4f0;
+    }
+  }
+}

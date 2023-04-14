@@ -1,0 +1,27 @@
+//
+// ██╗     ███████╗ ██████╗  █████╗  ██████╗██╗   ██╗
+// ██║     ██╔════╝██╔════╝ ██╔══██╗██╔════╝╚██╗ ██╔╝
+// ██║     █████╗  ██║  ███╗███████║██║      ╚████╔╝
+// ██║     ██╔══╝  ██║   ██║██╔══██║██║       ╚██╔╝
+// ███████╗███████╗╚██████╔╝██║  ██║╚██████╗   ██║
+// ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝   ╚═╝
+// Legacy
+
+//
+// ====== mendix ui (demo user switcher)
+//
+$demouserswitcher-anchor-border-color: $gsk-border;
+$demouserswitcher-anchor-hover-background-color: $gsk-primary;
+$demouserswitcher-anchor-heading-font-color: $font-color-white;
+$demouserswitcher-anchor-heading-font-weight: $font-weight-bold;
+$demouserswitcher-anchor-paragraph-font-color: $font-color-white;
+$demouserswitcher-anchor-paragraph-font-size: $font-size-medium;
+
+$demouserswitcher-heading-font-color: $gsk-secondary;
+$demouserswitcher-heading-font-size: $font-size-h1;
+$demouserswitcher-heading-font-weight: $font-weight-light;
+$demouserswitcher-paragraph-font-color: $font-color-white;
+
+$demouserswitcher-content-background-color: $gsk-primary;
+$demouserswitcher-toggle-background-color: $gsk-primary;
+$demouserswitcher-toggle-background-icon: url("./assets/user-role.svg");

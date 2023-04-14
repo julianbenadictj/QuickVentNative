@@ -1,0 +1,178 @@
+/*
+	==========================================================================
+	* Typography - The default rules for mendix typography
+	==========================================================================
+*/
+
+//-- Main body
+html,
+body {
+  font-size: $typography-default-font-size;
+  line-height: $line-height-base;
+  color: $typography-default-font-color;
+  font-family: $typography-default-font-family !important;
+}
+
+h1,
+h2,.modal-header h4 {
+  font-family: $typography-heading-primary-secondary-font-family !important;
+}
+
+h4,
+h5,
+h6 {
+  font-family: $typography-heading-others-font-family !important;
+}
+
+//-- Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.mx-title {
+  font-weight: $typography-heading-font-weight;
+}
+
+h1,
+.h1,
+.mx-title {
+  line-height: 1.25;
+  font-size: $typography-h1-font-size;
+  color: $typography-heading-primary-font-color;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  line-height: 1.5;
+  color: $typography-heading-others-font-color;
+}
+
+h2,
+.h2 {
+  font-size: $typography-h2-font-size;
+}
+
+h3,
+.h3 {
+  font-size: $typography-h3-font-size;
+  font-weight: $typography-heading-normal-font-weight;
+}
+
+h4,
+.h4 {
+  font-size: $typography-h4-font-size;
+  font-weight: $typography-heading-bold-font-weight;
+}
+
+h5,
+.h5 {
+  font-size: $typography-h5-font-size;
+  font-weight: $typography-heading-bold-font-weight;
+}
+
+h6,
+.h6 {
+  font-size: $typography-h6-font-size;
+  font-weight: $typography-heading-bold-font-weight;
+}
+
+p {
+  font-size: $typography-p-font-size;
+  //color: $font-color-detail !important;
+}
+
+label {
+  display: block;
+}
+
+a {
+  color: $typography-anchor-font-color;
+
+  &.anchor--external {
+    &::after {
+      background: url(./assets/icon-external.png) no-repeat;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      height: 8px;
+      margin-left: 3px;
+      position: relative;
+      top: -0.35em;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+      width: 8px;
+    }
+
+    &:hover::after {
+      margin-left: 6px;
+      top: -0.5em;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $typography-anchor-status-font-color;
+  }
+}
+
+// Color variations
+.text-secondary,
+.text-secondary:hover,
+.text-default,
+.text-default:hover {
+  color: $typography-textsecondary-font-color !important;
+}
+
+.text-primary,
+.text-primary:hover {
+  color: $typography-textprimary-font-color !important;
+}
+
+.text-info,
+.text-info:hover {
+  color: $typography-textinfo-font-color !important;
+}
+
+.text-success,
+.text-success:hover {
+  color: $typography-textsuccess-font-color !important;
+}
+
+.text-warning,
+.text-warning:hover {
+  color: $typography-textwarning-font-color !important;
+}
+
+.text-danger,
+.text-danger:hover {
+  color: $typography-textdanger-font-color !important;
+}
+
+.text-header {
+  color: $typography-textheader-font-color !important;
+}
+
+.text-detail {
+  color: $typography-textdetail-font-color !important;
+}
+
+.pageheader-subtitle {
+  color: $typography-pageheadersubtitle-font-color !important;
+}
