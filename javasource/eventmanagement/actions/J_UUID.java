@@ -7,7 +7,7 @@
 // Other code you write will be lost the next time you deploy the project.
 // Special characters, e.g., é, ö, à, etc. are supported in comments.
 
-package myfirstmodule.actions;
+package eventmanagement.actions;
 
 import java.util.UUID;
 import com.mendix.systemwideinterfaces.core.IContext;
