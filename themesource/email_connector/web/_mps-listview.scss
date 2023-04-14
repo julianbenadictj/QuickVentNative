@@ -1,0 +1,17 @@
+.connector-app {
+  .mps-listview {
+    > ul {
+      > li {
+        padding: 0;
+      }
+    }
+
+    &__container {
+      padding: 16px;
+
+      &.selected {
+        background-color: var(--light-blue);
+      }
+    }
+  }
+}

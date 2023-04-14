@@ -1,0 +1,54 @@
+:root {
+  --text1: #0a1325;
+  --text2: #6c717c;
+  --border: #ced0d3;
+  --primary: #264ae5;
+  --primary-hover: #1e3bb7;
+  --success: #258c27;
+  --light-blue: #ebefff;
+  --background0: #fff;
+  --background1: #f1f1f1;
+  --background2: #f7f7f7;
+  --background3: #f8f8f8;
+  --button-border: #e7e7e9;
+}
+
+::-webkit-scrollbar {
+  width: 0.75rem;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  transform: translateX(-30px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grey-5);
+  border-radius: 100vw;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  width: 0.75rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0;
+}
+
+::-moz-selection {
+  background: #264ae5 !important;
+  color: #fff !important;
+}
+
+::selection {
+  background: #264ae5 !important;
+  color: #fff !important;
+}
+
+body {
+  font-weight: 400 !important;
+  color: var(--text1) !important;
+  background: var(--background1) !important;
+}
+
+@import 'emailconnector';
+
+@import 'atlas-import/wizard';
