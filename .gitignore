@@ -1,0 +1,68 @@
+
+#
+# The following was added while migrating this app from SVN to Git
+#
+/**/node_modules/
+!/javascriptsource/**/node_modules/
+/*.launch
+/.classpath
+/.mendix-cache/
+/.project
+/deployment/
+/javasource/*/proxies/
+/javasource/system/
+/modeler-merge-marker
+/nativemobile/builds
+/packages/
+/project-settings.user.json
+/releases/
+*.mpr.lock
+*.mpr.bak
+
+# /
+/deployment
+/packages
+/releases
+/modeler-merge-marker
+/.classpath
+/.project
+/.mendix-cache
+/Quickvent.mpr.bak
+/Quickvent.mpr.lock
+/*.launch
+
+# /javasource/
+/javasource/system
+
+# /javasource/administration/
+/javasource/administration/proxies
+
+# /javasource/communitycommons/
+/javasource/communitycommons/proxies
+
+# /javasource/excelimporter/
+/javasource/excelimporter/proxies
+
+# /javasource/gsk_ui/
+/javasource/gsk_ui/proxies
+
+# /javasource/mxmodelreflection/
+/javasource/mxmodelreflection/proxies
+
+# /javasource/myfirstmodule/
+/javasource/myfirstmodule/proxies
+
+# /javasource/nanoflowcommons/
+/javasource/nanoflowcommons/proxies
+
+# /javasource/saml20/
+/javasource/saml20/proxies
+
+# /javasource/usermanagementmodule/
+/javasource/usermanagementmodule/proxies
+
+# /javasource/webactions/
+/javasource/webactions/proxies
+
+# /javasource/xlsreport/
+/javasource/xlsreport/proxies
