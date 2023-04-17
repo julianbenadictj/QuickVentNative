@@ -1,3 +1,4 @@
+@import "../../themesource/gsk_ui/web/_variables.scss";
 @import "custom-variables";
 
 
@@ -24,4 +25,25 @@ border: 1px solid #D5D1CC;
 /* sm */
 box-shadow: 0px 1px 8px rgba(21, 21, 21, 0.16);
 border-radius: 16px;
+}
+
+
+
+.row-success .td {
+    background-color: $gsk-success-light !important;
+}
+
+
+
+
+.row-warning .td {
+    background-color: $gsk-warning-light !important;
+}
+
+
+
+
+
+.row-danger .td {
+    background-color: $gsk-error-light !important;
 }

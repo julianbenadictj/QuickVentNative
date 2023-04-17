@@ -34343,6 +34343,18 @@ table.mx-table.table-lined tbody tr td:not(:last-child), table.mx-table.table-li
   background-color: #e40030;
 }
 
+@font-face {
+  font-family: "GSK Precision";
+  src: url("/fonts/GSKPrecision-Regular.woff"), url("/fonts/GSKPrecision-Regular.woff2"), url("/fonts/GSKPrecision-RegularItalic.woff"), url("/fonts/GSKPrecision-RegularItalic.woff2");
+}
+@font-face {
+  font-family: "GSK Precision Light";
+  src: url("/fonts/GSKPrecision-Light.woff"), url("/fonts/GSKPrecision-Light.woff2"), url("/fonts/GSKPrecision-LightItalic.woff"), url("/fonts/GSKPrecision-LightItalic.woff2");
+}
+@font-face {
+  font-family: "GSK Precision Bold";
+  src: url("/fonts/GSKPrecision-Bold.woff"), url("/fonts/GSKPrecision-Bold.woff2"), url("/fonts/GSKPrecision-BoldItalic.woff"), url("/fonts/GSKPrecision-BoldItalic.woff2");
+}
 .back-btn {
   color: #1d1e20;
   text-decoration: underline;
@@ -34365,6 +34377,18 @@ table.mx-table.table-lined tbody tr td:not(:last-child), table.mx-table.table-li
   /* sm */
   box-shadow: 0px 1px 8px rgba(21, 21, 21, 0.16);
   border-radius: 16px;
+}
+
+.row-success .td {
+  background-color: #e7f3ee !important;
+}
+
+.row-warning .td {
+  background-color: #fdf5dc !important;
+}
+
+.row-danger .td {
+  background-color: #f8e6ea !important;
 }
 
 /*# sourceMappingURL=theme.compiled.css.map */
