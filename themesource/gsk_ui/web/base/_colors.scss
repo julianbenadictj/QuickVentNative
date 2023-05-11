@@ -4,3 +4,34 @@
     ==========================================================================
 */
 
+.background-main {
+  background-color: $colors-background-primary !important;
+}
+
+.background-secondary {
+  background-color: $colors-background-secondary !important;
+}
+
+.background-primary {
+  background-color: $colors-brand-primary !important;
+}
+
+.background-default {
+  background-color: $colors-brand-secondary !important;
+}
+
+.background-success {
+  background-color: $colors-brand-success !important;
+}
+
+.background-warning {
+  background-color: $colors-brand-warning !important;
+}
+
+.background-danger {
+  background-color: $colors-brand-danger !important;
+}
+
+.background-brand-gradient {
+  background-image: $colors-brand-gradient !important;
+}

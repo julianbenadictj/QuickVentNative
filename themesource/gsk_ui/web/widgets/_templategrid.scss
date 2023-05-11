@@ -43,10 +43,20 @@
   {
   .mx-grid-content .mx-templategrid-content-wrapper .mx-templategrid-row
   {
-  .mx-templategrid-item:hover
+    .mx-templategrid-item:not(.selected):hover
     {        
         background-color: $templategrid-hover-background-color !important;        
     } 
   }
+  }
+}
+
+@include dense-layout {
+  .mx-grid.mx-templategrid
+  {
+    .mx-grid-content .mx-templategrid-content-wrapper .mx-templategrid-row .mx-templategrid-item
+    {
+      padding: 4px 16px;
+    }
   }
 }

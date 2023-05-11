@@ -7,18 +7,22 @@
       background: $listview-selected-hover-background-color !important;
     }
   }
+  &:not(.listview-bordered)
+  {
+    ul li {
+      border-top: none !important;    
+    }    
+  }
 
   ul {
     li {
-      border-top: none !important;
       border-bottom: 1px solid $listview-border-color;
+      padding: 16px 8px 16px 16px;
       &.active, &:active, &:focus {        
         background-color: $listview-status-background-color !important;
       }
 
-      &:hover {
-        background-color: $listview-hover-background-color !important;
-      }
+      
 
       &.active:hover,
       &:active:hover {
@@ -35,6 +39,17 @@
         }
       }
     }
+  }
+  &.listview-hover
+  {    
+  ul {
+    li {
+      &:hover 
+      {
+        background-color: $listview-hover-background-color !important;
+      }
+    }
+  }    
   }
 
   &.mx-listview-selectable {
@@ -91,6 +106,12 @@
       }
     }
   }
+  &.listview-striped
+  {
+    ul li:nth-child(even){
+      background-color: $listview-stripped-background-color;
+    }
+  }
 }
 
 //Custom CSS class for Comments
@@ -130,4 +151,38 @@
       border-bottom: 1px solid $listview-comments-border-color;
     }
   }
+}
+
+.listitem
+{
+  padding: 16px 8px 16px 16px !important;
+  background-color: $listitem-background-color;
+  &.active, &:active, &:focus {        
+      background-color: $listitem-status-background-color !important;
+    }
+
+    &:hover {
+      background-color: $listitem-hover-background-color !important;
+    }
+
+    &.active:hover,
+    &:active:hover {
+      background-color: $listitem-active-hover-background-color !important;
+    }
+}
+
+@include dense-layout {
+ .mx-listview {
+   ul li{
+     padding: 8px 8px 8px 16px;
+   }
+ }
+ .listitem
+ {
+   padding: 8px 8px 8px 16px !important;
+   &.card
+   {
+     border-radius: 8px;
+   }
+ } 
 }

@@ -25,6 +25,12 @@
   }
   &.active{
     pointer-events:none;
+    &.disabled,
+    &[disabled],
+    &[aria-disabled] {
+      background-color: $togglebutton-active-disabled-background-color !important;
+      color:$togglebutton-active-disabled-font-color !important;
+    }
   }
 
   &:first-child {
@@ -35,4 +41,25 @@
 .btn-toggle-tabs + .btn-toggle-tabs {
   margin-left: 0px;
   border-radius: 0px 8px 8px 0px;
+}
+
+.disabled,[disabled],[aria-disabled]
+{
+  &:has(.btn-toggle-tabs)
+  {
+    opacity: 1;
+    .btn-toggle-tabs
+    {
+      border-color: $togglebutton-disabled-border-color;
+      color: $togglebutton-disabled-font-color;
+      background-color: $togglebutton-disabled-background-color !important;
+      opacity: 1;
+      pointer-events: none;
+      cursor: not-allowed;
+      &.active{
+        background-color: $togglebutton-active-disabled-background-color !important;
+        color:$togglebutton-active-disabled-font-color !important;
+      }
+    }
+  }
 }

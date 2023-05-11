@@ -3,9 +3,10 @@
     gap: 10px;
     .widget-gallery-item {
       .card {
-        box-shadow: 0px 1px 4px $gallery-card-boxshadow-color;
+        box-shadow: 0px 1px 8px $gallery-card-boxshadow-color;
         border-width: 0px !important;
         border-radius:8px;
+        margin-bottom: 0px;
         .card-title {
           font-size: $gallery-card-font-size;
           margin: 0 !important;
@@ -24,7 +25,30 @@
   &.widget-gallery-gridgap-large .widget-gallery-items {
     gap: 24px;
   }
+  &.widget-gallery-gridgap-none .widget-gallery-items .card
+  {
+    box-shadow: 0px 1px 4px $gallery-card-boxshadow-color;
+  }
 
+  &:not(.widget-gallery-disable-selected-items-highlight) 
+  {
+    .widget-gallery-item.widget-gallery-clickable
+    {
+      border-radius: 10px;      
+    .card
+      {
+        margin: 4px;        
+      }
+      &.widget-gallery-selected
+      {
+        background-color: $gallery-selected-background-color;
+        .card
+        {
+          box-shadow: none;
+        }
+      }
+    }
+  }
   &.widget-gallery-bordered-all,
   &.widget-gallery-bordered-vertical,
   &.widget-gallery-bordered-horizontal {
@@ -59,6 +83,7 @@
   }
   &.widget-gallery-hover {
     .widget-gallery-item {
+      border-radius: 10px;
       &:hover {
         background-color: $gallery-hover-background-color;
       }
@@ -72,7 +97,7 @@
   .widget-gallery-pagination {
     .pagination-bar {
       color: $gallery-pagingbar-font-color;
-      margin: 16px 0px;
+      margin: 12px 0px 16px 0px;
 
       button:disabled {
         opacity: 0.3;
@@ -157,6 +182,48 @@
       input {
         border-left: none;
         height: 40px;
+      }
+    }
+   .dropdown-container .dropdown-triggerer-wrapper
+   {
+     input 
+     {
+        border-right: none;
+        height: 40px;
+     }
+     .btn-sort
+     {
+        @extend .btn-primary;
+        min-width: 40px;
+        height: 40px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border-color: $gallery-filter-border-color !important;
+        box-shadow: none !important;
+        &::before {
+          font-size: $gallery-filter-selector-font-size;
+          height: 22px;
+        }
+
+        &:hover {
+          background-color: $gallery-filter-selector-hover-bg-color !important;
+        }
+     }
+   } 
+  }
+}
+@include dense-layout {
+  .widget-gallery-filter .filter-container
+  {
+    input {
+      height: 32px;
+    }
+    .filter-selector .filter-selector-content .filter-selector-button
+    {
+      height: 32px;
+      &::before
+      {
+        height: 18px;
       }
     }
   }

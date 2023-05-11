@@ -78,3 +78,12 @@ $devices: (
     @error "Something went wrong!";
   }
 }
+
+@mixin dense-layout {
+  .layout-atlas-responsive-topbar,
+  .layout-atlas-responsive-drawer {
+    &--condensed {
+      @content;
+    }
+  }
+}

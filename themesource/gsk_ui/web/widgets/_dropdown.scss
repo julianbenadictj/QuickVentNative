@@ -63,7 +63,7 @@
 
     label {
       display: inline-block;
-      margin-left: 10px;
+      // margin-left: 10px;
       font-weight: $dropdown-menu-label-font-weight;
       color: $dropdown-menu-label-font-color;
     }
@@ -83,8 +83,8 @@
     }
 
     input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
+      // width: 20px;
+      // height: 20px;
 
       &:checked:before {
         border-color: $dropdown-menu-checkbox-checked-border-color;

@@ -19,8 +19,8 @@
       & > a,
       & > a:focus {
         box-sizing: border-box;
-        min-height: 42px;
-        padding: 10px 16px;
+        min-height: 42px;        
+        padding: 17px 24px;
         border: none;
         border-bottom: 2px solid $tabcontainer-border-color;
         border-radius: 0;
@@ -30,6 +30,7 @@
         letter-spacing: 1px;
         color: $tabcontainer-font-color !important;
         cursor: pointer;
+        // line-height: 22px;
         &:hover {
           border: none;
           border-bottom: 2px solid $tabcontainer-hover-border-color;
@@ -53,55 +54,66 @@
       border-bottom: 2px $tabcontainer-active-border-color solid;
       background-color: $tabcontainer-active-background-color;
     }
-  }  
+  }
 }
 .mx-tabcontainer.tab-bordered {
-    .mx-tabcontainer-tabs {
-      border: none;
-      &:only-child {
-        li a {
-          padding: 17px 24px;
-          min-height: 56px;
-        }
+  .mx-tabcontainer-tabs {
+    border: none;
+    &:only-child {
+      li a {
+        padding: 17px 24px;
+        min-height: 56px;
       }
-      & > li {        
-        & > a {
-          box-sizing: border-box;
-          min-height: 42px;
-          padding: 10px 16px;
-          border: none;
-          outline: none;
-          letter-spacing: 1px;
-          font-size: $tabcontainer-font-size;
-          font-weight: $tabcontainer-font-weight !important;          
-          color: $tabcontainer-font-color !important;
-          cursor: pointer;
-          border-bottom: none;
-          background-color: $tabcontainer-bordered-background-color;
-          border-color: $tabcontainer-bordered-border-color;
-          border-radius: 4px 4px 0px 0px;
-          &:hover{
+    }
+    & > li {
+      & > a {
+        box-sizing: border-box;
+        min-height: 42px;
+        padding: 16px 24px;
+        border: none;
+        outline: none;
+        letter-spacing: 1px;
+        font-size: $tabcontainer-font-size;
+        font-weight: $tabcontainer-font-weight !important;
+        color: $tabcontainer-font-color !important;
+        cursor: pointer;
+        border-bottom: none;
+        background-color: $tabcontainer-bordered-background-color;
+        border-color: $tabcontainer-bordered-border-color;
+        border-radius: 4px 4px 0px 0px;
+        &:hover {
           border-color: $tabcontainer-bordered-hover-border-color;
-          background: $tabcontainer-bordered-hover-background-color;          
+          background: $tabcontainer-bordered-hover-background-color;
           border-width: 0px 0px 1px 0px;
           border-style: solid;
-          }
         }
-        &.active > a {
-          border-color: $tabcontainer-bordered-active-border-color;
-          border-width: 1px 1px 1px 1px;
-          border-style: solid;
-          border-bottom-color: $tabcontainer-bordered-active-border-bottom-color;
-          background-color: $tabcontainer-bordered-active-background-color;          
-        }        
+      }
+      &.active > a {
+        border-color: $tabcontainer-bordered-active-border-color;
+        border-width: 1px 1px 1px 1px;
+        border-style: solid;
+        border-bottom-color: $tabcontainer-bordered-active-border-bottom-color;
+        background-color: $tabcontainer-bordered-active-background-color;
       }
     }
-    .mx-tabcontainer-content {
-      border-width: 1px;
-      border-color: $tabcontainer-content-border-color;
-      border-radius: 0px 4px 4px 4px;
+    &.active > a {
+      border-color: $tabcontainer-bordered-active-border-color;
+      border-width: 1px 1px 1px 1px;
+      border-style: solid;
+      border-bottom-color: $tabcontainer-bordered-active-border-bottom-color;
+      background-color: $tabcontainer-bordered-active-background-color;
     }
   }
+  .mx-tabcontainer-content {
+    border-width: 1px;
+    border-color: $tabcontainer-content-border-color;
+    border-radius: 0px 4px 4px 4px;
+  }
+}
+.mx-tabcontainer-content {
+  border-width: 1px;
+  border-color: $tabcontainer-content-border-color;
+}
 
 .mx-tabcontainer.tab-pills {
   margin: 0 24px;
@@ -124,12 +136,13 @@
       }
       & > a {
         box-sizing: border-box;
-        padding: 10px 16px;
+        padding: 9px 16px;
         border: none;
         border-radius: 4px;
         outline: none;
         font-size: $tabpills-font-size;
         font-weight: $tabpills-font-weight !important;
+        // line-height: 22px;
         letter-spacing: 1px;
         color: $tabpills-font-color;
         background-color: $tabpills-background-color;
@@ -163,14 +176,12 @@
 .tab-lined.mx-tabcontainer > .mx-tabcontainer-tabs li {
   margin-right: 0px;
 }
-.mx-tabcontainer.tab-wizard > .mx-tabcontainer-tabs li
-{
-  a
-  {
+.mx-tabcontainer.tab-wizard > .mx-tabcontainer-tabs li a {
+  a {
     border: 1px solid $tabcontainer-border-color !important;
     border-radius: 50% !important;
     width: 44px;
-    height: 44px;    
+    height: 44px;
     margin-top: -5px;
   }
 }
@@ -179,11 +190,33 @@
   background-color: $tabcontainer-badge-background-color;
   font-weight: $tabcontainer-badge-font-weight;
   font-size: $tabcontainer-badge-font-size;
-  color:$tabcontainer-badge-font-color;
-  border:1px solid $tabcontainer-badge-border-color;
+  color: $tabcontainer-badge-font-color;
+  border: 1px solid $tabcontainer-badge-border-color;
   border-radius: 4px;
   min-width: 16px;
   min-height: 16px;
-  text-align: center;
-  padding: 2px;
+  text-align: center; 
+  padding: 3px 4px;
+  // line-height: 16px;
+}
+
+
+
+@include dense-layout {
+  .mx-tabcontainer:not(.tab-pills):not(.tab-bordered)
+    .mx-tabcontainer-tabs
+    > li
+    > a,
+  .mx-tabcontainer:not(.tab-pills):not(.tab-bordered)
+    .mx-tabcontainer-tabs
+    > li
+    > a:focus,
+  .mx-tabcontainer.tab-bordered .mx-tabcontainer-tabs > li > a {
+    padding: 10px 16px;
+    min-height: unset;
+  }
+
+  .mx-tabcontainer.tab-pills .mx-tabcontainer-tabs > li > a {
+    padding: 5px 8px;
+  }
 }

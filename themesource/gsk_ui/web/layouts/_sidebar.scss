@@ -21,7 +21,6 @@
             li {
               a {
                 background-color: $sidebar-navigationtree-item-background-color;
-                // padding: 8px 24px;
                 border: none !important;
                 color: $sidebar-navigationtree-item-font-color;
                 font-size: $sidebar-navigationtree-item-font-size;
@@ -31,7 +30,7 @@
                 &:focus,
                 &:focus-visible {
                   color: $sidebar-navigationtree-item-hover-font-color;
-                  background-color: $sidebar-navigationtree-item-hover-background-color;
+                  background-color: $gsk-secondary-extra-light;
                   outline: none;
                 }
                 &:active,
@@ -42,12 +41,11 @@
                   border-radius: 0;
                 }
                 .caret {
-                  //border-top-color: $font-color-default;
                   border-bottom-color: $sidebar-navigationtree-item-caret-border-color;
                 }
 
                 span {
-                  margin-left: 13px;
+                  margin-right: 24px;
                 }
               }
 
@@ -62,7 +60,6 @@
 
                 ul {
                   bottom: auto !important;
-                  // padding: 0 !important;
                   background-color: $sidebar-navigationtree-submenu-background-color;
 
                   li {
@@ -90,6 +87,21 @@
           }
         }
       }
+    }
+  }
+}
+
+@include dense-layout {
+  &.layout-atlas-responsive,
+  &.layout-atlas-responsive-default {
+    .region-sidebar
+      .mx-scrollcontainer-wrapper
+      > .mx-navigationtree
+      .navbar-inner
+      > ul
+      > li
+      > a {
+      height: 44px;
     }
   }
 }

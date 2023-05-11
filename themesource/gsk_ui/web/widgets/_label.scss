@@ -17,8 +17,12 @@
   color: $label-font-color;
 
   &.label-secondary {
-    border-color: $label-secondary-border-color;
     background-color: $label-secondary-background-color;
+  }
+
+  &.label-tertiary {
+    border-color: $label-tertiary-border-color;
+    background-color: $label-tertiary-background-color;
   }
 
   &.label-success {

@@ -7,6 +7,9 @@
 
     &:last-child {
       color: $breadcrumb-currentpage-font-color;
+      text-decoration:none;
+      cursor: pointer;
+      pointer-events: none;
     }
 
     &:hover {
@@ -17,7 +20,7 @@
   .breadcrumb-item + .breadcrumb-item {
     &::before {
       padding-right: $spacing-medium;
-      padding-left: $spacing-medium;
+      padding-left: $spacing-small;
       color: $brandcrumb-separetor-font-color;
     }
   }

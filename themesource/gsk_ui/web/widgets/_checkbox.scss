@@ -5,34 +5,63 @@
   &.form-group {
     .control-label {
       font-size: $checkbox-font-size;
+      margin-left: 2px;
     }
   }
 }
-input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  &::before {
+
+
+input[type="checkbox"],input[type="checkbox"].three-state-checkbox
+,input[type="checkbox"].three-state-checkbox:not(:indeterminate)
+,input[type="checkbox"].three-state-checkbox
+{
+  outline: none !important;
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  &:hover
+  {
+    //box-shadow: 0px 0px 0px 3px $checkbox-hover-border-color;
+    background-image: $checkbox-hover-background-image;    
+    border-radius: 15px;    
+    background-repeat: no-repeat;
+    background-position: center;    
+  }
+  &::before
+  {
     border-width: 1px;
     border-color: $checkbox-border-color;
     border-radius: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: $checkbox-background-color;
   }
 
   &::after {
-    margin: 4px;
-    width: 10px;
-    height: 6px;    
+    margin: 5px 4px 5px 5px;
+    width: 9px;
+    height: 5px;    
+    border-color: $checkbox-hover-border-color;
+  }
+  &:not(:disabled):not(:checked):hover:after{
+    border-color: $checkbox-hover-border-color;     
   }
 
-  &:checked {
+  &:checked,&:indeterminate {
     &::before {
       border-color: $checkbox-checked-border-color;
       background-color: $checkbox-checked-background-color;
     }
+    &:hover
+    {
+      background-image: $checkbox-checked-hover-background-image;   
+    }
+    
   }
   &.disabled,
   &:disabled,
   &[disabled] {
-
+    background-image:none !important;
     &::before {
       border-color: $checkbox-disabled-border-color !important;
       background-color: $checkbox-disabled-background-color;      
@@ -51,4 +80,30 @@ input[type="checkbox"] {
   &:focus {
     outline-color: $checkbox-focus-outline-color;
   }
+}
+
+@include dense-layout {
+  // input[type="checkbox"],input[type="checkbox"].three-state-checkbox
+  // ,input[type="checkbox"].three-state-checkbox:not(:indeterminate)
+  // ,input[type="checkbox"].three-state-checkbox
+  // {
+  //   height: 18px;  
+  //   width: 18px;
+  //   padding: 2px !important;
+  //   &:hover
+  //   {
+  //     box-shadow: 0px 0px 0px 3px $checkbox-hover-border-color;
+  //   }
+  //   &::before
+  //   {
+  //     width: 14px !important;
+  //     height: 14px !important;
+  //   }
+  //   &::after 
+  //   {
+  //     margin: 3px !important;
+  //     width: 8px !important;
+  //     height: 5px;    
+  //   }
+  // }
 }

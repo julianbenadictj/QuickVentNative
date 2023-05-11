@@ -1,3 +1,4 @@
+@import "../buildingblocks/_variables.scss";
 .has-focus input,
 .has-focus textarea,
 .has-focus select {
@@ -12,6 +13,7 @@
   background-color: $input-background-color;
   color: $input-font-color;
   font-size: $input-font-size;
+  line-height: 24px;
 
   &::placeholder,
   &::-webkit-input-placeholder {
@@ -29,5 +31,30 @@
   &[disabled] {
     // border-color: $gray-primary;
     background-color: $input-disabled-background-color;
+  }
+}
+
+.mx-textarea
+{
+  .mx-textarea-counter
+  {
+    font-weight: $input-textarea-counter-font-weight;
+    color :$input-textarea-counter-font-color;
+  }
+}
+
+
+@include dense-layout {
+  .form-control {
+    padding: 4px 8px !important;
+  }
+
+  .form-group .control-label {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }  
+  .form-group.has-error::after
+  {
+    bottom: -2px;
   }
 }

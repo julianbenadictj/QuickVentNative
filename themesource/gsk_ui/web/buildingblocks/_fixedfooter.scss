@@ -23,3 +23,9 @@
     }
   }
 }
+
+@include dense-layout {
+  .fixed-footer {
+    padding: 12px 100px;
+  }
+}

@@ -4,5 +4,30 @@
   .pageheader-title {
     font-size: $pageheader-title-font-size;
     color: $pageheader-title-font-color;
+    line-height: 48px;
+  }
+  :has(.mx-image)
+  {
+    .pageheader-subtitle
+    {
+      margin-bottom:4px;
+    }
+  }  
+}
+
+@include dense-layout {
+  .pageheader {
+    .link-back {
+      margin-bottom: 6px !important;
+    }
+
+    .pageheader-title {
+      font-size: $pageheader-title-dense-font-size;
+      line-height: 34px;
+    }
+    .pageheader-subtitle
+    {
+      font-size:$pageheader-dense-subtitle-font-size;
+    }
   }
 }
