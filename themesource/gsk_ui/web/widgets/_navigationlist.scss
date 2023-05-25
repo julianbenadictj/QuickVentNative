@@ -1,9 +1,13 @@
 .mx-navigationlist {
-  li.mx-navigationlist-item {
-    padding: 10px;
+
+  li.mx-navigationlist-item 
+  {
+    padding: 16px 10px;
     border-bottom: 1px solid $navigationlist-border-color;
     font-size: $navigtationlist-font-size;
-
+    &:hover{
+      background-color: $navigationlist-hover-background-color;
+    }
     &.active {
       border-bottom: 1px solid $navigationlist-active-border-color;
       background-color: $navigationlist-active-background-color;
@@ -16,4 +20,10 @@
   border-radius: 16px;
   width: 212px;
   box-shadow: 0 4px 8px $navigationlist-card-boxshadow-color;
+}
+
+@include dense-layout {
+  .mx-navigationlist li.mx-navigationlist-item {
+    padding: 8px 10px;
+  }
 }

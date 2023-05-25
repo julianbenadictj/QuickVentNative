@@ -1,14 +1,15 @@
 .timeline-date {
   .widget-timeline-date-header {
-    border: none;
-    margin-left: 10px;
+    border: none;    
     margin-bottom: 10px;
+    margin-top:10px;
     background-color: $timeline-dateheader-background-color;
   }
 
   .widget-timeline-events-wrapper {
     .widget-timeline-event {
       border-left: none;
+      margin-bottom: 0;
 
       .widget-timeline-icon-wrapper {
         top: -5px;
@@ -109,4 +110,21 @@
       margin-top: -5px;
     }
   }
+}
+
+@include dense-layout {
+  .timeline-date .widget-timeline-events-wrapper .widget-timeline-event .widget-timeline-content-wrapper
+  {
+    .widget-timeline-info-wrapper
+    {
+      h5,.widget-timeline-title
+      {
+        margin: 0 0 2px 0;  
+      }
+    }
+  }
+  .widget-timeline-event
+  {
+    padding: 0 24px 16px 24px;
+  }   
 }

@@ -18,12 +18,17 @@
     color: $badge-secondary-font-color;
   }
 
+  &.label-tertiary {
+    background-color: $badge-tertiary-background-color;
+  }
+
   &.label-success {
     background-color: $badge-success-background-color;
   }
 
   &.label-warning {
     background-color: $badge-warning-background-color;
+    color: $badge-warning-font-color;
   }
 
   &.label-danger {

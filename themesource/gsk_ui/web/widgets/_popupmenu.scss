@@ -1,0 +1,71 @@
+.popupmenu-menu
+{
+  padding: 4px;
+  box-shadow: 2px 2px 18px $popupmenu-shadow-color;
+  .popupmenu-basic-item
+  {
+    padding: 8px;
+    border-radius: 8px;
+    color:$popupmenu-font-color;
+    font-weight: $popupmenu-font-weight;
+    &:hover
+    {
+      background-color: $popupmenu-hover-background-color;
+    }
+  }
+  &:has(.popupmenu-basic-divider)
+  {
+    .popupmenu-basic-item
+    {
+      border-radius: 0px;
+    }
+  }
+  .popupmenu-basic-divider
+  {
+    border-color: $popupmenu-divider-border-color;
+  }  
+}
+.popupmenu
+{
+  .btn.btn-default // same as button primary bordered
+  {
+      border: 1px solid $button-primary-bordered-border-color !important;
+      background-color: $button-primary-bordered-background-color !important;
+      color: $button-primary-bordered-font-color !important;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $button-primary-bordered-status-border-color !important;
+        color: $button-primary-bordered-status-font-color !important;
+        box-shadow: 0px 0px 0px 1px $button-primary-bordered-status-boxshadow-color !important;
+      }
+
+      &.disabled,
+      &[disabled],
+      &[aria-disabled] {
+        border-color: $button-primary-bordered-disabled-border-color !important;
+        color: $button-primary-bordered-disabled-font-color !important; 
+      }
+  }
+}
+
+// @include dense-layout {
+//   .popupmenu-menu
+//   {
+//     .popupmenu-basic-item
+//     {
+//       padding: 6px 8px !important;
+//     }
+//   }
+// }
+//for dense design as its outside the layout content
+body:has(.layout-atlas-responsive-topbar--condensed)
+{
+  .popupmenu-menu
+  {
+    .popupmenu-basic-item
+    {
+      padding: 6px 8px;
+    }
+  }
+}

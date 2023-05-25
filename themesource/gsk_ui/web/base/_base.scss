@@ -1,3 +1,4 @@
+@import "../../../atlas_core/web/_variables.scss";
 /*
 	==========================================================================
 	* Base
@@ -46,6 +47,7 @@ div::-webkit-scrollbar {
 div::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: $base-scrollbar-thumb-background-color;
+  width: 5px;
 }
 .mx-scrollcontainer-wrapper::-webkit-scrollbar-thumb:hover,
 div::-webkit-scrollbar-thumb:hover {
@@ -56,6 +58,11 @@ div::-webkit-scrollbar-thumb:hover {
 .dropdown-options::-webkit-scrollbar,
 div::-webkit-scrollbar {
   width: 8px;
+}
+
+.table .table-content::-webkit-scrollbar
+{
+  height: 10px;
 }
 
 .mx-demouserswitcher-content {
@@ -80,4 +87,20 @@ div::-webkit-scrollbar {
 .dropdown-options::-webkit-scrollbar,
 div::-webkit-scrollbar {
   width: 8px;
+}
+
+.grid-variation > .row > [class*=col-]
+{
+  border: none !important;
+}
+
+.infoBanner
+{
+  padding: 10px !important;
+  background-color: $gsk-secondary-light;
+  font-weight: $font-weight-normal;
+  justify-content: center;
+  align-items:center;
+  display: flex;
+  min-height: 44px;
 }

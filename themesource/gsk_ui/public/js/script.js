@@ -1,12 +1,5 @@
 var topBar = document.querySelector(".topbar-content");
 
-// User avatar in navigation menu
-var avatarItem = topBar.querySelector(".avatar");
-var menuList = topBar.querySelector(
-  ".nav.navbar-nav .mx-navbar-item:last-child"
-);
-avatarItem?.addEventListener("click", () => menuList.classList.toggle("open"));
-
 // Hide navigation items in dropdown menu
 var navBrand = document.querySelector(".navbar-brand");
 var navMenu = document.querySelector(".navbar-nav");

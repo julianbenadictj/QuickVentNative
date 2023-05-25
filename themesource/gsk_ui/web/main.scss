@@ -55,6 +55,7 @@
 @import "widgets/navigationbar";
 @import "widgets/navigationlist";
 @import "widgets/navigationtree";
+@import "widgets/popupmenu";
 @import "widgets/progressbar";
 @import "widgets/progressloader";
 @import "widgets/radiobutton";
@@ -96,5 +97,7 @@
 @import "pages/login";
 
 // Custom Widgets
+@import "widgetscustom/avatar";
 @import "widgetscustom/base-customwidgets";
+@import "widgetscustom/profilepage";
 @import "widgetscustom/tristateswitch";

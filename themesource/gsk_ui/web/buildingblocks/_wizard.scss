@@ -3,6 +3,8 @@
 
   .wizard-step {
     border-color: $wizard-border-color;
+    height: 54px;
+    font-weight: $wizard-font-weight;
 
     .wizard-step-text {
       color: $wizard-font-color;
@@ -11,6 +13,11 @@
 
     &::before {
       border-left-color: $wizard-border-color;
+      border-width: 27px;
+    }
+    &::after{
+       border-width: calc((54px / 2) - 1px);
+      
     }
   }
 
@@ -23,7 +30,7 @@
       &::before {
         content: "";
         position: absolute;
-        top: 18px;
+        top: 20px;
         left: 16px;
         border: 2px solid $wizardarrow-visited-check-border-color;
         border-top: 0;
@@ -66,8 +73,8 @@
       width: 48px;
       height: 48px;
       background-color: $wizard-background-color !important;
-      font-size: 22px;
-      font-weight: 300;
+      font-size: $wizardcircle-font-size;
+      font-weight: $wizardcircle-font-weight;
     }
 
     .wizard-step-text {
@@ -95,4 +102,32 @@
       color: $wizardcircle-visited-font-color;
     }
   }
+}
+
+@include dense-layout {
+  .wizard-arrow 
+  {
+    .wizard-step{
+      height: 40px;
+      font-size: $wizard-dense-font-size;
+      &::after{
+        border-width: calc((40px / 2) - 1px);
+      }
+      &::before{
+        border-width: 20px;
+      }
+    }
+    .wizard-step-visited .wizard-step-text::before
+    {
+      top: 14px;
+    }  
+  }
+  .wizard-circle .wizard-step .wizard-step-number
+  {
+    height: 40px;
+    width: 40px;
+    font-size: $wizardcircle-dense-font-size;
+    margin-top: 4px;
+    padding: 2px 0 0 0;
+  }  
 }

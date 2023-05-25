@@ -1,3 +1,4 @@
+@import "../_variables.scss";
 //
 // ██████╗ ██╗      ██████╗  ██████╗██╗  ██╗███████╗
 // ██╔══██╗██║     ██╔═══██╗██╔════╝██║ ██╔╝██╔════╝
@@ -57,7 +58,7 @@ $applicationname-appversion-font-weight: $font-weight-medium;
 $avatar-background-color: $gsk-tertiary;
 $avatar-font-color: $font-color-white;
 $avatar-font-size: $font-size-large;
-$avatar-small-font-size: $font-size-medium;
+$avatar-small-font-size: $font-size-small;
 
 //
 // ====== breadcrumb
@@ -131,7 +132,10 @@ $card-progressbar-additionalinfo-font-size: $font-size-medium;
 
 $card-navigation-title-font-weight: $font-weight-normal;
 $card-navigation-icon: url("./assets/arrow-right.svg");
-$card-navigation-hover-background-color: $gsk-secondary-light;
+$card-navigation-hover-background-color: $gsk-secondary-extra-light;
+
+$card-action-hover-background-color: $gsk-secondary-extra-light;
+
 
 //
 // ====== fixed footer
@@ -157,6 +161,7 @@ $form-haserror-validationmessage-font-color: $form-haserror-color;
 $form-haserror-validationmessage-font-size: $font-size-small;
 $form-haserror-radiobutton-border-color: $form-haserror-color;
 $form-haserror-radiobutton-background-color: $form-haserror-color;
+$form-haserror-radiobutton-hover-border-color:$gsk-error-light;
 
 $form-fontmedium-font-size: $font-size-medium;
 
@@ -166,9 +171,15 @@ $form-fontmedium-font-size: $font-size-medium;
 $heroheader-background-color: $gsk-primary;
 $heroheader-title-font-color: $gsk-secondary;
 $heroheader-title-font-weight: $font-weight-light;
-$heroheader-action-border-color: $gsk-background;
+$heroheader-action-border-color: scale-color($gsk-primary, $whiteness: 40%);
+$heroheader-action-shadow-color: scale-color($gsk-primary, $whiteness: 40%);
 $heroheader-action-font-color: $font-color-white;
 $heroheader-overlay-title-font-color: $font-color-white;
+
+$heroheader-dense-title-font-weight: $font-weight-normal;
+$heroheader-dense-title-font-size: $font-size-h2;
+$heroheader-dense-subtitle-font-size: $font-size-medium;
+
 
 //
 // ====== list item
@@ -191,6 +202,8 @@ $listitem-action-icon: url("./assets/chevron_right_orange.svg");
 //
 $pageheader-title-font-color: $gsk-secondary;
 $pageheader-title-font-size: $font-size-h1;
+$pageheader-title-dense-font-size: $font-size-h2;
+$pageheader-dense-subtitle-font-size: $font-size-medium;
 
 //
 // ====== text detail
@@ -227,7 +240,7 @@ $timeline-description-font-size: $font-size-medium;
 //
 $togglebutton-border-color: transparent;
 $togglebutton-background-color: $gsk-background-secondary;
-$togglebutton-font-color: scale-color($gsk-primary, $whiteness: 64%);
+$togglebutton-font-color: scale-color($font-color-default, $whiteness: 64%);
 
 $togglebutton-hover-border-color: transparent;
 $togglebutton-hover-background-color: $gsk-secondary-extra-light;
@@ -237,6 +250,13 @@ $togglebutton-status-border-color: transparent;
 $togglebutton-status-background-color: $gsk-primary;
 $togglebutton-status-font-color: $font-color-white;
 $togglebutton-status-hover-background-color: rgba($gsk-primary, 0.9);
+
+$togglebutton-disabled-font-color:scale-color($font-color-default, $whiteness: 64%);
+$togglebutton-disabled-border-color: rgba($gsk-primary, 0.08);
+$togglebutton-disabled-background-color:$gsk-background;
+$togglebutton-active-disabled-font-color: $font-color-detail;
+$togglebutton-active-disabled-background-color: $gsk-border;
+
 
 //
 // ====== tree view
@@ -254,8 +274,8 @@ $treeview-header-icon: url("./assets/arrow_chevron_down_primary.svg");
 $wizard-border-color: $gsk-border;
 $wizard-background-color: $gsk-background;
 $wizard-font-color: $font-color-default;
-$wizard-font-size: $font-size-h3;
-$wizard-font-weight: $font-weight-light;
+$wizard-font-weight: $font-weight-normal;
+$wizard-dense-font-size: $font-size-medium;
 
 $wizard-active-border-color: $gsk-tertiary;
 $wizard-active-background-color: $gsk-tertiary;
@@ -271,3 +291,7 @@ $wizardarrow-visited-check-border-color: $gsk-primary;
 $wizardcircle-visited-border-color: $gsk-success;
 $wizardcircle-visited-background-color: $gsk-success-light;
 $wizardcircle-visited-font-color: $gsk-success;
+$wizardcircle-font-size: $font-size-h3;
+$wizardcircle-font-weight: $font-weight-normal;
+
+$wizardcircle-dense-font-size: $font-size-default;

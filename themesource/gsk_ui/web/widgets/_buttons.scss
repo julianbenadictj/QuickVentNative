@@ -1,3 +1,4 @@
+@import "_variables.scss";
 .btn,
 .mx-button {
   box-sizing: border-box;
@@ -12,6 +13,10 @@
   font-weight: $button-font-weight;
   letter-spacing: 0.5px;
   transition: all 0.2s ease-in-out;
+  line-height: 130%;
+  &:has(span) {
+    min-width: auto;
+  }
 
   &:hover,
   &:active,
@@ -25,28 +30,47 @@
 
   &.disabled,
   &[disabled],
-  &[aria-disabled]
-   {
+  &[aria-disabled] {
     border-color: $button-disabled-border-color;
     color: $button-disabled-font-color;
+    opacity: 1;
+    cursor: not-allowed;
   }
 
   &.btn-secondary,
   &.btn-default:not(.btn-toggle-tabs):not(.mx-link):not(.btn-primary):not(
       .btn-success
-    ):not(.btn-danger):not(.mx-grid-reset-button):not(.btn-warning):not(.btn-link):not(
-      button[class*="mx-name-searchButton"]
-    ):not(button[text="Cancel"]) 
-    {
+    ):not(.btn-danger):not(.mx-grid-reset-button):not(.btn-warning):not(
+      .btn-link
+    ):not(button[class*="mx-name-searchButton"]):not(button[text="Cancel"]) {
+    border: 1px solid $button-border-color;
+    box-sizing: border-box;
+    background-color: $button-background-color;
+    color: $button-font-color;
+
+    &:hover,
+    &:active,
+    &.active,
+    &:focus {
+      box-shadow: 0px 0px 0px 1px $button-status-boxshadow-color;
+    }
+
+    &.disabled,
+    &[disabled],
+    &[aria-disabled] {
+      border-color: $button-disabled-border-color;
+      color: $button-disabled-font-color;
+    }
+    &.btn-bordered {
       border: 1px solid $button-border-color;
-      box-sizing: border-box;
       background-color: $button-background-color;
       color: $button-font-color;
 
-      &:hover,
-      &:active,
-      &.active,
-      &:focus {
+      &:hover:not(.toggle-btn),
+      &:focus:not(.toggle-btn),
+      &:active:not(.toggle-btn) {
+        background-color: $button-background-color;
+        color: $button-font-color;
         box-shadow: 0px 0px 0px 1px $button-status-boxshadow-color;
       }
 
@@ -56,26 +80,7 @@
         border-color: $button-disabled-border-color;
         color: $button-disabled-font-color;
       }
-      &.btn-bordered {
-        border: 1px solid $button-border-color;
-        background-color: $button-background-color;
-        color: $button-font-color;
-
-        &:hover:not(.toggle-btn),
-        &:focus:not(.toggle-btn),
-        &:active:not(.toggle-btn) {
-          background-color: $button-background-color;
-          color: $button-font-color;
-          box-shadow: 0px 0px 0px 1px $button-status-boxshadow-color;
-        }
-
-        &.disabled,
-        &[disabled],
-      &[aria-disabled] {
-          border-color: $button-disabled-border-color;
-          color: $button-disabled-font-color;
-        }
-      }
+    }
   }
 
   &.btn-primary {
@@ -94,7 +99,7 @@
 
     &.disabled,
     &[disabled],
-      &[aria-disabled] {
+    &[aria-disabled] {
       border-color: $button-primary-disabled-border-color;
       background-color: $button-primary-disabled-background-color;
       color: $button-primary-disabled-font-color;
@@ -115,10 +120,10 @@
       }
 
       &.disabled,
-      &[disabled] ,
-      &[aria-disabled]{
-        border-color: $button-primary-bordered-border-color;
-        color: $button-primary-bordered-font-color;
+      &[disabled],
+      &[aria-disabled] {
+        border-color: $button-primary-bordered-disabled-border-color;
+        color: $button-primary-bordered-disabled-font-color;        
       }
     }
   }
@@ -130,7 +135,8 @@
 
     &:hover:not(.toggle-btn),
     &:focus:not(.toggle-btn),
-    &:active:not(.toggle-btn) {
+    &:active:not(.toggle-btn) 
+    {
       border: 1px solid $button-success-status-border-color;
       box-shadow: 0px 0px 0px 2px $button-success-status-boxshadow-color;
       background-color: $button-success-status-background-color;
@@ -139,7 +145,7 @@
 
     &.disabled,
     &[disabled],
-      &[aria-disabled] {
+    &[aria-disabled] {
       border-color: $button-success-disabled-border-color;
       background-color: $button-success-disabled-background-color;
       color: $button-success-disabled-font-color;
@@ -184,7 +190,7 @@
 
     &.disabled,
     &[disabled],
-      &[aria-disabled] {
+    &[aria-disabled] {
       border-color: $button-danger-disabled-border-color;
       background-color: $button-danger-disabled-background-color;
       color: $button-danger-disabled-font-color;
@@ -229,7 +235,7 @@
 
     &.disabled,
     &[disabled],
-      &[aria-disabled] {
+    &[aria-disabled] {
       border-color: $button-warning-disabled-border-color;
       background-color: $button-warning-disabled-background-color;
       color: $button-warning-disabled-font-color;
@@ -260,7 +266,7 @@
   &.btn-link,
   &.mx-grid-reset-button,
   &.mx-link {
-    padding: 0;
+    padding: 0 !important;
     border: none !important;
     border-bottom: 1px solid $button-link-border-color !important;
     border-radius: 0;
@@ -281,7 +287,7 @@
 
     &.disabled,
     &[disabled],
-      &[aria-disabled] {
+    &[aria-disabled] {
       opacity: 0.12;
     }
   }
@@ -301,7 +307,7 @@
 
     &.disabled,
     &[disabled],
-      &[aria-disabled] {
+    &[aria-disabled] {
       background-color: $button-link-togglebutton-disabled-background-color;
       color: $button-link-togglebutton-disabled-font-color;
     }
@@ -315,41 +321,82 @@
   }
 
   .glyphicon {
-    vertical-align: text-bottom;
-    font-size: $button-link-glyphicon-font-size;
+    font-size: $button-link-glyphicon-font-size;    
   }
+  img
+  {
+    vertical-align: text-bottom;
+    margin-right: 6px;
+    height: 14px;
+    // margin-bottom: 1px;
+  }
+  &.btn-icon-right
+  {
+    img
+    {
+      margin-right: 0;
+      margin-left: 8px;
+      margin-bottom: 0px;
+    }
+  }
+  &.icon-only
+  {
+    img
+    {
+      margin-right: 0;
+      height:16px;
+      margin-bottom: -1px;
+    }
+  }
+  
   &.btn-sm {
-    font-size: $button-small-font-size;
+    //font-size: $button-small-font-size;
+    padding: 6px 16px;
+    height: auto;
+    &:has(span) {
+      padding: 6px 8px 6px 16px;
+    }
   }
   &.btn-lg {
     font-size: $button-large-font-size;
-    padding: 6px 8px 6px 8px;
+    padding: 8px 16px;
+    font-weight: $button-large-font-weight;
     &.widget-badge-button {
-      padding: 8px 8px 8px 16px;
+      padding: 10px 8px 10px 16px;
     }
     .badge {
-      padding: 5px 6px;
+      font-size: $badgebutton-large-badge-font-size;
       top: 1px;
     }
   }
+  &.figmaButton:before {
+    content: "";
+    background: $button-figma-icon no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-left: -20px;
+  }
 }
 
-.btn-group {
-  .btn-block {
+.btn-group 
+{
+  .btn-block 
+  {
     width: auto;
   }
-
   .btn {
     border: none !important;
     background-color: $button-group-background-color !important;
     color: $button-group-font-color !important;
 
     & + .btn {
-      margin-left: 0;
+      margin-left: 0;      
     }
 
     &:hover {
       background-color: $button-group-hover-background-color !important;
+      color: $button-group-hover-font-color !important;
     }
 
     &:hover,
@@ -364,7 +411,31 @@
       background-color: $button-group-status-background-color !important;
       color: $button-group-status-font-color !important;
     }
+    &.disabled,
+    &[disabled],
+    &[aria-disabled] {
+      border: 1px solid $button-disabled-border-color !important;
+      color: $button-disabled-font-color !important;
+      background-color:$button-disabled-background-color !important;
+      & + .btn{
+        border-left: none !important;
+      }
+    }
   }
+  &.disabled,&[disabled],&[aria-disabled] {
+      opacity:1;
+      .btn
+      {
+        cursor: not-allowed;
+        pointer-events: none;
+        border: 1px solid $button-disabled-border-color !important;
+        color: $button-disabled-font-color !important;
+        background-color:$button-disabled-background-color !important;
+        & + .btn{
+          border-left: none !important;
+        }
+      }      
+    }
 }
 
 /* Dropdown container with Elipsis*/
@@ -385,3 +456,49 @@
     left: auto;
   }
 }
+
+.toggleCheckLayout
+{
+  &:has(.mx-tabcontainer .mx-tabcontainer-tabs li:last-child.active),&:has(.mx-tabcontainer .mx-tabcontainer-tabs li:nth-child(3).active)  
+  {
+    .toggleStandard,.toggleDense
+    {
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  }
+}
+.toggleCheckTemplates
+{
+  &:has(.mx-tabcontainer .mx-tabcontainer-tabs li:last-child.active),&:has(.mx-tabcontainer .mx-tabcontainer-tabs li:nth-child(2).active)  
+  {
+    .toggleStandard,.toggleDense
+    {
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  }
+}
+
+@include dense-layout {
+  .btn,.mx-button {
+    padding: 6px 16px;
+    height: auto;
+
+    &:has(span) {
+      padding: 6px 8px 6px 16px;
+    }
+    &.icon-only img
+    {
+      height: 14px;
+    }
+    &.btn-lg {
+      &.widget-badge-button {
+      padding: 8px 8px 8px 16px;
+    }
+    }
+  }
+}
+
