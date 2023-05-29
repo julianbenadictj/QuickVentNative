@@ -2,7 +2,7 @@
   background-color: $heroheader-background-color !important;
 
   .headerhero-title {
-    margin-bottom: 13px !important;
+    margin-bottom: 16px !important;
     color: $heroheader-title-font-color;
     font-weight: $heroheader-title-font-weight;
   }
@@ -10,11 +10,30 @@
   .headerhero-action {
     border-color: $heroheader-action-border-color !important;
     color: $heroheader-action-font-color !important;
+    &.btn-default:hover{
+      box-shadow: 0px 0px 0px 1px $heroheader-action-shadow-color !important;
+    }
   }
 
   .heroheader-overlay {
     .headerhero-title {
       color: $heroheader-overlay-title-font-color;
     }
+  }  
+}
+
+@include dense-layout {
+  .headerhero
+  {
+    min-height: 200px;
+    .headerhero-title{
+      font-weight: $heroheader-dense-title-font-weight;
+      font-size: $heroheader-dense-title-font-size;
+    }
+    .headerhero-subtitle
+    {
+      font-size: $heroheader-dense-subtitle-font-size;
+    }
+
   }
 }

@@ -53,14 +53,14 @@
 }
 
 .mx-feedback__comment-content {
-  padding: 5px 0px 0px 5px;
-  border: 1px solid $feedback-comment-content-border-color;
-  margin-left: 0px;
-  width: 100%;
+  padding: 5px 0px 0px 5px !important;
+  border: 1px solid $feedback-comment-content-border-color !important;
+  margin-left: 0px !important;
+  width: 100% !important;
 
   &::after,
   &::before {
-    display: none;
+    display: none !important;
   }
 
   .mx-feedback__comment-textArea {
@@ -170,12 +170,21 @@
   .mx-feedback__right-title {
     font-size: $feedback-login-right-title-font-size;
     font-weight: $feedback-login-right-title-font-weight;
+  }
 
-    .mx-feedback__right--edit {
-      border: 1px solid $feedback-login-right-edit-border-color;
-      border-radius: 8px;
-      font-weight: $feedback-login-right-edit-font-weight;
-    }
+  .mx-feedback__right--edit {
+    border: 1px solid $feedback-login-right-edit-border-color;
+    border-radius: 8px;
+    font-weight: $feedback-login-right-edit-font-weight;
+  }
+
+  .mx-feedback__right-subtitle:not(.mx-feedback__right--edit) {
+    padding: 8px;
+    border: 1px solid $feedback-login-right-edit-border-color;
+    border-radius: 8px;
+    min-height: 42px;
+    background-color: $feedback-login-right-disabled-background-color;
+    cursor: not-allowed;
   }
 }
 

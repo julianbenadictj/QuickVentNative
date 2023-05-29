@@ -1,5 +1,7 @@
 .btn[class*="mx-name-dropDownButton"],span[class*="mx-name-dropDownButton"]
 {
+  padding: 10px 8px 10px 16px;
+  font-size: $dropdownbutton-font-size;
   span.caret
   {
     display: inline-block;
@@ -9,10 +11,19 @@
   }
   &.mx-link:not(.ghost-button)
   {
+    text-decoration: none !important;
+    border-bottom: 1px solid $dropdownbutton-link-border-color;
+    padding: 0 !important;
+    &:hover{
+      box-shadow: 0px 1px 0px 0px $dropdownbutton-link-border-color;
+    }
     span.caret
     {
       background: $dropdownbutton-link-chevron-icon no-repeat !important;
-      background-position: center !important;      
+      background-position: center !important;     
+      position: absolute;
+      margin-left: 2px;
+      margin-top: 4px; 
     }    
   }
   &.ghost-button
@@ -92,5 +103,54 @@
         background: $dropdownbutton-warning-bordered-chevron-icon no-repeat !important;
         background-position: center !important;
       }
+  }
+  &.btn-sm
+  {
+    padding: 6px 8px 6px 16px;
+  }
+  &.btn-lg
+  {
+    padding: 9px 8px 9px 16px;
+    font-size: $dropdownbutton-lg-font-size;
+  }
+}
+span[class*="mx-name-dropDownButton"].mx-link
+{
+  padding: 9px 0px 11px 0px; 
+
+}
+
+.mx-dropdown-list
+{
+  margin: 0;
+  li
+  {
+    padding: 8px;
+    font-size: $dropdownlist-font-size;
+    font-weight: $dropdownlist-font-weight;
+    border:none;
+    border-bottom: 1px solid $dropdownlist-border-color;
+    &:hover{
+      background-color: $dropdownlist-hover-background-color;
+    }
+    &:last-child{
+      border-bottom-left-radius:0;
+      border-bottom-right-radius:0;
+    }
+    label{
+      margin-bottom: 0;
+      font-weight: unset;
+    }
+  }
+}
+
+@include dense-layout {
+  .btn[class*="mx-name-dropDownButton"],span[class*="mx-name-dropDownButton"]
+  {
+    padding: 6px 8px 6px 16px;
+  }
+  span[class*="mx-name-dropDownButton"].mx-link
+  {
+    padding: 5px 0 6px 0;
   }
 }

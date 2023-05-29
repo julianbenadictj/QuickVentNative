@@ -159,7 +159,7 @@
   .mx-calendar-day-selected:hover {
     background-color: $calendar-day-selected-background-color;
     color: $calendar-day-selected-font-color;
-    border:none;
+    border: none;
   }
   .mx-calendar-day-month-next,
   .mx-calendar-day-month-previous {
@@ -190,6 +190,15 @@
       font-weight: $calendar-year-selected-font-weight;
       background-color: $calendar-year-selected-background-color !important;
       color: $calendar-year-selected-font-color;
+    }
+  }
+}
+
+@include dense-layout {
+  .mx-datepicker {
+    .btn {
+      padding: 0;
+      height: 34px;
     }
   }
 }

@@ -16,23 +16,34 @@
         }
         &::after {
           background-color: $radiobutton-checked-background-color;
-          width: 12px;
-          height: 12px;
+          width: 70%;
+          height: 70%;
         }
       }
+
       &.disabled,
       &:disabled,
       &[disabled] {
         &::before {
-          border-color: $radiobutton-disabled-border-color;
+          border-color: $radiobutton-disabled-border-color !important;
         }
 
         &::after {
-          background-color: $radiobutton-disabled-background-color;
+          background-color: $radiobutton-disabled-background-color !important;
         }
       }
       &:focus {
-        outline-color: $radiobutton-focus-outline-color;
+        //outline-color: $radiobutton-focus-outline-color;
+        outline: none;
+      }
+      &:hover:not(:checked)
+      { 
+        &::before{
+          box-shadow: 0px 0px 0px 4px $radiobutton-hover-border-color;
+        }
+        &::after{
+          background-color: $radiobutton-hover-border-color;
+        }
       }
     }
   }

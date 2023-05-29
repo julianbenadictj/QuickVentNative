@@ -3,8 +3,9 @@
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  // background-color: $avatar-background-color;
+  background-color: $avatar-background-color;
   overflow: hidden;
+  display: inline-block;
 
   &.avatar--small {
     width: 24px;
@@ -27,4 +28,15 @@
   img {
     overflow: hidden;
   }
+}
+@include dense-layout {
+.avatar
+{
+   width: 24px;
+   height: 24px;
+    p {
+      font-size: $avatar-small-font-size;
+      line-height: 24px;
+    }
+}
 }

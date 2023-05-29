@@ -1,19 +1,41 @@
 .widget-rating {
     .glyphicon-star::before {
-        content: url('./assets/rating-star-filled.svg');
-    }
+        content: $rating-icon-filled;
+    }    
 
     .glyphicon-star-empty::before {
-        content: url('./assets/rating-star.svg');
+        content: $rating-icon;
     }
 
     &.widget-rating-large .rating-icon {
         margin-right: 10px;
-        transform: scale(1.5);
+        transform: scale(1.3);
     }
 
     &.widget-rating-small .rating-icon {
         margin-right: -5px;
-        transform: scale(0.7);
+        transform: scale(0.8);
+    }
+}
+
+@include dense-layout {
+  .widget-rating:not(.widget-rating-small)
+    {        
+        .rating-icon
+        {
+            font-size: 16px;
+            transform: scale(0.8);
+            margin-right: -5px;
+        }
+        .rating-item:not(:has(.rating-icon))
+        {
+            transform: scale(0.8);
+        }
+        &.widget-rating-large .rating-icon
+        {
+            transform: scale(1);
+            margin-right: 0px;
+            font-size: 24px;
+        }
     }
 }

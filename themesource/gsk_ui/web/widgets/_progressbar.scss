@@ -9,8 +9,8 @@
   }
 
   &.progress-bar-small {
-    .progress,
-    .progress-bar {
+    .progress,.progress-bar 
+    {
       height: 10px;
       line-height: 10px;
       font-size: 10px;
@@ -184,4 +184,44 @@
   .progressbar-text {
     color: $progresscircle-danger-font-color !important;
   }
+}
+
+@include dense-layout {
+.widget-progress-bar 
+  {
+    &.progress-bar-medium
+    {
+    .progress,.progress-bar 
+      {
+        height: 10px;
+        line-height: 10px;
+        font-size: 10px;
+      }
+    }
+    &.progress-bar-large 
+    {
+      .progress,.progress-bar 
+      {
+        height: 20px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+.widget-progress-circle 
+{
+  &.widget-progress-circle-thickness-medium {
+    .widget-progress-circle-trail-path,
+    .widget-progress-circle-path {
+      stroke-width: 4px;
+    }
+  }
+  &.widget-progress-circle-thickness-large {
+    .widget-progress-circle-trail-path,
+    .widget-progress-circle-path {
+      stroke-width: 6px;
+    }
+  }
+}
+
 }

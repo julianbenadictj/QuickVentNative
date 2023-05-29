@@ -26,6 +26,7 @@
       }
     }
   }
+
   .region-topbar {
     box-sizing: border-box;
     padding: 0;
@@ -39,7 +40,9 @@
     }
 
     .topbar-content {
-      min-height: 65px;
+      min-height: 62px;
+      height: 62px;
+
       .navbar-brand {
         display: flex;
         align-items: center;
@@ -73,16 +76,31 @@
         }
       }
 
-      .navbar ~ div .avatar {
-        position: fixed;
-        top: 14px;
-        right: 28px;
-        cursor: pointer;
-      }
+      .navbar {
+        align-items: flex-start;
 
-      .navbar:has(~ div .avatar) {
-        .navbar-nav .mx-navbar-item:last-child a[title=""] img {
-          opacity: 0;
+        .mx-navbar-item:has(a[title=""], a[title="Login"]) {
+          a:hover {
+            background-color: transparent !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include dense-layout {
+  .region-topbar {
+    min-height: 42px;
+    height: 42px;
+
+    .topbar-content {
+      min-height: 42px;
+      height: 42px;
+
+      .navbar-brand {
+        img {
+          height: 22px;
         }
       }
     }
