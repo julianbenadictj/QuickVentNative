@@ -208,11 +208,11 @@
   .region-topbar {
     @extend .mx-navbar;
 
-    .hide-icons.mx-navbar .mx-navbar-item {
-      img {
-        display: none;
-      }
-    }
+    // .hide-icons.mx-navbar .mx-navbar-item {
+    //   img {
+    //     display: none;
+    //   }
+    // }
   }
 }
 

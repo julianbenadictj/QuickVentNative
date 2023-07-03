@@ -29,15 +29,15 @@
         background-color: $listview-active-hover-background-color !important;
       }
 
-      a.mx-link {
-        background-image: $listview-link-icon;
-        height: 20px;
-        width: 20px;
+      // a.mx-link {
+      //   background-image: $listview-link-icon;
+      //   height: 20px;
+      //   width: 20px;
 
-        span.glyphicon-menu-right {
-          display: none;
-        }
-      }
+      //   span.glyphicon-menu-right {
+      //     display: none;
+      //   }
+      // }
     }
   }
   &.listview-hover

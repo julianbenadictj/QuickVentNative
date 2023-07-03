@@ -32424,14 +32424,6 @@ span[class*=mx-name-dropDownButton].mx-link {
 .mx-listview ul li.active:hover, .mx-listview ul li:active:hover {
   background-color: #eae8e4 !important;
 }
-.mx-listview ul li a.mx-link {
-  background-image: url("./assets/chevron_right_orange.svg");
-  height: 20px;
-  width: 20px;
-}
-.mx-listview ul li a.mx-link span.glyphicon-menu-right {
-  display: none;
-}
 .mx-listview.listview-hover ul li:hover {
   background-color: #eae8e4 !important;
 }
@@ -32690,10 +32682,6 @@ span[class*=mx-name-dropDownButton].mx-link {
 .layout-atlas .region-topbar ul.nav li.mx-navbar-item.open .dropdown-menu li.mx-navbar-item.active a {
   background-color: #fafafa;
   color: #151515;
-}
-
-.layout-atlas .region-topbar .hide-icons.mx-navbar .mx-navbar-item img, .layout-atlas .region-topbar .hide-icons.region-topbar .mx-navbar-item img {
-  display: none;
 }
 
 .layout-atlas-responsive-topbar--condensed .mx-navbar, .layout-atlas-responsive-topbar--condensed .layout-atlas .region-topbar, .layout-atlas .layout-atlas-responsive-topbar--condensed .region-topbar,
@@ -34382,16 +34370,6 @@ table.mx-table.table-lined tbody tr td:not(:last-child), table.mx-table.table-li
   font-size: 14px;
   line-height: 20px;
   color: #616161;
-}
-.mx-listview a,
-.listitem a {
-  width: 20px;
-  height: 20px;
-  background-image: url("./assets/chevron_right_orange.svg");
-}
-.mx-listview a span.glyphicon-menu-right,
-.listitem a span.glyphicon-menu-right {
-  display: none;
 }
 .mx-listview.card:hover,
 .listitem.card:hover {

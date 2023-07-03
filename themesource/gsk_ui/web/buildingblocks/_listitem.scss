@@ -27,15 +27,15 @@
     color: $listitem-secondarytext-font-color;
   }
 
-  a {
-    width: 20px;
-    height: 20px;
-    background-image: $listitem-action-icon;
+  // a {
+  //   width: 20px;
+  //   height: 20px;
+  //   background-image: $listitem-action-icon;
 
-    span.glyphicon-menu-right {
-      display: none;
-    }
-  }
+  //   span.glyphicon-menu-right {
+  //     display: none;
+  //   }
+  // }
 
   &.card {
     &:hover {
