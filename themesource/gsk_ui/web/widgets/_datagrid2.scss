@@ -96,21 +96,21 @@
         display: none;
       }
     }
-    button[aria-label="Go to first page"] {
-      background-image: $grid-pagingbar-paging-first-icon !important;
-    }
+    // button[aria-label="Go to first page"] {
+    //   background-image: $grid-pagingbar-paging-first-icon !important;
+    // }
 
-    button[aria-label="Go to previous page"] {
-      background-image: $grid-pagingbar-paging-previous-icon !important;
-    }
+    // button[aria-label="Go to previous page"] {
+    //   background-image: $grid-pagingbar-paging-previous-icon !important;
+    // }
 
-    button[aria-label="Go to next page"] {
-      background-image: $grid-pagingbar-paging-next-icon !important;
-    }
+    // button[aria-label="Go to next page"] {
+    //   background-image: $grid-pagingbar-paging-next-icon !important;
+    // }
 
-    button[aria-label="Go to last page"] {
-      background-image: $grid-pagingbar-paging-last-icon !important;
-    }
+    // button[aria-label="Go to last page"] {
+    //   background-image: $grid-pagingbar-paging-last-icon !important;
+    // }
   }
 
   .tr:first-child .th {

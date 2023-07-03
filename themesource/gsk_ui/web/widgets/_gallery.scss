@@ -121,23 +121,23 @@
         min-width: 60px;
       }
 
-      button[aria-label="Go to first page"] {
-        background-image: $gallery-pagingbar-paging-first-icon !important;
-        min-width: unset;
-      }
+      // button[aria-label="Go to first page"] {
+      //   background-image: $gallery-pagingbar-paging-first-icon !important;
+      //   min-width: unset;
+      // }
 
-      button[aria-label="Go to previous page"] {
-        background-image: $gallery-pagingbar-paging-previous-icon !important;
-      }
+      // button[aria-label="Go to previous page"] {
+      //   background-image: $gallery-pagingbar-paging-previous-icon !important;
+      // }
 
-      button[aria-label="Go to next page"] {
-        background-image: $gallery-pagingbar-paging-next-icon !important;
-      }
+      // button[aria-label="Go to next page"] {
+      //   background-image: $gallery-pagingbar-paging-next-icon !important;
+      // }
 
-      button[aria-label="Go to last page"] {
-        background-image: $gallery-pagingbar-paging-last-icon !important;
-        min-width: unset;
-      }
+      // button[aria-label="Go to last page"] {
+      //   background-image: $gallery-pagingbar-paging-last-icon !important;
+      //   min-width: unset;
+      // }
     }
   }
   .widget-gallery-filter {
