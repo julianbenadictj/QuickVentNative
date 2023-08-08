@@ -54,7 +54,7 @@ public class SecurityHelper {
      * @throws NoSuchProviderException  provider not found
      * @throws NoSuchAlgorithmException algorithm not found
      */
-    private static KeyPair generateKeyPairFromURI(String algoURI, int keyLength) throws NoSuchAlgorithmException, NoSuchProviderException {
+    public static KeyPair generateKeyPairFromURI(String algoURI, int keyLength) throws NoSuchAlgorithmException, NoSuchProviderException {
         String jceAlgorithmName = JCEMapper.getJCEKeyAlgorithmFromURI(algoURI);
         return generateKeyPair(jceAlgorithmName, keyLength, null);
     }
@@ -82,7 +82,7 @@ public class SecurityHelper {
         return keyPair;
     }
 
-    private static X509Certificate generateCertificate(EncryptionMethod encrMethod, KeyPair keyPair, String entityId) throws Exception {
+    public static X509Certificate generateCertificate(EncryptionMethod encrMethod, KeyPair keyPair, String entityId) throws Exception {
         X500Name issuer = new X500Name("cn=" + entityId + ", ou=Mendix-SP");
         BigInteger serialNumber = BigInteger.valueOf(System.currentTimeMillis());
         Date notBefore = new Date(System.currentTimeMillis() - 1000L * 60L * 60L * 24L); // Change the date to yesterday
@@ -111,23 +111,6 @@ public class SecurityHelper {
         return x509Certificate;
     }
 
-    public static KeyStore getKeystore(InputStream input, EncryptionKeyLength encryptionKeyLength) throws SAMLException, KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
-        KeyStore keystore = null;
-        input = new BufferedInputStream(input);
-
-        int length = (encryptionKeyLength == EncryptionKeyLength._2048bit_Encryption ? 2048 : 1024);
-        input.mark(length * length);
-
-        try {
-            keystore = loadStore(input, Constants.CERTIFICATE_PASSWORD, "PKCS12");
-        } catch (IOException e) {
-            _logNode.debug("Keystore is not of type 'PCKS12' Trying type 'JKS'. (" + e.getMessage() + ")");
-            input.reset();
-            keystore = loadStore(input, Constants.CERTIFICATE_PASSWORD, "JKS");
-        }
-
-        return keystore;
-    }
 
     private static KeyStore loadStore(InputStream input, String password, String type) throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
         KeyStore ks = KeyStore.getInstance(type);
@@ -137,111 +120,6 @@ public class SecurityHelper {
         return ks;
     }
 
-    protected static KeyStore prepareKeystore(IContext context, IMendixObject spMetadataConfiguration, EncryptionMethod encryptionMethod, EncryptionKeyLength encryptionKeyLength, boolean createNewKeystore) {
-        String entityId = spMetadataConfiguration.getValue(context, SPMetadata.MemberNames.EntityID.toString());
-
-        File keystoreFile = new File(Constants.CERTIFICATE_LOCATION);
-        if (keystoreFile.exists())
-            keystoreFile.delete();
-
-        IMendixIdentifier keyStoreId = spMetadataConfiguration.getValue(context, SPMetadata.MemberNames.SPMetadata_KeyStore.toString());
-        IMendixObject keyStoreObj = null;
-
-        try {
-            try {
-                if (keyStoreId != null) {
-                    keyStoreObj = Core.retrieveId(context, keyStoreId);
-                    if (!createNewKeystore
-                            && (boolean) keyStoreObj.getValue(context, FileDocument.MemberNames.HasContents.toString())
-                            && !(boolean) keyStoreObj.getValue(context, saml20.proxies.KeyStore.MemberNames.RebuildKeyStore.toString())) {
-
-                        KeyStore ks;
-                        try (InputStream inStr = Core.getFileDocumentContent(context, keyStoreObj);
-                             FileOutputStream ous = new FileOutputStream(keystoreFile)) {
-
-                            ks = getKeystore(inStr, encryptionKeyLength);
-                            IOUtils.copy(Core.getFileDocumentContent(context, keyStoreObj), ous);
-                            ous.flush();
-                        }
-
-                        String alias = (String) keyStoreObj.getValue(context, saml20.proxies.KeyStore.MemberNames.Alias.toString());
-
-                        // (JPU) added April 16 2015 to fix bug, certificate not updated in sp_metadata.xml when
-                        // uploading own key store file + setting credential values to include key store private and
-                        // public key.
-                        X509Certificate ksCert = (X509Certificate) ks.getCertificate(alias);
-
-                        // FIXME: should we use the keystore adapter here?
-//                        KeyStoreX509CredentialAdapter cred = new KeyStoreX509CredentialAdapter(ks, alias, Constants.CERTIFICATE_PASSWORD.toCharArray());
-
-                        BasicX509Credential cred = new BasicX509Credential(ksCert);
-                        if (ksCert == null) {
-                            throw new SAMLException("Unable to load the certificate from the key store. If you have just added your own key store make sure the alias is equal to the entity ID of the SP (currently: " + alias + ") and add your key store again.");
-                        } else {
-                            try {
-                                cred.setPrivateKey((PrivateKey) ks.getKey(alias, Constants.CERTIFICATE_PASSWORD.toCharArray()));
-                            } catch (Exception e) {
-                                throw new SAMLException("Unable to load the private key from the key store. If you have just added your own key store make sure the key store password is equal to the password configured in the model and add your key store again.");
-                            }
-                            cred.setEntityCertificate(ksCert);
-//                            cred.setPublicKey(ksCert.getPublicKey()); // FIXME: this is not allowed on an X509 credential
-                            CredentialRepository.getInstance().updateCredential(Constants.CERTIFICATE_PASSWORD, entityId, cred);
-                        }
-
-                        return ks;
-                    }
-                }
-            } catch (SAMLException e) {
-                throw new RuntimeException(e.getMessage(), e);
-            } catch (Exception e) {
-                _logNode.error("Unable to read the KeyStore from the configuration, creating new KeyStore", e);
-            }
-
-            int length = (encryptionKeyLength == EncryptionKeyLength._2048bit_Encryption ? 2048 : 1024);
-            String alias = spMetadataConfiguration.getValue(context, SPMetadata.MemberNames.EntityID.toString());
-            if (alias.isEmpty())
-                alias = "Mendix-SAML";
-
-            KeyPair kp = SecurityHelper.generateKeyPairFromURI("http://www.w3.org/2001/04/xmlenc#rsa-1_5", length);
-
-
-            KeyStore ks = KeyStore.getInstance("JKS");
-            ks.load(null, null);
-
-            X509Certificate cert = SecurityHelper.generateCertificate(encryptionMethod, kp,
-                    (String) spMetadataConfiguration.getValue(context, SPMetadata.MemberNames.EntityID.toString()));
-
-            BasicX509Credential cred = new BasicX509Credential(cert, kp.getPrivate());
-
-            // (JPU) added March 18 2015 to fix bug, certificate not updated in sp_metadata.xml when changing
-            // certificate encryption methods.
-            CredentialRepository.getInstance().updateCredential(Constants.CERTIFICATE_PASSWORD, alias, cred);
-
-            ks.setKeyEntry(entityId, cred.getPrivateKey(), Constants.CERTIFICATE_PASSWORD.toCharArray(), new Certificate[]{cert});
-
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            ks.store(bos, Constants.CERTIFICATE_PASSWORD.toCharArray());
-
-            bos.writeTo(new FileOutputStream(Constants.CERTIFICATE_LOCATION));
-            bos.flush();
-            bos.close();
-
-            FileInputStream fis = new FileInputStream(Constants.CERTIFICATE_LOCATION);
-            if (keyStoreObj == null) {
-                keyStoreObj = Core.instantiate(context, saml20.proxies.KeyStore.entityName);
-                keyStoreObj.setValue(context, FileDocument.MemberNames.Name.toString(), "SPMetaData.jks");
-                keyStoreObj.setValue(context, saml20.proxies.KeyStore.MemberNames.SPMetadata_KeyStore.toString(), spMetadataConfiguration.getId());
-            }
-            keyStoreObj.setValue(context, saml20.proxies.KeyStore.MemberNames.LastChangedOn.toString(), new Date());
-            keyStoreObj.setValue(context, saml20.proxies.KeyStore.MemberNames.Alias.toString(), alias);
-            Core.storeFileDocumentContent(context, keyStoreObj, fis);
-
-            return ks;
-        } catch (Exception e) {
-            _logNode.error("Unable to generate credential", e);
-            throw new RuntimeException("Unable to generate credential", e);
-        }
-    }
 
     public static KeyStore appendToIdPKeyStore(KeyStore ks, Metadata idpMetadata) throws SAMLException {
         try {

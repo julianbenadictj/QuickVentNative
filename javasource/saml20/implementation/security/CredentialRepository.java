@@ -1,6 +1,7 @@
 package saml20.implementation.security;
 
 import com.mendix.core.Core;
+import com.mendix.core.CoreException;
 import com.mendix.logging.ILogNode;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
@@ -14,15 +15,18 @@ import saml20.implementation.metadata.IdpMetadata.Metadata;
 import saml20.proxies.EncryptionKeyLength;
 import saml20.proxies.EncryptionMethod;
 import saml20.proxies.SPMetadata;
+import saml20.proxies.SSOConfiguration;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.*;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -33,10 +37,6 @@ public class CredentialRepository {
     private static final ILogNode _logNode = Core.getLogger(Constants.LOGNODE);
 
     private final Map<Key, BasicX509Credential> credentials = new ConcurrentHashMap<Key, BasicX509Credential>();
-    private Boolean useEncryption = Boolean.TRUE;
-    private EncryptionKeyLength encryptionKeyLength = null;
-    private EncryptionMethod encryptionMethod = null;
-    private KeyStore keystoreSP;
     private static String jvmKeyStorePW = null;
 
     /**
@@ -45,14 +45,16 @@ public class CredentialRepository {
      * <p>
      * The Idp publishes the TLS connection using on of the signing certificates
      */
+
     private KeyStore trustStoreSSL = null;
     /**
      * The KeyStore consists out of all Trusted Certificates from the JVM and the certificates included in the Model
-     * During initialization the SP private and PublicKey pair will added to the Truststore in order to perform
+     * During initialization the  private and PublicKey pair will added to the Truststore in order to perform
      * 'HolderOfKey' authentication
      */
     private KeyStore keyStoreSSL = null;
 
+    private KeyStore keystoreIDPs;
     private boolean initialized = false;
 
     private static CredentialRepository _instance;
@@ -68,28 +70,24 @@ public class CredentialRepository {
     private CredentialRepository() {
     }
 
-    public void updateConfiguration(IContext context, IMendixObject spMetadataConfiguration, IdpMetadata idpMetadata) throws SAMLException {
-
-        this.useEncryption = spMetadataConfiguration.getValue(context, SPMetadata.MemberNames.UseEncryption.toString());
-        String encKeyLength = spMetadataConfiguration.getValue(context, SPMetadata.MemberNames.EncryptionKeyLength.toString());
-        String encMethod = spMetadataConfiguration.getValue(context, SPMetadata.MemberNames.EncryptionMethod.toString());
-        boolean createNewKeystore = false;
-
-        if (this.useEncryption) {
-            EncryptionKeyLength eType = EncryptionKeyLength.valueOf(encKeyLength);
-            EncryptionMethod eMethod = EncryptionMethod.valueOf(encMethod);
-            if (this.encryptionKeyLength != null && this.encryptionMethod != null) { // if both values are null the application has just been started so no new keystore should be created.
-                createNewKeystore = (eType != this.encryptionKeyLength) || (eMethod != this.encryptionMethod);
+    public void updateConfiguration(IContext context, List<IMendixObject> ssoConfigurationList,IdpMetadata idpMetadata) throws SAMLException {
+        Security.addProvider(new BouncyCastleProvider());
+        this.keystoreIDPs = KeyStoreHelper.createKeyStore();
+       for (IMendixObject ssoConfiguration : ssoConfigurationList) {
+            SSOConfiguration ssoConfig = SSOConfiguration.initialize(context, ssoConfiguration);
+            if(ssoConfig.getUseEncryption()){
+                try {
+                    saml20.proxies.KeyStore keyStore =  ssoConfig.getSSOConfiguration_KeyStore();
+                    if(keyStore == null){
+                        KeyStoreHelper.generateSelfKeyPair(ssoConfig,context);
+                    }
+                    KeyStoreHelper.updateCredential(ssoConfig,context);
+                } catch (CoreException e) {
+                    throw new RuntimeException(e);
+                }
             }
-
-            this.encryptionKeyLength = eType;
-            this.encryptionMethod = eMethod;
-
-            Security.addProvider(new BouncyCastleProvider());
-
-            this.keystoreSP = SecurityHelper.prepareKeystore(context, spMetadataConfiguration, this.encryptionMethod, this.encryptionKeyLength, createNewKeystore);
         }
-        // Reset the KeyStore and TrustStore because the SP certificates potentially changed.
+        // Reset the KeyStore and TrustStore because the  certificates potentially changed.
         this.keyStoreSSL = null;
         if (idpMetadata != null)
             setupTrustStore(idpMetadata);
@@ -102,66 +100,29 @@ public class CredentialRepository {
      * <p>
      * The first private key is loaded from the keystore.
      *
-     * @param password            Keystore and private key password.
-     * @param entityId            if more keystores are available this parameter is a must. Apply different keys for
-     *                            each keystore. (EntityId)
+     * @param ssoConfig            Keystore and private key password.
+
      * @throws SAMLException
      */
+    public BasicX509Credential getCredential(SSOConfiguration ssoConfig) throws SAMLException {
+       /* if (!this.initialized)
+            throw new SAMLException("The Credential Repository has not been initialized.");*/
 
-    public BasicX509Credential getCredential(String password, String entityId) throws SAMLException {
-        if (!this.initialized)
-            throw new SAMLException("The Credential Repository has not been initialized.");
-
-        if (this.useEncryption) {
-            Key key = new Key(password, entityId);
+        if (ssoConfig.getUseEncryption()) {
+            Key key = null;
+            try {
+                key = new Key(ssoConfig.getSSOConfiguration_KeyStore().getPassword(), ssoConfig.getAlias());
+            } catch (CoreException e) {
+                return null;
+            }
             BasicX509Credential credential = this.credentials.get(key);
             if (credential == null) {
-                credential = createCredential(this.keystoreSP, password);
-                this.credentials.put(key, credential);
+                credential  =  KeyStoreHelper.updateCredential(ssoConfig, ssoConfig.getContext());
             }
-
             return credential;
         }
 
         return null;
-    }
-
-    /**
-     * Read credentials from a inputstream.
-     * <p>
-     * The stream can either point to a PKCS12 keystore or a JKS keystore. The store is converted into a
-     * {@link Credential} including the private key.
-     *
-     * @param ks    the certificate store.
-     * @param password Password for the store. The same password is also used for the certificate.
-     * @return The {@link Credential}
-     * @throws SAMLException
-     */
-    private BasicX509Credential createCredential(KeyStore ks, String password) throws SAMLException {
-        if (!this.initialized)
-            throw new SAMLException("The Credential Repository has not been initialized.");
-        BasicX509Credential credential = null;
-        _logNode.debug("Reading credential from keystore");
-        try {
-            Enumeration<String> eAliases = ks.aliases();
-            while (eAliases.hasMoreElements()) {
-                String strAlias = eAliases.nextElement();
-
-                if (ks.isKeyEntry(strAlias)) {
-                    credential = new BasicX509Credential((X509Certificate) ks.getCertificate(strAlias));
-                    PrivateKey privateKey = (PrivateKey) ks.getKey(strAlias, password.toCharArray());
-                    credential.setPrivateKey(privateKey);
-                    PublicKey publicKey = ks.getCertificate(strAlias).getPublicKey();
-                    if (_logNode.isDebugEnabled())
-                        _logNode.debug("publicKey..:" + publicKey + ", privateKey: " + privateKey);
-//                    credential.setPublicKey(publicKey); // FIXME: this is not allowed on an X509 credential
-                }
-            }
-        } catch (GeneralSecurityException e) {
-            throw new SAMLException(e);
-        }
-
-        return credential;
     }
 
     /**
@@ -188,8 +149,8 @@ public class CredentialRepository {
         return this.trustStoreSSL;
     }
 
-    public KeyStore getKeystoreSP() {
-        return this.keystoreSP;
+    public KeyStore getKeystoreIDPs() {
+        return this.keystoreIDPs;
     }
 
     /**
@@ -204,14 +165,14 @@ public class CredentialRepository {
             try {
                 this.keyStoreSSL = loadJVMKeyStore();
 
-                if (this.keystoreSP != null) {
-                    Enumeration<String> aliasList = this.keystoreSP.aliases();
+                if (this.keystoreIDPs != null) {
+                    Enumeration<String> aliasList = this.keystoreIDPs.aliases();
                     while (aliasList.hasMoreElements()) {
                         String alias = aliasList.nextElement();
-                        this.keyStoreSSL.setEntry(alias, this.keystoreSP.getEntry(alias, new KeyStore.PasswordProtection(Constants.CERTIFICATE_PASSWORD.toCharArray())), new KeyStore.PasswordProtection(System.getProperty("javax.net.ssl.keyStorePassword").toCharArray()));
+                        this.keyStoreSSL.setEntry(alias, this.keystoreIDPs.getEntry(alias, new KeyStore.PasswordProtection(Constants.CERTIFICATE_PASSWORD.toCharArray())), new KeyStore.PasswordProtection(System.getProperty("javax.net.ssl.keyStorePassword").toCharArray()));
                     }
                 }
-            } catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | IOException | UnrecoverableEntryException e) {
+            }catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | IOException | UnrecoverableEntryException e) {
                 throw new SAMLException("Unable to load the TrustStore ", e);
             }
         }
@@ -263,6 +224,14 @@ public class CredentialRepository {
     public void updateCredential(String password, String entityId, BasicX509Credential cred) throws SAMLException {
         Key key = new Key(password, entityId);
         this.credentials.put(key, cred);
+        try {
+            if(this.keystoreIDPs == null) {
+                this.keystoreIDPs = KeyStoreHelper.createKeyStore();
+            }
+            this.keystoreIDPs.setKeyEntry(entityId, cred.getPrivateKey(), Constants.CERTIFICATE_PASSWORD.toCharArray(), new Certificate[]{cred.getEntityCertificate()});
+        } catch (KeyStoreException e) {
+            throw new SAMLException(e);
+        }
     }
 
     private static class Key {
@@ -305,6 +274,10 @@ public class CredentialRepository {
 
             return true;
         }
+    }
+
+    public  String getJVMKeyStorePW(){
+        return this.jvmKeyStorePW;
     }
 
 }

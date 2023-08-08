@@ -10,10 +10,12 @@
 package saml20.actions;
 
 import com.mendix.core.Core;
+import com.mendix.logging.ILogNode;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
-import saml20.implementation.security.SecurityHelper;
+import saml20.implementation.common.Constants;
+import saml20.implementation.security.KeyStoreHelper;
 import java.io.InputStream;
 import java.util.Enumeration;
 
@@ -36,20 +38,31 @@ public class PreValidateKeyStoreFile extends CustomJavaAction<java.lang.Boolean>
 		this.keyStoreObj = this.__keyStoreObj == null ? null : saml20.proxies.KeyStore.initialize(getContext(), __keyStoreObj);
 
 		// BEGIN USER CODE
-       String aliasName = keyStoreObj.getAlias();
-       boolean isAliasFindInKeyStore =false;
-        try (InputStream inStr = Core.getFileDocumentContent(this.getContext(), __keyStoreObj)){
-            java.security.KeyStore ks = SecurityHelper.getKeystore(inStr, encryptionKeyLength);
-            Enumeration<String> aliases = ks.aliases();
-            while (aliases.hasMoreElements()){
-                String name = aliases.nextElement();
-                if(name.equals(aliasName)){
-                    isAliasFindInKeyStore = true;
-                    break;
-                }
-            }
-        }
-        return isAliasFindInKeyStore;
+		String aliasName = keyStoreObj.getAlias();
+		String password = keyStoreObj.getPassword();
+		boolean isAliasFindInKeyStore = false;
+		if (password != null) {
+			password = KeyStoreHelper.decrypt(password, getContext());
+		}
+
+		try (InputStream inStr = Core.getFileDocumentContent(this.getContext(), __keyStoreObj)) {
+			java.security.KeyStore ks = KeyStoreHelper.getKeystore(inStr, encryptionKeyLength, password);
+			Enumeration<String> aliases = ks.aliases();
+			while (aliases.hasMoreElements()) {
+				String name = aliases.nextElement();
+				if (name.equals(aliasName)) {
+					isAliasFindInKeyStore = true;
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Core.getLogger(Constants.LOGNODE).error(e.getMessage());
+			return false;
+		}
+		if (!isAliasFindInKeyStore) {
+			Core.getLogger(Constants.LOGNODE).error("Alias is not found in key store file");
+		}
+		return isAliasFindInKeyStore;
 		// END USER CODE
 	}
 

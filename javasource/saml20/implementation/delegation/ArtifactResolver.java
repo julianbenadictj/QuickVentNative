@@ -64,7 +64,7 @@ public class ArtifactResolver {
         if (ArtifactResolver.useSamlArt(request)) {
             return ArtifactResolver.resolveArtifactResponse(context);
         }
-        return HTTPUtils.extract(context.getRequest().getHttpServletRequest());
+        return HTTPUtils.extract(context.getRequest().getHttpServletRequest(),context);
     }
 
     private static boolean useSamlArt(HttpServletRequest request) {
@@ -79,10 +79,11 @@ public class ArtifactResolver {
         final HttpServletRequest req = context.getRequest().getHttpServletRequest();
         final HttpServletResponse resp = context.getResponse().getHttpServletResponse();
 
-        Credential credentials = context.getCredential();
         String idpEntityID = getOrigalIdpEntityId(context);
         String spEntityID = context.getSpMetadata().getEntityID();
         Metadata metadata = context.getIdpMetadata().getMetadata(idpEntityID);
+        context.setSSOConfiguration(SSOConfiguration.initialize(context.getIContext(), metadata.getSsoConfiguration()));
+        Credential credentials = context.getCredential();
         String artResolutionServiceLocation = metadata.getArtifactResolutionServiceLocation(idpEntityID);
         if (_logNode.isDebugEnabled())
             _logNode.debug("Artifact received");
@@ -175,8 +176,8 @@ public class ArtifactResolver {
             String trustManagerFactoryAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(trustManagerFactoryAlgorithm);
             trustManagerFactory.init(trustStore);
-
-            KeyStore identityKs = CredentialRepository.getInstance().getKeystoreSP();
+ //DOTO Handle Here
+            KeyStore identityKs = CredentialRepository.getInstance().getKeystoreIDPs();
             char[] pass = Constants.CERTIFICATE_PASSWORD.toCharArray();
             String keyManagerFactoryAlgorithm = KeyManagerFactory.getDefaultAlgorithm();
             KeyManagerFactory identityKeyManagerFactory = KeyManagerFactory.getInstance(keyManagerFactoryAlgorithm);

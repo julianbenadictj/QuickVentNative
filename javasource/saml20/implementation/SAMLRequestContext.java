@@ -5,12 +5,15 @@ import com.mendix.m2ee.api.IMxRuntimeResponse;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.ISession;
 import org.apache.velocity.app.VelocityEngine;
+import org.opensaml.saml.common.SAMLException;
 import org.opensaml.security.credential.Credential;
 import saml20.implementation.binding.BindingHandlerFactory;
 import saml20.implementation.metadata.IdpMetadata;
 import saml20.implementation.metadata.SPMetadata;
+import saml20.implementation.security.CredentialRepository;
 import saml20.implementation.security.SessionManager;
 import saml20.implementation.wrapper.MxResource;
+import saml20.proxies.SSOConfiguration;
 
 public class SAMLRequestContext {
 	private final IMxRuntimeRequest request;
@@ -18,24 +21,24 @@ public class SAMLRequestContext {
 	private final ISession currentSession;
 	private final IdpMetadata idpMetadata;
 	private final SPMetadata spMetadata;
-	private final Credential credential;
+	private  Credential credential;
 	private final IContext context;
 	private Throwable error = null;
 	private final SessionManager sessionManager;
 	private final BindingHandlerFactory bindingHandlerFactory;
 	private final VelocityEngine engine;
-	
+
+	private SSOConfiguration ssoConfiguration;
 	private String samlSessionID = null;
 	private MxResource resource = null;
 
-	public SAMLRequestContext( IContext context, IMxRuntimeRequest request, IMxRuntimeResponse response, IdpMetadata idpMetadata, SPMetadata spMetadata, Credential credential, SessionManager sessionManager, BindingHandlerFactory bindingHandlerFactory, VelocityEngine engine, ISession currentSession ) {
+	public SAMLRequestContext( IContext context, IMxRuntimeRequest request, IMxRuntimeResponse response, IdpMetadata idpMetadata, SPMetadata spMetadata, SessionManager sessionManager, BindingHandlerFactory bindingHandlerFactory, VelocityEngine engine, ISession currentSession ) {
 		this.context = context;
 		this.request = request;
 		this.currentSession = currentSession;
 		this.response = response;
 		this.idpMetadata = idpMetadata;
 		this.spMetadata = spMetadata;
-		this.credential = credential;
 		this.sessionManager = sessionManager;
 		this.bindingHandlerFactory = bindingHandlerFactory;
 		this.engine = engine;
@@ -46,6 +49,9 @@ public class SAMLRequestContext {
 	}
 	public void setResource( MxResource resource ) {
 		this.resource = resource;
+	}
+	public void setSSOConfiguration( SSOConfiguration ssoConfiguration ) {
+		this.ssoConfiguration = ssoConfiguration;
 	}
 
 	public void setError( Throwable error ) {
@@ -79,8 +85,11 @@ public class SAMLRequestContext {
 		return this.context;
 	}
 
-	public Credential getCredential() {
-		return this.credential;
+	public Credential getCredential() throws SAMLException {
+		if(this.credential == null ){
+			this.credential = CredentialRepository.getInstance().getCredential(this.ssoConfiguration);
+		}
+	return this.credential;
 	}
 
 	public SessionManager getSessionManager() {
@@ -104,6 +113,10 @@ public class SAMLRequestContext {
 	}
 	public MxResource getResource() {
 		return this.resource;
+	}
+
+	public SSOConfiguration getSSOConfiguration() {
+		return this.ssoConfiguration ;
 	}
 
 }

@@ -266,7 +266,7 @@ public class MxSAMLObject {
         }
     }
 
-    public MessageContext<SAMLObject> buildMessageContext(MxSAMLObject mxSAMLObject, SAMLRequestContext requestContext, Metadata metadata, Endpoint destination, String relayState, boolean useEncryption) throws SAMLException {
+    public MessageContext<SAMLObject> buildMessageContext(MxSAMLObject mxSAMLObject, SAMLRequestContext requestContext, Metadata metadata, Endpoint destination, String relayState) throws SAMLException {
 
         MessageContext<SAMLObject> messageContext = new MessageContext<SAMLObject>();
         // Build the parameters for the request
@@ -276,10 +276,9 @@ public class MxSAMLObject {
         SAMLBindingSupport.setRelayState(messageContext, relayState);
 
         // Sign the parameters
-        final Credential credential = requestContext.getCredential();
-        String encryptionMethod = requestContext.getSpMetadata().getEncryptionAlgorithm(requestContext.getIContext());
+        boolean useEncryption = requestContext.getSSOConfiguration().getUseEncryption();
         if (useEncryption) {
-            mxSAMLObject.sign(credential, encryptionMethod);
+            mxSAMLObject.sign(requestContext.getCredential(), requestContext.getSSOConfiguration().getEncryptionMethod().toString());
         }
 
         // Set the message
@@ -294,7 +293,7 @@ public class MxSAMLObject {
 
     protected class Encoder extends HTTPRedirectDeflateEncoder {
         public String buildRedirectURL(SAMLRequestContext requestContext, Metadata metadata, String relayState, Endpoint destination) throws MessageEncodingException, SAMLException {
-            MessageContext<SAMLObject> messageContext = buildMessageContext(MxSAMLObject.this, requestContext, metadata, destination, relayState, true);
+            MessageContext<SAMLObject> messageContext = buildMessageContext(MxSAMLObject.this, requestContext, metadata, destination, relayState);
 
 
             Deflater deflater = new Deflater(Deflater.DEFLATED, true);

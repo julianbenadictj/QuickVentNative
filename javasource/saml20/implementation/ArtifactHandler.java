@@ -50,7 +50,7 @@ public class ArtifactHandler extends SAMLHandler {
 
     private void handleSAMLResponse(SAMLRequestContext samlContext, MxSAMLResponse response) throws SAMLException {
         SAMLRequest correspondingSAMLRequest = null;
-        SSOConfiguration ssoconfig = null;
+        SSOConfiguration ssoconfig = samlContext.getSSOConfiguration();
         String principalKey = null;
         String userPrincipal = null;
 
@@ -64,10 +64,8 @@ public class ArtifactHandler extends SAMLHandler {
             String requestID = SAMLUtil.getRequestIDFromRelayState(relayState);
             correspondingSAMLRequest = SAMLUtil.retrieveCorrespondingRequestFromDB(samlContext.getIContext(), requestID);
 
-            String entityId = response.getOrigalIdpEntityId(samlContext.getIContext(), correspondingSAMLRequest);
+            String entityId = response.getOriginalIdpEntityId();
             Metadata metadata = samlContext.getIdpMetadata().getMetadata(entityId);
-
-            ssoconfig = SSOConfiguration.initialize(samlContext.getIContext(), metadata.getSsoConfiguration());
             String entityAlias = metadata.getAlias(samlContext.getIContext());
 
             //SAMLRequest has already received a response.
@@ -102,8 +100,7 @@ public class ArtifactHandler extends SAMLHandler {
 
             
             // check if at least something was signed
-            SPMetadata spMetadata = SPMetadata.initialize(samlContext.getIContext(), samlContext.getSpMetadata().getSpMetadataObject());
-            if (spMetadata.getUseEncryption()) {
+            if (ssoconfig.getUseEncryption() || Enum_ProtocolBinding.POST_BINDING.equals(ssoconfig.getResponseProtocolBinding()))  {
                 if (!response.hasSignature() && !assertion.hasSignature()) {
                     throw new SAMLException("The message is not signed correctly, either the full message or the assertions must be signed");
                 }
@@ -221,7 +218,7 @@ public class ArtifactHandler extends SAMLHandler {
                     samlContext.getIContext().endTransaction();
                 } catch (Exception e) {
                     if (samlContext.getIContext().isInTransaction())
-                        samlContext.getIContext().rollbackTransAction();
+                        samlContext.getIContext().rollbackTransaction();
 
                     throw e;
                 }

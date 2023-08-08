@@ -141,7 +141,8 @@ public class LoginHandler extends SAMLHandler {
 		else {
 			_logNode.debug("Discovered idp " + metadata.getEntityID());
 		}
-		
+		SSOConfiguration configuration = SSOConfiguration.initialize(context.getIContext(), metadata.getSsoConfiguration());
+		context.setSSOConfiguration(configuration);
 		org.opensaml.saml.saml2.metadata.Endpoint signonLocation = metadata.findLoginEndpoint(Constants.getBindingURIs());
 		if ( signonLocation == null ) {
 			String msg = "Could not find a valid IdP SignOn location. Supported bindings: " + Constants.getBindingURIs() + ", available: " + metadata.getSingleSignonServices();
@@ -150,14 +151,12 @@ public class LoginHandler extends SAMLHandler {
 		}
 		_logNode.debug("Signing on at " + signonLocation.getLocation());
 
-		SSOConfiguration configuration = SSOConfiguration.initialize(context.getIContext(), metadata.getSsoConfiguration());
 		enableForceAuthentication = configuration.getEnableForceAuthentication() || isInSessionLogin;
 		MxSAMLAuthnRequest authnRequest = MxSAMLAuthnRequest.buildAuthnRequestObject(context, metadata, signonLocation, relayState, enableForceAuthentication, isInSessionLogin);
 
 		// BJHL 2015-10-22 log the request after signing
 		SAMLRequest samlRequest = SAMLUtil.logSAMLRequestMessage(context, requestID, authnRequest, metadata.getSsoConfiguration());
 
-		
 		// execute custom preflight microflow
 		IContext mxContext = Core.createSystemContext();
 		String customPrepareInSessionAuthNMicroflow = null;

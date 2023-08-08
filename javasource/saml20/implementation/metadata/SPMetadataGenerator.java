@@ -46,7 +46,7 @@ public class SPMetadataGenerator {
 
             // check if SSOConfigurationObject is available, should be as it is created in
             // StartSAML.java;
-            if (spMetadataConfigurationObject.equals(null))
+            if (spMetadataConfigurationObject == null)
                 throw new SAMLException("SSO Configuration is not available");
 
             // check if entity ID is specified
@@ -79,13 +79,23 @@ public class SPMetadataGenerator {
             
             // If encryption / signing enabled, indicate this in the metadata
             // See SAML metadata standard, par 2.4.4 Element <SPSSODescriptor>
-            if (spMetadataConfigurationObject.getUseEncryption()) {
+            if (ssoMetadataConfiguration != null && ssoMetadataConfiguration.getUseEncryption()) {
                 spssoDescriptor.setAttribute("AuthnRequestsSigned", "true");
                 spssoDescriptor.setAttribute("WantAssertionsSigned", "true");
+            }else{
+                if (ssoMetadataConfiguration != null && Enum_ProtocolBinding.POST_BINDING.equals(ssoMetadataConfiguration.getResponseProtocolBinding())) {
+                    spssoDescriptor.setAttribute("WantAssertionsSigned", "true");
+                } else {
+                    spssoDescriptor.setAttribute("WantAssertionsSigned", "false");
+                }
+                spssoDescriptor.setAttribute("AuthnRequestsSigned", "false");
             }
             entityDescriptor.appendChild(spssoDescriptor);
 
-            BasicX509Credential cert = credentialRepository.getCredential(Constants.CERTIFICATE_PASSWORD, entityId);
+            BasicX509Credential cert = null;
+            if(ssoMetadataConfiguration !=null){
+                cert = credentialRepository.getCredential(ssoMetadataConfiguration);
+            }
 
             try {
                 if (cert != null) {
@@ -204,7 +214,7 @@ public class SPMetadataGenerator {
             }
 
             if(cert != null) {
-                doc = OpenSAMLUtils.addSign(doc, cert,spMetadataConfigurationObject.getEncryptionMethod()); // Custom
+                doc = OpenSAMLUtils.addSign(doc, cert,ssoMetadataConfiguration.getEncryptionMethod()); // Custom
 			}
             DOMSource source = new DOMSource(doc);
 

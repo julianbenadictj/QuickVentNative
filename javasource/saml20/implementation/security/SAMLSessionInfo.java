@@ -100,7 +100,7 @@ public class SAMLSessionInfo {
 			SSLContext sslContext;
 			try {
 				sslContext = SSLContexts.custom()
-						.loadKeyMaterial(myTrustStore, System.getProperty("javax.net.ssl.keyStorePassword").toCharArray())
+						.loadKeyMaterial(myTrustStore, CredentialRepository.getInstance().getJVMKeyStorePW().toCharArray())
 						.build();
 			} catch (NoSuchAlgorithmException | KeyManagementException | KeyStoreException | UnrecoverableKeyException e) {
 				throw new RuntimeException("Failed to initialize keystore", e);

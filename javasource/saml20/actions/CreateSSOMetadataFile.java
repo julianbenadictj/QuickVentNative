@@ -41,7 +41,7 @@ public class CreateSSOMetadataFile extends CustomJavaAction<java.lang.Boolean>
 
 		// BEGIN USER CODE
         CredentialRepository credRep = CredentialRepository.getInstance();
-        credRep.updateConfiguration(getContext(), this.__spMetadata, null);
+        //credRep.updateConfiguration(getContext(), this.__spMetadata, null);
 
         this.spMetadata.setName("sp_metadata.xml");
         try (ByteArrayOutputStream out = SPMetadataGenerator.generate(getContext(), this.__spMetadata,this.ssoMetadata, credRep);

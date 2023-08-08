@@ -1,13 +1,14 @@
 package saml20.implementation;
 
-import com.google.common.collect.ImmutableList;
 import com.mendix.core.Core;
+import com.mendix.core.CoreException;
 import com.mendix.externalinterface.connector.RequestHandler;
 import com.mendix.logging.ILogNode;
 import com.mendix.m2ee.api.IMxRuntimeRequest;
 import com.mendix.m2ee.api.IMxRuntimeResponse;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.ISession;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
@@ -15,10 +16,7 @@ import org.opensaml.core.config.InitializationException;
 import org.opensaml.core.config.InitializationService;
 import org.opensaml.saml.common.SAMLException;
 import org.opensaml.security.credential.Credential;
-import org.opensaml.xmlsec.SecurityConfigurationSupport;
 import org.opensaml.xmlsec.config.impl.GlobalSecurityConfigurationInitializer;
-import org.opensaml.xmlsec.impl.BasicSignatureSigningConfiguration;
-import org.opensaml.xmlsec.signature.support.SignatureConstants;
 import saml20.implementation.binding.BindingHandlerFactory;
 import saml20.implementation.common.Constants;
 import saml20.implementation.common.Constants.SAMLAction;
@@ -27,9 +25,10 @@ import saml20.implementation.common.SAMLUtil;
 import saml20.implementation.metadata.IdpMetadata;
 import saml20.implementation.metadata.SPMetadata;
 import saml20.implementation.security.CredentialRepository;
+import saml20.implementation.security.SAMLSessionInfo;
 import saml20.implementation.security.SessionManager;
 import saml20.implementation.wrapper.MxResource;
-import saml20.proxies.EncryptionMethod;
+import saml20.proxies.SSOConfiguration;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.Writer;
@@ -44,10 +43,7 @@ public class SAMLRequestHandler extends RequestHandler {
 	private transient SPMetadata spMetadata;
 	private BindingHandlerFactory bindingHandlerFactory;
 	private transient SessionManager sessionManager;
-	private List<IMendixObject> ssoConfigurationList;
 	private transient VelocityEngine engine;
-
-	private Credential credential;
 
 	private final Map<SAMLAction, SAMLHandler> handlers = new HashMap<SAMLAction, SAMLHandler>();
 	private boolean initialized = false;
@@ -75,9 +71,9 @@ public class SAMLRequestHandler extends RequestHandler {
 	}
 
 	public void initServlet(IContext context, boolean forceReload) throws SAMLException, InitializationException {
-		if (this.initialized == false || forceReload) {
+		if (!this.initialized || forceReload) {
 
-			this.ssoConfigurationList = SAMLUtil.getActiveSSOConfig(context);
+			List<IMendixObject> ssoConfigurationList = SAMLUtil.getActiveSSOConfig(context);
 			IMendixObject spMetadataConfiguration = SAMLUtil.getMetadataConfig(context);
 
 			this.handlers.clear();
@@ -95,34 +91,22 @@ public class SAMLRequestHandler extends RequestHandler {
 
 
 			this.bindingHandlerFactory = new BindingHandlerFactory();
-
-			if (this.ssoConfigurationList != null) {
-				this.idpMetadata = IdpMetadata.getInstance().updateConfiguration(context, this.ssoConfigurationList);
+			CredentialRepository credentialRepository = CredentialRepository.getInstance();
+			if (ssoConfigurationList != null) {
+				this.idpMetadata = IdpMetadata.getInstance().updateConfiguration(context, ssoConfigurationList);
+				credentialRepository.updateConfiguration(context, ssoConfigurationList,this.idpMetadata);
 			}else{
 				this.idpMetadata = null;
 			}
 
-			CredentialRepository credentialRepository = CredentialRepository.getInstance();
-			credentialRepository.updateConfiguration(context, spMetadataConfiguration, this.idpMetadata);
+			//this.credential = credentialRepository.getCredential(Constants.CERTIFICATE_PASSWORD, entityId);
 
-			this.credential = credentialRepository.getCredential(Constants.CERTIFICATE_PASSWORD, entityId);
-
-			this.sessionManager = SessionManager.getInstance(context).init(context, this.ssoConfigurationList);
+			this.sessionManager = SessionManager.getInstance(context).init(context, ssoConfigurationList);
 			this.spMetadata = SPMetadata.getInstance().updateConfiguration(context, spMetadataConfiguration, credentialRepository);
 
 			// initializes the various security configurations
 			GlobalSecurityConfigurationInitializer gsci = new GlobalSecurityConfigurationInitializer();
 			gsci.init();
-
-			// set the signing algos
-			BasicSignatureSigningConfiguration sigSignConfig = (BasicSignatureSigningConfiguration) SecurityConfigurationSupport.getGlobalSignatureSigningConfiguration();
-			if (this.spMetadata.getEncryptionAlgorithm(context).equals(EncryptionMethod.SHA256WithRSA.toString())) {
-				sigSignConfig.setSignatureReferenceDigestMethods(ImmutableList.of(SignatureConstants.ALGO_ID_SIGNATURE_RSA_SHA256));
-				sigSignConfig.setSignatureReferenceDigestMethods(ImmutableList.of(SignatureConstants.ALGO_ID_DIGEST_SHA256));
-			} else {
-				sigSignConfig.setSignatureReferenceDigestMethods(ImmutableList.of(SignatureConstants.ALGO_ID_SIGNATURE_RSA_SHA1));
-				sigSignConfig.setSignatureReferenceDigestMethods(ImmutableList.of(SignatureConstants.ALGO_ID_DIGEST_SHA1));
-			}
 
 			this.initialized = true;
 
@@ -162,7 +146,11 @@ public class SAMLRequestHandler extends RequestHandler {
 
 			if (this.handlers.containsKey(action)) {
 				try {
-					SAMLRequestContext samlContext = new SAMLRequestContext(context, request, response, this.idpMetadata, this.spMetadata, this.credential, this.sessionManager, this.bindingHandlerFactory, this.engine, this.getSessionFromRequest(request));
+					SAMLRequestContext samlContext = new SAMLRequestContext(context, request, response, this.idpMetadata, this.spMetadata,this.sessionManager, this.bindingHandlerFactory, this.engine, this.getSessionFromRequest(request));
+
+					ISession session = samlContext.getSessionManager().getSessionFromRequest(request);
+					SAMLSessionInfo sessionInfo = samlContext.getSessionManager().isLoggedIn(session);
+					updateSSOConfigurationInSAMLRequestContext(sessionInfo,samlContext);
 
 					SAMLHandler handler = this.handlers.get(action);
 					handler.handleRequest(samlContext);
@@ -179,14 +167,29 @@ public class SAMLRequestHandler extends RequestHandler {
 		}
 	}
 
+	private void updateSSOConfigurationInSAMLRequestContext(SAMLSessionInfo sessionInfo, SAMLRequestContext samlContext)  {
+		if (sessionInfo != null && sessionInfo.getEntityId() != null && samlContext.getIdpMetadata() != null) {
+			try {
+				IdpMetadata.Metadata metadata = samlContext.getIdpMetadata().getMetadata(sessionInfo.getEntityId());
+				SSOConfiguration configuration = SSOConfiguration.initialize(samlContext.getIContext(), metadata.getSsoConfiguration());
+				samlContext.setSSOConfiguration(configuration);
+			} catch (SAMLException e) {
+				_logNode.error("Error occurred while getting SSO: " + e.getMessage());
+			}
+		}
+	}
+
 	public void requestDelegatedAuthentication(String samlSessionID, String resourceURL) throws SAMLException, InitializationException {
 
 		IContext context = Core.createSystemContext();
 		initServlet(context, false);
 
-		SAMLRequestContext samlContext = new SAMLRequestContext(context, null, null, this.idpMetadata, this.spMetadata, this.credential, this.sessionManager, this.bindingHandlerFactory, this.engine, null);
+		SAMLRequestContext samlContext = new SAMLRequestContext(context, null, null, this.idpMetadata, this.spMetadata,this.sessionManager, this.bindingHandlerFactory, this.engine, null);
 		samlContext.setSamlSessionID(samlSessionID);
 		samlContext.setResource(new MxResource(resourceURL));
+
+		SAMLSessionInfo sessionInfo = samlContext.getSessionManager().getSessionDetails(samlSessionID);
+		updateSSOConfigurationInSAMLRequestContext(sessionInfo,samlContext);
 
 		SAMLHandler handler = this.handlers.get(SAMLAction.delegatedAuthentication);
 		handler.handleRequest(samlContext);

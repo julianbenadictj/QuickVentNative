@@ -2,28 +2,17 @@ package saml20.implementation.wrapper;
 
 import com.mendix.core.Core;
 import com.mendix.logging.ILogNode;
-import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.systemwideinterfaces.core.IMendixIdentifier;
-import com.mendix.systemwideinterfaces.core.IMendixObject;
 import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.saml2.core.Issuer;
 import org.opensaml.saml.saml2.core.Response;
 import org.opensaml.saml.saml2.core.StatusCode;
 import org.opensaml.security.credential.Credential;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import saml20.implementation.common.Constants;
 import saml20.implementation.common.Constants.ValidationLevel;
-import saml20.implementation.common.MendixUtils;
 import saml20.implementation.metadata.IdpMetadata.Metadata;
-import saml20.proxies.EntityDescriptor;
-import saml20.proxies.SAMLRequest;
-import saml20.proxies.SSOConfiguration;
 
 import java.security.cert.X509Certificate;
-import java.util.HashMap;
-import java.util.List;
 
 public class MxSAMLResponse extends MxSAMLObject {
     private static final ILogNode _logNode = Core.getLogger(Constants.LOGNODE);
@@ -121,30 +110,12 @@ public class MxSAMLResponse extends MxSAMLObject {
      * Resolve the IdP Entity id.  The preferred resolution is to retrieve the SSOConfig and EntityDescriptor by the corresponding SAML request.
      * If nothing has been found, it will fallback on the Issuer from the XML message.
      *
-     * @param context
-     * @param correspondingSAMLRequest
+
      * @return
      * @throws SAMLException
      */
-    public String getOrigalIdpEntityId(IContext context, SAMLRequest correspondingSAMLRequest) throws SAMLException {
-
+    public String getOriginalIdpEntityId() throws SAMLException {
         String issuerName = null;
-        if (correspondingSAMLRequest != null) {
-            IMendixIdentifier ssoConfigId = correspondingSAMLRequest.getMendixObject().getValue(context, SAMLRequest.MemberNames.SAMLRequest_SSOConfiguration.toString());
-            if (ssoConfigId != null) {
-                List<IMendixObject> result = MendixUtils.retrieveFromDatabase(context, "//%s[%s = $id]",
-                        new HashMap<String, Object>() {{
-                            put("id", ssoConfigId);
-                        }},
-                        EntityDescriptor.entityName,
-                        SSOConfiguration.MemberNames.SSOConfiguration_PreferedEntityDescriptor.toString()
-                );
-            }
-        }
-
-        /*
-         * Fallback necessary in case the SAML request is no longer valid, or unsolicited requests are allowed.
-         */
         if (issuerName == null || issuerName.isEmpty()) {
             Issuer issuer = null;
             if (!this.response.getAssertions().isEmpty()) {

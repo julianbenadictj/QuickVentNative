@@ -204,11 +204,12 @@ public class SessionManager {
 	/**
 	 * this method can be used to initialize an XAS session when the username is known and verified.
 	 *
-	 * @param request
-	 * @param response
-	 * @param ssoconfig
-	 * @param assertion
-	 * @param username
+	 * @param entityId
+	 * @param samlContext
+	 * @param samlSession
+	 * @param correspondingSAMLRequest
+	 * @param entityAlias
+	 * @param relayState
 	 * @throws Exception
 	 */
 	public ISession createSession( String entityId, SAMLRequestContext samlContext, SAMLSessionInfo samlSession, SAMLRequest correspondingSAMLRequest, String entityAlias, String relayState ) throws Exception {
@@ -258,16 +259,12 @@ public class SessionManager {
 			/**
 			 * create cookies and redirect: String key, String value, String path, String domain, int expiry
 			 */
-			String[] mxVersion = RuntimeVersion.getInstance().toString().split("\\.");
-			if (Integer.parseInt(mxVersion[0]) >=9 && Integer.parseInt(mxVersion[1]) >= 20) {
-				//use reflection to call the addCookie method with 7 parameters, which was added in 9.20
-				@SuppressWarnings("rawtypes")
-				Class[] methodSignature = {String.class, String.class, String.class, String.class, int.class, boolean.class, boolean.class};
-				Method addCookie = response.getClass().getMethod("addCookie", methodSignature);
-				addCookie.invoke(response, Core.getConfiguration().getSessionIdCookieName(), session.getId().toString(), "/", "", -1, true, true);
-			} else {
-				response.addCookie(Core.getConfiguration().getSessionIdCookieName(), session.getId().toString(), "/", "", -1,true);
-			}
+			//use reflection to call the addCookie method with 7 parameters, which was added in 9.20
+			@SuppressWarnings("rawtypes")
+			Class[] methodSignature = {String.class, String.class, String.class, String.class, int.class, boolean.class, boolean.class};
+			Method addCookie = response.getClass().getMethod("addCookie", methodSignature);
+			addCookie.invoke(response, Core.getConfiguration().getSessionIdCookieName(), session.getId().toString(), "/", "", -1, true, true);
+
 			response.addHeader(RequestHandler.CSRF_TOKEN_HEADER, session.getCsrfToken());
 
 			// Create authentication token for use in mobile apps
@@ -742,8 +739,6 @@ public class SessionManager {
 	}
 
 	private String getSamlSessionID(IMxRuntimeRequest request) throws CoreException {
-		String[] mxVersion = RuntimeVersion.getInstance().toString().split("\\.");
-		if (Integer.parseInt(mxVersion[0]) >= 9 && Integer.parseInt(mxVersion[1]) >= 20) {
 			// use reflection to call the getCookie method with 2 parameters, which was added in 9.20
 			@SuppressWarnings("rawtypes")
 			Class[] methodSignature = {String.class, boolean.class};
@@ -753,9 +748,7 @@ public class SessionManager {
 			} catch (Exception e) {
 				throw new CoreException(e);
 			}
-		} else {
-			return request.getCookie(Core.getConfiguration().getSessionIdCookieName());
-		}
+
 	}
 
 }

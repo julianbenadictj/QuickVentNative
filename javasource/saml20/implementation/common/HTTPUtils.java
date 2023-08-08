@@ -5,13 +5,14 @@ import com.mendix.logging.ILogNode;
 import com.mendix.m2ee.api.IMxRuntimeRequest;
 import com.mendix.m2ee.api.IMxRuntimeResponse;
 import org.apache.velocity.app.VelocityEngine;
-import org.apache.velocity.runtime.RuntimeConstants;
-import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.SignableSAMLObject;
 import org.opensaml.saml.saml2.core.Response;
+import saml20.implementation.SAMLRequestContext;
+import saml20.implementation.metadata.IdpMetadata;
 import saml20.implementation.wrapper.MxSAMLResponse;
+import saml20.proxies.SSOConfiguration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -82,7 +83,7 @@ public class HTTPUtils {
         return responseParam != null && !responseParam.isEmpty();
     }
 
-    public static MxSAMLResponse extract(HttpServletRequest request) throws SAMLException {
+    public static MxSAMLResponse extract(HttpServletRequest request, SAMLRequestContext context) throws SAMLException {
         String samlResponse = request.getParameter(Constants.SAML_SAMLRESPONSE);
         if (samlResponse == null || samlResponse.trim().isEmpty()) {
             // 2015-05-07: Removed "temp hack" that was present here
@@ -94,6 +95,11 @@ public class HTTPUtils {
         if (!(obj instanceof Response)) {
             throw new IllegalArgumentException("SAMLResponse must be of type Response. Was " + obj);
         }
+
+        MxSAMLResponse response=   new MxSAMLResponse((Response) obj);
+        String idpEntityID = response.getOriginalIdpEntityId();
+        IdpMetadata.Metadata metadata = context.getIdpMetadata().getMetadata(idpEntityID);
+        context.setSSOConfiguration(SSOConfiguration.initialize(context.getIContext(), metadata.getSsoConfiguration()));
         return new MxSAMLResponse((Response) obj);
     }
 

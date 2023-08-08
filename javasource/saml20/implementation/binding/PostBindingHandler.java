@@ -43,10 +43,9 @@ public class PostBindingHandler implements BindingHandler {
         // BJHL 2015-05-28 If use encryption is false, we cannot sign since there is no credential
         // available. Fall back to old behaviour of the module, which was to not sign the request.
         // This looks weird to me, I don't know for sure whether this will be accepted everywhere.
-        final boolean useEncryption = context.getSpMetadata().getSpMetadataObject().getValue(
-                context.getIContext(), SPMetadata.MemberNames.UseEncryption.toString());
+        final boolean useEncryption = context.getSSOConfiguration().getUseEncryption();
         if (useEncryption) {
-            mxSamlObj.sign(context.getCredential(), context.getSpMetadata().getEncryptionAlgorithm(context.getIContext()));
+            mxSamlObj.sign(context.getCredential(), context.getSSOConfiguration().getEncryptionMethod().toString());
         } else {
             _logNode.warn("NOT USING ENCRYPTION!");
         }
@@ -59,7 +58,7 @@ public class PostBindingHandler implements BindingHandler {
         req.setAttribute(Constants.SAML_SAMLREQUEST, encodedMessage);
 
         try {
-            MessageContext<SAMLObject> samlContext = mxSamlObj.buildMessageContext(mxSamlObj, context, metadata, destination, relayState, useEncryption);
+            MessageContext<SAMLObject> samlContext = mxSamlObj.buildMessageContext(mxSamlObj, context, metadata, destination, relayState);
 
             HTTPPostEncoder encoder = new HTTPPostEncoder();
             encoder.setVelocityEngine(engine);
