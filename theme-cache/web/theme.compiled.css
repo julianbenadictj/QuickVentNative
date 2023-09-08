@@ -35353,6 +35353,10 @@ table.mx-table.table-lined tbody tr td:not(:last-child), table.mx-table.table-li
   font-family: "GSK Precision Bold";
   src: url("/fonts/GSKPrecision-Bold.woff"), url("/fonts/GSKPrecision-Bold.woff2"), url("/fonts/GSKPrecision-BoldItalic.woff"), url("/fonts/GSKPrecision-BoldItalic.woff2");
 }
+.display-none {
+  display: none;
+}
+
 .back-btn {
   color: #1d1e20;
   text-decoration: underline;
