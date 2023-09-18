@@ -7,3 +7,12 @@
 .topbar-content .mx-name-hTMLSnippet1 {
   display: none;
 }
+
+.icons-example {
+  @include material-icons;
+
+  &::before {
+    content: $icons-calendar;
+    display: block;
+  }
+}

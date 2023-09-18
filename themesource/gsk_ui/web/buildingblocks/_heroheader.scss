@@ -1,10 +1,22 @@
 .headerhero {
   background-color: $heroheader-background-color !important;
-
+  padding: 24px 112px !important;
+  @media screen and (max-width: $s) 
+  {
+    padding: 24px !important;
+  }
+  .headerhero-backgroundimage
+  {
+    filter: unset;
+  }
   .headerhero-title {
-    margin-bottom: 16px !important;
+    margin-bottom: 8px !important;
     color: $heroheader-title-font-color;
     font-weight: $heroheader-title-font-weight;
+  }
+  .headerhero-subtitle
+  {
+    margin-bottom: 16px;
   }
 
   .headerhero-action {
@@ -16,6 +28,7 @@
   }
 
   .heroheader-overlay {
+    width: 100%;
     .headerhero-title {
       color: $heroheader-overlay-title-font-color;
     }
@@ -33,6 +46,7 @@
     .headerhero-subtitle
     {
       font-size: $heroheader-dense-subtitle-font-size;
+      margin-bottom: 8px;
     }
 
   }

@@ -17,7 +17,8 @@
         }
       }
       & > a,
-      & > a:focus {
+      & > a:focus 
+      {
         box-sizing: border-box;
         min-height: 42px;        
         padding: 17px 24px;
@@ -31,10 +32,15 @@
         color: $tabcontainer-font-color !important;
         cursor: pointer;
         // line-height: 22px;
-        &:hover {
+        &:hover 
+        {
           border: none;
           border-bottom: 2px solid $tabcontainer-hover-border-color;
           background: $tabcontainer-hover-background-color;
+        }
+        @media screen and (max-width: $s)  // for mobile
+        {
+            padding: 10px 16px;
         }
       }
       &.disabled,
@@ -115,26 +121,30 @@
   border-color: $tabcontainer-content-border-color;
 }
 
-.mx-tabcontainer.tab-pills {
-  margin: 0 24px;
-
+.mx-tabcontainer.tab-pills 
+{
+  margin: 0;
   .mx-tabcontainer-tabs {
     border: none;
 
-    & > li {
+    & > li 
+    {
       &.active > a,
-      &.active > a:focus {
+      &.active > a:focus 
+      {
         border: none;
         background-color: $tabpills-active-background-color;
         color: $tabpills-active-font-color;
 
-        &:hover {
+        &:hover 
+        {
           border: none;
           background: $tabpills-active-hover-background-color;
           color: $tabpills-active-hover-font-color;
         }
       }
-      & > a {
+      & > a 
+      {
         box-sizing: border-box;
         padding: 9px 16px;
         border: none;
@@ -153,6 +163,9 @@
           color: $tabpills-hover-font-color;
         }
       }
+      &:last-child > a{
+        margin-right: 0;
+      }
       &.disabled,
       &[disabled] {
         a {
@@ -164,12 +177,6 @@
       }
     }
 
-    // & > li.active > a,
-    // & > li.active > a:hover,
-    // & > li.active > a:focus {
-    //     border:none;
-    //     border-bottom: 2px $brand-primary solid !important;
-    // }
   }
 }
 

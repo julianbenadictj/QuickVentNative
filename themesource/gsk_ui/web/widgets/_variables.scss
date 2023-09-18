@@ -1,5 +1,3 @@
-@import "../../../atlas_core/web/_variables.scss";
-@import "../_variables.scss";
 //
 // ██╗    ██╗██╗██████╗  ██████╗ ███████╗████████╗███████╗
 // ██║    ██║██║██╔══██╗██╔════╝ ██╔════╝╚══██╔══╝██╔════╝
@@ -18,7 +16,8 @@ $accordion-header-arrow-color-white: $font-color-white;
 $accordion-group-border-color: $gsk-primary;
 $accordion-header-background-color: $gsk-background;
 $accordion-header-font-color: $font-color-default;
-$accordion-header-font-weight: $font-weight-semibold;
+$accordion-header-font-size: $font-size-default;
+$accordion-header-font-weight: $font-weight-medium;
 $accordion-header-border-color: $gsk-primary;
 $accordion-horizontal-group-border-color: $gsk-border;
 // status - hover, active, focus
@@ -33,6 +32,14 @@ $accordion-primary-header-font-color: $accordion-header-font-color-white;
 // status - hover, active, focus
 $accordion-primary-status-background-color: $gsk-primary;
 $accordion-primary-status-arrow-color: $accordion-header-arrow-color-white;
+
+$accordion-group-tertiary-border-color: $gsk-tertiary;
+$accordion-tertiary-header-background-color: $gsk-tertiary;
+$accordion-tertiary-header-font-color: $accordion-header-font-color-white;
+// status - hover, active, focus
+$accordion-tertiary-status-background-color: $gsk-tertiary;
+$accordion-tertiary-status-arrow-color: $accordion-header-arrow-color-white;
+
 
 $accordion-group-secondary-border-color: $gsk-primary;
 $accordion-secondary-header-background-color: $gsk-background;
@@ -50,6 +57,7 @@ $accordion-group-warning-border-color: $gsk-warning;
 $accordion-warning-header-background-color: $gsk-warning;
 // status - hover, active, focus
 $accordion-warning-status-background-color: $gsk-warning;
+$accordion-warning-status-arrow-color: $gsk-primary;
 
 $accordion-group-danger-border-color: $gsk-error;
 $accordion-danger-header-background-color: $gsk-error;
@@ -265,13 +273,34 @@ $button-figma-icon: url("./assets/FigmaIcon.svg");
 //
 // ====== carousel
 //
-$carousel-icon: url("./assets/carousel_icon.svg");
+$carousel-icon: $icons-chevron-right;
+$carousel-icon-color:$font-color-white;
+$carousel-icon-font-size:$line-height-h1;
 $carousel-side-hover-background: linear-gradient(
   270deg,
   rgba(10, 19, 37, 0.7) 0.41%,
   rgba(10, 19, 37, 0.0001) 100%
 );
 $carousel-side-background: transparent;
+
+//
+// ====== charts
+//
+$chart-font-faimly:$font-family-base;
+$chart-font-color:$font-color-default;
+$chart-font-size:$font-size-default;
+$chart-font-weight:$font-weight-normal;
+$chart-tick-font-color:$font-color-detail;
+$chart-border-color:$gsk-border;
+$chart-legend-font-size:$font-size-small;
+$chart-slicetext-font-size:$font-size-medium;
+
+$chart-tooltip-background-color:$gsk-tertiary;
+$chart-tooltip-font-color:$font-color-white;
+$chart-tooltip-font-size:$font-size-medium;
+
+
+
 
 //
 // ====== checkbox
@@ -284,9 +313,8 @@ $checkbox-checked-border-color: $gsk-secondary;
 $checkbox-checked-background-color: $gsk-secondary;
 
 $checkbox-hover-border-color: $gsk-secondary-extra-light;
-$checkbox-hover-background-image: url("./assets/checkbox_unchecked_hover_bg.svg");
-$checkbox-checked-hover-background-image: url("./assets/checkbox_checked_hover_bg.svg");
-
+$checkbox-hover-background:$gsk-secondary-extra-light;
+$checkbox-checked-hover-background:$gsk-secondary-light;
 
 $checkbox-disabled-border-color: $gsk-border;
 $checkbox-disabled-background-color: transparent;
@@ -299,23 +327,6 @@ $checkbox-focus-outline-color: transparent;
 //
 // ====== datagrid
 //
-$datagrid-searchbar-border-color: $gsk-border;
-$datagrid-searchbar-background-color: $gsk-background;
-$datagrid-searchbar-boxshadow-color: rgba($gsk-primary, 0.16);
-$datagrid-searchbar-label-font-color: $font-color-default;
-$datagrid-searchbar-label-font-size: $font-size-medium;
-$datagrid-searchbar-label-font-weight: $font-weight-semibold;
-$datagrid-searchbar-input-font-size: $font-size-medium;
-$datagrid-searchbar-calendar-border-color: $gsk-border;
-$datagrid-searchbar-calendar-font-color: $font-color-default;
-$datagrid-searchbar-calendar-font-weight: $font-weight-normal;
-$datagrid-searchbar-calendar-icon: url("./assets/calendar_black.svg");
-$datagrid-searchbar-search-icon: url("./assets/search-icon.svg");
-$datagrid-searchbar-sort-icon: url("./assets/sort_default.svg");
-$datagrid-searchbar-sort-ascending-icon: url("./assets/sort_ascending.svg");
-$datagrid-searchbar-sort-descending-icon: url("./assets/sort_descending.svg");
-$datagrid-searchbar-calendar-close-icon: url("./assets/close-icon.svg");
-
 $datagrid-controlbar-buttons-border-color: $gsk-primary;
 $datagrid-controlbar-buttons-background-color: transparent;
 $datagrid-controlbar-buttons-font-color: $font-color-default;
@@ -336,18 +347,14 @@ $datagrid-table-body-selected-font-color: $font-color-white;
 $datagrid-table-body-newrow-background-color: $gsk-tertiary-light;
 
 $datagrid-horizontal-table-background-color: $gsk-background;
-
+$datagrid-striped-even-background-color: $gsk-background-secondary;
+$datagrid-striped-odd-background-color: $gsk-background;
 $datagrid-hover-table-data-background-color: $gsk-secondary-extra-light;
 $datagrid-selected-hover-table-data-background-color: $gsk-primary-light;
+$datagrid-searchbar-search-icon: $icons-search;
 
-// Grid
 $grid-pagingbar-hover-font-color: $gsk-secondary;
 $grid-pagingbar-paging-status-font-size: $font-size-small;
-$grid-pagingbar-paging-first-icon: url("./assets/paging_left_double.svg");
-$grid-pagingbar-paging-previous-icon: url("./assets/paging_left_single.svg");
-$grid-pagingbar-paging-next-icon: url("./assets/paging_right_single.svg");
-$grid-pagingbar-paging-last-icon: url("./assets/paging_right_double.svg");
-
 $grid-tablecompact-font-size: $font-size-small;
 $grid-tablecompact-head-font-size: $font-size-small;
 
@@ -356,11 +363,9 @@ $datagrid2-border-color: $gsk-border;
 $datagrid2-background-color: $gsk-background;
 $datagrid2-font-color: $font-color-default;
 $datagrid2-font-size: $font-size-medium;
-
 $datagrid2-hover-background-color: $gsk-secondary-extra-light;
 $datagrid2-selected-hover-background-color: $gsk-primary-light;
 
-// status - active/active:hover/focus/focus:hover/selected/selected:focus/selected:hover
 $datagrid2-selected-background-color: $gsk-primary-light;
 $datagrid2-selected-font-color: $font-color-white;
 $datagrid2-newrow-background-color: $gsk-tertiary-light;
@@ -372,28 +377,11 @@ $datagrid2-table-head-font-size: $font-size-medium;
 $datagrid2-table-head-font-weight: $font-weight-bold;
 $datagrid2-table-resizer-background-color: $gsk-secondary;
 $datagrid2-table-filter-font-weight: $font-weight-normal;
-$datagrid2-table-filter-selector-icon: url("./assets/arrow_chevron_left.svg");
 $datagrid2-table-filter-selector-hover-bg-color: $gsk-secondary-extra-light;
 $datagrid2-table-filter-selector-expanded-bg-color: $gsk-primary-light;
 $datagrid2-table-filter-selector-expanded-font-color: $font-color-white;
 $datagrid2-table-filter-selector-expanded-border-color: $gsk-primary-light;
 $datagrid2-table-filter-selector-hover-border-color: $gsk-border;
-
-$datagrid-searchbar-dropdown-icon: url("./assets/arrow_chevron_down.svg");
-
-$datagrid-columnselector-icon: url("./assets/column_selector.svg");
-$datagrid-columnselector-selected-icon: url("./assets/column_selector_selected.svg");
-$datagrid-columnselector-expanded-bg-color: $gsk-primary-light;
-$datagrid-columnselector-expanded-border-color: $gsk-primary-light;
-$datagrid-columnselector-hover-bg-color: $gsk-secondary-extra-light;
-$datagrid-columnselector-hover-border-color: $gsk-border;
-$datagrid2-columnselector-border-color: $gsk-border;
-$datagrid2-columnselector-active-border-color: $gsk-primary;
-$datagrid-columnselector-font-size: $font-size-medium;
-
-$datagrid-columnselector-dropdown-hover-bg-color: $gsk-secondary-extra-light;
-$datagrid2-columnselector-dropdown-border-color: $gsk-background-secondary;
-$datagrid2-columnselector-dropdown-boxshadow-color: rgba($gsk-primary, 0.16);
 
 $datagrid2-footer-font-size: $font-size-small;
 
@@ -426,6 +414,54 @@ $datagrid2-dropdown-label-font-size: $font-size-default;
 
 $datagrid2-tablecompact-font-size: $font-size-small;
 $datagrid2-tablecompact-head-font-size: $font-size-small;
+$datagrid2-popupmenu-active-font-color: $font-color-white;
+$datagrid2-icon-active-background-color:$gsk-primary-light;
+$datagrid2-icon-hover-background-color:$gsk-secondary-extra-light;
+$datagrid2-icon-hover-border-color: $gsk-border;
+
+$datagrid2-filter-between-icon: $icons-between;
+$datagrid2-filter-equal-icon: $icons-equal;
+$datagrid2-filter-greater-icon: $icons-chevron-right;
+$datagrid2-filter-smaller-icon: $icons-chevron-left;
+
+// Datagrid shared - there variables are shared accross datagrid and datagrid 2
+$datagridshared-searchbar-border-color: $gsk-border;
+$datagridshared-searchbar-background-color: $gsk-background;
+$datagridshared-searchbar-boxshadow-color: rgba($gsk-primary, 0.16);
+$datagridshared-searchbar-label-font-color: $font-color-default;
+$datagridshared-searchbar-label-font-size: $font-size-medium;
+$datagridshared-searchbar-label-font-weight: $font-weight-semibold;
+$datagridshared-searchbar-input-font-size: $font-size-medium;
+$datagridshared-searchbar-calendar-font-color: $font-color-default;
+$datagridshared-searchbar-calendar-icon-font-size:$font-size-verylarge;
+$datagridshared-searchbar-calendar-icon: $icons-calendar;
+
+$datagridshared-pagingbar-paging-button-font-size: $font-size-h2;
+$datagridshared-pagingbar-font-color: $gsk-primary;
+
+$datagridshared-pagingbar-paging-first-icon: $icons-paging-first;
+$datagridshared-pagingbar-paging-previous-icon: $icons-chevron-left;
+$datagridshared-pagingbar-paging-next-icon: $icons-chevron-right;
+$datagridshared-pagingbar-paging-last-icon: $icons-paging-last;
+
+$datagridshared-sort-icon-font-size:$font-size-verylarge;
+$datagridshared-sort-icon: $icons-sort-arrow;
+$datagridshared-sort-ascending-icon: $icons-arrow-up;
+$datagridshared-sort-descending-icon: $icons-arrow-down;
+$datagridshared-searchbar-calendar-close-icon: $icons-close;
+$datagridshared-columnselector-icon: url("./assets/column_selector.svg");
+$datagridshared-columnselector-selected-icon: url("./assets/column_selector_selected.svg");
+
+$datagridshared-columnselector-expanded-bg-color: $gsk-primary-light;
+$datagridshared-columnselector-expanded-border-color: $gsk-primary-light;
+$datagridshared-columnselector-hover-bg-color: $gsk-secondary-extra-light;
+$datagridshared-columnselector-hover-border-color: $gsk-border;
+$datagridshared-columnselector-font-size: $font-size-medium;
+$datagridshared-columnselector-dropdown-hover-bg-color: $gsk-secondary-extra-light;
+$datagridshared-columnselector-border-color: $gsk-border;
+$datagridshared-columnselector-active-border-color: $gsk-primary;
+$datagridshared-columnselector-dropdown-border-color: $gsk-background-secondary;
+$datagridshared-columnselector-dropdown-boxshadow-color: rgba($gsk-primary, 0.16);
 
 //template grid
 $templategrid-font-size: $font-size-medium;
@@ -477,7 +513,8 @@ $reactdatepicker-header-select-border-color: $gsk-primary;
 $datapicker-border-color: transparent;
 $datapicker-font-color: $font-color-default;
 $datapicker-font-weight: $font-weight-normal;
-$datapicker-background-image: url("./assets/calendar_black.svg");
+$datapicker-calendar-icon: $icons-calendar;
+$datapicker-calendar-icon-font-size:$font-size-verylarge;
 $datapicker-button-border-color: $gsk-border;
 
 $calendarbutton-border-color: $gsk-border;
@@ -495,10 +532,11 @@ $calendar-month-dropdown-font-size: $font-size-medium;
 $calendar-month-dropdown-status-background-color: $gsk-border;
 $calendar-month-dropdown-status-font-color: $font-color-default;
 $calendar-month-font-size: $font-size-large;
-$calendar-month-chevron-hover-background-color: $gsk-secondary; // not working
-$calendar-month-chevron-icon: url("./assets/arrow_chevron_down.svg");
-$calendar-month-next-chevron-icon: url("./assets/paging_right_single.svg");
-$calendar-month-previous-chevron-icon: url("./assets/paging_left_single.svg");
+
+
+$calendar-month-icon-font-size: $font-size-h2;
+$calendar-month-previous-icon: $icons-chevron-left;
+$calendar-month-next-icon: $icons-chevron-right;
 
 $calendar-weekday-font-color: $font-color-detail;
 $calendar-weekday-font-weight: $font-weight-normal;
@@ -556,18 +594,6 @@ $dropdown-menu-hover-background-color: $gsk-background-secondary;
 $dropdownbutton-font-size: $font-size-medium;
 $dropdownbutton-link-border-color:$gsk-tertiary;
 $dropdownbutton-lg-font-size: $font-size-default;
-
-$dropdownbutton-primary-chevron-icon: url("./assets/arrow_chevron_down_white.svg");
-$dropdownbutton-primary-bordered-chevron-icon: url("./assets/arrow_chevron_down_primary.svg");
-$dropdownbutton-success-chevron-icon: url("./assets/arrow_chevron_down_white.svg");
-$dropdownbutton-success-bordered-chevron-icon: url("./assets/arrow_chevron_down_success.svg");
-$dropdownbutton-error-chevron-icon: url("./assets/arrow_chevron_down_white.svg");
-$dropdownbutton-error-bordered-chevron-icon: url("./assets/arrow_chevron_down_error.svg");
-$dropdownbutton-warning-chevron-icon: url("./assets/arrow_chevron_down_primary.svg");
-$dropdownbutton-warning-bordered-chevron-icon: url("./assets/arrow_chevron_down_primary.svg");
-$dropdownbutton-link-chevron-icon: url("./assets/arrow_chevron_down_tertiary.svg");
-$dropdownbutton-ghost-chevron-icon: url("./assets/arrow_chevron_down_primary.svg");
-
 $dropdownlist-font-size:$font-size-default;
 $dropdownlist-font-weight:$font-weight-normal;
 $dropdownlist-border-color:$gsk-border;
@@ -638,8 +664,11 @@ $feedback-submitbtn-disabled-font-color: scale-color(
 
 //
 // ====== file manager
-//
-$filemanager-value-border-color: transparent;
+
+$filemanager-download-icon: $icons-download;
+$filemanager-download-icon-font-size: $font-size-large;
+
+$filemanager-value-border-color: $gsk-border;
 $filemanager-disabled-background-color: $gsk-background-secondary;
 
 $filemanager-downloadbutton-border-color: $gsk-primary;
@@ -656,13 +685,7 @@ $gallery-border-color: $gsk-border;
 
 $gallery-striped-odd-background-color: $gsk-background-secondary;
 $gallery-hover-background-color: $gsk-apricot;
-
 $gallery-selected-background-color:$gsk-border;
-
-$gallery-pagingbar-paging-first-icon: url("./assets/paging_left_double.svg");
-$gallery-pagingbar-paging-previous-icon: url("./assets/paging_left_single.svg");
-$gallery-pagingbar-paging-next-icon: url("./assets/paging_right_single.svg");
-$gallery-pagingbar-paging-last-icon: url("./assets/paging_right_double.svg");
 
 $gallery-filter-border-color: $gsk-border;
 $gallery-filter-selector-font-size: $font-size-default;
@@ -671,6 +694,11 @@ $gallery-filter-selector-hover-bg-color: $gsk-secondary-extra-light;
 $gallery-filter-selector-expanded-bg-color: $gsk-primary-light;
 $gallery-filter-selector-expanded-font-color: $font-color-white;
 $gallery-filter-selector-expanded-border-color: $gsk-primary-light;
+
+$gallery-filter-sort-icon:$icons-arrow-up;
+
+$gallery-filter-sort-icon-font-size:$font-size-h2;
+
 //
 // ====== groupbox
 //
@@ -680,7 +708,10 @@ $groupbox-h6-font-weight: $font-weight-bold;
 $groupbox-border-color: $gsk-primary;
 $groupbox-background-color: $gsk-primary;
 $groupbox-font-color: $font-color-white;
-$groupbox-icon: url("./assets/arrow_chevron_down_white.svg");
+
+$groupbox-icon: $icons-chevron-down;
+$groupbox-icon-font-size:$font-size-h2;
+
 
 $groupbox-primary-border-color: $gsk-primary;
 $groupbox-primary-background-color: $gsk-primary;
@@ -689,7 +720,6 @@ $groupbox-primary-font-color: $font-color-white;
 $groupbox-secondary-border-color: $gsk-primary;
 $groupbox-secondary-background-color: $gsk-background;
 $groupbox-secondary-font-color: $font-color-default;
-$groupbox-secondary-icon: url("./assets/arrow_chevron_down.svg");
 
 $groupbox-success-border-color: $gsk-success;
 $groupbox-success-background-color: $gsk-success;
@@ -698,7 +728,6 @@ $groupbox-success-font-color: $font-color-white;
 $groupbox-warning-border-color: $gsk-warning;
 $groupbox-warning-background-color: $gsk-warning;
 $groupbox-warning-font-color: $font-color-default;
-$groupbox-warning-icon: url("./assets/arrow_chevron_down.svg");
 
 $groupbox-danger-border-color: $gsk-error;
 $groupbox-danger-background-color: $gsk-error;
@@ -707,12 +736,10 @@ $groupbox-danger-font-color: $font-color-white;
 $groupbox-transparent-border-color: transparent;
 $groupbox-transparent-background-color: transparent;
 $groupbox-transparent-font-color: $font-color-default;
-$groupbox-transparent-icon: url("./assets/arrow_chevron_down.svg");
 $groupbox-transparent-body-border-color: $gsk-border;
 
 $groupbox-callout-background-color: $gsk-secondary-extra-light;
 $groupbox-callout-font-color: $font-color-default;
-$groupbox-callout-icon: url("./assets/arrow_chevron_down.svg");
 
 $groupbox-callout-primary-background-color: $gsk-secondary-extra-light;
 $groupbox-callout-secondary-background-color: $gsk-secondary-light;
@@ -724,6 +751,9 @@ $groupbox-callout-transparent-background-color: transparent;
 //
 // ====== input
 //
+$input-max-width:800px;
+$input-dropdown-icon:$icons-chevron-down;
+$input-icon-font-size:$font-size-h2;
 $input-border-color: $gsk-border;
 $input-background-color: $gsk-background;
 $input-font-color: $font-color-default;
@@ -767,15 +797,18 @@ $label-danger-background-color: $gsk-error-light;
 //
 $link-font-color: $gsk-tertiary;
 $link-listview-font-color: $gsk-secondary;
+$link-listview-icon-font-size: $font-size-h2;
 $link-textdecoration: underline;
-$link-back-icon: url("./assets/arrow_chevron_left_tertiary.svg");
+$link-back-icon-font-size: $font-size-h2;
+
+$link-back-icon:$icons-chevron-left;
+$link-back-icon-color:$gsk-tertiary;
 
 //
 // ====== listview
 //
 $listview-border-color: $gsk-border;
 $listview-hover-background-color: $gsk-secondary-extra-light;
-$listview-link-icon: url("./assets/chevron_right_orange.svg");
 $listview-stripped-background-color: $gsk-background-secondary;
 
 
@@ -804,6 +837,14 @@ $listitem-hover-background-color: $gsk-secondary-extra-light;
 $listitem-status-background-color: $gsk-secondary-light;
 $listitem-active-hover-background-color: $gsk-secondary-extra-light;
 
+$listitem-icon-font-color:$gsk-secondary;
+$listitem-icon-font-size:$font-size-h2;
+
+//
+// ====== maps
+//
+$maps-button-font-size: $font-size-large;
+
 //
 // ====== navigationbar
 //
@@ -812,7 +853,10 @@ $navigationbar-font-color: $font-color-default;
 $navigationbar-font-size: $font-size-default;
 $navigationbar-font-weight: $font-weight-normal;
 $navigationbar-border-color: $gsk-border;
-$navigationbar-icon: url("./assets/arrow_chevron_down.svg");
+$navigationbar-icon-font-size: $font-size-h4;
+$navigationbar-icon: $icons-chevron-down;
+$navigationbar-icon-open: $icons-chevron-up;
+
 
 // status - hover/focus
 $navigationbar-status-background-color: $gsk-secondary-extra-light;
@@ -875,7 +919,8 @@ $navigationtree-item-hover-background-color:$gsk-secondary-extra-light;
 $navigationtree-item-status-font-color: $font-color-default;
 
 $navigationtree-item-firstchild-font-color: $font-color-default;
-$navigationtree-parent-icon: url("./assets/arrow_chevron_down.svg");
+$navigationtree-parent-icon: $icons-chevron-down;
+$navigationtree-parent-icon-font-size:$font-size-verylarge;
 
 $navigationtree-collapsed-background-color: $gsk-background;
 $navigationtree-collapsed-hover-shadow-color: rgba($gsk-primary, 0.16);
@@ -999,12 +1044,15 @@ $rangeslider-tooltip-font-size: $font-size-small;
 $rating-icon: url('./assets/rating-star.svg');
 $rating-icon-filled: url('./assets/rating-star-filled.svg');
 
+$rating-dense-font-size:$font-size-default;
+$rating-large-dense-font-size:$font-size-verylarge;
+
 //
 
 //
 // ====== select box
 //
-$selectbox-icon: url("./assets/arrow_chevron_down.svg");
+//$selectbox-icon: url("./assets/arrow_chevron_down.svg");
 
 //
 // ====== switch

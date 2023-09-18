@@ -1,4 +1,128 @@
 {
+  "DivContainer": [
+    {
+      "name": "Align content",
+      "type": "Dropdown",
+      "description": "Align content of this element left, right or center it. Align elements inside the container as a row or as a column.",
+      "options": [
+        {
+          "name": "Left align as a row",
+          "oldNames": ["Left align as row"],
+          "class": "row-left"
+        },
+        {
+          "name": "Center align as a row",
+          "oldNames": ["Center align as row"],
+          "class": "row-center"
+        },
+        {
+          "name": "Right align as a row",
+          "oldNames": ["Right align as row"],
+          "class": "row-right"
+        },
+        {
+          "name": "Left align as a column",
+          "oldNames": ["Left align as column"],
+          "class": "col-left"
+        },
+        {
+          "name": "Center align as a column",
+          "oldNames": ["Center align as column"],
+          "class": "col-center"
+        },
+        {
+          "name": "Right align as a column",
+          "oldNames": ["Right align as column"],
+          "class": "col-right"
+        }
+      ]
+    },
+    {
+      "name": "Background color",
+      "type": "Dropdown",
+      "description": "Change the background color of the container.",
+      "options": [
+        {
+          "name": "Background Primary",
+          "oldNames": ["Background Default"],
+          "class": "background-main"
+        },
+        {
+          "name": "Background Secondary",
+          "oldNames": ["Background Dashboard"],
+          "class": "background-secondary"
+        },
+        {
+          "name": "Brand Primary",
+          "oldNames": ["Primary"],
+          "class": "background-primary"
+        },
+        {
+          "name": "Brand Secondary",
+          "oldNames": ["Default", "Brand Default"],
+          "class": "background-secondary"
+        },
+        {
+          "name": "Brand Tertiary",
+          "oldNames": ["Tertiary"],
+          "class": "background-tertiary"
+        },
+        {
+          "name": "Brand Success",
+          "oldNames": ["Success"],
+          "class": "background-success"
+        },
+        {
+          "name": "Brand Warning",
+          "oldNames": ["Warning"],
+          "class": "background-warning"
+        },
+        {
+          "name": "Brand Danger",
+          "oldNames": ["Danger"],
+          "class": "background-danger"
+        },
+        {
+          "name": "Brand Gradient",
+          "class": "background-brand-gradient"
+        }
+      ]
+    },
+    {
+      "name": "Shade",
+      "type": "Dropdown",
+      "description": "Apply a shade to your background color",
+      "options": [
+        {
+          "name": "Light",
+          "class": "background-light"
+        },
+        {
+          "name": "Dark",
+          "class": "background-dark"
+        }
+      ]
+    },
+    {
+      "name": "Add shadow",
+      "type": "Dropdown",
+      "description": "Add a shadow to this element",
+      "options": [
+        {
+          "name": "Small",
+          "class": "shadow-small"
+        },
+        {
+          "name": "Medium",
+          "class": "shadow-medium"
+        },
+        {
+          "name": "Large",
+          "class": "shadow-large"
+        }
+      ]
+    }
+  ],
   "gsk.tristateswitch.TriStateSwitch": [
     {
       "name": "Style",
@@ -20,6 +144,70 @@
         {
           "name": "Brand Danger",
           "class": "widget-switch-brand-danger"
+        }
+      ]
+    }
+  ],
+  "com.mendix.widget.custom.badge.Badge": [
+    {
+      "name": "Style",
+      "type": "Dropdown",
+      "description": "Change the appearance of a label.",
+      "options": [
+        {
+          "name": "Brand Tertiary",
+          "oldNames": ["Tertiary"],
+          "class": "label-tertiary"
+        }
+      ]
+    }
+  ],
+  "com.mendix.widget.web.datagrid.Datagrid": [
+    {
+      "name": "Horizontal scroll",
+      "type": "Toggle",
+      "description": "Toggles when datagrid has horizontal scroll",
+      "class": "horizontal-scroll"
+    }
+  ],
+  "com.mendix.widget.web.treenode.TreeNode": [
+    {
+      "name": "Selection",
+      "type": "Dropdown",
+      "description": "Allow users to select a single or multiple values from tree nodes.",
+      "options": [
+        {
+          "name": "None",
+          "class": "no-selection"
+        },
+        {
+          "name": "Single",
+          "class": "single-selection"
+        },
+        {
+          "name": "Multiple",
+          "class": "multiple-selection"
+        }
+      ]
+    }
+  ],
+  "mendix.searchablereferenceselectormxnine.SearchableReferenceSelectorMxNine": [
+    {
+      "name": "Semantic",
+      "type": "Dropdown",
+      "description": "Change semantic option of a widget.",
+      "options": [
+        {
+          "name": "Success",
+          "class": "srs-success"
+        },
+        {
+          "name": "Warning",
+          "class": "srs-warning"
+        },
+        {
+          "name": "Information",
+          "class": "srs-info"
         }
       ]
     }

@@ -56,7 +56,7 @@ public class NotificationListener implements NewEmailNotificationListener {
         } catch (CoreRuntimeException | EmailConnectorException | CoreException e) {
             log.error(e.getMessage(), e);
             if (context != null && context.isInTransaction())
-                context.rollbackTransAction();
+                context.rollbackTransaction();
         }
     }
 

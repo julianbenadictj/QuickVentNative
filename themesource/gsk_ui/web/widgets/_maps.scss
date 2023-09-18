@@ -1,0 +1,20 @@
+.widget-maps
+{
+  .leaflet-control-zoom
+  {
+    border: none;
+    a
+    {
+      border: none;
+      border-radius: 8px !important;
+      height: 40px;
+      width: 40px;
+      padding:5px;
+      font-size: $maps-button-font-size;
+      &:first-child
+      {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

@@ -1,10 +1,18 @@
-.pageheader {
+.pageheader 
+{
   margin-bottom: 0;
 
   .pageheader-title {
     font-size: $pageheader-title-font-size;
     color: $pageheader-title-font-color;
     line-height: 48px;
+    &.title-with-icon
+    {
+      @media screen and (max-width: $s)
+      {
+        margin-left: -15px;
+      }    
+    }
   }
   :has(.mx-image)
   {
@@ -12,22 +20,33 @@
     {
       margin-bottom:4px;
     }
-  }  
+  }      
 }
-
+@media screen and (max-width: $s)  //mobile
+{
+  .pageheader .pageheader-title 
+  {
+    font-size: $pageheader-mobile-title-font-size !important;
+    line-height: $pageheader-mobile-title-line-height !important;
+  }
+}
+@media screen and (min-width: $m) and (max-width: $l) //tablet, dense and tablet styles are same
+{
+  .pageheader .pageheader-title 
+  {
+    font-size: $pageheader-title-dense-font-size !important;
+    line-height: $pageheader-title-dense-line-height !important;
+  }
+}
 @include dense-layout {
-  .pageheader {
+  .pageheader 
+  {
     .link-back {
       margin-bottom: 6px !important;
     }
-
     .pageheader-title {
       font-size: $pageheader-title-dense-font-size;
-      line-height: 34px;
-    }
-    .pageheader-subtitle
-    {
-      font-size:$pageheader-dense-subtitle-font-size;
+      line-height: $pageheader-title-dense-line-height;
     }
   }
 }

@@ -9,54 +9,122 @@
   }
 }
 
-.loginpage {
+.loginpage 
+{
   position: relative;
   width: 100vw;
   overflow: hidden;
-
-  .loginpage-left {
+  @media screen and (max-width: $login-mobile-size) 
+  {
+    width: 100%;
+  }
+  .loginpage-logo 
+  {
+    display: none;
+    img 
+    {
+      width: 130px;
+      height: auto !important;
+    }
+  }
+  .loginpage-left 
+  {
     flex: 0;
     flex-basis: 55vw;
     position: relative;
     top: -1px;
     height: 102%;
-    // display: block;
+    // display: block;    
+    .loginpage-image 
+    {
+      position: relative;
+      background-image: $login-image;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      animation: none;
+      clip-path: none;
+      -webkit-clip-path: none;
+      height: 100%;
 
-    // Show only on wide screens
-    @media screen and (min-width: $login-desktop-size) {
-      // Image and clipping mask
-      .loginpage-image {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -1px;
+        width: 62px;
+        height: 101vh;
+        background-image: $login-icon;
+        background-position: center;
+      }
+    }
+
+  }
+
+  // Show only on wide screens
+    @media screen and (min-width: $login-desktop-size) 
+    {
+      .loginpage-left 
+      {
+        display: block;        
+      }
+      .loginpage-logo 
+      {
+        display: block;
+      }
+    }
+  
+  .loginpage-right {
+    flex: 0;
+    flex-grow: 1;
+    .loginpage-logo ,.loginpage-image
+    {
+      display: none;
+    }
+    @media screen and (max-width: $login-tablet-size) 
+    {
+      justify-content: normal;
+      .loginpage-logo 
+      {
+        display: block;
         position: relative;
-        background-image: $login-image;
+        top: unset;
+        right: unset;
+        margin-top:16px;
+      }
+      // Image and clipping mask
+      .loginpage-image 
+      {
+        display: block;
+        width: 100%;
+        height: 38%;
+        position: relative;
+        background-image: $login-tablet-image;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         animation: none;
         clip-path: none;
         -webkit-clip-path: none;
-        // height: 100%;
-
         &::after {
           content: "";
           position: absolute;
-          top: 0;
-          right: -1px;
-          width: 62px;
-          height: 101vh;
-          background-image: $login-icon;
+          bottom: -1px;    
+          right: 0;    
+          width: 100%;
+          height: 22px;
+          background-image: $login-mobile-icon;
           background-position: center;
+          background-size: auto 24px;
         }
       }
     }
-  }
-
-  .loginpage-right {
-    flex: 0;
-    flex-grow: 1;
-    .loginpage-formwrapper {
-      text-align: center;
-
-      .login_appname {
+    
+    .loginpage-formwrapper 
+    {
+      text-align: center;      
+      .login_appname 
+      {
         display: block;
         margin-bottom: 16px;
         font-size: $login-appname-font-size;
@@ -64,6 +132,24 @@
         letter-spacing: 2px;
         text-transform: uppercase;
         text-align: left;
+      }
+      @media screen and (max-width: $login-mobile-size) 
+      {
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+        .login_appname 
+        {
+          margin-bottom: 8px;
+        }
+        .login-heading, #loginHeader, h2 {
+          margin-bottom: 24px;          
+        }
+      }
+      
+
+      .app-version {
+        display: none;
       }
 
       .login-heading,
@@ -109,9 +195,3 @@
   }
 }
 
-.loginpage-logo {
-  img {
-    width: 130px;
-    height: auto !important;
-  }
-}

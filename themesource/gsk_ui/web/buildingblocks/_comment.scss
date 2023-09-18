@@ -1,0 +1,180 @@
+.comment
+{
+  padding: 12px 16px 0px 16px !important;
+  //margin-bottom: 8px;
+  border-left: 4px solid $comment-border-color; 
+  font-size: $comment-font-size; 
+  min-height: 80px;
+  @media screen and (max-width: $s)
+  {
+    padding: 8px 0px 0px 12px !important;
+  }
+
+  &.low_priority
+  {
+    border-left-color: $comment-low-border-color;
+  }
+  &.medium_priority
+  {
+    border-left-color: $comment-medium-border-color;
+  }
+  &.high_priority
+  {
+    border-left-color: $comment-high-border-color;
+  }
+
+  .comment-content
+  {
+    border-bottom: 1px solid $comment-content-border-color;
+    padding-bottom: 12px !important;
+    @media screen and (max-width: $s)
+    {
+      padding-bottom: 16px !important;
+    }
+  }
+  .comment-button
+  {
+    font-weight: $comment-button-font-weight;    
+    color: $comment-button-font-color;
+    text-decoration: none;
+    // .gsk-ui-icons
+    // {
+    //   font-size: $comment-button-font-size;
+    // }
+  }
+  .comment-details-left
+  {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .comment-details-right
+  {
+    display: flex;
+    align-items: center;
+    justify-content:right;
+    gap: 16px;
+    @media screen and (max-width: $s)
+    {
+      margin-top: 8px;
+    }
+    .popupmenu
+    {
+      .btn.ghost-button
+      {
+        margin-right: 30px;
+        .gsk-ui-icons
+        {
+          margin-top: 4px;
+          position: absolute;
+          margin-right: -24px;
+        }
+      }
+      @media screen and (max-width: $s)
+      {
+        position: absolute;
+        left: 16px;
+      }
+    }
+  }
+}
+.mx-templategrid:has(.comment)
+{
+  .mx-grid-content .mx-templategrid-content-wrapper .mx-templategrid-row .mx-templategrid-item
+  {
+    padding:0 !important;
+    border: none;       
+    .comment
+    {
+      margin-bottom: 8px;
+    }
+  }  
+}
+.comments-box
+{
+  &.scrollable
+  {
+    .mx-templategrid .mx-grid-content
+    {
+      max-height: 40vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      .mx-templategrid-row .mx-templategrid-item .comment
+      {
+        margin-bottom: 0px;
+      }
+    }
+  }
+  .comment-new
+  {
+    .control-label, .input
+    {
+      color:$comment-new-font-color !important;
+      padding-right: 0;
+    }
+    .mx-fileinput.upload-icon .mx-compound-control 
+    {
+      .form-control
+      {
+        max-width: 250px;
+      }
+      .mx-fileinput-upload-button
+      {
+          color: transparent;
+          border: none;
+          box-shadow: none;
+          border-color: $comment-fileinput-upload-border-color !important;
+          padding-left: 9px;
+          height: 40px;
+          width: 40px;
+          border-radius: 50px;
+          min-width: unset;
+          &:hover
+          {
+            background-color: $comment-upload-icon-hover-background-color;
+          }
+          &::before
+          {
+            @include material-icons;
+            content:$comment-upload-icon;
+            font-size: $comment-upload-icon-font-size;
+            color: $comment-upload-icon-font-color;
+            font-weight:bold;
+          }
+      }
+    }
+  }
+}
+
+@include dense-layout {
+  .comment
+  {
+    padding: 4px 16px 0px 16px !important;
+    min-height: 64px;
+    .comment-content
+    {
+      padding-bottom: 4px !important;
+    }
+  }
+  .comment-new
+  {
+    .mx-fileinput.upload-icon .mx-compound-control 
+    {
+      .mx-fileinput-upload-button
+      {
+        height: auto;
+        width: 38px;
+      }
+    }    
+  }
+.mx-templategrid:has(.comment)
+{
+  .mx-grid-content .mx-templategrid-content-wrapper .mx-templategrid-row .mx-templategrid-item
+  {   
+    .comment
+    {
+      margin-bottom: 0px;
+    }
+  }  
+}
+}

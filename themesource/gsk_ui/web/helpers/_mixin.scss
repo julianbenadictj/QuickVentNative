@@ -87,3 +87,21 @@ $devices: (
     }
   }
 }
+
+@mixin full-width-layout {
+  .layout-atlas-responsive-topbar,
+  .layout-atlas-responsive-drawer {
+    &--full-width {
+      @content;
+    }
+  }
+}
+
+@mixin material-icons {
+  font-size: 20px;
+  text-decoration: none !important;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-family: $icons-font-family !important;
+}

@@ -1,0 +1,50 @@
+/*
+	==========================================================================
+	* ICONS
+	==========================================================================
+*/
+
+//-- Main body
+
+// icon library
+$icons-font-family: "GSK_UI$Material_Design_Icons";
+
+.gsk-ui-icons {
+  font-size: 20px;
+  text-decoration: none !important;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-family: $icons-font-family !important;
+}
+
+$icons-arrow-forward: "\e5c8";
+$icons-arrow-back: "\e5c4";
+$icons-attachment: "\e226";
+$icons-calendar: "\e935";
+$icons-cancel: "\e5c9"; //Close in circle
+$icons-comment: "\e253";
+$icons-check: "\e5ca";
+$icons-check-circle: "\e86c";
+$icons-chevron-right: "\e315";
+$icons-chevron-left: "\e314";
+$icons-chevron-down: "\e313";
+$icons-chevron-up: "\e316";
+$icons-close: "\e5cd";
+$icons-delete: "\e872";
+$icons-download: "\e171";
+$icons-edit: "\e150";
+
+$icons-error: "\e000"; //In circle
+$icons-info: "\e88e";
+$icons-paging-first: "\eac3";
+$icons-paging-last: "\eac9";
+$icons-search: "\e8b6";
+$icons-sort: "\e164";
+$icons-arrow-down: "\e984";
+$icons-arrow-up: "\e986"; // used for sort asc
+$icons-sort-arrow: "\ea16";
+$icons-warning: "\f083"; //In triangle
+
+$icons-between: "\e86f";
+$icons-equal: "\f77b";

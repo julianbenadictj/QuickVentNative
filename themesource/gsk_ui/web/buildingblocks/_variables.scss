@@ -1,5 +1,4 @@
-@import "../_variables.scss";
-//
+@import "../../../atlas_core/web/_variables.scss";
 // ██████╗ ██╗      ██████╗  ██████╗██╗  ██╗███████╗
 // ██╔══██╗██║     ██╔═══██╗██╔════╝██║ ██╔╝██╔════╝
 // ██████╔╝██║     ██║   ██║██║     █████╔╝ ███████╗
@@ -11,27 +10,48 @@
 //
 // ====== alert
 //
+$alert-icon-font-size: $font-size-verylarge;
 $alert-border-color: $gsk-border;
 $alert-font-color: $gsk-primary;
 $alert-boxshadow-color: rgba($gsk-primary, 0.12);
-$alert-default-icon: url("./assets/info.svg");
+//$alert-default-icon: url("./assets/info.svg");
 $alert-title-font-size: $font-size-default;
 
 $alert-primary-background-color: $gsk-secondary-extra-light;
 $alert-primary-font-color: $alert-font-color;
-$alert-primary-icon: url("./assets/info-primary.svg");
+//$alert-primary-icon: url("./assets/info-primary.svg");
 
 $alert-success-background-color: $gsk-success-light;
 $alert-success-font-color: $alert-font-color;
-$alert-success-icon: url("./assets/info-success.svg");
+//$alert-success-icon: url("./assets/info-success.svg");
 
 $alert-warning-background-color: $gsk-warning-light;
 $alert-warning-font-color: $alert-font-color;
-$alert-warning-icon: url("./assets/info-warning.svg");
+//$alert-warning-icon: url("./assets/info-warning.svg");
 
 $alert-danger-background-color: $gsk-error-light;
 $alert-danger-font-color: $alert-font-color;
-$alert-danger-icon: url("./assets/info-danger.svg");
+//$alert-danger-icon: url("./assets/info-danger.svg");
+
+//
+// ====== alert banner
+//
+$alertbanner-description-font-size: $font-size-medium;
+$alertbanner-icon-font-size: $font-size-verylarge;
+$alertbanner-description-font-color: $font-color-white;
+
+$alertbanner-action-font-color: $font-color-white;
+$alertbanner-action-border-color: $gsk-background;
+$alertbanner-action-shadow-color: $gsk-background;
+
+$alertbanner-warning-action-font-color: $font-color-default;
+$alertbanner-warning-action-border-color: $gsk-primary;
+$alertbanner-warning-action-shadow-color: $gsk-primary;
+
+$alertbanner-background-color: $gsk-primary;
+$alertbanner-success-background-color: $gsk-success;
+$alertbanner-warning-background-color: $gsk-warning;
+$alertbanner-danger-background-color: $gsk-error;
 
 //
 // ====== application name
@@ -84,12 +104,19 @@ $card-title-font-weight: $font-weight-normal;
 $card-secondarytext-font-color: $font-color-detail;
 $card-secondarytext-font-size: $font-size-medium;
 
+$card-secondarytext-phone-font-size: $font-size-default;
+
 $card-stats-font-color: $font-color-default;
 $card-stats-secondarytext-font-color: $font-color-detail;
 $card-stats-secondarytext-font-size: $font-size-large;
 
 $card-overlay-secondarytext-font-color: rgba($font-color-white, 0.65);
-$card-action-icon: url("./assets/chevron_right_orange.svg");
+$card-action-icon-color: $gsk-secondary;
+$card-action-icon-font-size: $font-size-h1;
+//$card-action-icon: url("./assets/chevron_right_orange.svg");
+
+$card-action-date-font-size: $font-size-small;
+$card-action-date-font-weight: $font-weight-normal;
 
 $card-active-border-color: $gsk-secondary;
 $card-active-boxshadow-color: rgba($gsk-primary, 0.06);
@@ -122,6 +149,7 @@ $card-status-heading-font-weight: $font-weight-light;
 $card-status-status-font-color: $font-color-detail;
 $card-status-status-font-size: $font-size-large;
 $card-status-status-font-weight: $font-weight-bold;
+$card-status-image-font-size: $line-height-h1;
 
 $card-progressbar-category-font-color: $font-color-detail;
 $card-progressbar-category-font-size: $font-size-small;
@@ -129,39 +157,86 @@ $card-progressbar-heading-font-size: $font-size-h3;
 $card-progressbar-additionalinfo-background-color: $gsk-primary-light;
 $card-progressbar-additionalinfo-font-color: $font-color-detail;
 $card-progressbar-additionalinfo-font-size: $font-size-medium;
+$card-progressbar-description-font-size: $font-size-default;
 
 $card-navigation-title-font-weight: $font-weight-normal;
-$card-navigation-icon: url("./assets/arrow-right.svg");
+$card-navigation-icon-font-size: $font-size-verylarge;
+$card-navigation-icon-font-color: $gsk-secondary;
+//$card-navigation-icon: url("./assets/arrow-right.svg");
 $card-navigation-hover-background-color: $gsk-secondary-extra-light;
 
 $card-action-hover-background-color: $gsk-secondary-extra-light;
 
+//
+// ====== fixed footer
+//
+$comment-font-size: $font-size-medium;
+$comment-button-font-weight: $font-weight-normal;
+$comment-button-font-size: $font-size-verylarge;
+$comment-button-font-color: $gsk-primary;
+$comment-content-border-color: $gsk-border;
+$comment-border-color: transparent;
+$comment-low-border-color: $gsk-success;
+$comment-medium-border-color: $gsk-warning;
+$comment-high-border-color: $gsk-error;
+$comment-new-font-color: $font-color-detail;
+
+$comment-upload-icon-font-size: $font-size-verylarge;
+$comment-upload-icon-font-color: $gsk-primary;
+$comment-upload-icon: $icons-attachment; //url("./assets/attachment_black.svg");
+$comment-upload-icon-hover-background-color: $gsk-secondary-extra-light;
+$comment-fileinput-upload-border-color: $gsk-border;
 
 //
 // ====== fixed footer
 //
 $fixedfooter-background-color: $gsk-background;
 $fixedfooter-boxshadow-color: rgba($gsk-primary, 0.16);
-$fixedfooter-backbutton-icon: url("./assets/arrow_back.svg");
+$fixedfooter-backbutton-icon: $icons-arrow-back; //url("./assets/arrow_back.svg");
 
 //
 // ====== forms
 //
 $form-label-font-color: $font-color-default;
 $form-label-font-size: $font-size-medium;
-$form-label-font-weight: $font-weight-normal;
+$form-label-font-weight: $font-weight-bold;
 $form-label-active-font-color: $gsk-secondary;
 
+$form-mobile-label-font-size: $font-size-default;
+
+$form-validationmessage-font-color: $font-color-detail;
+
+$form-haserror-radio-label-color: $font-color-default;
+$form-haserror-font-size: $font-size-h3;
 $form-haserror-color: $gsk-error;
 $form-haserror-border-color: $form-haserror-color;
-$form-haserror-label-font-color: $form-haserror-color;
-$form-haserror-icon: url("./assets/error-icon.svg");
+$form-haserror-background-color: $gsk-error-light;
+$form-haserror-helpertext-color: $form-haserror-color;
+$form-haserror-icon: $icons-cancel; //url("./assets/error-icon.svg");
+$form-haserror-icon-color: $gsk-error;
 $form-haserror-validationmessage-background-color: transparent;
-$form-haserror-validationmessage-font-color: $form-haserror-color;
-$form-haserror-validationmessage-font-size: $font-size-small;
+$form-haserror-validationmessage-font-size: $font-size-medium;
 $form-haserror-radiobutton-border-color: $form-haserror-color;
 $form-haserror-radiobutton-background-color: $form-haserror-color;
-$form-haserror-radiobutton-hover-border-color:$gsk-error-light;
+$form-haserror-radiobutton-hover-border-color: $gsk-error-light;
+
+$form-hassuccess-icon: $icons-check-circle; //url("./assets/success-icon.svg");
+$form-hassuccess-icon-color: $gsk-success;
+$form-hassuccess-border-color: $gsk-success;
+$form-hassuccess-background-color: $gsk-success-light;
+$form-hassuccess-helpertext-color: $gsk-success;
+
+$form-haswarning-icon: $icons-error; //url("./assets/warning-icon.svg");
+$form-haswarning-icon-color: $gsk-warning;
+$form-haswarning-border-color: $gsk-warning;
+$form-haswarning-background-color: $gsk-warning-light;
+$form-haswarning-helpertext-color: $font-color-detail;
+
+$form-hasinfo-icon: $icons-info; //url("./assets/info-icon.svg");
+$form-hasinfo-icon-color: $gsk-tertiary;
+$form-hasinfo-border-color: $gsk-tertiary;
+$form-hasinfo-background-color: $gsk-tertiary-light;
+$form-hasinfo-helpertext-color: $font-color-detail;
 
 $form-fontmedium-font-size: $font-size-medium;
 
@@ -171,8 +246,8 @@ $form-fontmedium-font-size: $font-size-medium;
 $heroheader-background-color: $gsk-primary;
 $heroheader-title-font-color: $gsk-secondary;
 $heroheader-title-font-weight: $font-weight-light;
-$heroheader-action-border-color: scale-color($gsk-primary, $whiteness: 40%);
-$heroheader-action-shadow-color: scale-color($gsk-primary, $whiteness: 40%);
+$heroheader-action-border-color: rgba(255, 255, 255, 0.4);
+$heroheader-action-shadow-color: rgba(255, 255, 255, 0.4);
 $heroheader-action-font-color: $font-color-white;
 $heroheader-overlay-title-font-color: $font-color-white;
 
@@ -180,22 +255,31 @@ $heroheader-dense-title-font-weight: $font-weight-normal;
 $heroheader-dense-title-font-size: $font-size-h2;
 $heroheader-dense-subtitle-font-size: $font-size-medium;
 
-
 //
 // ====== list item
 //
 $listitem-title-font-family: $font-family-base;
 $listitem-title-font-size: $font-size-large;
-$listitem-title-font-weight: $font-weight-bold;
+$listitem-title-font-weight: $font-weight-normal;
 
 $listitem-secondarytext-font-color: $font-color-detail;
 $listitem-secondarytext-font-size: $font-size-medium;
-
-$listitem-action-icon: url("./assets/chevron_right_orange.svg");
+//$listitem-action-icon: url("./assets/chevron_right_orange.svg");
 
 //
-// ====== miscellaneous - no variables
+// ====== net promoter score
 //
+$nps-font-size: $font-size-medium;
+$nps-font-color: $font-color-detail;
+$nps-background-color: $gsk-background-secondary;
+
+$nps-checked-font-color: $font-color-white;
+$nps-checked-background-color: $gsk-primary;
+
+$nps-semantic-checked-detractor-background-color: $gsk-error;
+$nps-semantic-checked-passive-font-color: $font-color-default;
+$nps-semantic-checked-passive-background-color: $gsk-warning;
+$nps-semantic-checked-promoter-background-color: $gsk-success;
 
 //
 // ====== page header
@@ -203,7 +287,29 @@ $listitem-action-icon: url("./assets/chevron_right_orange.svg");
 $pageheader-title-font-color: $gsk-secondary;
 $pageheader-title-font-size: $font-size-h1;
 $pageheader-title-dense-font-size: $font-size-h2;
-$pageheader-dense-subtitle-font-size: $font-size-medium;
+$pageheader-title-dense-line-height: $line-height-h2;
+
+$pageheader-mobile-title-font-size: $mobile-font-size-h1;
+$pageheader-mobile-title-line-height: $mobile-line-height-h1;
+// $pageheader-dense-subtitle-font-size: $font-size-default;
+
+//
+// ====== tag
+//
+$tag-font-size: $font-size-medium;
+$tag-border-color: $gsk-background-secondary;
+$tag-background-color: $gsk-background-secondary;
+
+$tag-secondary-border-color: $gsk-border;
+$tag-secondary-background-color: $gsk-background;
+$tag-tertiary-border-color: $gsk-tertiary-light;
+$tag-tertiary-background-color: $gsk-tertiary-light;
+$tag-success-border-color: $gsk-success-light;
+$tag-success-background-color: $gsk-success-light;
+$tag-warning-border-color: $gsk-warning-light;
+$tag-warning-background-color: $gsk-warning-light;
+$tag-danger-border-color: $gsk-error-light;
+$tag-danger-background-color: $gsk-error-light;
 
 //
 // ====== text detail
@@ -224,16 +330,18 @@ $timeline-eventtime-font-color: $font-color-detail;
 $timeline-eventtime-font-family: $font-family-base;
 $timeline-eventtime-font-size: $font-size-medium;
 $timeline-eventtime-font-weight: $font-weight-normal;
-
-$timeline-entryimage-calendar-icon: url("./assets/calendar_white.svg");
+//$timeline-entryimage-calendar-icon: url("./assets/calendar_white.svg");
 
 $timeline-title-font-color: $font-color-default;
 $timeline-title-font-family: $font-family-base;
 $timeline-title-font-size: $font-size-default;
-$timeline-title-font-weight: $font-weight-bold;
+$timeline-title-font-weight: $font-weight-normal;
 
 $timeline-description-font-color: $font-color-default;
 $timeline-description-font-size: $font-size-medium;
+
+$timeline-entry-icon-font-size: $font-size-h4;
+$timeline-entry-icon-color: $font-color-white;
 
 //
 // ====== toggle button
@@ -251,22 +359,29 @@ $togglebutton-status-background-color: $gsk-primary;
 $togglebutton-status-font-color: $font-color-white;
 $togglebutton-status-hover-background-color: rgba($gsk-primary, 0.9);
 
-$togglebutton-disabled-font-color:scale-color($font-color-default, $whiteness: 64%);
+$togglebutton-disabled-font-color: scale-color(
+  $font-color-default,
+  $whiteness: 64%
+);
 $togglebutton-disabled-border-color: rgba($gsk-primary, 0.08);
-$togglebutton-disabled-background-color:$gsk-background;
+$togglebutton-disabled-background-color: $gsk-background;
 $togglebutton-active-disabled-font-color: $font-color-detail;
 $togglebutton-active-disabled-background-color: $gsk-border;
-
 
 //
 // ====== tree view
 //
 $treeview-subitem-badge-background-color: $gsk-background-secondary;
 $treeview-subitem-badge-font-color: $font-color-default;
-
 $treeview-lined-line-border-color: $gsk-primary-extra-light;
-
 $treeview-header-icon: url("./assets/arrow_chevron_down_primary.svg");
+$treeview-selection-background-color: $gsk-primary-light;
+$treeview-selection-font-color: $font-color-white;
+
+$treeview-selection-tick-icon: url("./assets/tick_white.svg");
+$listview-selection-remove-icon: url("./assets/close-icon.svg");
+
+$treeview-selectionarea-border-color: $gsk-border;
 
 //
 // ====== wizard
@@ -276,6 +391,7 @@ $wizard-background-color: $gsk-background;
 $wizard-font-color: $font-color-default;
 $wizard-font-weight: $font-weight-normal;
 $wizard-dense-font-size: $font-size-medium;
+$wizard-phone-font-size: $font-size-medium;
 
 $wizard-active-border-color: $gsk-tertiary;
 $wizard-active-background-color: $gsk-tertiary;
@@ -285,13 +401,16 @@ $wizard-active-font-color: $font-color-white;
 $wizardarrow-visited-border-color: $gsk-success-light;
 $wizardarrow-visited-background-color: $gsk-success-light;
 $wizardarrow-visited-font-color: $wizard-font-color;
-$wizardarrow-visited-check-border-color: $gsk-primary;
+$wizardarrow-visited-icon: $icons-check;
 
 // Circle
 $wizardcircle-visited-border-color: $gsk-success;
 $wizardcircle-visited-background-color: $gsk-success-light;
 $wizardcircle-visited-font-color: $gsk-success;
 $wizardcircle-font-size: $font-size-h3;
+$wizardcircle-phone-font-size: $font-size-default;
 $wizardcircle-font-weight: $font-weight-normal;
+$wizardcircle-steptext-font-size: $font-size-medium;
 
+$wizardcircle-phone-step-number-color: transparent;
 $wizardcircle-dense-font-size: $font-size-default;

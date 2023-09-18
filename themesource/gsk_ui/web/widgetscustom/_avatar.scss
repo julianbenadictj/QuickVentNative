@@ -1,3 +1,15 @@
+.topbar-content {
+  .avatar-navigation {
+    width: auto;
+
+    &__avatar {
+      right: 27px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
 @include dense-layout {
   .avatar-navigation {
     .avatar-navigation__avatar {

@@ -1,5 +1,6 @@
 .text-with-reference {
-  label {
+  label 
+  {
     margin-bottom: 8px;
     font-size: $textdetail-font-size;
     line-height: 20px;
@@ -9,16 +10,19 @@
     display: flex;
     align-items: center;
 
-    span {
+    span 
+    {
       font-size: $textdetail-font-size;
-      line-height: 80%;
+      line-height: 100%;
 
-      &:nth-child(2) {
+      &:nth-child(2):not(.text-with-value)
+      {
         padding-left: 4px;
         border-left: 1px solid $textdetail-reference-border-color;
         margin-left: 4px;
         color: $textdetail-reference-font-color;
       }
+
     }
   }
 

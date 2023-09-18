@@ -1,20 +1,30 @@
-.card {
+.card 
+{
   padding: 24px;
   border: 1px solid $card-border-color;
   border-radius: 16px;
   box-sizing: border-box;
-  box-shadow: 0px 1px 8px $card-boxshadow-color;  
+  box-shadow: 0px 1px 8px 0px $card-boxshadow-color;
+  @media screen and (max-width: $s)
+  {
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0px 1px 4px 0px $card-boxshadow-color;    
+  }
   .card-title {
     margin: 0;
     font-family: $card-title-font-family !important;
     font-size: $card-title-font-size;
     font-weight: $card-title-font-weight;
     line-height: 28px;
-
     & + p {
-      font-size: $card-secondarytext-font-size;
+      font-size: $card-secondarytext-font-size !important;
       line-height: 20px;
       color: $card-secondarytext-font-color;
+      // @media screen and (max-width: $s)
+      // {
+      //   font-size: $card-secondarytext-phone-font-size !important;
+      // }
     }
 
     &:has(+ p) {
@@ -62,16 +72,24 @@
 
   .card-body {
     padding: 24px !important;
+    @media screen and (max-width: $s)
+    {
+      padding: 16px !important;
+    }
     a {
       width: 36px;
       height: 36px;
-      background-image: $card-action-icon;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size:28px;
-      margin-top:5px;
-      span.glyphicon-menu-right {
-        display: none;
+      color: $card-action-icon-color;
+      padding: 1px 2px;      
+      .gsk-ui-icons
+      {
+        font-size: $card-action-icon-font-size;
+        left: unset;
+      }
+      .glyphicon // just to support old icons
+      {
+        top: 9px;
+        left: 8px;
       }
       &:hover
       {
@@ -109,33 +127,6 @@
       color: $card-metrics-data-font-color;
     }
   }
-
-  // component deleted
-  // &.card--withheader {
-  //   padding: 0;
-
-  //   .card--withheader_header {
-  //     border-bottom: 1px solid $card-withheader-border-color;
-  //     height: 44px;
-  //     padding: 12px 24px;
-  //     font-size: $card-withheader-font-size;
-  //     font-weight: $card-withheader-font-weight;
-  //     background-color: $card-withheader-background-color;
-  //     color: $card-withheader-font-color;
-
-  //     .mx-link {
-  //       padding: 0;
-  //     }
-
-  //     .card--withheader_actions {
-  //       float: right;
-  //     }
-  //   }
-
-  //   .card--withheader_content {
-  //     padding: 24px;
-  //   }
-  // }
 
   &.card-with-image {
     .background-primary {
@@ -188,6 +179,23 @@
       margin: 0 8px 0 16px;
       width: 64px;
       height: 64px;
+      font-size: $card-status-image-font-size;
+      &.success-color
+      {
+        color: $gsk-success;
+      }
+      &.warning-color
+      {
+        color: $gsk-warning;
+      }
+      &.error-color
+      {
+        color: $gsk-error;
+      }
+      &.tertiary-color
+      {
+        color: $gsk-tertiary;
+      }
     }
 
     .card-status__heading {
@@ -208,7 +216,8 @@
     }
   }
 
-  &.card-progress-bar {
+  &.card-progress-bar 
+  {
     padding: 16px;
 
     .card-progress-bar__image {
@@ -243,6 +252,7 @@
       margin-bottom: 10px;
       min-height: 66px;
       line-height: 22px;
+      font-size: $card-progressbar-description-font-size;
     }
 
     .card-progress-bar__additional-info {
@@ -279,7 +289,8 @@
     }
   }
 
-  &--navigation {
+  &--navigation 
+  {
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -292,11 +303,14 @@
     }
 
     &::after {
-      content: $card-navigation-icon;
+      @include material-icons;
+      font-size: $card-navigation-icon-font-size;
+      color: $card-navigation-icon-font-color;
+      content: $icons-arrow-forward;
       align-self: flex-end;
       display: block;
       width: 24px;
-      height: 24px;
+      height: 24px;      
       opacity: 0;
       transform: translateX(-10px);
       transition: opacity 0.1s, transform 0.3s;
@@ -331,6 +345,23 @@
     box-shadow:none;
     padding: 24px !important;
     border: 1px solid $card-border-color !important;
+    @media screen and (max-width: $s)
+    {
+      padding: 16px !important;
+    }
+  }
+
+  &.card-action
+  {
+    .date-label
+    {
+      font-size: $card-action-date-font-size;
+      font-weight: $card-action-date-font-weight;
+    }
+  }
+  &:has(div.widget-datagrid div.popupmenu)
+  {
+    overflow: visible;
   }
 }
 

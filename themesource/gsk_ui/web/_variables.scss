@@ -15,7 +15,6 @@ $gsk-secondary: #f36633;
 $gsk-secondary-light: #fef4f0;
 $gsk-secondary-extra-light: #eae8e4;
 $gsk-tertiary: #244ea2;
-$gsk-tertiary-light: #eaf1ff;
 $gsk-background: #ffffff;
 $gsk-background-secondary: #f0efed;
 $gsk-border: #d5d1cc;
@@ -24,11 +23,12 @@ $gsk-border: #d5d1cc;
 $gsk-success: #008748;
 $gsk-warning: #ffb800;
 $gsk-error: #e40030;
-$gsk-information: #f0efed;
+$gsk-information: #244ea2;
 $gsk-success-light: #e7f3ee;
 $gsk-warning-light: #fdf5dc;
 $gsk-error-light: #f8e6ea;
-$gsk-information-light: #f0efed;
+$gsk-tertiary-light: #eaf1ff;
+$gsk-information-light: #eef1f7;
 
 // Data visualization palette
 $gsk-yellow: #f7c650;
@@ -101,6 +101,19 @@ $font-size-h4: 20px;
 $font-size-h5: 18px;
 $font-size-h6: $font-size-default;
 
+$mobile-font-size-h1: 30px;
+$mobile-font-size-h3: 24px;
+
+$line-height-h1: 48px;
+$line-height-h2: 34px;
+$line-height-h3: 28px;
+$line-height-h4: 26px;
+$line-height-h5: 24px;
+$line-height-h6: 22px;
+
+$mobile-line-height-h1: 40px;
+$mobile-line-height-h3: 30px;
+
 // Font Weight Headers
 $font-weight-header: null;
 
@@ -134,5 +147,3 @@ $spacing-larger: 32px;
 
 // Largest spacing
 $spacing-largest: 48px;
-
-

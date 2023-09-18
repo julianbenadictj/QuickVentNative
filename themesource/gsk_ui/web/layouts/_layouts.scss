@@ -4,10 +4,17 @@
     ==========================================================================
 */
 
+.alert-banner.alert-page {
+  display: none !important;
+
+  &--visible {
+    display: flex !important;
+  }
+}
+
 .overwrite-class {
   .mx-scrollcontainer {
     left: 0 !important;
-
     .mx-scrollcontainer-wrapper {
       overflow: inherit !important;
     }
@@ -15,25 +22,47 @@
 }
 
 .auxiliary-class {
-  min-height: calc(100% - 152px);
-
-  &.full-width {
-    width: 100%;
-    max-width: 100%;
-
-    *:is(div):not(
-        .mx-grid-pagingbar,
-        .mx-grid-searchbar *:is(div),
-        .paging-status,
-        .fixed-footer,
-        .mx-listview,
-        .fixed-footer *:is(div)
-      ) {
-      // padding-right: 0 !important;
-      // padding-left: 0 !important;
-      // width: 100% !important;
-      max-width: 100% !important;
+  min-height: calc(
+    100vh - 217px
+  ); // 65px header height, 52 footer height and 100 px margin bottom for footer
+  @media screen and (max-width: $l) {
+    min-height: calc(
+      100vh - 167px
+    ); // 65px header height, 52 footer height and 50 px margin bottom for footer
+  }
+  @media screen and (max-width: $s) {
+    min-height: calc(
+      100vh - 147px
+    ); // 65px header height, 52 footer height and 30 px margin bottom for footer
+  }
+  // &.full-width {
+  //   width: 100%;
+  //   max-width: 100%;
+  //   *:is(div):not(
+  //       .mx-grid-pagingbar,
+  //       .mx-grid-searchbar *:is(div),
+  //       .paging-status,
+  //       .fixed-footer,
+  //       .card,
+  //       .mx-listview,
+  //       .fixed-footer *:is(div)
+  //     ) {
+  //     max-width: 100% !important;
+  //   }
+  // }
+  @media screen and (max-width: $l) {
+    // for tablet and mobile both
+    max-width: 1024px;
+    & > .row > .col {
+      padding-left: 0;
+      padding-right: 0;
     }
+  }
+}
+
+.region-content {
+  .mx-scrollcontainer-wrapper {
+    overflow-x: hidden !important;
   }
 }
 
@@ -47,14 +76,59 @@
   font-size: $layout-footer-font-size;
   line-height: 20px;
   color: $layout-footer-font-color;
-
+  @media screen and (max-width: $l) {
+    margin-top: 50px;
+  }
+  @media screen and (max-width: $s) {
+    margin-top: 30px;
+  }
   .app-version {
     &.widget-badge {
       padding: 0;
+      margin-left: $layout-footer-appversion-font-size / 4;
+      color: $layout-footer-appversion-font-color;
       font-size: $layout-footer-appversion-font-size;
       font-weight: $layout-footer-appversion-font-weight;
       line-height: 20px;
       background-color: $layout-footer-appversion-background-color;
     }
+  }
+}
+
+.layout-toggle-snippet {
+  position: absolute;
+  top: 0;
+  margin-top: 4px;
+  right: 15px;
+  @media screen and (max-width: $s) {
+    position: unset;
+    margin-bottom: 8px;
+  }
+}
+
+@include dense-layout {
+  &.layout-atlas-responsive-topbar--full-width {
+    .auxiliary-class {
+      min-height: calc(100vh - 242px);
+    }
+  }
+
+  .auxiliary-class {
+    min-height: calc(100vh - 194px);
+  }
+}
+
+@include full-width-layout {
+  body & .mx-scrollcontainer .mx-placeholder .mx-layoutgrid,
+  body & .mx-scrollcontainer .mx-placeholder .mx-layoutgrid-fluid,
+  body & .container,
+  body & .container-sm,
+  body & .container-md,
+  body & .container-lg,
+  body & .container-xl {
+    max-width: none;
+  }
+  .auxiliary-class {
+    min-height: calc(100vh - 265px);
   }
 }

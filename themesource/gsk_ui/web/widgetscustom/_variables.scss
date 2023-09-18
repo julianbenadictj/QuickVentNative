@@ -1,5 +1,3 @@
-@import "../../../atlas_core/web/_variables.scss";
-@import "../_variables.scss";
 //
 //  ██████╗██╗   ██╗███████╗████████╗ ██████╗ ███╗   ███╗
 // ██╔════╝██║   ██║██╔════╝╚══██╔══╝██╔═══██╗████╗ ████║
@@ -31,18 +29,3 @@ $tristateswitch-danger-default-border-color: $gsk-error-light;
 $tristateswitch-danger-default-background-color: $gsk-error-light;
 $tristateswitch-danger-on-border-color: $gsk-error;
 $tristateswitch-danger-on-background-color: $gsk-error;
-
-//
-// ====== profile page
-//
-$profilepage-header-background-color: $gsk-secondary;
-$profilepage-close-icon: url("./assets/close-icon-white.svg");
-$profilepage-header-font-size: $font-size-h1;
-$profilepage-header-font-weight: $font-weight-normal;
-$profilepage-header-font-color: $gsk-background;
-$profilepage-avatar-border-color:$gsk-background-secondary;
-$profilepage-avatar-font-weight:$font-weight-medium;
-
-$profilepage-userdetails-font-weight:$font-weight-normal;
-$profilepage-userdetails-label-font-weight:$font-size-medium;
-$profilepage-userdetails-border-color:$gsk-border;

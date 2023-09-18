@@ -1,5 +1,7 @@
 .mx-listview,
-.listitem {
+.listitem 
+{
+  
   .row {
     padding: 0 16px;
   }
@@ -16,26 +18,37 @@
 
   h4 {
     font-family: $listitem-title-font-family !important;
-    font-size: $listitem-title-font-size;
+    font-size: $listitem-title-font-size !important;
     font-weight: $listitem-title-font-weight;
-    line-height: 24px;
+    line-height: 24px !important;
   }
 
   p {
-    font-size: $listitem-secondarytext-font-size;
+    font-size: $listitem-secondarytext-font-size !important;
     line-height: 20px;
     color: $listitem-secondarytext-font-color;
+    @media screen and (max-width: $s)  //mobile
+    {
+      word-break: break-all;
+      max-width: 100%;
+    }
   }
 
-  // a {
-  //   width: 20px;
-  //   height: 20px;
-  //   background-image: $listitem-action-icon;
+  a {
+    &.gsk-ui-icons,.gsk-ui-icons
+    {
+      color: $listitem-icon-font-color;
+      font-size: $listitem-icon-font-size;
+      vertical-align: middle;
+    }
+    // width: 20px;
+    // height: 20px;
+    //background-image: $listitem-action-icon;
 
-  //   span.glyphicon-menu-right {
-  //     display: none;
-  //   }
-  // }
+    span.glyphicon-menu-right {
+      display: none;
+    }
+  }
 
   &.card {
     &:hover {

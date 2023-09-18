@@ -1,0 +1,65 @@
+.widget-chart
+{
+  text
+  {
+    font-family: $chart-font-faimly !important;   
+    fill: $chart-font-color !important; 
+    &.legendtext
+    {
+      font-size: $chart-legend-font-size !important;
+    }
+    &.slicetext 
+    { 
+      font-size: $chart-slicetext-font-size !important;
+    }
+    &.xtitle,&.ytitle
+    {
+      font-size: $chart-font-size !important;
+      font-weight: $chart-font-weight !important;
+    }
+    &.ytitle
+    {
+      transform-origin: -3px 3px;
+    }
+  }  
+  .colorbar
+  {
+    .cbaxis.crisp text {
+      fill: $chart-tick-font-color !important;
+    }
+  }
+  .xtick, .ytick
+  {
+    text
+    {
+      fill: $chart-tick-font-color !important; 
+    }
+  }
+  .layers .legendpoints 
+  {
+    .legendpie,.legendundefined
+    {
+      clip-path: circle(40%);
+    }
+  }
+  .crisp
+  {
+    &.ygrid, &.xgrid
+    {
+      stroke: $chart-border-color !important;
+    }
+  }
+  .hoverlayer .hovertext
+  {
+    path
+    {
+      fill:$chart-tooltip-background-color !important;
+      stroke:$chart-tooltip-background-color !important;      
+    }
+    text
+    {
+      fill:$chart-tooltip-font-color !important;
+      font-size: $chart-tooltip-font-size !important;
+    }
+  }
+}

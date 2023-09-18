@@ -1,3 +1,4 @@
+@import "../helpers/_mixin.scss";
 /*
 	==========================================================================
 	* Datagrid 2.0
@@ -6,32 +7,26 @@
 .table {
   margin-bottom: 0;
   display: unset !important;
-  .widget-datagrid-col-select
-  {
+  .widget-datagrid-col-select {
     padding: 3px 8px !important;
     min-width: unset !important;
-    input[type="checkbox"]
-    {    
+    input[type="checkbox"] {
       padding: 7px;
-      &::before
-      {
+      &::before {
         height: 16px;
         width: 16px;
       }
-      &::after
-      {
+      &::after {
         margin: 4px 3px 4px 4px;
       }
-      &:indeterminate::after
-      {
+      &:indeterminate::after {
         width: 10px;
         margin: 5px 3px;
-      }   
+      }
     }
   }
   .table-content {
     width: 100%;
-    overflow-x: auto;
     .tr {
       .td {
         padding: 8px 16px;
@@ -40,9 +35,52 @@
         font-size: $datagrid2-font-size;
         color: $datagrid2-font-color;
         background-color: $datagrid2-background-color;
-      }      
-      &:active,
-      &:focus,
+        &:has(.mx-dropdown) {
+          padding: 2px 16px;
+        }
+        &:has(.td-custom-content) * {
+          overflow: inherit;
+        }
+        .td-custom-content {
+          display: flex;
+          align-items: center;
+          .form-group {
+            margin-bottom: 0;
+            width: 100%;
+            padding-right: 12px;
+          }
+          .mx-image,
+          .mx-link {
+            display: inline-block;
+            &.popup-icon {
+              width: 24px;
+              height: 24px;
+              border-radius: 20px;
+              margin-top: 4px;
+              padding: 2px;
+              &:hover {
+                background-color: $datagrid2-icon-hover-background-color;
+                box-shadow: 0px 0px 0px 1px $datagrid2-icon-hover-border-color;
+              }
+              &:active,
+              &:focus {
+                color: $datagrid2-popupmenu-active-font-color;
+                background-color: $datagrid2-icon-active-background-color;
+              }
+            }
+            &.icon-hover:hover {
+              background-color: $gsk-primary-light;
+            }
+          }
+          .popupmenu .popupmenu-trigger {
+            align-items: center;
+            display: flex;
+          }
+          .mx-dropdown::after {
+            right: 16px;
+          }
+        }
+      }
       &.selected,
       &.tr-selected,
       &.selected:focus,
@@ -51,20 +89,17 @@
           background-color: $datagrid2-selected-background-color !important;
           color: $datagrid2-selected-font-color !important;
         }
-        &:has(.widget-datagrid-col-select)
-        {
-          .td{
+        &:has(.widget-datagrid-col-select) {
+          .td {
             color: $datagrid2-font-color !important;
             background-color: $datagrid2-background-color !important;
           }
         }
       }
-
-    }
-
-    &.newRow {
-      .td {
-        background-color: $datagrid2-newrow-background-color !important;
+      &.new-row {
+        .td {
+          background-color: $datagrid2-newrow-background-color !important;
+        }
       }
     }
   }
@@ -81,36 +116,49 @@
       align-self: center;
       min-width: 60px;
       text-align: center;
+      margin-left: 12px;
+      color: $datagridshared-pagingbar-font-color;
     }
 
     .pagination-button {
-      background-repeat: no-repeat;
-      background-position: center;
+      @include material-icons;
       min-width: 60px;
       box-shadow: none;
-      &:last-child{
+      color: $datagridshared-pagingbar-font-color;
+      font-size: $datagridshared-pagingbar-paging-button-font-size !important;
+      display: inline-block;
+      &:hover {
+        color: $datagridshared-pagingbar-font-color;
+      }
+      &:last-child {
         min-width: unset;
         margin-left: 25px;
       }
-      .glyphicon {
+      .glyphicon,
+      svg {
         display: none;
       }
     }
-    // button[aria-label="Go to first page"] {
-    //   background-image: $grid-pagingbar-paging-first-icon !important;
-    // }
-
-    // button[aria-label="Go to previous page"] {
-    //   background-image: $grid-pagingbar-paging-previous-icon !important;
-    // }
-
-    // button[aria-label="Go to next page"] {
-    //   background-image: $grid-pagingbar-paging-next-icon !important;
-    // }
-
-    // button[aria-label="Go to last page"] {
-    //   background-image: $grid-pagingbar-paging-last-icon !important;
-    // }
+    button[aria-label="Go to first page"] {
+      &::before {
+        content: $datagridshared-pagingbar-paging-first-icon;
+      }
+    }
+    button[aria-label="Go to previous page"] {
+      &::before {
+        content: $datagridshared-pagingbar-paging-previous-icon;
+      }
+    }
+    button[aria-label="Go to next page"] {
+      &::before {
+        content: $datagridshared-pagingbar-paging-next-icon;
+      }
+    }
+    button[aria-label="Go to last page"] {
+      &::before {
+        content: $datagridshared-pagingbar-paging-last-icon;
+      }
+    }
   }
 
   .tr:first-child .th {
@@ -119,11 +167,6 @@
     border-bottom-style: solid;
     border-color: $datagrid2-first-row-border-color;
     align-items: flex-end;
-    min-width: 11vw;
-    &:has(.react-datepicker-wrapper)
-    {
-      min-width: 14vw;
-    }
   }
 
   .column-selector {
@@ -136,10 +179,10 @@
         padding: 10px;
         min-height: 40px;
         min-width: 40px;
-        background-image: $datagrid-columnselector-icon !important;
+        background-image: $datagridshared-columnselector-icon !important;
         background-repeat: no-repeat;
         background-position: center;
-        border-color: $datagrid2-columnselector-border-color !important;
+        border-color: $datagridshared-columnselector-border-color !important;
         padding: 6px;
         background-size: 24px 26px;
         svg {
@@ -149,15 +192,15 @@
         }
         &:hover,
         &:focus {
-          background-color: $datagrid-columnselector-hover-bg-color !important;
-          border-color: $datagrid-columnselector-hover-border-color !important;
+          background-color: $datagridshared-columnselector-hover-bg-color !important;
+          border-color: $datagridshared-columnselector-hover-border-color !important;
           box-shadow: none !important;
         }
         &[aria-expanded="true"] {
-          background-image: $datagrid-columnselector-selected-icon !important;
-          background-color: $datagrid-columnselector-expanded-bg-color !important;
+          background-image: $datagridshared-columnselector-selected-icon !important;
+          background-color: $datagridshared-columnselector-expanded-bg-color !important;
           box-shadow: none !important;
-          border-color: $datagrid-columnselector-expanded-border-color !important;
+          border-color: $datagridshared-columnselector-expanded-border-color !important;
         }
       }
     }
@@ -167,9 +210,13 @@
     padding: 8px 16px;
     border-color: $datagrid2-table-head-border-color;
     color: $datagrid2-table-head-font-color;
-
-    .column-container {      
-      align-self:flex-end
+    z-index: 1;
+    .column-container {
+      align-self: flex-start;
+      &:has(.filter-container),
+      &:has(.dropdown-container) {
+        align-self: flex-end;
+      }
     }
 
     .column-header {
@@ -184,22 +231,24 @@
         height: 20px;
         width: 20px;
         flex: 0 0 15px;
-        align-self:flex-end;
+        align-self: flex-end;
         margin-top: 2px;
         &[data-icon="arrows-alt-v"] {
-          background: $datagrid-searchbar-sort-icon no-repeat;
+          font-size: $datagrid2-table-head-font-size;
+          font-weight: $datagrid2-table-head-font-weight;
         }
-        &[data-icon="long-arrow-alt-up"] {
-          background: $datagrid-searchbar-sort-ascending-icon no-repeat;
-        }
-        &[data-icon="long-arrow-alt-down"] {
-          background: $datagrid-searchbar-sort-descending-icon no-repeat;
-        }
+        // &::after {
+        //   background: $datagridshared-searchbar-sort-ascending-icon no-repeat;
+        // }
+        // &[data-icon="long-arrow-alt-down"] {
+        //   background: $datagridshared-searchbar-sort-descending-icon no-repeat;
+        // }
       }
     }
 
     .column-resizer {
-      &:hover,&:active  {
+      &:hover,
+      &:active {
         .column-resizer-bar {
           background-color: $datagrid2-table-resizer-background-color;
         }
@@ -210,7 +259,6 @@
       margin-top: 8px;
 
       .filter-container {
-
         .filter-selector {
           .filter-selector-content {
             .filter-selector-button {
@@ -224,7 +272,7 @@
               box-shadow: none !important;
 
               &::before {
-                font-size: $font-size-default;                
+                font-size: $font-size-default;
               }
               &:hover {
                 background-color: $datagrid2-table-filter-selector-hover-bg-color !important;
@@ -240,26 +288,27 @@
         &:has(.filter-input:active),
         &:has(.filter-input:focus) {
           .filter-selector-button {
-            border-color: $datagrid2-columnselector-active-border-color !important;
+            border-color: $datagridshared-columnselector-active-border-color !important;
           }
         }
         .btn-calendar {
+          @include material-icons;
           border-color: transparent !important;
           box-shadow: none !important;
-          font-weight: $datagrid-searchbar-calendar-font-weight;
-          background: $datagrid-searchbar-calendar-icon no-repeat !important;
           position: absolute;
-          right: 20px;
-          margin-top: 7px;
-          border-radius: 0;
-          .glyphicon-calendar {
+          right: 24px;
+          font-size: $datagridshared-searchbar-calendar-icon-font-size !important;
+          padding: 6px 4px;
+          &::before {
+            content: $datagridshared-searchbar-calendar-icon;
+          }
+          .glyphicon-calendar,
+          svg {
             display: none;
           }
         }
-        &:has(.react-datepicker__close-icon)
-        {
-          .btn-calendar
-          {
+        &:has(.react-datepicker__close-icon) {
+          .btn-calendar {
             display: none;
           }
         }
@@ -268,20 +317,16 @@
           border-left: none;
           height: 40px;
         }
-        .react-datepicker-wrapper 
-        {
-          .filter-input
-          {
+        .react-datepicker-wrapper {
+          .filter-input {
             padding: 8px 26px 8px 8px;
           }
-          .react-datepicker__close-icon
-          {
-            background: $datagrid-searchbar-calendar-close-icon no-repeat !important;            
+          .react-datepicker__close-icon {
+            background: $datagridshared-searchbar-calendar-close-icon no-repeat !important;
             margin-top: 13px;
             width: 25px;
             height: 25px;
-            &::after
-            {
+            &::after {
               display: none;
             }
           }
@@ -289,7 +334,42 @@
       }
       .dropdown-container {
         .dropdown-triggerer {
-          background-image: $datagrid-searchbar-dropdown-icon !important;
+          background-image: none;
+        }
+        position: relative;
+        &::after {
+          @include material-icons;
+          font-size: $input-icon-font-size !important;
+          content: $input-dropdown-icon !important;
+          position: absolute;
+          right: 8px;
+          top: 8px;
+        }
+      }
+    }
+  }
+}
+.horizontal-scroll .table {
+  .table-content {
+    overflow-x: auto;
+    .tr:first-child .th {
+      min-width: 10vw;
+      &:has(.react-datepicker-wrapper) {
+        min-width: 12vw;
+      }
+    }
+  }
+}
+
+//scroll for mobile screens
+@media screen and (max-width: $m) {
+  .table {
+    .table-content {
+      overflow-x: auto;
+      .tr:first-child .th {
+        min-width: 120px;
+        &:has(.react-datepicker-wrapper) {
+          min-width: 150px;
         }
       }
     }
@@ -298,20 +378,20 @@
 
 .column-selectors {
   margin: 0;
-  border: 2px solid $datagrid2-columnselector-dropdown-border-color;
+  border: 2px solid $datagridshared-columnselector-dropdown-border-color;
   border-radius: 16px;
-  box-shadow: 2px 2px 18px $datagrid2-columnselector-dropdown-boxshadow-color;
+  box-shadow: 2px 2px 18px
+    $datagridshared-columnselector-dropdown-boxshadow-color;
   padding: 4px;
   li {
-    font-size: $datagrid-columnselector-font-size;
+    font-size: $datagridshared-columnselector-font-size;
     padding: 4px;
     border-radius: 8px;
     &:hover {
-      background-color: $datagrid-columnselector-dropdown-hover-bg-color;
+      background-color: $datagridshared-columnselector-dropdown-hover-bg-color;
     }
-    label
-    {
-      margin:8px 8px 8px 4px;
+    label {
+      margin: 8px 8px 8px 4px;
     }
   }
 }
@@ -395,7 +475,7 @@
         outline-color: $datagrid2-dropdown-checkbox-focus-outline-color;
       }
     }
-    label{
+    label {
       margin: 8px 4px 8px 4px;
     }
     &.form-group {
@@ -414,39 +494,33 @@
   box-shadow: 0px 4px 10px 1px $reactdatepicker-boxshadow-color;
   font-size: $reactdatepicker-font-size;
   color: $reactdatepicker-font-color;
+  .react-datepicker__month-container .react-datepicker__header__dropdown {
+    margin: 4px 0 4px 0;
+  }
   .react-datepicker__navigation--previous {
-    background: $calendar-month-previous-chevron-icon no-repeat scroll 0 0
-      transparent !important;
-    background-position: center !important;
-
-    &:hover {
-      color: $calendar-month-chevron-hover-background-color;
-    }
+    left: 4px;
     span {
-      display: none;
+      &::before {
+        content: $calendar-month-previous-icon;
+      }
     }
   }
   .react-datepicker__navigation--next {
-    background: $calendar-month-next-chevron-icon no-repeat scroll 0 0
-      transparent !important;
-    background-position: center !important;
-
-    &:hover {
-      color: $calendar-month-chevron-hover-background-color;
-    }
+    right: 4px;
     span {
-      display: none;
+      &::before {
+        content: $calendar-month-next-icon;
+      }
     }
   }
   .react-datepicker__navigation {
     .react-datepicker__navigation-icon {
+      @include material-icons;
+      font-size: $calendar-month-icon-font-size !important;
+      padding: 0;
       &::before {
         border-color: $reactdatepicker-navigationicon-border-color;
-      }
-    }
-    &:hover {
-      ::before {
-        border-color: $reactdatepicker-navigationicon-hover-border-color;
+        border-width: 2px 2px 0 0;
       }
     }
   }
@@ -552,31 +626,28 @@
       min-width: 32px;
       background-size: 18px 20px;
     }
-    .table-content
-    { 
-     input[type="checkbox"],input[type="checkbox"].three-state-checkbox,input[type="checkbox"].three-state-checkbox:not(:indeterminate)
-     ,input[type="checkbox"].three-state-checkbox
-     {
-        height: 18px;  
+    .table-content {
+      input[type="checkbox"],
+      input[type="checkbox"].three-state-checkbox,
+      input[type="checkbox"].three-state-checkbox:not(:indeterminate),
+      input[type="checkbox"].three-state-checkbox {
+        height: 18px;
         width: 18px;
         padding: 2px !important;
-        &:hover
-        {
+        &:hover {
           box-shadow: 0px 0px 0px 3px $checkbox-hover-border-color;
         }
-        &::before
-        {
+        &::before {
           width: 14px !important;
           height: 14px !important;
         }
-        &::after 
-        {
+        &::after {
           margin: 3px !important;
-          width: 8px !important;;
-          height: 5px;    
+          width: 8px !important;
+          height: 5px;
         }
-     }
-     .tr {
+      }
+      .tr {
         .td {
           padding: 4px 16px;
           font-size: $datagrid2-tablecompact-font-size;
@@ -591,14 +662,16 @@
               .btn-calendar {
                 margin-top: 3px;
               }
-              .filter-selector .filter-selector-content .filter-selector-button {
+              .filter-selector
+                .filter-selector-content
+                .filter-selector-button {
                 min-width: 32px;
                 min-height: 32px;
                 height: 32px;
               }
               input {
                 height: 32px;
-              }            
+              }
             }
             .dropdown-container .dropdown-triggerer {
               height: 32px;
@@ -607,7 +680,6 @@
         }
       }
     }
-
   }
 }
 .table-hover .table .table-content {
@@ -640,7 +712,7 @@
       .btn-calendar {
         right: 36px;
         padding: 0;
-        margin: 4px 0px;
+        margin: 2px 0px;
         min-width: 24px;
         height: 24px;
       }
@@ -656,52 +728,48 @@
       padding: 4px 16px;
       font-size: $datagrid2-tablecompact-font-size;
     }
-    .th 
-    {
-      .column-header span, .filter .form-control,.filter .filter-selector-button
-      {
+    .th {
+      .column-header span,
+      .filter .form-control,
+      .filter .filter-selector-button {
         font-size: $datagrid2-tablecompact-font-size;
       }
-      .filter .filter-selector-button::before
-      {
-        font-size: 14px !important;
-        height: 14px;
+      .filter {
+        .filter-selector-button::before {
+          font-size: 14px !important;
+          height: 14px;
+        }
+        .dropdown-container {
+          &::after {
+            top: 4px;
+          }
+        }
       }
-      
     }
   }
-  .table 
-  {
-    .th .filter .filter-container 
-    {
-      .react-datepicker-wrapper .react-datepicker__close-icon
-      {
+  .table {
+    .th .filter .filter-container {
+      .react-datepicker-wrapper .react-datepicker__close-icon {
         margin-top: 9px;
       }
-      .react-datepicker-wrapper .filter-input
-      {
+      .react-datepicker-wrapper .filter-input {
         padding: 4px 26px 4px 8px !important;
-      }    
+      }
     }
-    .widget-datagrid-col-select:has(input[type=checkbox])
-    {
-      input[type="checkbox"]
-      {
-        height: 22px;  
+    .widget-datagrid-col-select:has(input[type="checkbox"]) {
+      input[type="checkbox"] {
+        height: 22px;
         width: 22px;
         padding: 3px !important;
-        &:hover
-        {
+        &:hover {
           box-shadow: 0px 0px 0px 3px $checkbox-hover-border-color;
         }
-        &::after 
-        {
+        &::after {
           margin: 4px !important;
           width: 8px !important;
-          height: 5px;    
+          height: 5px;
         }
       }
     }
   }
- 
 }

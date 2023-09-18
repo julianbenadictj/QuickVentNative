@@ -1,143 +1,132 @@
-.btn[class*="mx-name-dropDownButton"],span[class*="mx-name-dropDownButton"]
-{
-  padding: 10px 8px 10px 16px;
+.btn[class*="mx-name-dropDownButton"],
+span[class*="mx-name-dropDownButton"] {
+  padding: 10px 32px 10px 16px;
   font-size: $dropdownbutton-font-size;
-  span.caret
-  {
-    display: inline-block;
-    height: 16px;
-    width: 20px;
-    border:none;
+  position: relative;
+  display: inline-block !important;
+  span.caret {
+    border: none;
+    font-size: $input-icon-font-size;
+    position: absolute;
+    // top: 6px;
+    @include material-icons;
+    &::before {
+      content: $input-dropdown-icon !important;
+    }
   }
-  &.mx-link:not(.ghost-button)
-  {
+  &.mx-link:not(.ghost-button) {
     text-decoration: none !important;
     border-bottom: 1px solid $dropdownbutton-link-border-color;
     padding: 0 !important;
-    &:hover{
+    &:hover {
       box-shadow: 0px 1px 0px 0px $dropdownbutton-link-border-color;
     }
-    span.caret
-    {
-      background: $dropdownbutton-link-chevron-icon no-repeat !important;
-      background-position: center !important;     
-      position: absolute;
-      margin-left: 2px;
-      margin-top: 4px; 
-    }    
-  }
-  &.ghost-button
-  {
-    span.caret
-    {
-      background: $dropdownbutton-ghost-chevron-icon no-repeat !important;
-      background-position: center !important;      
-      position: absolute;
-      margin-left: 2px;
-      margin-top: 2px;
+    span.caret {
+      color: $gsk-tertiary;
+      margin: 0;
+      top: -2px;
     }
   }
-  &.btn-primary:not(.btn-bordered)
-  {
-    span.caret
-    {
-      background: $dropdownbutton-primary-chevron-icon no-repeat !important;
-      background-position: center !important;
+  &.ghost-button {
+    span.caret {
+      margin: 0;
+      top: 0px;
     }
   }
-  &.btn-primary.btn-bordered
-  {
-    span.caret
-    {
-        background: $dropdownbutton-primary-bordered-chevron-icon no-repeat !important;
-        background-position: center !important;
+  // &.btn-primary:not(.btn-bordered)
+  // {
+  //   span.caret
+  //   {
+  //     background: $dropdownbutton-primary-chevron-icon no-repeat !important;
+  //     background-position: center !important;
+  //   }
+  // }
+  &.btn-primary.btn-bordered {
+    span.caret {
+      color: $gsk-primary;
+      // background: $dropdownbutton-primary-bordered-chevron-icon no-repeat !important;
+      // background-position: center !important;
     }
   }
 
-  &.btn-success:not(.btn-bordered)
-  {
-    span.caret
-    {
-      background: $dropdownbutton-success-chevron-icon no-repeat !important;
-      background-position: center !important;
+  // &.btn-success:not(.btn-bordered)
+  // {
+  //   span.caret
+  //   {
+  //     background: $dropdownbutton-success-chevron-icon no-repeat !important;
+  //     background-position: center !important;
+  //   }
+  // }
+  &.btn-success.btn-bordered {
+    span.caret {
+      // background: $dropdownbutton-success-bordered-chevron-icon no-repeat !important;
+      // background-position: center !important;
+      color: $gsk-success;
     }
-  }
-  &.btn-success.btn-bordered
-  {
-    span.caret
-      {
-        background: $dropdownbutton-success-bordered-chevron-icon no-repeat !important;
-        background-position: center !important;
-      }
   }
 
-  &.btn-danger:not(.btn-bordered)
-  {
-    span.caret
-    {
-      background: $dropdownbutton-error-chevron-icon no-repeat scroll !important;
-      background-position: center !important;
+  // &.btn-danger:not(.btn-bordered)
+  // {
+  //   span.caret
+  //   {
+  //     background: $dropdownbutton-error-chevron-icon no-repeat scroll !important;
+  //     background-position: center !important;
+  //   }
+  // }
+  &.btn-danger.btn-bordered {
+    span.caret {
+      // background: $dropdownbutton-error-bordered-chevron-icon no-repeat !important;
+      // background-position: center !important;
+      color: $gsk-error;
     }
   }
-  &.btn-danger.btn-bordered
-  {
-    span.caret
-      {
-        background: $dropdownbutton-error-bordered-chevron-icon no-repeat !important;
-        background-position: center !important;
-      }
-  }
-  
-  &.btn-warning:not(.btn-bordered)
-  {
-    span.caret
-    {
-      background: $dropdownbutton-warning-chevron-icon no-repeat !important;
-      background-position: center !important;
+
+  &.btn-warning:not(.btn-bordered) {
+    span.caret {
+      // background: $dropdownbutton-warning-chevron-icon no-repeat !important;
+      // background-position: center !important;
+      color: $gsk-primary;
     }
   }
-  &.btn-warning.btn-bordered
-  {
-    span.caret
-      {
-        background: $dropdownbutton-warning-bordered-chevron-icon no-repeat !important;
-        background-position: center !important;
-      }
+  // &.btn-warning.btn-bordered
+  // {
+  //   span.caret
+  //     {
+  //       background: $dropdownbutton-warning-bordered-chevron-icon no-repeat !important;
+  //       background-position: center !important;
+  //     }
+  // }
+  &.btn-sm {
+    padding: 6px 32px 6px 16px;
+    span.caret {
+      top: 2px;
+    }
   }
-  &.btn-sm
-  {
-    padding: 6px 8px 6px 16px;
-  }
-  &.btn-lg
-  {
-    padding: 9px 8px 9px 16px;
+  &.btn-lg {
+    padding: 9px 32px 9px 16px;
     font-size: $dropdownbutton-lg-font-size;
   }
 }
-span[class*="mx-name-dropDownButton"].mx-link
-{
-  padding: 9px 0px 11px 0px; 
-
+span[class*="mx-name-dropDownButton"].mx-link {
+  padding: 9px 0px 11px 0px;
 }
 
-.mx-dropdown-list
-{
+.mx-dropdown-list {
   margin: 0;
-  li
-  {
+  li {
     padding: 8px;
     font-size: $dropdownlist-font-size;
     font-weight: $dropdownlist-font-weight;
-    border:none;
+    border: none;
     border-bottom: 1px solid $dropdownlist-border-color;
-    &:hover{
+    &:hover {
       background-color: $dropdownlist-hover-background-color;
     }
-    &:last-child{
-      border-bottom-left-radius:0;
-      border-bottom-right-radius:0;
+    &:last-child {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
-    label{
+    label {
       margin-bottom: 0;
       font-weight: unset;
     }
@@ -145,12 +134,16 @@ span[class*="mx-name-dropDownButton"].mx-link
 }
 
 @include dense-layout {
-  .btn[class*="mx-name-dropDownButton"],span[class*="mx-name-dropDownButton"]
-  {
-    padding: 6px 8px 6px 16px;
+  .btn[class*="mx-name-dropDownButton"],
+  span[class*="mx-name-dropDownButton"] {
+    padding: 6px 32px 6px 16px;
+    &:not(.mx-link) {
+      span.caret {
+        top: 2px;
+      }
+    }
   }
-  span[class*="mx-name-dropDownButton"].mx-link
-  {
+  span[class*="mx-name-dropDownButton"].mx-link {
     padding: 5px 0 6px 0;
   }
 }

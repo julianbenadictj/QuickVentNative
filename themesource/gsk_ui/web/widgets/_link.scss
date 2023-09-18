@@ -1,32 +1,90 @@
-.mx-link,a,a:hover,a:focus 
-{
+.mx-link,
+a,
+a:hover,
+a:focus {
   color: $link-font-color;
-  &.link-back:before 
-  {
-    content: "";
-    background: $link-back-icon no-repeat;
-    width: 20px;
-    height: 20px;
-    float: left;
-    margin: 3px 0 0 0;
+  &.link-back:before {
+    @include material-icons;
+    content: $link-back-icon;
+    color: $link-back-icon-color;
+    margin-top: -3px;
     position: absolute;
-    margin-left: -20px;
+    margin-left: -24px;
+    font-size: $link-back-icon-font-size;
   }
-  &.link-back 
-  {
-    margin-left:20px;
-    .glyphicon
-    {
+  &.link-back {
+    margin-left: 20px !important;
+    .glyphicon {
       display: none;
     }
   }
 }
+// .mx-link.link-with-icon:has(span)
+// {
+//   position: relative;
+//   margin-left: 20px;
+//   &:not(.icon-only) .gsk-ui-icons
+//   {
+//     position: absolute;
+//     left: -20px;
+//     top: 0;
+//   }
+//   &.icon-only
+//   {
+//     text-decoration: none;
+//   }
+//   &.btn-icon-right
+//   {
+//     margin-left: 0px;
+//     margin-right: 20px;
+//     .gsk-ui-icons
+//     {
+//       left: unset;
+//       right: -20px;
+//     }
+//   }
+// }
+.mx-link:not(.ghost-button):not(.toggle-btn):has(span) {
+  position: relative;
+  margin-left: 20px;
+  min-height: 18px;
+  .gsk-ui-icons {
+    position: absolute;
+    left: -20px;
+    top: 0;
+  }
+
+  &.btn-icon-right:not(.icon-only) {
+    position: relative;
+    margin-right: 20px;
+    .gsk-ui-icons {
+      position: absolute;
+      right: -20px;
+      top: 0;
+      left: unset;
+    }
+  }
+  &.icon-only {
+    text-decoration: none;
+  }
+}
+.mx-link:has(img) {
+  display: inline-flex;
+  margin: 0;
+}
 
 .mx-listview {
-  a,
-  a:hover,
-  a:focus {
+  a {
     color: $link-listview-font-color;
+    &:hover,
+    &:focus {
+      color: $link-listview-font-color;
+    }
+    &.gsk-ui-icons,
+    .gsk-ui-icons {
+      color: $link-listview-font-color;
+      font-size: $link-listview-icon-font-size;
+    }
   }
 }
 

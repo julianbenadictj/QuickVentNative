@@ -1,14 +1,12 @@
 select.form-control {
-  // $arrow: "data:image/svg+xml,%3Csvg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.349681 2.54324L6.77819 8.97175C7.19712 9.39068 7.87533 9.39068 8.29318 8.97175L14.7217 2.54324C15.1406 2.12431 15.1406 1.4461 14.7217 1.02825C14.3028 0.610398 13.6246 0.609327 13.2067 1.02825L7.53569 6.69927L1.86467 1.02825C1.44574 0.609327 0.767534 0.609327 0.349681 1.02825C-0.0681725 1.44718 -0.0692444 2.12538 0.349681 2.54324Z' fill='%23544F40'/%3E%3C/svg%3E%0A";
-  // background-image: url($arrow);
   padding-right: 36px;
-  background-position: calc(100% - 8px) center;
-  background-image: $selectbox-icon;
+  // background-position: calc(100% - 8px) center;
+  // background-image: $selectbox-icon;
 }
 
 .mx-selectbox .mx-selectbox-caret-wrapper {
-  background: $selectbox-icon no-repeat scroll 0 0 transparent !important;
-  background-position: center !important;
+  // background: $selectbox-icon no-repeat scroll 0 0 transparent !important;
+  // background-position: center !important;
   width: 20px;
   height: 20px;
 

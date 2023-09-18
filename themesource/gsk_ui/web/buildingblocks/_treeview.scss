@@ -1,7 +1,11 @@
-.widget-tree-node {
-  .widget-tree-node-branch {
+.widget-tree-node 
+{
+  .widget-tree-node-branch 
+  {
   .widget-tree-node-branch-header
   {
+    padding: 5px 0;
+    outline:none;
     svg.widget-tree-node-branch-header-icon
     {
       background-image: $treeview-header-icon !important;
@@ -18,7 +22,7 @@
 
         img,
         span {
-          padding-left: 16px;
+          padding-left: 8px;
           display: inline-block;
         }
       }
@@ -45,9 +49,55 @@
       }
     }
   }
+  &.single-selection
+  {
+    .widget-tree-node-branch
+    {
+      .widget-tree-node-branch-header-value
+      {
+        margin: 0px 16px 0px 16px;
+        cursor: pointer;     
+        div
+        {
+          padding: 3px 0px 3px 0px;
+        }   
+        .selected
+        {
+          border-radius: 8px;
+          background-color: $treeview-selection-background-color;
+          padding: 3px 0px 3px 0px;
+          color: $treeview-selection-font-color;
+          &::after
+          {
+            content: "";
+            background: $treeview-selection-tick-icon no-repeat;
+            width: 20px;
+            height: 20px;
+            right: 40px;
+            margin: 3px 0 0 0;
+            position: absolute;
+          }
+        }
+      }      
+    }    
+  }
+  &.multiple-selection
+  {
+    .widget-tree-node-branch-header-value
+    {
+      display: flex;
+      justify-content:space-between;
+      .mx-checkbox
+      {
+        margin: 0;
+
+      }
+    }
+  }
 }
 
-.widget-tree-node-lined-styling {
+.widget-tree-node-lined-styling 
+{
   .widget-tree-node {
     .widget-tree-node-branch {
       .widget-tree-node-body {
@@ -66,4 +116,39 @@
       }
     }
   }
+}
+.bottom-border
+{
+  border-bottom: 1px solid $treeview-selectionarea-border-color;
+}
+.treeview-badge-list.mx-listview
+{
+  border-top: 1px solid $treeview-selectionarea-border-color;
+  border-bottom: 1px solid $treeview-selectionarea-border-color;
+  margin-bottom: 8px;  
+   ul
+   {
+     margin-top: 4px;
+     margin-bottom: 4px;
+    li
+    {
+        padding: 8px 4px;
+        display: inline-block;
+        border: none;
+        .widget-badge.badge
+        {
+          border-radius: 4px;
+          padding: 4px;
+          display: flex;
+        }
+        .mx-link
+        {
+          background-image: $listview-selection-remove-icon;
+          background-repeat: no-repeat;
+          height: 16px;
+          margin: 4px 0px 0 8px;
+          background-size: 12px;
+        }
+    }
+   }
 }
