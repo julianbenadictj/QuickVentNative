@@ -7,19 +7,31 @@
 .mx-navbar {
   height: 65px;
   background-color: transparent;
+  @media screen and (max-width: $s)
+  {
+    height: auto;
+  }
 
   ul {
     &.nav {
       height: 100%;
 
       li {
-        &.mx-navbar-item {
-          // min-width: 112px;
+        &.mx-navbar-item 
+        {
           text-align: center;
           margin: 0;
-          height: 100%;
+          height: auto;
 
-          a {
+          a 
+          {            
+            .gsk-ui-icons
+            {
+              margin-right: 4px;
+              margin-top: -3px;
+              font-size: $navigationbar-icon-font-size;
+              vertical-align: middle;
+            }
             background-color: $navigationbar-background-color;
             border: none;
             border-bottom: 2px solid transparent;
@@ -31,7 +43,8 @@
             line-height: calc(#{$navigationbar-font-size} * 2);
             padding: 15px 16px;
 
-            a {
+            a 
+            {
               background-color: $navigationbar-background-color;
               border: none;
               color: $navigationbar-font-color;
@@ -41,7 +54,6 @@
               justify-content: center;
               line-height: calc(#{$navigationbar-font-size} * 2);
               padding: 16px;
-              // border-bottom: 2px solid $navigationbar-border-color;
             }
 
             &[title="Login"] {
@@ -61,14 +73,20 @@
                 width: 36px;
                 height: 1px;
                 background-color: $navigationbar-login-underscore;
+                @media screen and (max-width: $s)
+                {
+                  right: unset;
+                  width: 60px;
+                  margin-left: 2px;
+                }
               }
             }
 
             &[title=""] {
               padding: 20px;
-              border-bottom: none;
-              width: 64px;
-              // height: 64px;
+              border-bottom: 2px solid transparent;
+              width: 63px;
+              height: 63px;
 
               img {
                 display: block;
@@ -111,13 +129,18 @@
               outline: none;
             }
 
-            .caret {
-              content: $navigationbar-icon;
+            .caret 
+            {
+              @include material-icons;          
               position: relative;
               border: none;
               margin-left: 4px;
               width: $navigationbar-font-size;
               height: $navigationbar-font-size;
+              &::before
+              {
+                content: $navigationbar-icon;
+              }
             }
           }
           &.active {
@@ -132,9 +155,8 @@
               }
             }
           }
-          &:has(.mx-navbar-submenu .mx-navbar-subitem.active)
-          {
-            > a{
+          &:has(.mx-navbar-submenu .mx-navbar-subitem.active) {
+            > a {
               border-bottom: 2px solid $navigationbar-active-border-color;
               background-color: $navigationbar-active-background-color !important;
               color: $navigationbar-active-font-color;
@@ -145,8 +167,10 @@
               background-color: $navigationbar-open-background-color;
               color: $navigationbar-open-font-color;
 
-              .caret {
-                transform: rotate(180deg);
+              .caret::before
+              {
+                content:$navigationbar-icon-open;
+                //transform: rotate(180deg);
               }
             }
 
@@ -208,11 +232,11 @@
   .region-topbar {
     @extend .mx-navbar;
 
-    // .hide-icons.mx-navbar .mx-navbar-item {
-    //   img {
-    //     display: none;
-    //   }
-    // }
+    .hide-icons.mx-navbar .mx-navbar-item {
+      img,.gsk-ui-icons {
+        display: none;
+      }
+    }
   }
 }
 
@@ -220,6 +244,10 @@
   .mx-navbar {
     min-height: 42px;
     height: 42px;
+    @media screen and (max-width: $s)
+    {
+      height: auto;
+    }
 
     ul.nav {
       height: auto;

@@ -18,6 +18,8 @@
         background-color: $sidebar-navigationtree-background-color;
         .navbar-inner {
           ul {
+            border: none;
+
             li {
               a {
                 background-color: $sidebar-navigationtree-item-background-color;
@@ -37,7 +39,7 @@
                 &.active {
                   background: $sidebar-navigationtree-item-active-background-color !important;
                   border-right: 2px solid
-                    $sidebar-navigationtree-item-active-border-color;
+                    $sidebar-navigationtree-item-active-border-color !important;
                   border-radius: 0;
                 }
                 .caret {
@@ -59,6 +61,7 @@
                 }
 
                 ul {
+                  border: none;
                   bottom: auto !important;
                   background-color: $sidebar-navigationtree-submenu-background-color;
 

@@ -1,13 +1,11 @@
 .widget-accordion {
-  .widget-accordion-group
-  {
+  .widget-accordion-group {
     background-color: transparent !important;
   }
   $border-radius: 8px;
 
   .widget-accordion-group {
-    border: 1px solid;
-    border-color: $accordion-group-border-color;
+    border: 1px solid $accordion-group-border-color;
     overflow: hidden;
 
     &:first-child {
@@ -28,10 +26,10 @@
       .widget-accordion-group-header-button {
         padding: 10px 16px !important;
         background-color: $accordion-header-background-color;
-        border-bottom:1px solid $accordion-header-border-color;
+        border-bottom: 1px solid $accordion-header-border-color;
 
         :is(h1, h2, h3, h4, h5, h6) {
-          font-size: 16px !important;
+          font-size: $accordion-header-font-size !important;
           font-weight: $accordion-header-font-weight !important;
           line-height: 22px !important;
           color: $accordion-header-font-color !important;
@@ -50,11 +48,9 @@
         }
       }
     }
-    &.widget-accordion-group-collapsed
-    {
+    &.widget-accordion-group-collapsed {
       .widget-accordion-group-header {
-      .widget-accordion-group-header-button 
-        {
+        .widget-accordion-group-header-button {
           border: none;
         }
       }
@@ -78,10 +74,11 @@
           :is(h1, h2, h3, h4, h5, h6) {
             color: $accordion-primary-header-font-color !important;
           }
-
+          .widget-accordion-group-header-button-icon {
+            fill: $accordion-primary-status-arrow-color;
+          }
           @include hfv-states() {
             background-color: $accordion-primary-status-background-color !important;
-
             :is(h1, h2, h3, h4, h5) {
               color: $accordion-primary-header-font-color !important;
             }
@@ -93,13 +90,41 @@
         }
       }
     }
+    &.widget-accordion-brand-tertiary {
+      border-color: $accordion-group-tertiary-border-color !important;
+
+      .widget-accordion-group-header {
+        .widget-accordion-group-header-button {
+          background-color: $accordion-tertiary-header-background-color;
+          border: none;
+
+          :is(h1, h2, h3, h4, h5, h6) {
+            color: $accordion-tertiary-header-font-color !important;
+          }
+          .widget-accordion-group-header-button-icon {
+            fill: $accordion-tertiary-status-arrow-color;
+          }
+          @include hfv-states() {
+            background-color: $accordion-tertiary-status-background-color !important;
+
+            :is(h1, h2, h3, h4, h5, h6) {
+              color: $accordion-tertiary-header-font-color !important;
+            }
+
+            svg {
+              fill: $accordion-tertiary-status-arrow-color !important;
+            }
+          }
+        }
+      }
+    }
 
     &.widget-accordion-brand-secondary {
       border-color: $accordion-group-secondary-border-color !important;
 
       .widget-accordion-group-header {
         .widget-accordion-group-header-button {
-          background-color: $accordion-secondary-header-background-color;          
+          background-color: $accordion-secondary-header-background-color;
 
           @include hfv-states() {
             background-color: $accordion-secondary-status-background-color !important;
@@ -119,7 +144,9 @@
           :is(h1, h2, h3, h4, h5, h6) {
             color: $accordion-success-header-font-color !important;
           }
-
+          .widget-accordion-group-header-button-icon {
+            fill: $accordion-success-status-arrow-color;
+          }
           @include hfv-states() {
             background-color: $accordion-success-status-background-color !important;
 
@@ -142,9 +169,14 @@
         .widget-accordion-group-header-button {
           background-color: $accordion-warning-header-background-color;
           border: none;
-
+          .widget-accordion-group-header-button-icon {
+            fill: $accordion-warning-status-arrow-color;
+          }
           @include hfv-states() {
             background-color: $accordion-warning-status-background-color !important;
+            svg {
+              fill: $accordion-warning-status-arrow-color;
+            }
           }
         }
       }
@@ -157,7 +189,9 @@
         .widget-accordion-group-header-button {
           background-color: $accordion-danger-header-background-color;
           border: none;
-
+          .widget-accordion-group-header-button-icon {
+            fill: $accordion-danger-status-arrow-color;
+          }
           :is(h1, h2, h3, h4, h5, h6) {
             color: $accordion-danger-header-font-color !important;
           }
@@ -181,19 +215,15 @@
   &.widget-accordion-bordered-none {
     .widget-accordion-group {
       border: none;
-      .widget-accordion-group-header .widget-accordion-group-header-button
-      {
+      .widget-accordion-group-header .widget-accordion-group-header-button {
         border: none;
       }
     }
-
-    
   }
 
   &.widget-accordion-striped {
     .widget-accordion-group {
       border: none;
-      //border-bottom: 1px solid $accordion-stripped-border-color !important;
       border-radius: 0 !important;
 
       .widget-accordion-group-header-button {
@@ -207,12 +237,9 @@
           }
         }
       }
-      &:nth-child(even)
-      {
-        .widget-accordion-group-header
-        {
-          .widget-accordion-group-header-button
-          {
+      &:nth-child(even) {
+        .widget-accordion-group-header {
+          .widget-accordion-group-header-button {
             background-color: $accordion-stripped-header-background-color !important;
             border: none;
           }
@@ -221,13 +248,12 @@
       &:not(.widget-accordion-group-collapsed) {
         border-bottom: 1px solid #d5d1cc !important;
         .widget-accordion-group-header {
-          .widget-accordion-group-header-button {            
+          .widget-accordion-group-header-button {
             border: none;
           }
         }
       }
-     }
-
+    }
   }
 
   &.widget-accordion-bordered-horizontal {
@@ -240,16 +266,16 @@
         border-top-style: none;
       }
       .widget-accordion-group-header {
-      .widget-accordion-group-header-button {
-        border: none;
-      }
+        .widget-accordion-group-header-button {
+          border: none;
+        }
       }
     }
   }
-  &.widget-accordion-compact
-  {
-    .widget-accordion-group .widget-accordion-group-header .widget-accordion-group-header-button
-    {
+  &.widget-accordion-compact {
+    .widget-accordion-group
+      .widget-accordion-group-header
+      .widget-accordion-group-header-button {
       padding: 5px 16px !important;
     }
   }

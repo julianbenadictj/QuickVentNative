@@ -1,0 +1,72 @@
+.nps-wrapper {
+  .control-label {
+    margin-bottom: 8px;
+  }
+
+  .radio {
+    margin-right: 8px !important;
+
+    &:last-child {
+      margin-right: 0 !important;
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+
+    & + label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      margin: 0;
+
+      width: 40px;
+      height: 40px;
+      font-size: $nps-font-size;
+      background-color: $nps-background-color;
+    }
+
+    &:checked + label {
+      color: $nps-checked-font-color;
+      background-color: $nps-checked-background-color;
+    }
+  }
+
+  .nps-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: $nps-font-size;
+    color: $nps-font-color;
+  }
+
+  &--semantic {
+    input[type="radio"][value*="0"]:checked,
+    input[type="radio"][value*="1"]:checked,
+    input[type="radio"][value*="2"]:checked,
+    input[type="radio"][value*="3"]:checked {
+      & + label {
+        background-color: $nps-semantic-checked-detractor-background-color;
+      }
+    }
+
+    input[type="radio"][value*="4"]:checked,
+    input[type="radio"][value*="5"]:checked,
+    input[type="radio"][value*="6"]:checked {
+      & + label {
+        color: $nps-semantic-checked-passive-font-color;
+        background-color: $nps-semantic-checked-passive-background-color;
+      }
+    }
+
+    input[type="radio"][value*="7"]:checked,
+    input[type="radio"][value*="8"]:checked,
+    input[type="radio"][value*="9"]:checked,
+    input[type="radio"][value*="10"]:checked {
+      & + label {
+        background-color: $nps-semantic-checked-promoter-background-color;
+      }
+    }
+  }
+}

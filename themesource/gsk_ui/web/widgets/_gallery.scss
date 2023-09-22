@@ -7,11 +7,19 @@
         border-width: 0px !important;
         border-radius:8px;
         margin-bottom: 0px;
-        .card-title {
-          font-size: $gallery-card-font-size;
+        .card-title 
+        {
+          font-size: $gallery-card-font-size !important;
           margin: 0 !important;
           padding: 5px 10px;          
         }
+        // @media screen and (max-width: $l)
+        // {
+          .mx-image-viewer
+          {
+            min-height: 70px;
+          }
+        //}
       }
     }
   }
@@ -98,46 +106,65 @@
     .pagination-bar {
       color: $gallery-pagingbar-font-color;
       margin: 12px 0px 16px 0px;
+       @media screen and (max-width: $s)
+      {
+          justify-content: center;
+      }
 
       button:disabled {
         opacity: 0.3;
       }
-
-      .pagination-button {
-        background-repeat: no-repeat;
-        background-position: center;
-        min-width: 60px;
-        box-shadow: none;
-
-        .glyphicon {
-          display: none;
-        }
-      }
-
       .paging-status {
         font-size: $gallery-pagingbar-font-size;
         padding: 0px;
         align-self: center;
         min-width: 60px;
       }
-
-      // button[aria-label="Go to first page"] {
-      //   background-image: $gallery-pagingbar-paging-first-icon !important;
-      //   min-width: unset;
-      // }
-
-      // button[aria-label="Go to previous page"] {
-      //   background-image: $gallery-pagingbar-paging-previous-icon !important;
-      // }
-
-      // button[aria-label="Go to next page"] {
-      //   background-image: $gallery-pagingbar-paging-next-icon !important;
-      // }
-
-      // button[aria-label="Go to last page"] {
-      //   background-image: $gallery-pagingbar-paging-last-icon !important;
-      //   min-width: unset;
-      // }
+      .pagination-button 
+      {
+        min-width: 60px;
+        box-shadow: none;        
+        font-size: $datagridshared-pagingbar-paging-button-font-size;        
+        //color: $datagridshared-pagingbar-font-color;
+        @include material-icons;
+        &:hover
+        {
+          color: $datagridshared-pagingbar-font-color;
+        }
+        &:last-child
+        {
+          min-width: unset;
+          margin-left: 25px;
+        }
+        .glyphicon,svg 
+        {
+          display: none;
+        }
+      }
+      button[aria-label="Go to first page"] {
+        &::before
+        {
+          content: $datagridshared-pagingbar-paging-first-icon;
+        }
+      }
+      button[aria-label="Go to previous page"] {     
+        &::before
+          {
+            content: $datagridshared-pagingbar-paging-previous-icon;
+          }
+      }
+      button[aria-label="Go to next page"] {      
+        &::before
+          {
+            content: $datagridshared-pagingbar-paging-next-icon;
+          }
+      }
+      button[aria-label="Go to last page"] {      
+        &::before
+          {
+            content: $datagridshared-pagingbar-paging-last-icon;
+          }
+      }
     }
   }
   .widget-gallery-filter {
@@ -146,7 +173,8 @@
     .filter-container {
       .filter-selector {
         .filter-selector-content {
-          .filter-selector-button {
+          .filter-selector-button 
+          {
             @extend .btn-primary;
             min-width: 40px;
             height: 40px;
@@ -157,7 +185,6 @@
 
             &::before {
               font-size: $gallery-filter-selector-font-size;
-              height: 22px;
             }
 
             &:hover {
@@ -200,11 +227,18 @@
         border-bottom-right-radius: 8px;
         border-color: $gallery-filter-border-color !important;
         box-shadow: none !important;
-        &::before {
-          font-size: $gallery-filter-selector-font-size;
-          height: 22px;
+        &::before 
+        {
+          @include material-icons;
+          font-size: $gallery-filter-sort-icon-font-size;
+          content: $gallery-filter-sort-icon;
         }
-
+        &.icon-desc::before
+        {
+          margin-top: 0;
+          transform:scaleY(-1);
+          display: block;
+        }
         &:hover {
           background-color: $gallery-filter-selector-hover-bg-color !important;
         }

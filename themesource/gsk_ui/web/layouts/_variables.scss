@@ -1,3 +1,4 @@
+@import "../_variables.scss";
 //
 // ██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗███████╗
 // ██║     ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝██╔════╝
@@ -10,11 +11,12 @@
 //
 // ====== layouts(footer)
 //
-$layout-footer-background-color: $gsk-primary;
-$layout-footer-font-color: $font-color-white;
+$layout-footer-background-color: $gsk-background-secondary;
+$layout-footer-font-color: $font-color-default;
 $layout-footer-font-size: $font-size-medium;
 
 $layout-footer-appversion-background-color: inherit;
+$layout-footer-appversion-font-color: $font-color-default;
 $layout-footer-appversion-font-size: $font-size-medium;
 $layout-footer-appversion-font-weight: $font-weight-normal;
 
@@ -70,9 +72,14 @@ $topbar-background-color: $gsk-background;
 $topbar-boxshadow-color: rgba($gsk-primary, 0.06);
 
 $topbar-logo-height: 26px;
-$topbar-appname-font-size: $font-size-small;
+$topbar-appname-font-size: $font-size-medium;
 $topbar-appversion-border-color: $gsk-border;
 $topbar-appversion-font-size: $font-size-small;
 $topbar-appversion-bagde-background-color: inherit;
 $topbar-appversion-bagde-font-color: $font-color-default;
 $topbar-appversion-bagde-font-weight: $font-weight-normal;
+
+//$topbar-close-icon: url("./assets/close-icon.svg");
+$topbar-close-icon:$icons-close;
+$topbar-close-icon-font-size:$font-size-verylarge;
+$topbar-close-icon-color:$gsk-primary-light;

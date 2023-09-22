@@ -6,8 +6,7 @@
       margin-right: 0;
 
       &::before {
-        border-width: 1px;
-        border-color: $radiobutton-border-color;
+        border: 1px solid $radiobutton-border-color;        
       }
 
       &:checked {
@@ -20,20 +19,17 @@
           height: 70%;
         }
       }
-
       &.disabled,
       &:disabled,
       &[disabled] {
         &::before {
           border-color: $radiobutton-disabled-border-color !important;
         }
-
         &::after {
           background-color: $radiobutton-disabled-background-color !important;
         }
       }
       &:focus {
-        //outline-color: $radiobutton-focus-outline-color;
         outline: none;
       }
       &:hover:not(:checked)

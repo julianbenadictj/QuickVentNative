@@ -14,21 +14,26 @@
     width: 36%;
     background: $carousel-side-background;
     opacity: 1;
-    &:hover {
+    &:hover 
+    {
         background: $carousel-side-hover-background;
     }
-    .glyphicon {
+    .glyphicon 
+    {
       cursor: pointer;
-      height: 24px;
-      width: 15px;
-      margin: 0;
+      margin-right: 8px;
       right: 16px;
-      background: $carousel-icon no-repeat scroll center center transparent !important;
-      &::before {
-        content: "";
+      color: $carousel-icon-color;
+
+      font-size: $carousel-icon-font-size; 
+      @include material-icons;
+      &::before
+      {
+        content: $carousel-icon;
       }
     }
-    &.left {
+    &.left 
+    {
       transform: matrix(-1, 0, 0, 1, 0, 0);
     }
   }

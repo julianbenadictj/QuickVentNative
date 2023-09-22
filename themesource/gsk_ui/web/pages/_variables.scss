@@ -14,12 +14,24 @@
 //
 // ====== login
 //
+$login-mobile-size: map-get(
+  $map: $breakpoints,
+  $key: small,
+);
+$login-tablet-size: map-get(
+  $map: $breakpoints,
+  $key: medium,
+);
 $login-desktop-size: map-get(
   $map: $breakpoints,
   $key: large,
 );
-$login-image: url("./assets/login-bg.png");
+
+$login-image: url("./assets/login-bg.jpg");
+$login-tablet-image: url("./assets/login-bg-tablet.jpg");
+
 $login-icon: url("./assets/precision-point.svg");
+$login-mobile-icon: url("./assets/precision-point-mobile.svg");
 
 $login-appname-font-color: $font-color-detail;
 $login-appname-font-size: $font-size-default;
@@ -27,3 +39,23 @@ $login-appname-font-size: $font-size-default;
 $login-header-input-border-color: $gsk-primary;
 $login-loginbutton-background-color: $gsk-primary;
 $login-loginbutton-font-color: $font-color-white;
+
+//
+// ====== profile page
+//
+$profilepage-header-background-color: $gsk-secondary;
+$profilepage-close-icon: url("./assets/close-icon-white.svg");
+$profilepage-header-font-size: $font-size-h1;
+$profilepage-header-font-weight: $font-weight-normal;
+$profilepage-header-font-color: $gsk-background;
+$profilepage-avatar-border-color: $gsk-background-secondary;
+$profilepage-avatar-font-size: $font-size-h1 * 2;
+$profilepage-header-font-family: $font-family-light;
+
+$profilepage-userdetails-font-weight: $font-weight-normal;
+$profilepage-userdetails-label-font-weight: $font-size-medium;
+$profilepage-userdetails-border-color: $gsk-border;
+
+$profilepage-button-icon-size: $font-size-large;
+$profilepage-icon-color: $font-color-default;
+

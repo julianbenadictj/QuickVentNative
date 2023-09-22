@@ -3,10 +3,9 @@
     height: 100%;
     background-color: $navigationtree-background-color;
 
-
     .navbar-inner {
       ul {
-          border-right: 1px solid $navigationtree-border-color;
+        border-right: 1px solid $navigationtree-border-color;
         li {
           a {
             padding: 16px 12px !important;
@@ -16,14 +15,15 @@
             white-space: nowrap;
             overflow: hidden;
 
-            &:focus, &:active, &.active {
+            &:focus,
+            &:active,
+            &.active {
               border-right: 2px solid $navigationtree-status-border-color;
               border-radius: 0;
               background-color: $navigationtree-status-background-color;
               outline: none;
             }
-            &:hover
-            {
+            &:hover {
               background-color: $navigationtree-hover-background-color;
             }
 
@@ -34,29 +34,29 @@
 
             span {
               padding: 0 !important;
-              margin: 0px 16px 0px 0px;
+              margin: 0px 16px 2px 0px;
               max-width: 24px !important;
+              vertical-align: middle;
             }
           }
 
           &.mx-navigationtree-has-items {
-            > a 
-            {
-                &:focus, &:active, &.active 
-               {
-                  border-right: none;
-                  border-radius: 0;
-                  background-color: transparent; // parent should not be selected when has child
-                }
-                &:hover
-                {
-                  background-color: $navigationtree-hover-background-color !important;
-                }
+            > a {
+              &:focus,
+              &:active,
+              &.active {
+                border-right: none;
+                border-radius: 0;
+                background-color: transparent; // parent should not be selected when has child
+              }
+              &:hover {
+                background-color: $navigationtree-hover-background-color !important;
+              }
             }
             ul {
+              margin-left: 8px;
               background-color: $navigationtree-list-background-color;
-              li 
-              {
+              li {
                 min-height: 42px;
                 a {
                   padding: 10px 10px 10px 24px;
@@ -71,25 +71,29 @@
                     color: $navigationtree-item-status-font-color;
                     background-color: $navigationtree-item-status-background-color !important;
                   }
-                  &:hover
-                  {
+                  &:hover {
                     background-color: $navigationtree-item-hover-background-color !important;
                   }
                 }
               }
             }
 
-            & > a:first-child {
+            & > a:first-child 
+            {
               color: $navigationtree-item-firstchild-font-color !important;
-
-              .caret {
-                content: $navigationtree-parent-icon;
-                border: none;
-                margin: 0 !important;
-                margin-left: 8px !important;
-                width: 24px;
-                height: 24px;
+              .caret 
+              {
+                @include material-icons;           
                 transform: rotate(180deg);
+                font-size: $navigationtree-parent-icon-font-size;
+                border: none;
+                margin: 0px 8px 0px 0px !important;
+                height: 24px;
+                width: 24px;
+                &::before
+                {
+                  content: $navigationtree-parent-icon;
+                }
               }
             }
 
@@ -107,38 +111,38 @@
     }
   }
 
-  .mx-scrollcontainer:not(.mx-scrollcontainer-open) {
-    .mx-navigationtree {
-      .navbar-inner {
-        ul {
-          li {
-            &.mx-navigationtree-has-items {
-              // &:hover {
-              //   ul {
-              //     padding: 8px !important;
+  // .mx-scrollcontainer:not(.mx-scrollcontainer-open) {
+  //   .mx-navigationtree {
+  //     .navbar-inner {
+  //       ul {
+  //         li {
+  //           &.mx-navigationtree-has-items {
+  //             // &:hover {
+  //             //   ul {
+  //             //     padding: 8px !important;
 
-              //     li {
-              //       min-height: 42px;
+  //             //     li {
+  //             //       min-height: 42px;
 
-              //       a {
-              //         padding: 10px 10px 10px 24px;
-              //         border-radius: 8px;
-              //         height: 100%;
-              //         line-height: normal !important;
+  //             //       a {
+  //             //         padding: 10px 10px 10px 24px;
+  //             //         border-radius: 8px;
+  //             //         height: 100%;
+  //             //         line-height: normal !important;
 
-              //         &:hover {
-              //           background-color: $navigationtree-collapsed-item-hover-shadow-color !important;
-              //         }
-              //       }
-              //     }
-              //   }
-              // }
-            }
-          }
-        }
-      }
-    }
-  }
+  //             //         &:hover {
+  //             //           background-color: $navigationtree-collapsed-item-hover-shadow-color !important;
+  //             //         }
+  //             //       }
+  //             //     }
+  //             //   }
+  //             // }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 @include dense-layout {

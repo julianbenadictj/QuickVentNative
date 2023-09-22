@@ -11,102 +11,140 @@
     color: $form-label-font-color;
     font-weight: $form-label-font-weight;
     letter-spacing: 0.5px;
-
     &.active {
       color: $form-label-active-font-color;
     }
   }
-  &.has-error {
-    position: relative;
-
-    &::after {
-      content: $form-haserror-icon;
-      position: absolute;
-      bottom: 2px;
-      right: 24px;
-      width: 24px;
-      height: 26px;
+  //mobile
+  @media screen and (max-width: $s) {
+    margin-bottom: 16px;
+    .form-control-static,
+    .control-label {
+      font-size: $form-mobile-label-font-size;
     }
-
+  }
+  &.has-error,
+  &.has-success,
+  &.has-warning,
+  &.has-info {
+    position: relative;
     &.mx-radiobuttons {
-      input
-      {
-        &:checked
-        {
-          &::after
-          {
+      input {
+        &:checked {
+          &::after {
             background-color: $form-haserror-radiobutton-background-color;
           }
         }
-        &::before,&:checked::before 
-        {
+        &::before,
+        &:checked::before {
           border-color: $form-haserror-radiobutton-border-color;
         }
-        &:hover:not(:checked)
-        {
-          &::before
-          {
-            box-shadow: 0px 0px 0px 2px $form-haserror-radiobutton-hover-border-color;
+        &:hover:not(:checked) {
+          &::before {
+            box-shadow: 0px 0px 0px 2px
+              $form-haserror-radiobutton-hover-border-color;
           }
-          &::after
-          {
+          &::after {
             background-color: $form-haserror-radiobutton-hover-border-color;
           }
         }
       }
-      
-
-      
     }
-
     &.mx-radiobuttons,
     &.mx-dropdown,
-    &.mx-textarea,
     &.mx-checkbox,
     &.mx-datepicker,
     &.mx-filemanager {
       &::after {
-        content: "";
+        content: none;
       }
     }
-
     &.no-columns {
       &::after {
         right: 8px;
       }
     }
-
-    // &:has(textarea, .mx-compound-control)::after {
-    //     content: none;
-    // }
-
-    .form-control {
-      border-color: $form-haserror-border-color;
-    }
-
     input.form-control {
       padding: 8px 32px 8px 8px;
     }
-
-    label {
-      color: $form-haserror-label-font-color;
-    }
-
     textarea + .mx-validation-message {
       bottom: -24px;
     }
-
-    .mx-validation-message {
+    .mx-validation-message,
+    .helper-text {
       border: none;
       background-color: $form-haserror-validationmessage-background-color;
-      color: $form-haserror-validationmessage-font-color;
+      color: $form-validationmessage-font-color;
       font-size: $form-haserror-validationmessage-font-size;
       padding: 0;
-
       position: absolute;
-      bottom: -16px; // -24 in textarea
-      right: 24px;
+      top: 36px;
+      left: 16px;
       box-shadow: none;
+    }
+    &::after {
+      @include material-icons;
+      position: absolute;
+      bottom: 10px;
+      right: 24px;
+      font-size: $form-haserror-font-size;
+    }
+  }
+  &.has-error {
+    &::after {
+      content: $form-haserror-icon;
+      color: $form-haserror-icon-color;
+    }
+    .form-control {
+      border-color: $form-haserror-border-color !important;
+      background-color: $form-haserror-background-color;
+    }
+    .mx-validation-message {
+      color: $form-haserror-helpertext-color;
+    }
+    .radio {
+      label {
+        color: $form-haserror-radio-label-color;
+      }
+    }
+  }
+  &.has-success {
+    .form-control {
+      border-color: $form-hassuccess-border-color;
+      background-color: $form-hassuccess-background-color;
+    }
+    &::after {
+      content: $form-hassuccess-icon;
+      color: $form-hassuccess-icon-color;
+    }
+    .mx-validation-message {
+      color: $form-hassuccess-helpertext-color;
+    }
+  }
+  &.has-warning {
+    .form-control {
+      border-color: $form-haswarning-border-color;
+      background-color: $form-haswarning-background-color;
+    }
+    &::after {
+      content: $form-haswarning-icon;
+      color: $form-haswarning-icon-color;
+    }
+    .mx-validation-message {
+      color: $form-haswarning-helpertext-color;
+    }
+  }
+  &.has-info {
+    .form-control {
+      border-color: $form-hasinfo-border-color;
+      background-color: $form-hasinfo-background-color;
+    }
+    &::after {
+      content: $form-hasinfo-icon;
+      color: $form-hasinfo-icon-color;
+    }
+    .mx-validation-message {
+      color: $form-hasinfo-helpertext-color;
     }
   }
 }
@@ -122,4 +160,17 @@
 
 .fontMedium {
   font-size: $form-fontmedium-font-size;
+}
+
+@include dense-layout {
+  .form-group.has-error .mx-validation-message,
+  .form-group.has-error .helper-text,
+  .form-group.has-success .mx-validation-message,
+  .form-group.has-success .helper-text,
+  .form-group.has-warning .mx-validation-message,
+  .form-group.has-warning .helper-text,
+  .form-group.has-info .mx-validation-message,
+  .form-group.has-info .helper-text {
+    top: 28px;
+  }
 }

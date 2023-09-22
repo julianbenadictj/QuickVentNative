@@ -1,55 +1,66 @@
 .mx-listview {
   .selected {
-    // border-bottom: 1px solid $listview-selected-border-color !important;
-    background: $listview-selected-background-color !important;
-
     &:hover {
       background: $listview-selected-hover-background-color !important;
     }
   }
-  &:not(.listview-bordered)
-  {
+  &:not(.listview-bordered) {
     ul li {
-      border-top: none !important;    
-    }    
+      border-top: none !important;
+    }
   }
-
+  @media screen and (max-width: $s) {
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 8px;
+  }
   ul {
+    @media screen and (max-width: $s) {
+      margin: 0;
+    }
     li {
       border-bottom: 1px solid $listview-border-color;
-      padding: 16px 8px 16px 16px;
-      &.active, &:active, &:focus {        
-        background-color: $listview-status-background-color !important;
+      padding: 16px;
+      @media screen and (max-width: $s) {
+        padding: 8px;
       }
+      &:has(.widget-badge) {
+        padding: 16px;
+      }
+      &.active,
+      &:active,
+      &:focus,
+      &.selected {
+        background-color: $listview-status-background-color !important;
 
-      
-
+        &:has(div.card.listitem) {
+          background-color: transparent !important;
+        }
+      }
       &.active:hover,
       &:active:hover {
         background-color: $listview-active-hover-background-color !important;
       }
+      a.mx-link {
+        //background-image: $listview-link-icon;
+        // height: 20px;
+        // width: 20px;
 
-      // a.mx-link {
-      //   background-image: $listview-link-icon;
-      //   height: 20px;
-      //   width: 20px;
-
-      //   span.glyphicon-menu-right {
-      //     display: none;
-      //   }
-      // }
-    }
-  }
-  &.listview-hover
-  {    
-  ul {
-    li {
-      &:hover 
-      {
-        background-color: $listview-hover-background-color !important;
+        span.glyphicon-menu-right {
+          display: none;
+        }
       }
     }
-  }    
+  }
+  &.listview-hover {
+    ul {
+      li {
+        &:hover {
+          background-color: $listview-hover-background-color !important;
+        }
+      }
+    }
   }
 
   &.mx-listview-selectable {
@@ -106,11 +117,15 @@
       }
     }
   }
-  &.listview-striped
-  {
-    ul li:nth-child(even){
+  &.listview-striped {
+    ul li:nth-child(even) {
       background-color: $listview-stripped-background-color;
     }
+  }
+}
+@media screen and (max-width: $s) {
+  .masterdetail .masterdetail-detail {
+    padding: 0;
   }
 }
 
@@ -136,53 +151,51 @@
   }
 }
 
-.masterdetail-vertical
-{
-  .masterdetail-master
-  {
+.masterdetail-vertical {
+  .masterdetail-master {
     border-bottom: none;
   }
 }
-.masterdetail-detail
-{
-  .mx-dataview
-  {
-    .mx-dataview-content{
+.masterdetail-detail {
+  .mx-dataview {
+    .mx-dataview-content {
       border-bottom: 1px solid $listview-comments-border-color;
     }
   }
 }
 
-.listitem
-{
-  padding: 16px 8px 16px 16px !important;
+.listitem {
+  padding: 16px !important;
   background-color: $listitem-background-color;
-  &.active, &:active, &:focus {        
-      background-color: $listitem-status-background-color !important;
-    }
+  &.listitem-status {
+    padding: 16px !important;
+  }
+  &.active,
+  &:active,
+  &:focus {
+    background-color: $listitem-status-background-color !important;
+  }
 
-    &:hover {
-      background-color: $listitem-hover-background-color !important;
-    }
+  &:hover {
+    background-color: $listitem-hover-background-color !important;
+  }
 
-    &.active:hover,
-    &:active:hover {
-      background-color: $listitem-active-hover-background-color !important;
-    }
+  &.active:hover,
+  &:active:hover {
+    background-color: $listitem-active-hover-background-color !important;
+  }
 }
 
 @include dense-layout {
- .mx-listview {
-   ul li{
-     padding: 8px 8px 8px 16px;
-   }
- }
- .listitem
- {
-   padding: 8px 8px 8px 16px !important;
-   &.card
-   {
-     border-radius: 8px;
-   }
- } 
+  .mx-listview {
+    ul li {
+      padding: 8px 8px 8px 16px;
+    }
+  }
+  .listitem {
+    padding: 8px 8px 8px 16px !important;
+    &.card {
+      border-radius: 8px;
+    }
+  }
 }

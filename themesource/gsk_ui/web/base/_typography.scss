@@ -14,7 +14,8 @@ body {
 }
 
 h1,
-h2,.modal-header h4 {
+h2,
+.modal-header h4 {
   font-family: $typography-heading-primary-secondary-font-family !important;
 }
 
@@ -44,7 +45,6 @@ h6,
 h1,
 .h1,
 .mx-title {
-  line-height: 1.25;
   font-size: $typography-h1-font-size;
   color: $typography-heading-primary-font-color;
 }
@@ -59,39 +59,80 @@ h6,
 .h4,
 .h5,
 .h6 {
-  line-height: 1.5;
   color: $typography-heading-others-font-color;
 }
 
 h2,
 .h2 {
+  line-height: $typography-h2-line-height;
   font-size: $typography-h2-font-size;
 }
 
 h3,
 .h3 {
+  line-height: $typography-h3-line-height;
   font-size: $typography-h3-font-size;
   font-weight: $typography-heading-normal-font-weight;
 }
 
 h4,
 .h4 {
+  line-height: $typography-h4-line-height;
   font-size: $typography-h4-font-size;
   font-weight: $typography-heading-bold-font-weight;
 }
 
 h5,
 .h5 {
+  line-height: $typography-h5-line-height;
   font-size: $typography-h5-font-size;
   font-weight: $typography-heading-bold-font-weight;
 }
 
 h6,
 .h6 {
+  line-height: $typography-h6-line-height;
   font-size: $typography-h6-font-size;
   font-weight: $typography-heading-bold-font-weight;
 }
 
+@media screen and (max-width: $s) {
+  .mx-text:not(h1, h2, h3, h4, h5, .mx-templategrid-row .mx-text, .text-with-reference__value .mx-text,.appname,.welcome-text,.text-detail) {
+    font-size: $typography-phone-default-font-size;
+  }
+  h1,
+  .h1,
+  .mx-title {
+    font-size: $typography-mobile-h1-font-size !important;
+    line-height: $typography-mobile-h1-line-height !important;
+  }
+  h2,
+  .h2 {
+    font-family: $typography-heading-primary-secondary-font-family !important;
+  }
+  h3,
+  .h3 {
+    font-size: $typography-mobile-h3-font-size !important;
+    line-height: $typography-mobile-h3-line-height !important;
+  }
+  h4,
+  .h4 {
+    line-height: $typography-h3-line-height !important;
+    font-size: $typography-h3-font-size !important;
+    font-family: $typography-default-font-family !important;
+    font-weight: $typography-heading-normal-font-weight;
+  }
+  h5,
+  .h5 {
+    line-height: $typography-h4-line-height !important;
+    font-size: $typography-h4-font-size !important;
+  }
+  h6,
+  .h6 {
+    line-height: $typography-h5-line-height !important;
+    font-size: $typography-h5-font-size !important;
+  }
+}
 p {
   font-size: $typography-p-font-size;
   //color: $font-color-detail !important;
@@ -175,4 +216,31 @@ a {
 
 .pageheader-subtitle {
   color: $typography-pageheadersubtitle-font-color !important;
+}
+
+.gsk-ui-icons 
+{ 
+  &.mx-link
+  {
+    color: $gsk-primary;
+  }
+}
+.mx-link:has(.gsk-ui-icons)
+{
+  color: $gsk-primary;
+}
+
+@include dense-layout {
+  h1,
+  .h1,
+  .mx-title {
+    line-height: $typography-h2-line-height;
+    font-size: $typography-h2-font-size;
+  }
+  h2,
+  .h2 {
+    line-height: $typography-h3-line-height;
+    font-size: $typography-h3-font-size;
+    font-family: $typography-heading-others-font-family !important;
+  }
 }

@@ -1,0 +1,16 @@
+.generated-password-input{
+    &.form-control{
+        cursor: text;
+    }
+    cursor: text;
+    &.disabled{
+        cursor: text;
+    }
+    &.form-control[disabled]{
+        cursor: text;
+    }
+    .form-control[disabled], fieldset[disabled] .form-control {
+        cursor: text;
+      font-weight:bolder;
+    }
+}

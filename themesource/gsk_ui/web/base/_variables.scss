@@ -1,3 +1,4 @@
+@import "../_variables.scss";
 //
 // ██████╗  █████╗ ███████╗███████╗
 // ██╔══██╗██╔══██╗██╔════╝██╔════╝
@@ -12,11 +13,12 @@
 //
 $base-background-color: $gsk-background;
 $base-selection-background-color: $gsk-secondary;
-$base-scrollbar-track-background-color: #efefed;
+$base-scrollbar-track-background-color: $gsk-secondary-light;
 $base-scrollbar-thumb-background-color: $gsk-border;
-$base-scrollbar-thumb-hover-background-color: #bebebd;
+$base-scrollbar-thumb-hover-background-color: $gsk-primary-light;
 $base-brandcolortext-font-color: $gsk-secondary;
-$base-dataview-controls-border-color: $gsk-background-secondary;
+$base-dataview-controls-border-color: $gsk-border;
+$table-scrollbar-track-background-color: transparent;
 
 //
 // ====== colors
@@ -25,6 +27,7 @@ $colors-background-primary: $gsk-background;
 $colors-background-secondary: $gsk-background-secondary;
 $colors-brand-primary: $gsk-primary;
 $colors-brand-secondary: $gsk-secondary;
+$colors-brand-tertiary: $gsk-tertiary;
 $colors-brand-success: $gsk-success;
 $colors-brand-warning: $gsk-warning;
 $colors-brand-danger: $gsk-error;
@@ -36,6 +39,7 @@ $colors-brand-gradient: none;
 $typography-default-font-color: $font-color-default;
 $typography-default-font-family: $font-family-base;
 $typography-default-font-size: $font-size-default;
+$typography-phone-default-font-size: $font-size-large;
 
 $typography-heading-primary-secondary-font-family: $font-family-light;
 $typography-heading-others-font-family: $font-family-bold;
@@ -46,12 +50,23 @@ $typography-heading-primary-font-color: $gsk-secondary;
 $typography-heading-others-font-color: $font-color-default;
 
 $typography-h1-font-size: $font-size-h1;
+$typography-mobile-h1-font-size: $mobile-font-size-h1;
 $typography-h2-font-size: $font-size-h2;
 $typography-h3-font-size: $font-size-h3;
+$typography-mobile-h3-font-size: $mobile-font-size-h3;
 $typography-h4-font-size: $font-size-h4;
 $typography-h5-font-size: $font-size-h5;
 $typography-h6-font-size: $font-size-h6;
 $typography-p-font-size: $font-size-default;
+
+$typography-h1-line-height: $line-height-h1;
+$typography-mobile-h1-line-height: $mobile-line-height-h1;
+$typography-h2-line-height: $line-height-h2;
+$typography-h3-line-height: $line-height-h3;
+$typography-mobile-h3-line-height: $mobile-line-height-h3;
+$typography-h4-line-height: $line-height-h4;
+$typography-h5-line-height: $line-height-h5;
+$typography-h6-line-height: $line-height-h6;
 
 $typography-anchor-font-color: $font-color-default;
 // status - hover/focus

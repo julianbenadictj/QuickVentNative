@@ -97,3 +97,26 @@
     }
   }
 }
+.mx-dropdown:has(select) {
+  position: relative;
+  select {
+    background-image: none;
+  }
+  &::after {
+    @include material-icons;
+    font-size: $input-icon-font-size !important;
+    position: absolute;
+    right: 20px !important;
+    bottom: 6px !important;
+    content: $input-dropdown-icon !important;
+  }
+}
+
+@include dense-layout {
+  .mx-dropdown:has(select) {
+    &::after // for dropdown icon
+    {
+      bottom: 4px !important;
+    }
+  }
+}

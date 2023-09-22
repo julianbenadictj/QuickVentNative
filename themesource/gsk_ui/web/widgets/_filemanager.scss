@@ -11,18 +11,16 @@
 
   .mx-fileinput-download-button {
     border: 1px solid $filemanager-downloadbutton-border-color;
-
+    display: flex;
     &:disabled {
       border: 1px solid $filemanager-downloadbutton-disabled-border-color;
     }
 
     &::before {
-      content: url("./assets/download.svg");
-      display: inline-block;
-      margin-right: 8px;
-      width: 16px;
-      height: 16px;
-      vertical-align: sub;
+      font-size: $filemanager-download-icon-font-size;
+      margin-right: 4px;
+      @include material-icons;
+      content: $filemanager-download-icon;
     }
   }
 }

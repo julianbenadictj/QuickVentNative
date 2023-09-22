@@ -1,6 +1,6 @@
-@import "_variables.scss";
 .btn,
-.mx-button {
+.mx-button 
+{
   box-sizing: border-box;
   padding: 9px 16px;
   border: 1px solid $button-border-color;
@@ -292,7 +292,8 @@
     }
   }
 
-  &.toggle-btn {
+  &.toggle-btn 
+  {
     padding: 0;
     border-color: $button-link-togglebutton-border-color;
     border-radius: 0;
@@ -313,7 +314,8 @@
     }
   }
 
-  &.btn-calendar {
+  &.btn-calendar 
+  {
     width: auto;
   }
   & + .mx-button {
@@ -329,24 +331,6 @@
     margin-right: 6px;
     height: 14px;
     // margin-bottom: 1px;
-  }
-  &.btn-icon-right
-  {
-    img
-    {
-      margin-right: 0;
-      margin-left: 8px;
-      margin-bottom: 0px;
-    }
-  }
-  &.icon-only
-  {
-    img
-    {
-      margin-right: 0;
-      height:16px;
-      margin-bottom: -1px;
-    }
   }
   
   &.btn-sm {
@@ -377,6 +361,52 @@
     position: absolute;
     margin-left: -20px;
   }
+
+  &:has(span)
+  {
+    display: flex !important;
+    .gsk-ui-icons
+    {
+      margin-right: 4px;
+    }
+    &.btn-icon-right
+    {
+     .gsk-ui-icons
+      {
+        margin-right: 0px;
+        margin-left: 4px;
+      } 
+    }
+    &.icon-only
+    {
+      .gsk-ui-icons
+      {
+        margin-right: 0;
+      }
+    }
+  }  
+  &.btn-icon-right
+  {
+    img
+    {
+      margin-right: 0;
+      margin-left: 8px;
+      margin-bottom: -2px;
+    }
+  }
+  &.icon-only
+  {
+    img
+    {
+      margin-right: 0;
+      height:16px;
+      margin-bottom: -1px;
+    }
+  }
+  &:has(svg){
+    display: flex;
+  }
+  
 }
 
 .btn-group 
@@ -483,17 +513,22 @@
 }
 
 @include dense-layout {
-  .btn,.mx-button {
+  .btn,.mx-button 
+  {
     padding: 6px 16px;
     height: auto;
 
-    &:has(span) {
-      padding: 6px 8px 6px 16px;
-    }
-    &.icon-only img
+    &.icon-only
     {
-      height: 14px;
-    }
+      &:has(span) 
+      {
+        padding: 6px 8px;      
+      }
+      img
+      {
+        height: 14px;
+      }
+    }    
     &.btn-lg {
       &.widget-badge-button {
       padding: 8px 8px 8px 16px;

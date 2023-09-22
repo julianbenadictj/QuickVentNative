@@ -1,16 +1,29 @@
 .timeline-date {
   .widget-timeline-date-header {
-    border: none;    
+    border: none;
     margin-bottom: 10px;
-    margin-top:10px;
+    margin-top: 10px;
     background-color: $timeline-dateheader-background-color;
+    width: 100px;
   }
 
-  .widget-timeline-events-wrapper {
-    .widget-timeline-event {
+  .widget-timeline-events-wrapper 
+  {
+    margin-left: 36px;
+    @media screen and (max-width: $s)  //mobile
+    {
+      margin-left: 24px;
+      padding: 16px 0 0 0;
+    }
+    .widget-timeline-event 
+    {
       border-left: none;
       margin-bottom: 0;
-
+      @media screen and (max-width: $s)  //mobile
+      {
+        padding:0px 0px 16px 16px;
+      }
+      
       .widget-timeline-icon-wrapper {
         top: -5px;
         margin-top: 7px;
@@ -49,7 +62,7 @@
           h5,
           .widget-eventTime {
             font-family: $timeline-eventtime-font-family !important;
-            font-size: $timeline-eventtime-font-size;
+            font-size: $timeline-eventtime-font-size !important;
             font-weight: $timeline-eventtime-font-weight;
             color: $timeline-eventtime-font-color !important;
           }
@@ -57,6 +70,10 @@
 
         .widget-timeline-info-wrapper {
           flex: none;
+          @media screen and (max-width: $s)
+          {
+            margin-right: 8px;
+          }
 
           .timeline-entry-image {
             display: flex;
@@ -65,29 +82,31 @@
             border: none;
             min-width: 32px;
             width: 32px;
-            height: 32px;
+            height: 32px;            
 
             img,
             span {
               margin-right: 0;
-              width: 24px;
-              height: 24px;
+              width: 20px;
+              height: 20px;
+              font-size: $timeline-entry-icon-font-size;
+               color: $timeline-entry-icon-color;
             }
 
-            .glyphicon-calendar {
-              top: 0;
+            // .glyphicon-calendar {
+            //   top: 0;
 
-              &::before {
-                content: $timeline-entryimage-calendar-icon;
-              }
-            }
+            //   &::before {
+            //     content: $timeline-entryimage-calendar-icon;
+            //   }
+            // }
           }
 
           h5,
           .widget-timeline-title {
             margin: 0 0 4px 0;
             font-family: $timeline-title-font-family !important;
-            font-size: $timeline-title-font-size;
+            font-size: $timeline-title-font-size !important;
             font-weight: $timeline-title-font-weight;
             color: $timeline-title-font-color;
           }
@@ -113,18 +132,13 @@
 }
 
 @include dense-layout {
-  .timeline-date .widget-timeline-events-wrapper .widget-timeline-event .widget-timeline-content-wrapper
-  {
-    .widget-timeline-info-wrapper
-    {
-      h5,.widget-timeline-title
-      {
-        margin: 0 0 2px 0;  
-      }
+  .timeline-date {
+    h5,
+    .widget-timeline-title {
+      margin: 0 0 2px 0;
     }
   }
-  .widget-timeline-event
-  {
+  .widget-timeline-event {
     padding: 0 24px 16px 24px;
-  }   
+  }
 }

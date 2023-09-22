@@ -49,7 +49,7 @@ public class Commons {
     }
 
     public static String getHandling(ENUM_MessageHandling messageHandling) throws EmailConnectorException {
-        if(messageHandling == null)
+        if (messageHandling == null)
             throw new EmailConnectorException(Error.EMPTY_MESSAGE_HANDLING.getMessage());
         else if (messageHandling.equals(ENUM_MessageHandling.DeleteMessage))
             return "DeleteMessage";
@@ -60,7 +60,7 @@ public class Commons {
     }
 
     public static FetchStrategy getFetchStrategy(email_connector.proxies.ENUM_FetchStrategy fetchStrategy) throws EmailConnectorException {
-        if(fetchStrategy == null)
+        if (fetchStrategy == null)
             throw new EmailConnectorException(Error.EMPTY_FETCH_STRATEGY.getMessage());
         else if (fetchStrategy.name().equalsIgnoreCase("Latest"))
             return FetchStrategy.LATEST;

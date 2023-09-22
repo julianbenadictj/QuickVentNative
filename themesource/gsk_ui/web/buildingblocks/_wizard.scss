@@ -1,7 +1,8 @@
-.wizard-arrow {
+.wizard-arrow 
+{
   filter: drop-shadow(0px 1px 8px rgba(21, 21, 21, 0.16));
-
-  .wizard-step {
+  .wizard-step 
+  {
     border-color: $wizard-border-color;
     height: 54px;
     font-weight: $wizard-font-weight;
@@ -10,57 +11,117 @@
       color: $wizard-font-color;
       text-decoration: none;
     }
-
-    &::before {
+    &::before 
+    {
       border-left-color: $wizard-border-color;
       border-width: 27px;
     }
-    &::after{
+    &::after
+    {
        border-width: calc((54px / 2) - 1px);
-      
+       margin-left: -24px;
+       @media screen and (min-width: $m) and (max-width: $l) 
+       {
+         margin-left: -25px;
+       }      
+    }
+    &:not(:first-child)
+    {
+      &.wizard-step-visited .wizard-step-text::before 
+      {
+        margin-left: 24px;
+      }    
     }
   }
-
-  .wizard-step-visited {
+  .wizard-step-visited 
+  {
     background-color: $wizardarrow-visited-background-color;
-
     .wizard-step-text {
       margin-left: 40px !important;
-
-      &::before {
-        content: "";
+      &::before 
+      {
+        @include material-icons;      
+        content: $wizardarrow-visited-icon;
         position: absolute;
-        top: 20px;
-        left: 16px;
-        border: 2px solid $wizardarrow-visited-check-border-color;
-        border-top: 0;
-        border-right: 0;
-        width: 12px;
-        height: 6px;
-        transform: rotate(-45deg);
+        top: 16px;
+        left: 16px;        
       }
     }
-
     &::after {
       border-left-color: $wizardarrow-visited-border-color;
     }
   }
+  
 
-  .wizard-step-active {
+  .wizard-step-active 
+  {
     background-color: $wizard-active-background-color;
-
     .wizard-step-text {
       color: $wizard-active-font-color;
     }
-
     &::after {
       border-left-color: $wizard-active-border-color;
     }
   }
+  @media screen and (max-width: $s)  // for mobile devices
+  {
+    .wizard-step
+    {
+      // width: 60px;
+      .wizard-step-text
+      {
+        font-size: $wizard-phone-font-size;
+      }
+      &:not(.wizard-step-active):not(.wizard-step-visited)
+      {
+        .wizard-step-text
+        {
+          visibility: hidden;
+          z-index: 2;
+          margin-top: -5px;
+          margin-left:8px !important;
+          &::before
+          {
+            content: '...';
+            visibility: visible;
+          }        
+        }
+      }
+      &:not(:first-child)
+      {
+        &.wizard-step-visited 
+        {
+         .wizard-step-text
+          {
+            visibility: hidden;
+            z-index: 2;
+            &::before
+            {
+              visibility: visible;
+              margin-left: 16px;
+            }        
+          }
+        }
+      }
+    }
+    &:has(div.wizard-step-active)
+    {
+      .wizard-step  
+      {
+        width: 60px;
+      }
+      .wizard-step-active 
+      {
+        width: 100%;
+      }
+    }    
+  }
 }
 
-.wizard-circle {
-  .wizard-step {
+.wizard-circle 
+{
+  .wizard-step 
+  {
     &::before {
       top: 24px;
       background-color: $wizard-border-color;
@@ -102,12 +163,53 @@
       color: $wizardcircle-visited-font-color;
     }
   }
+  @media screen and (max-width: $s)  // for mobile devices
+  {
+    .wizard-step 
+    {
+      &::before
+      {
+        top: 20px;
+      }
+      &:not(.wizard-step-active)
+      {
+        .wizard-step-text
+        {
+          display: none;          
+        }
+        .wizard-step-number
+        {
+          color: $wizardcircle-phone-step-number-color !important;
+          height: 24px;
+          width: 24px;
+          padding: 0;
+          top: 8px;
+        }
+      }
+    }
+    .wizard-step-active
+    {
+      .wizard-step-text
+      {
+        margin-top: 4px !important;
+        font-size: $wizardcircle-steptext-font-size;
+      }
+      .wizard-step-number
+      {
+        height: 40px;
+        width: 40px;
+        font-size: $wizardcircle-phone-font-size;
+        line-height: 100%;
+      }
+    }
+  }
 }
 
 @include dense-layout {
   .wizard-arrow 
   {
-    .wizard-step{
+    .wizard-step
+    {
       height: 40px;
       font-size: $wizard-dense-font-size;
       &::after{
@@ -119,7 +221,7 @@
     }
     .wizard-step-visited .wizard-step-text::before
     {
-      top: 14px;
+      top: 10px;      
     }  
   }
   .wizard-circle .wizard-step .wizard-step-number

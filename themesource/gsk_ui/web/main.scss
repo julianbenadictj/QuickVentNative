@@ -1,3 +1,4 @@
+@import "./icons"; // All GSK UI Icons
 @import "./variables"; // All the GSK variables with colors, fonts, spacings
 @import "_legacy/variables"; // Variables only for Mendix UI (eg. demo user switcher)
 @import "base/variables"; // Variables only for base styling (eg. typography)
@@ -38,10 +39,11 @@
 @import "widgets/badgebutton";
 @import "widgets/buttons";
 @import "widgets/carousel";
+@import "widgets/charts";
 @import "widgets/checkbox";
 @import "widgets/datagrid";
 @import "widgets/datagrid2";
-@import "widgets/datapicker";
+@import "widgets/datepicker";
 @import "widgets/dropdown";
 @import "widgets/dropdownbutton";
 @import "widgets/feedback";
@@ -52,6 +54,7 @@
 @import "widgets/label";
 @import "widgets/link";
 @import "widgets/listview";
+@import "widgets/maps";
 @import "widgets/navigationbar";
 @import "widgets/navigationlist";
 @import "widgets/navigationtree";
@@ -69,17 +72,21 @@
 
 // Building blocks
 @import "buildingblocks/alert";
+@import "buildingblocks/alertbanner";
 @import "buildingblocks/application-name";
 @import "buildingblocks/avatar";
 @import "buildingblocks/breadcrumb";
 @import "buildingblocks/card";
+@import "buildingblocks/comment";
 @import "buildingblocks/fixedfooter";
 @import "buildingblocks/form";
 @import "buildingblocks/ghostbutton";
 @import "buildingblocks/heroheader";
 @import "buildingblocks/listitem";
 @import "buildingblocks/miscellaneous";
+@import "buildingblocks/netpromoterscore";
 @import "buildingblocks/pageheader";
+@import "buildingblocks/tag";
 @import "buildingblocks/textdetail";
 @import "buildingblocks/timeline";
 @import "buildingblocks/togglebutton";
@@ -95,9 +102,10 @@
 // Pages
 @import "pages/base-pages";
 @import "pages/login";
+@import "pages/profilepage";
 
 // Custom Widgets
 @import "widgetscustom/avatar";
 @import "widgetscustom/base-customwidgets";
-@import "widgetscustom/profilepage";
 @import "widgetscustom/tristateswitch";
+@import "widgetscustom/searchablereferenceselector";

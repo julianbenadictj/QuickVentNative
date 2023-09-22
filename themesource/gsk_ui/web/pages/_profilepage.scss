@@ -1,0 +1,119 @@
+.profile_page {
+  top: 50% !important;
+  left: 50% !important;
+  min-width: 40vw;
+  transform: translate(-50%, -50%);
+
+  &.modal-dialog .modal-content {
+    border: none;
+
+    .modal-header {
+      min-height: 120px;
+      background-color: $profilepage-header-background-color;
+      padding: 24px;
+      padding-left: 33.33%;
+
+      .close {
+        background: $profilepage-close-icon no-repeat;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        color: transparent;
+      }
+
+      h4 {
+        display: none;
+      }
+    }
+    .profile-header
+    {
+        position: absolute;
+        top: 45px;
+        left: 33.33%;
+        padding-left: 15px;
+        font-size: $profilepage-header-font-size;
+        font-weight: $profilepage-header-font-weight;
+        color: $profilepage-header-font-color;
+        text-transform: capitalize;
+        font-family: $profilepage-header-font-family !important;
+    }
+    .avatar-wrapper {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      height: 150px;
+      width: 150px;
+      border-radius: 150px;
+      box-shadow: 0px 0px 0px 4px $profilepage-avatar-border-color;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+
+      p {
+        font-size: $profilepage-avatar-font-size;
+      }
+    }
+
+    &:has(.avatar p.mx-text) {
+      .modal-body .remove_picture {
+        display: none;
+      }
+    }
+
+    .modal-body {
+      padding-top: 0px;
+      padding-bottom: 0px;
+
+      .user_details,
+      .user_roles {
+        .profile_label {
+          font-size: $profilepage-userdetails-label-font-weight;
+          font-weight: $profilepage-userdetails-font-weight;
+          width: 130px;
+        }
+
+        .profile_text {
+          font-weight: $profilepage-userdetails-font-weight;
+        }
+      }
+
+      .user_details {
+        padding-bottom: 24px;
+      }
+
+      .user_roles {
+        border-top: 1px solid $profilepage-userdetails-border-color;
+        padding-top: 24px;
+
+        .mx-listview ul {
+          margin-bottom: 0;
+        }
+      }
+
+      .mx-button 
+      {
+        img 
+        {
+          height: 16px;
+        }
+        .gsk-ui-icons
+        {
+          font-size:$profilepage-button-icon-size;
+        }
+      }
+      .mx-link
+      {
+        .gsk-ui-icons
+        {
+          color: $profilepage-icon-color;
+        }
+      }
+      
+    }
+  }
+}

@@ -58,7 +58,7 @@ public class EmailListener implements OnFetchEmailListener {
         } catch (CoreRuntimeException | EmailConnectorException | CoreException e) {
             log.error(e.getMessage(), e);
             if (context != null && context.isInTransaction())
-                context.rollbackTransAction();
+                context.rollbackTransaction();
         }
     }
 

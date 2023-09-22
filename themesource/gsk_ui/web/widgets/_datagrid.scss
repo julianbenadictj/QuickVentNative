@@ -7,17 +7,19 @@
 .mx-grid,
 .mx-datagrid {
   // position: relative;
-  margin-bottom: 16px;
-
+  margin-bottom: 24px;
+  @media screen and (max-width: $s) {
+    margin-bottom: 8px;
+  }
   .mx-grid-searchbar {
     align-items: flex-end;
     padding: 8px 16px 16px;
     border-radius: 8px;
-    border: 1px solid $datagrid-searchbar-border-color;
+    border: 1px solid $datagridshared-searchbar-border-color;
     margin: 0;
     margin-bottom: 24px;
-    background: $datagrid-searchbar-background-color;
-    box-shadow: 0px 1px 8px $datagrid-searchbar-boxshadow-color;
+    background: $datagridshared-searchbar-background-color;
+    box-shadow: 0px 1px 8px $datagridshared-searchbar-boxshadow-color;
 
     .mx-grid-search-controls {
       & .mx-button + .mx-button {
@@ -37,7 +39,7 @@
         display: inline-flex;
         flex-direction: column;
         margin: 8px;
-        min-width: 192px;
+        min-width: 150px;
 
         .mx-grid-search-label {
           text-align: left;
@@ -45,9 +47,9 @@
           padding: 0;
 
           label {
-            font-size: $datagrid-searchbar-label-font-size;
-            color: $datagrid-searchbar-label-font-color;
-            font-weight: $datagrid-searchbar-label-font-weight;
+            font-size: $datagridshared-searchbar-label-font-size;
+            color: $datagridshared-searchbar-label-font-color;
+            font-weight: $datagridshared-searchbar-label-font-weight;
             letter-spacing: 0.5px;
             margin-bottom: 10px;
           }
@@ -58,7 +60,7 @@
           padding: 0;
 
           .form-control {
-            font-size: $datagrid-searchbar-input-font-size;
+            font-size: $datagridshared-searchbar-input-font-size;
             height: auto;
           }
 
@@ -76,29 +78,25 @@
 
           .mx-compound-control {
             display: inline-block;
-
+            position: relative;
             .form-control {
               display: inline-block;
               width: 100%;
             }
 
             .btn {
-              position: absolute;
-              padding: 8px 10px;
-              // border: 1px solid $gray;
-              // color: $font-color-default;
-              border: 1px solid $datagrid-searchbar-calendar-border-color;
+              padding: 4px;
               border-color: transparent !important;
-              border-radius: 50px;
-              margin-left: -30px;
-              min-width: 40px;
-              width: 30px;
               height: 42px;
-              font-weight: $datagrid-searchbar-calendar-font-weight;
-              color: $datagrid-searchbar-calendar-font-color;
-              background: $datagrid-searchbar-calendar-icon no-repeat scroll 0 0
-                transparent !important;
-              background-position: left !important;
+              box-shadow: none !important;
+              position: absolute;
+              right: 0;
+              top: 4px;
+              font-size: $datagridshared-searchbar-calendar-icon-font-size !important;
+              @include material-icons;
+              &::before {
+                content: $datagridshared-searchbar-calendar-icon;
+              }
               .glyphicon-calendar {
                 display: none;
               }
@@ -108,15 +106,14 @@
       }
     }
   }
-  .mx-grid-content
-  {
+  .mx-grid-content {
     margin-bottom: 24px;
   }
   .mx-grid-controlbar {
     // margin-bottom: 24px;
 
     .mx-grid-toolbar {
-      > * {
+      > *:not(.btn-block) {
         margin-left: 8px;
 
         &:last-child {
@@ -125,21 +122,18 @@
         }
       }
 
-      button[class*="mx-name-searchButton"]:before {
-        content: "";
-        background: $datagrid-searchbar-search-icon no-repeat;
-        width: 20px;
-        height: 20px;
-        float: left;
-        margin: 3px 0 0 0;
-        position: absolute;
-        margin-left: -20px;
-      }
       button[class*="mx-name-searchButton"] {
-        margin-left: 20px;
+        margin-left: 24px;
         margin-right: 16px;
+        position: relative;
         .glyphicon {
           display: none;
+        }
+        &::before {
+          @include material-icons;
+          content: $datagrid-searchbar-search-icon !important;
+          position: absolute;
+          left: -24px;
         }
       }
 
@@ -156,6 +150,11 @@
         text-decoration: none !important;
         font-style: $datagrid-controlbar-buttons-font-style;
         font-weight: $datagrid-controlbar-buttons-font-weight;
+        display: inline-block !important;
+        @media screen and (max-width: $s) {
+          display: block !important;
+          margin-bottom: 12px;
+        }
 
         &:hover,
         &:active,
@@ -177,7 +176,6 @@
       bottom: -20px;
       right: 0;
       align-items: center;
-      margin-bottom: 16px;
     }
   }
 
@@ -187,13 +185,12 @@
     color: $datagrid-table-font-color;
   }
 
-  //class to add horizontal scroll to the datagrid
+  //class to add horizontal scroll to the datagrid - not working, to be rechecked
   &.datagrid-horizontal {
     overflow-x: auto;
 
     table {
       //class "fixed-column" to have the colum fixed while horizontally scrolling
-
       th.fixed-column,
       td.fixed-column {
         position: sticky;
@@ -217,7 +214,7 @@
         td {
           padding: 8px 16px;
           border-color: $datagrid-table-body-border-color;
-          border-top-width: 0px !important;          
+          border-top-width: 0px !important;
         }
         &.selected,
         &.selected:focus,
@@ -227,11 +224,10 @@
             color: $datagrid-table-body-selected-font-color !important;
           }
         }
-      }
-
-      &.newRow {
-        td {
-          background-color: $datagrid-table-body-newrow-background-color !important;
+        &.new-row {
+          td {
+            background-color: $datagrid-table-body-newrow-background-color !important;
+          }
         }
       }
     }
@@ -258,14 +254,58 @@
 .mx-grid {
   .mx-grid-searchbar {
     .mx-grid-search-inputs {
+      //Mobile - Large
+      @media screen and (min-width: $s) and (max-width: $m) {
+        flex: unset;
+      }
+      //Tablet
+      @media screen and (min-width: $m) and (max-width: $l) {
+        flex: unset;
+      }
       .mx-grid-search-item {
         width: auto;
+        //Mobile - Small
+        @media screen and (max-width: $s) {
+          width: 100%;
+        }
 
         .mx-grid-search-label {
           width: auto;
         }
         .mx-grid-search-input {
           width: 100%;
+
+          &:has(select) {
+            position: relative;
+            select {
+              background-image: none;
+            }
+            &::after {
+              @include material-icons;
+              font-size: $input-icon-font-size !important;
+              content: $input-dropdown-icon !important;
+              position: absolute;
+              right: 4px;
+              top: 8px;
+            }
+          }
+          &:has(.mx-selectbox) {
+            .mx-selectbox {
+              padding: 6px 8px;
+            }
+            .mx-selectbox-caret-wrapper {
+              @include material-icons;
+              margin-right: -4px;
+              &::after {
+                content: $input-dropdown-icon;
+                font-size: $input-icon-font-size !important;
+                color: $input-font-color;
+              }
+              .caret {
+                display: none;
+              }
+            }
+          }
           .mx-compound-control[id*="DatePicker"] {
             .btn:hover {
               box-shadow: none;
@@ -283,10 +323,13 @@
   //pagination controls
   .mx-grid-controlbar {
     .mx-grid-pagingbar {
-      align-items: center;
-
       .mx-button {
+        @include material-icons;
         min-width: 60px;
+        font-size: $datagridshared-pagingbar-paging-button-font-size !important;
+        color: $datagridshared-pagingbar-font-color;
+        display: inline-block;
+        padding: 2px;
 
         &:disabled,
         &.disabled {
@@ -295,6 +338,11 @@
 
         &:hover {
           color: $grid-pagingbar-hover-font-color;
+          box-shadow: none;
+        }
+        &:focus,
+        &:active {
+          box-shadow: none;
         }
 
         .glyphicon {
@@ -303,33 +351,30 @@
       }
 
       .mx-grid-paging-status {
-        padding: 0px 6px 6px 6px;
+        padding: 0px 16px 10px 0px;
         font-size: $grid-pagingbar-paging-status-font-size;
         min-width: 60px;
       }
 
       .mx-name-paging-first {
-        background: $grid-pagingbar-paging-first-icon no-repeat scroll 0 0
-          transparent !important;
-        background-position: center !important;
+        &::before {
+          content: $datagridshared-pagingbar-paging-first-icon;
+        }
       }
-
       .mx-name-paging-previous {
-        background: $grid-pagingbar-paging-previous-icon no-repeat scroll 0 0
-          transparent !important;
-        background-position: center !important;
+        &::before {
+          content: $datagridshared-pagingbar-paging-previous-icon;
+        }
       }
-
       .mx-name-paging-next {
-        background: $grid-pagingbar-paging-next-icon no-repeat scroll 0 0
-          transparent !important;
-        background-position: center !important;
+        &::before {
+          content: $datagridshared-pagingbar-paging-next-icon;
+        }
       }
-
       .mx-name-paging-last {
-        background: $grid-pagingbar-paging-last-icon no-repeat scroll 0 0
-          transparent !important;
-        background-position: center !important;
+        &::before {
+          content: $datagridshared-pagingbar-paging-last-icon;
+        }
       }
     }
   }
@@ -337,12 +382,12 @@
 
 .datagrid-striped.mx-datagrid table tbody tr {
   &:nth-child(even) td {
-    background-color: $datagrid2-striped-even-background-color;
+    background-color: $datagrid-striped-even-background-color;
     border-bottom-width: 0px;
   }
 
   &:nth-child(odd) td {
-    background-color: $datagrid2-striped-odd-background-color;
+    background-color: $datagrid-striped-odd-background-color;
     border-bottom-width: 0px;
   }
 }
@@ -390,20 +435,30 @@
 }
 
 @include dense-layout {
-  .mx-grid,.mx-datagrid
-  {
-    .mx-grid-searchbar .mx-grid-search-inputs .mx-grid-search-item .mx-grid-search-input .mx-compound-control .btn    
-    {
+  .mx-grid,
+  .mx-datagrid {
+    .mx-grid-searchbar
+      .mx-grid-search-inputs
+      .mx-grid-search-item
+      .mx-grid-search-input
+      .mx-compound-control
+      .btn {
       height: 35px;
     }
-    table 
-    {
-      tbody tr td,thead tr th
-      {
+    table {
+      tbody tr td,
+      thead tr th {
         padding: 4px 16px;
-        font-size:$grid-tablecompact-font-size;
+        font-size: $grid-tablecompact-font-size;
       }
     }
+    .mx-selectbox {
+      padding: 2px 8px !important;
+    }
   }
-  
+  .mx-grid-search-input:has(select) {
+    &::after {
+      top: 4px !important;
+    }
+  }
 }

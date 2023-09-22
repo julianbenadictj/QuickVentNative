@@ -1,11 +1,14 @@
-@import "../buildingblocks/_variables.scss";
 .has-focus input,
 .has-focus textarea,
 .has-focus select {
   border-color: $input-hasfocus-border-color !important;
 }
-
+.mx-compound-control
+{
+  max-width: $input-max-width;
+}
 .form-control {
+  max-width: $input-max-width;
   box-sizing: border-box;
   padding: 8px;
   border: 1px solid $input-border-color;
@@ -44,17 +47,19 @@
 }
 
 
+
 @include dense-layout {
   .form-control {
     padding: 4px 8px !important;
   }
-
-  .form-group .control-label {
-    padding-top: 7px;
-    padding-bottom: 7px;
-  }  
-  .form-group.has-error::after
+  .form-group
   {
-    bottom: -2px;
+    &.has-error,&.has-success ,&.has-warning ,&.has-info 
+    {
+      &::after 
+      {
+        bottom: 6px;
+      }
+    }
   }
 }

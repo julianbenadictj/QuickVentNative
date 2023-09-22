@@ -15,9 +15,7 @@ import email_connector.proxies.*;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static email_connector.implementation.Commons.*;
 
@@ -50,18 +48,23 @@ public class MxMailMapper {
 
     }
 
-    private static void setCommonAccountConfiguration(EmailAccount mxEmailAccount, Account serverAccount) {
+    private static void setCommonAccountConfiguration(EmailAccount mxEmailAccount, Account serverAccount) throws EmailConnectorException {
         serverAccount.setSanitizeEmailBodyForXSSScript(mxEmailAccount.getsanitizeEmailBodyForXSSScript());
         serverAccount.setConnectionTimeout(String.valueOf(mxEmailAccount.getTimeout()));
         serverAccount.setFromDisplayName(mxEmailAccount.getFromDisplayName());
         serverAccount.setUseSSLServerCheckIdentity(mxEmailAccount.getUseSSLCheckServerIdentity());
+        serverAccount.setSharedMailbox(mxEmailAccount.getIsSharedMailbox());
+        if (mxEmailAccount.getIsSharedMailbox() && (mxEmailAccount.getMailAddress() == null || mxEmailAccount.getMailAddress().isBlank())) {
+            throw new EmailConnectorException(Error.EMPTY_MAIL_ADDRESS.getMessage());
+        }
+        serverAccount.setMailAddress(mxEmailAccount.getMailAddress());
         serverAccount.setOAuthUsed(mxEmailAccount.getisOAuthUsed());
-        if (serverAccount.isOAuthUsed() && mxEmailAccount.getOAuthSetupComplete().equals(true)) {
+        if (serverAccount.isOAuthUsed()) {
             serverAccount.setoAuthAccessTokenWorker(new OAuthTokenWorker(mxEmailAccount));
         }
     }
 
-    private static void processAttachment(Message serverMessage, EmailMessage mxEmailMessage, boolean processInlineAttachment,IContext context) throws EmailConnectorException {
+    private static void processAttachment(Message serverMessage, EmailMessage mxEmailMessage, boolean processInlineAttachment, IContext context) throws EmailConnectorException {
         List<Attachment> serverAttachmentList = serverMessage.getAttachment();
         for (Attachment serverAttachment : serverAttachmentList) {
             var mxAttachment = new email_connector.proxies.Attachment(context);
@@ -75,7 +78,6 @@ public class MxMailMapper {
             mxAttachment.setattachmentSize(serverAttachment.getAttachmentSize());
             if (serverAttachment.getAttachmentPosition() != null)
                 mxAttachment.setPosition(getPosition(serverAttachment.getAttachmentPosition()));
-
             var byteStream = new ByteArrayInputStream(serverAttachment.getAttachmentContent());
             Core.storeFileDocumentContent(context, mxAttachment.getMendixObject(), byteStream);
             if (serverAttachment.getAttachmentPosition() != null && processInlineAttachment) {
@@ -83,7 +85,6 @@ public class MxMailMapper {
             }
         }
     }
-
 
     private static void displayInlineAttachment(EmailMessage mxEmailMessage, Attachment serverAttachment, email_connector.proxies.Attachment mxAttachment) {
         var url = "/file?target=window&fileID=";
@@ -111,12 +112,10 @@ public class MxMailMapper {
         mxEmailMessage.setReplyTo(serverMessage.getReplyTo());
         mxEmailMessage.setFromDisplayName(serverMessage.getFromDisplayName());
         if (serverMessage.isHasAttachments()) {
-            processAttachment(serverMessage, mxEmailMessage, mxEmailAccount.getIncomingEmailConfiguration_EmailAccount().getProcessInlineImage(),context);
+            processAttachment(serverMessage, mxEmailMessage, mxEmailAccount.getIncomingEmailConfiguration_EmailAccount().getProcessInlineImage(), context);
         }
-        if(serverMessage.getHeaders() != null && !serverMessage.getHeaders().isEmpty())
-        {
-            for (var header: serverMessage.getHeaders().entrySet())
-            {
+        if (serverMessage.getHeaders() != null && !serverMessage.getHeaders().isEmpty()) {
+            for (var header : serverMessage.getHeaders().entrySet()) {
                 var mxHeader = new EmailHeader(context);
                 mxHeader.setKey(header.getKey());
                 mxHeader.setValue(header.getValue());
@@ -160,17 +159,23 @@ public class MxMailMapper {
         sendEmailMsg.setSubject(emailMessage.getSubject());
         sendEmailMsg.setFromDisplayName(emailMessage.getFromDisplayName());
         setRecipients(emailMessage, sendEmailMsg);
-
         sendEmailMsg.setContent(emailMessage.getContent());
         sendEmailMsg.setPlainBody(emailMessage.getPlainBody());
         sendEmailMsg.setUseOnlyPlainText(emailMessage.getUseOnlyPlainText());
         sendEmailMsg.setSigned(emailMessage.getisSigned());
-
         sendEmailMsg.setEncrypted(emailMessage.getisEncrypted());
+        Map<String, String> headerMap = new HashMap<>();
+        List<IMendixObject> emailHeaders = Core.retrieveByPath(context, emailMessage.getMendixObject(), EmailHeader.MemberNames.EmailHeader_EmailMessage.toString());
+        if (emailHeaders != null) {
+            for (IMendixObject header : emailHeaders) {
+                headerMap.put(EmailHeader.initialize(context, header).getKey(), EmailHeader.initialize(context, header).getValue());
+            }
+        }
+
+        sendEmailMsg.setHeaders(headerMap);
 
         if (emailMessage.getReplyTo() != null && !emailMessage.getReplyTo().isEmpty())
             sendEmailMsg.setReplyTo(emailMessage.getReplyTo());
-
         if (attachmentList != null && !attachmentList.isEmpty()) {
             List<Attachment> serverAttachmentList = new ArrayList<>();
             for (email_connector.proxies.Attachment mxAttachment : attachmentList) {
@@ -186,7 +191,6 @@ public class MxMailMapper {
                 } catch (IOException ex) {
                     throw new EmailConnectorException(Error.ERROR_FETCH_ATTACHMENT_CONTENT.getMessage());
                 }
-
             }
             sendEmailMsg.setAttachment(serverAttachmentList);
         }
@@ -195,19 +199,15 @@ public class MxMailMapper {
     private static void setRecipients(EmailMessage emailMessage, SendEmailMessage sendEmailMsg) {
         if (emailMessage.getFrom() != null && !emailMessage.getFrom().isEmpty())
             sendEmailMsg.setFrom(Arrays.asList(emailMessage.getFrom().trim().split(ADDRESSSEPARATORREGEX)));
-
         if (emailMessage.getTo() != null && !emailMessage.getTo().isEmpty())
             sendEmailMsg.setTo(Arrays.asList(emailMessage.getTo().trim().split(ADDRESSSEPARATORREGEX)));
-
         if (emailMessage.getCC() != null && !emailMessage.getCC().isEmpty())
             sendEmailMsg.setCc(Arrays.asList(emailMessage.getCC().trim().split(ADDRESSSEPARATORREGEX)));
-
         if (emailMessage.getBCC() != null && !emailMessage.getBCC().isEmpty())
             sendEmailMsg.setBcc(Arrays.asList(emailMessage.getBCC().trim().split(ADDRESSSEPARATORREGEX)));
     }
 
     public static void getMappedEmailProvider(IContext context, EmailProvider emailProviders, email_connector.proxies.EmailProvider mxEmailProvider) throws EmailConnectorException {
-
         for (com.mendix.datahub.connector.email.model.autoconfig.IncomingServer incomingServer : emailProviders.getIncomingServers()) {
             var mxIncomingServer = new IncomingServer(context);
             mxIncomingServer.setIncomingServer_EmailProvider(mxEmailProvider);
@@ -216,8 +216,6 @@ public class MxMailMapper {
             mxIncomingServer.setSocketType(incomingServer.getSocketType());
             mxIncomingServer.setIncomingProtocol(getIncomingProxyProtocol(incomingServer.getType()));
         }
-
-
         for (com.mendix.datahub.connector.email.model.autoconfig.OutgoingServer outgoingServer : emailProviders.getOutgoingServers()) {
             var mxOutgoingServer = new OutgoingServer(context);
             mxOutgoingServer.setOutgoingServer_EmailProvider(mxEmailProvider);

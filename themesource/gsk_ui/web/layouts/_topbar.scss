@@ -4,27 +4,172 @@
     ==========================================================================
 */
 
-.layout-atlas {
-  &.layout-atlas-responsive-topbar {
-    .topbar-content {
-      justify-content: space-between;
-      //Mobile - Small
-      @media screen and (max-width: $xs) {
-        justify-content: normal;
-      }
-      //Mobile - Medium
-      @media screen and (min-width: $xs) and (max-width: $s) {
-        justify-content: normal;
-      }
-      //Mobile - Large
-      @media screen and (min-width: $s) and (max-width: $m) {
-        justify-content: normal;
-      }
-      //Tablet
-      @media screen and (min-width: $m) and (max-width: $l) {
-        justify-content: space-between;
+.layout-atlas 
+{
+  .toggle-btn
+  {
+    cursor: pointer;
+    pointer-events: all;
+    display: inline-block;
+    .gsk-ui-icons
+    {
+      font-size: $topbar-close-icon-font-size;
+      color: $topbar-close-icon-color;
+      margin-top: 4px;
+    }
+  }
+  &.layout-atlas-responsive-default
+  {
+    .toggle-btn
+    {
+      display: inline-block;  
+    }
+  }  
+  &.layout-atlas-responsive-topbar 
+  {
+    .mx-scrollcontainer-push.mx-scrollcontainer-open 
+    {
+      .toggle-btn
+      {
+        .gsk-ui-icons::before
+        {
+          content: $topbar-close-icon;
+        }
+        img {
+          display: none;
+        }
       }
     }
+    .topbar-content 
+    {
+      justify-content: space-between;      
+      //Max Tablet
+      @media screen and (max-width: $l) {
+        justify-content: normal;
+
+        .avatar-navigation {
+          display: none;
+        }
+      }
+      @media screen and (min-width: $l) {
+        .toggle-btn {
+          display: none;
+        }
+      }
+      
+    }
+  }
+  //for tablets
+  &.layout-atlas-tablet 
+  {
+    @media (orientation: portrait) {
+      .container,
+      .container-sm,
+      .container-md,
+      .container-lg,
+      .container-xl {
+        max-width: $m;
+      }
+      .mx-scrollcontainer .mx-placeholder .mx-layoutgrid,
+      .mx-scrollcontainer .mx-placeholder .mx-layoutgrid-fluid {
+        max-width: $m;
+      }
+    }
+    @media (orientation: landscape) {
+      .container,
+      .container-sm,
+      .container-md,
+      .container-lg,
+      .container-xl {
+        max-width: $l;
+      }
+      .mx-scrollcontainer .mx-placeholder .mx-layoutgrid,
+      .mx-scrollcontainer .mx-placeholder .mx-layoutgrid-fluid {
+        max-width: $l;
+      }
+    }
+    .topbar-content {
+      justify-content: normal;
+      .navbar {
+        display: none;
+      }
+      .toggle-btn {
+        display: inline-block !important;
+      }
+    }
+    &.tablet-blank {
+      .container,
+      .container-sm,
+      .container-md,
+      .container-lg,
+      .container-xl {
+        padding: 0;
+      }
+    }
+  }
+  &.layout-atlas-phone 
+  {
+    @media (orientation: portrait) {
+      .container,
+      .container-sm,
+      .container-md,
+      .container-lg,
+      .container-xl {
+        max-width: $xs;
+      }
+      .mx-scrollcontainer .mx-placeholder .mx-layoutgrid,
+      .mx-scrollcontainer .mx-placeholder .mx-layoutgrid-fluid {
+        max-width: $xs;
+      }
+    }
+    @media (orientation: landscape) {
+      .container,
+      .container-sm,
+      .container-md,
+      .container-lg,
+      .container-xl {
+        max-width: 812px;
+      }
+      .mx-scrollcontainer .mx-placeholder .mx-layoutgrid,
+      .mx-scrollcontainer .mx-placeholder .mx-layoutgrid-fluid {
+        max-width: 812px;
+      }
+    }
+    .topbar-content 
+    {
+      justify-content: normal;
+      .navbar {
+        display: none;
+      }
+      .toggle-btn {
+        display: inline-block !important;
+      }
+    }
+    &.phone-blank {
+      .container,
+      .container-sm,
+      .container-md,
+      .container-lg,
+      .container-xl {
+        padding: 0;
+      }
+    }
+  }
+  &.layout-atlas-phone,&.layout-atlas-tablet 
+  {
+    // .mx-scrollcontainer-push.mx-scrollcontainer-open 
+    // {
+    //   .toggle-btn
+    //   {
+    //     .gsk-ui-icons::before
+    //     {
+    //       content: $topbar-close-icon;
+    //     }
+    //     img {
+    //       display: none;
+    //     }
+    //   }
+    // }
   }
 
   .region-topbar {
@@ -46,6 +191,7 @@
       .navbar-brand {
         display: flex;
         align-items: center;
+
         img {
           height: $topbar-logo-height;
         }
@@ -53,7 +199,6 @@
           margin-left: 16px;
           font-size: $topbar-appname-font-size;
           letter-spacing: 1px;
-          text-transform: uppercase;
         }
 
         .app-version {

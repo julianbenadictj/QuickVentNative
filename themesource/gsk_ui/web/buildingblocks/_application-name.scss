@@ -39,7 +39,11 @@
   }
 
   .appname {
-    margin: 0 0.25em;
+    margin: 0 0.25em 0 0;
+  }
+  .welcome-text
+  {
+    margin-right: 0.25em;
   }
 
   .app-version {

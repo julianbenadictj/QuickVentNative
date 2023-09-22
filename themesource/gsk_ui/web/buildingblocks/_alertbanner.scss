@@ -1,0 +1,67 @@
+.alert-banner {
+  padding: 8px 16px;  
+  background-color: $alertbanner-background-color !important;
+  min-height: 36px;
+  &:has(.close-icon)
+  {
+    min-height: 40px;
+  }
+  
+  .alert-description {    
+    font-size: $alertbanner-description-font-size;
+    color:$alertbanner-description-font-color;
+    line-height: 20px;
+  }
+  .alert-banner-icon
+  {
+    display: inline-block;
+    max-height: 20px;
+    max-width: 20px; 
+    color:$alertbanner-description-font-color;
+    font-size: $alertbanner-icon-font-size;
+  }
+  .close-icon
+  {
+    display: flex;
+    img
+    {
+      height: auto;
+    }
+  }
+  .btn-default
+  {
+    border-color: $alertbanner-action-border-color !important;
+    color: $alertbanner-action-font-color !important;
+    &.btn-default:hover{
+      box-shadow: 0px 0px 0px 1px $alertbanner-action-shadow-color !important;
+    }
+  }
+
+  &.background-success {
+    background-color: $alertbanner-success-background-color !important;
+  }
+  &.background-warning {
+    background-color: $alertbanner-warning-background-color !important;
+    .btn-default
+    {
+      border-color: $alertbanner-warning-action-border-color !important;
+      color: $alertbanner-warning-action-font-color !important;
+      &:hover
+      {
+        box-shadow: 0px 0px 0px 1px $alertbanner-warning-action-shadow-color !important;
+      }
+    }
+    .alert-description 
+    {
+      color:$alertbanner-warning-action-font-color; 
+    }
+    .alert-banner-icon
+    {
+      color:$alertbanner-warning-action-font-color; 
+    }
+  }
+  &.background-danger {
+    background-color: $alertbanner-danger-background-color !important;
+  } 
+}
+
