@@ -1,0 +1,1 @@
+{"BranchName":"QUI-29","ModelerVersion":"9.24.6.13901","ModelChanges":[{"Status":"Modified","UnitID":"dca60b30-7f79-4a75-906b-c78d1abeef0a","UnitType":"MessageDefinitions$MessageDefinitionCollection","UnitName":"Message_definitions_Event","Module":"EventManagement"}],"RelatedStories":[],"isWebModelerCommit":false,"SolutionVersion":"","HasModelerVersion":true}
