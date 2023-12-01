@@ -1,4 +1,3 @@
-import { Appearance, Platform } from "react-native";
 import "../../themesource/atlas_core/native/api";
 import {
   brand,
@@ -9,11 +8,8 @@ import {
 } from "./custom-variables";
 
 // Custom Classes
-export const qvScroll = {
-  container: {
-    backgroundColor: "#FFFFFF",
-  },
-};
+
+// LAYOUT STYLING BELOW:
 
 export const qvHomeLayoutContainer = {
   container: {
@@ -34,15 +30,13 @@ export const qvHomeLayoutInternalContainer = {
 };
 
 export const qvHomeLayoutHeader = {
-  container: {
-    /* height: 24,
-    width: 120, */
-  },
   text: {
     color: "white",
     fontSize: 24,
   },
 };
+
+// SEARCH BAR STYLING BELOW:
 
 export const qvHomeSearchOuterContainer = {
   container: {
@@ -50,7 +44,6 @@ export const qvHomeSearchOuterContainer = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "flex-top",
     paddingHorizontal: 16,
     paddingBottom: 15,
   },
@@ -77,12 +70,12 @@ export const qvHomeSearchIconContainer = {
 
 export const qvHomeSearchIcon = { alignSelf: "center" };
 
-export const qvHomeFindEventTextContainer = {
+export const qvHomeSearchTextContainer = {
   container: { flex: 1, paddingVertical: 7 },
 };
 
-export const qvHomeFindEventText = {
-  text: { fontSize: 16, color: "#FFFFFF80" },
+export const qvHomeSearchText = {
+  text: { fontSize: 16, color: "#FFFFFF80" }, //white 50% transparency
 };
 
 export const qvHomeDictationIconContainer = {
@@ -90,3 +83,78 @@ export const qvHomeDictationIconContainer = {
 };
 
 export const qvHomeDictationIcon = { alignSelf: "center" };
+
+// EVENT CARD STYLING BELOW
+
+export const qvEventCardOuterWrapper = {
+  container: {
+    width: `100%`,
+    justifyContent: "center",
+    top: 0,
+    left: 0,
+  },
+};
+
+export const qvEventCardInnerWrapper = {
+  container: {
+    borderRadius: 16,
+    display: "flex",
+    flexDirection: "column",
+    borderStyle: "solid",
+    borderWidth: 1,
+    width: 288,
+    height: 216,
+    marginTop: 8,
+    alignSelf: "center",
+  },
+};
+
+export const qvEventBadgeText = {
+  text: {
+    color: brand.primary,
+    float: "right",
+  },
+};
+
+export const qvEventImageContainer = { float: "left" };
+
+export const qvEventImage = {
+  image: {
+    height: 120,
+    width: 288,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+  },
+};
+
+export const qvEventTextContainer = {
+  container: {
+    height: 96,
+    width: 288,
+    padding: 16,
+    paddingTop: 8,
+  },
+};
+
+export const qvEventTitleContainer = {
+  container: {},
+};
+
+export const qvEventTitleText = {
+  text: { color: brand.primary },
+};
+
+export const qvEventDateContainer = {
+  container: {},
+};
+
+export const qvEventDateText = {
+  text: { color: brand.primary },
+};
+
+//HOMEPAGE CONTENT STYLING BELOW:
+export const qvScroll = {
+  container: {
+    backgroundColor: "white",
+  },
+};
