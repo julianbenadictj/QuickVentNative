@@ -27,6 +27,7 @@ export const brand = {
   warningLight: "#FFF9E6",
   dangerLight: "#FFEEF0",
   infoLight: "#ECF9FF",
+  tertiary: "#767680",
 };
 //
 // Dark Mode - Inherits OS theme if possible
@@ -298,7 +299,7 @@ export const navigation = {
     backgroundColor: background.primary,
     fontSize: font.sizeSmall,
     iconSize: font.sizeSmall,
-    iconColor: "gray",
+    iconColor: "#999999",
   },
   progressOverlay: {
     color: font.colorTitle,
