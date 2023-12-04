@@ -100,8 +100,6 @@ export const qvEventCardInnerWrapper = {
     borderRadius: 16,
     display: "flex",
     flexDirection: "column",
-    borderStyle: "solid",
-    borderWidth: 1,
     width: 288,
     height: 216,
     marginTop: 8,
@@ -109,14 +107,31 @@ export const qvEventCardInnerWrapper = {
   },
 };
 
-export const qvEventBadgeText = {
-  text: {
-    color: brand.primary,
-    float: "right",
+export const qvEventBadgeContainer = {
+  container: {
+    top: 0,
+    right: 0,
+    marginRight: 13,
+    marginTop: 14,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    backgroundColor: brand.warningLight,
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: brand.warning,
+    borderRadius: 4,
+    position: "absolute",
   },
 };
 
-export const qvEventImageContainer = { float: "left" };
+export const qvEventBadgeText = {
+  text: {
+    color: brand.primary,
+    fontSize: 14,
+  },
+};
+
+export const qvEventImageContainer = { container: {} };
 
 export const qvEventImage = {
   image: {
@@ -124,6 +139,7 @@ export const qvEventImage = {
     width: 288,
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
+    position: "absolute",
   },
 };
 
@@ -133,23 +149,30 @@ export const qvEventTextContainer = {
     width: 288,
     padding: 16,
     paddingTop: 8,
+    marginTop: 120,
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: brand.border,
+    borderBottomLeftRadius: 16,
+    borderBottomRightRadius: 16,
+    borderTopWidth: 0,
+
+    //shadows
+    backgroundColor: "white",
+    elevation: 2,
+    shadowColor: brand.primary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.16,
+    shadowRadius: 4.65,
   },
 };
 
-export const qvEventTitleContainer = {
-  container: {},
-};
-
 export const qvEventTitleText = {
-  text: { color: brand.primary },
-};
-
-export const qvEventDateContainer = {
-  container: {},
+  text: { color: brand.primary, fontSize: 18 },
 };
 
 export const qvEventDateText = {
-  text: { color: brand.primary },
+  text: { color: brand.primary, fontSize: 14 },
 };
 
 //HOMEPAGE CONTENT STYLING BELOW:

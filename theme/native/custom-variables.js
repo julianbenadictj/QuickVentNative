@@ -28,6 +28,7 @@ export const brand = {
   dangerLight: "#FFEEF0",
   infoLight: "#ECF9FF",
   tertiary: "#767680",
+  border: "#D5D1CC",
 };
 //
 // Dark Mode - Inherits OS theme if possible
