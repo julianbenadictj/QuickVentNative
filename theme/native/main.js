@@ -181,3 +181,12 @@ export const qvScroll = {
     backgroundColor: "white",
   },
 };
+
+
+export const badgeTopRight = {
+  text: {    
+    top: 20,
+    right: 20,
+    position: "absolute",
+  },
+};
