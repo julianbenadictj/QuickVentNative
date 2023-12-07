@@ -16,8 +16,6 @@ import { Big } from "big.js";
  */
 export async function JS_NativeMobile_GetApplicationName() {
 	// BEGIN USER CODE
-	const title = document.title.split(' - ')[0];
-	
-	return title;
+	throw new Error("JavaScript action was not implemented");
 	// END USER CODE
 }
