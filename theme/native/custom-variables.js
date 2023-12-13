@@ -29,6 +29,9 @@ export const brand = {
   infoLight: "#ECF9FF",
   tertiary: "#767680",
   border: "#D5D1CC",
+  // customs
+  button: "#575757",
+  white: "#FFFFFF",
 };
 //
 // Dark Mode - Inherits OS theme if possible

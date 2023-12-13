@@ -31,8 +31,17 @@ export const qvHomeLayoutInternalContainer = {
 
 export const qvHomeLayoutHeader = {
   text: {
-    color: "white",
+    color: brand.white,
     fontSize: 24,
+  },
+};
+
+// HOME PAGE:
+
+export const qvHomeScroll = {
+  container: {
+    backgroundColor: brand.white,
+    flex: 1,
   },
 };
 
@@ -158,7 +167,7 @@ export const qvEventTextContainer = {
     borderTopWidth: 0,
 
     //shadows
-    backgroundColor: "white",
+    backgroundColor: brand.white,
     elevation: 2,
     shadowColor: brand.primary,
     shadowOffset: { width: 0, height: 4 },
@@ -178,15 +187,46 @@ export const qvEventDateText = {
 //HOMEPAGE CONTENT STYLING BELOW:
 export const qvScroll = {
   container: {
-    backgroundColor: "white",
+    backgroundColor: brand.white,
   },
 };
 
-
 export const badgeTopRight = {
-  text: {    
+  text: {
     top: 20,
     right: 20,
     position: "absolute",
+  },
+};
+
+//DEMO USER LOGINS
+
+export const grayButton = {
+  container: {
+    backgroundColor: brand.button,
+    display: "block",
+    width: `75%`,
+    alignSelf: "center",
+  },
+  caption: {
+    color: brand.white,
+  },
+};
+
+//MY EVENTS
+
+export const myEventsWrapper = {
+  container: {
+    flex: 1,
+    backgroundColor: background.primary,
+  },
+};
+
+//SETTINGS
+
+export const settingsWrapper = {
+  container: {
+    flex: 1,
+    backgroundColor: background.primary,
   },
 };
