@@ -95,15 +95,14 @@ export const qvHomeSearchText = {
     height: 22,
     borderWidth: 0,
     shadowOpacity: 0,
+    fontSize: 16,
+    placeholderTextColor: "#FFFFFF80",
+    color: "#FFFFFF80",
   },
   container: {
     backgroundColor: "transparent",
     alignSelf: "center",
   },
-  text: {
-    fontSize: 16,
-    color: "#FFFFFF80",
-  }, //white 50% transparency
 };
 
 export const qvHomeDictationIconContainer = {
