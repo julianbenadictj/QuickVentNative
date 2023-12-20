@@ -28,6 +28,7 @@ export const brand = {
   dangerLight: "#FFEEF0",
   infoLight: "#ECF9FF",
   tertiary: "#767680",
+  fillsTertiary: `rgba(118, 118, 128, 0.12)`,
   border: "#D5D1CC",
   // customs
   button: "#575757",

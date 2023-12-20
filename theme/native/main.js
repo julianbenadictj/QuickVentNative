@@ -60,13 +60,14 @@ export const qvHomeSearchOuterContainer = {
 
 export const qvHomeSearchInnerContainer = {
   container: {
-    backgroundColor: "#7676801F",
+    backgroundColor: brand.fillsTertiary,
     width: `100%`,
     display: "flex",
     flexDirection: "row",
     alignContent: "center",
     marginHorizontal: 16,
     borderRadius: 10,
+    paddingVertical: 5,
   },
 };
 
@@ -80,11 +81,29 @@ export const qvHomeSearchIconContainer = {
 export const qvHomeSearchIcon = { alignSelf: "center" };
 
 export const qvHomeSearchTextContainer = {
-  container: { flex: 1, paddingVertical: 7 },
+  container: {
+    flex: 1,
+    paddingVertical: 7,
+    backgroundColor: "transparent",
+  },
 };
 
 export const qvHomeSearchText = {
-  text: { fontSize: 16, color: "#FFFFFF80" }, //white 50% transparency
+  input: {
+    backgroundColor: "transparent",
+    selectionColor: brand.white,
+    height: 22,
+    borderWidth: 0,
+    shadowOpacity: 0,
+  },
+  container: {
+    backgroundColor: "transparent",
+    alignSelf: "center",
+  },
+  text: {
+    fontSize: 16,
+    color: "#FFFFFF80",
+  }, //white 50% transparency
 };
 
 export const qvHomeDictationIconContainer = {
